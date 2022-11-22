@@ -1,0 +1,31 @@
+$margins:1,2,3;
+
+@each $var in $margins {
+  .m-#{$var} {
+    margin: #{$var}px;
+  }
+}
+
+@each $var in $margins {
+  .ms-#{$var} {
+    margin-inline-start: #{$var}px;
+  }
+}
+
+@each $var in $margins {
+  .me-#{$var} {
+    margin-inline-end: #{$var}px;
+  }
+}
+
+@each $var in $margins {
+  .mt-#{$var} {
+    margin-top: #{$var}px;
+  }
+}
+
+@each $var in $margins {
+  .mb-#{$var} {
+    margin-bottom: #{$var}px;
+  }
+}

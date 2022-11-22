@@ -1,0 +1,6 @@
+$fontSizes:1,2,3;
+@each $var in $fontSizes {
+  .fs-#{$var} {
+    font-size: #{$var}px;
+  }
+}

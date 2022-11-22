@@ -1,0 +1,31 @@
+$paddings:1,2,3;
+
+@each $var in $paddings {
+  .p-#{$var} {
+    padding: #{$var}px;
+  }
+}
+
+@each $var in $paddings {
+  .ps-#{$var} {
+    padding-inline-start: #{$var}px;
+  }
+}
+
+@each $var in $paddings {
+  .pe-#{$var} {
+    padding-inline-end: #{$var}px;
+  }
+}
+
+@each $var in $paddings {
+  .pt-#{$var} {
+    padding-top: #{$var}px;
+  }
+}
+
+@each $var in $paddings {
+  .pb-#{$var} {
+    padding-bottom: #{$var}px;
+  }
+}
