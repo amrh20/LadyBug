@@ -1,0 +1,60 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass variables.
+// -----------------------------------------------------------------------------
+//Fonts
+$font-primary: 'URDDIN', Sans-Serif;
+$font-secondary: var(--bs-font-sans-serif);
+// $ArabicUIText-font: 'ArabicUI', Sans-Serif;
+
+
+//colors
+$primary-color: #036362;
+// $primary-light: #395F9F;
+// $primary-dark: #00486C;
+
+$secondary-color: #8BB052;
+$secondary-light: #fef5ef;
+
+$text-color: #999999;
+$text-dark: #3C4449;
+$text-light: #a4a5a5;
+$text-bold: #2C2E32;
+$text-black: #000000;
+
+
+// bg-colors
+$bg-color-primary: #F0F9F6;
+$table-bg-color: #F0F9F6;
+$table-border-color: #E6E6E6;
+$bg-gray: #f2f2f2;
+
+
+
+/*status colors*/
+$color-info: #2C6E59;
+$color-success: #80B641;
+$color-warning: #c74b00;
+$color-danger: #A50000;
+$color-dangerLight: #cc3333;
+$color-dangerDark: #790606;
+
+
+/*status-background*/
+$background-info: #F3FFFA;
+$background-success: #EFFFDC;
+$background-warning: #fee3d2;
+$background-danger: #FFF3F3;
+
+
+// transitions
+
+$transition: all .35s ease-in-out;
+.text-primary {
+    color: $primary-color !important;
+}
+.p-color{
+    color: $primary-color !important;
+}
+.s-color{
+    color: $text-light;
+}

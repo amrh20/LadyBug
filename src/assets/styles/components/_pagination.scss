@@ -1,0 +1,82 @@
+.pagination {
+    width: 100% !important;
+    display: flex;
+    -webkit-user-select: none;
+    /* Chrome all / Safari all */
+    -moz-user-select: none;
+    /* Firefox all */
+    -ms-user-select: none;
+    /* IE 10+ */
+    user-select: none;
+    justify-content: space-between !important;
+    align-items: center !important;
+  
+    ul {
+      li {
+        cursor: pointer !important;
+        display: inline-flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        width: 39px;
+        height: 44px;
+        max-width: 39px;
+        max-height: 44px;
+        vertical-align: middle !important;
+        flex: none;
+        order: 0;
+        flex-grow: 0;
+        padding: 10px 14px !important;
+  
+        span {
+          position: relative;
+          top: 2px;
+        }
+  
+      }
+  
+      .dots-pagination {
+        width: auto !important;
+        height: 44px !important;
+  
+        align-items: flex-end !important;
+        background-color: transparent !important;
+      }
+  
+      li:last-of-type {
+        width: 50px !important;
+        height: 44px !important;
+        max-width: 50px !important;
+        max-height: 44px !important;
+  
+      }
+    }
+  }
+  
+  .btn-pagination {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+  
+  @media (max-width: 767px) {
+    .pagination {
+      display: block !important;
+      text-align: center !important;
+    }
+  }
+  
+  
+  .active-pagination {
+    color: #ffffff;
+    background: rgba(11, 104, 94, 0.64);
+    border-radius: 10px;
+    -webkit-backdrop-filter: blur(13.2893px) !important;
+    backdrop-filter: blur(13.2893px) !important;
+  }
+  
+  button:disabled,
+  button[disabled] {
+    cursor: not-allowed !important;
+  }
+  
+  

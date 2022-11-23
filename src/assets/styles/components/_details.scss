@@ -1,0 +1,55 @@
+.card-wrap{
+  margin-top: -70px;
+  position: relative;
+
+}
+.card-custom {
+  height: 100%;
+    position: relative;
+    display: block;
+    background-color: #fff !important;
+    border-radius: 0.8rem !important;
+    border: 0 !important;
+    padding: 30px !important;
+min-height: 200px;
+box-shadow: 0 14px 24px#6c6c6c1a !important;
+
+  }
+  .card-custom .card-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem;
+  }
+  .card-custom .card-head .title {
+    color: #000;
+    font-size: 3.2rem;
+    font-weight: 800;
+    margin-bottom: 0;
+  }
+  .card-custom .card-content{
+    padding: 0 3.2rem;
+  }
+  .list-item .title {
+    position: relative;
+    color: #595959;
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 1.2rem;
+    position: relative;
+  }
+  .inner-page .inner-page__content .inner-page-list .list-item .desc {
+    font-size: 2rem;
+    color: #979797;
+  }
+  
+  .list-item .title:before{
+    position: absolute;
+    top: 10px;
+    inset-inline-start: -15px;
+    content: '';
+    width: 8px;
+    height: 8px;
+    background: #2c6e59;
+  }
+  

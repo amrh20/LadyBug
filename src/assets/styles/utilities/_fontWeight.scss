@@ -6,6 +6,6 @@ $fontWeights:400,
 900;
 @each $var in $fontWeights {
   .fw-#{$var} {
-    font-weight: #{$var};
+    font-weight: #{$var} !important;
   }
 }

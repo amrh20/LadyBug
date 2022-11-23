@@ -1,0 +1,19 @@
+.filter-container {
+    background: #F5F5F5;
+    padding-top: 28px;
+    padding-bottom: 28px;
+  
+    .grid-3 {
+      gap: 24px !important;
+    }
+  
+    padding-inline-start: 23px;
+    padding-inline-end: 23px;
+  
+    input,
+    select {
+      width: 100%;
+      background-color: #fff;
+    }
+  }
+  

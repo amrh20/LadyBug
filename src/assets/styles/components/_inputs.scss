@@ -1,0 +1,45 @@
+
+.calender-ground {
+    background: url("../../images/icons/inputs/arrow.svg") no-repeat 16px, url("../../images/icons/inputs/calender.svg") no-repeat calc(100% - 16px);
+    -webkit-padding-start: 45px;
+            padding-inline-start: 45px;
+  }
+  
+  .select-ground {
+    background: url("../../images/icons/inputs/arrow.svg") no-repeat 16px;
+  }
+  
+  .search-ground {
+    -webkit-padding-start: 40px;
+            padding-inline-start: 40px;
+    background: url("../../images/icons/inputs/search.svg") no-repeat calc(100% - 16px);
+  }
+  
+  input,
+  select {
+    padding: 14px 16px;
+    width: 100%;
+    background: #FFFFFF;
+    border: 1px solid #D6D5DE;
+    border-radius: 8px;
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+    position: relative;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    outline: none;
+    box-shadow: none;
+  }
+  
+  label{
+    margin-bottom: 8px;
+    font-size: 14px;
+  }
+  .error-msg{
+    color:#eb2a08;
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }

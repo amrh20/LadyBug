@@ -1,1 +1,33 @@
+[dir="rtl"] {
+    html,
+    body {
+        text-align: right;
+        direction: right;
+    }
 
+}
+[dir="ltr"] {
+    html,
+    body {
+
+        text-align: left;
+        direction: ltr;
+    }
+}
+*,
+html,
+body {
+    font-family: 'Cairo-Regular';
+}   
+:root {
+    font-size: 62.5%;
+    body {
+        margin: 0;
+       font-family: 'Cairo-Regular';
+       font-size: 1.6rem;
+       direction: rtl;
+    }
+}
+body,html{
+    background-color: #e7e7e7;
+}

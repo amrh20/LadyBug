@@ -1,3 +1,28 @@
-.btn{
-    color: #fff;
+@import "../base/color";
+.main-btn {
+  border-radius: 0.4rem;
+  padding: 1.5rem  4rem;
+  font-size: 1.4rem;
+  border: 1px solid $primary-color;
+  box-shadow: none;
+  transition: all 0.3s ease-in-out;
+  background-color: $primary-color;
+  color: #fff;
+  
+  text-align: center;
+}
+.tr-btn {
+    border-radius: 0.4rem;
+    padding: 1.5rem  4rem;
+    font-size: 1.4rem;
+    border: 1px solid $primary-color;
+    box-shadow: none;
+    transition: all 0.3s ease-in-out;
+    background-color: #fff;
+    color: $primary-color;
+    
+    text-align: center;
+}
+button{
+    cursor: pointer;
 }

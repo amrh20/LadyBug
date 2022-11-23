@@ -1,31 +1,36 @@
-$paddings:1,2,3;
-
+$paddings:2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38,40,42,44,46;
 @each $var in $paddings {
   .p-#{$var} {
-    padding: #{$var}px;
+    padding: #{$var}px !important;
   }
 }
 
 @each $var in $paddings {
   .ps-#{$var} {
-    padding-inline-start: #{$var}px;
+    padding-inline-start: #{$var}px !important;
   }
 }
 
 @each $var in $paddings {
   .pe-#{$var} {
-    padding-inline-end: #{$var}px;
+    padding-inline-end: #{$var}px !important;
+  }
+}
+@each $var in $paddings {
+  .px-#{$var} {
+    padding-inline-end: #{$var}px !important;
+    padding-inline-start: #{$var}px !important;
   }
 }
 
 @each $var in $paddings {
   .pt-#{$var} {
-    padding-top: #{$var}px;
+    padding-top: #{$var}px !important;
   }
 }
 
 @each $var in $paddings {
   .pb-#{$var} {
-    padding-bottom: #{$var}px;
+    padding-bottom: #{$var}px !important;
   }
 }
