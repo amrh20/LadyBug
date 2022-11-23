@@ -12,6 +12,7 @@ import { FormsComponent } from './components/forms/forms.component';
 import { LibraryModulesModule } from '../core/library-modules.module';
 import { MaterialModule } from '../core/material-module.module';
 import { HeadNavComponent } from './components/head-nav/head-nav.component';
+import { PagesHeadComponent } from './components/pages-head/pages-head.component';
 
 @NgModule({
   declarations: [
@@ -23,13 +24,15 @@ import { HeadNavComponent } from './components/head-nav/head-nav.component';
     LoadingScreenComponent,
     TableComponent,
     FormsComponent,
-    HeadNavComponent
+    HeadNavComponent,
+    PagesHeadComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
     MaterialModule,
     LibraryModulesModule
+    
   ],
   exports:[
     SavePathPipe,
@@ -40,7 +43,8 @@ import { HeadNavComponent } from './components/head-nav/head-nav.component';
     LoadingScreenComponent,
     TableComponent,
     FormsComponent,
-    HeadNavComponent
+    HeadNavComponent,
+    PagesHeadComponent
   ]
 })
 export class SharedModule { }

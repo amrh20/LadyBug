@@ -1,12 +1,11 @@
 .swal2-icon {
-    border: 0 !important;
+  border: 0 !important;
 }
 .swal2-html-container {
-    font-size: 24px !important;
-    color: #5B6672 !important;
-    margin: 0 !important;
-    .popup-link{
-     
+  font-size: 24px !important;
+  color: #5b6672 !important;
+  margin: 0 !important;
+  .popup-link {
     background-color: #007580;
     width: 250px;
     margin-bottom: 20px;
@@ -16,61 +15,57 @@
     display: flex;
     justify-content: center;
     margin: 0 auto;
-
-      }
-      .p-popup {
-     font-size: 22px;
-     margin: 15px 0;
-     color: #000;
-      }
+  }
+  .p-popup {
+    font-size: 22px;
+    margin: 15px 0;
+    color: #000;
+  }
 }
 .swal2-styled.swal2-confirm {
-    background-color: #007580 !important;
-    width: 250px;
-    margin-bottom: 20px !important;
-    border: 1px solid #007580 !important;
-
+  background-color: #007580 !important;
+  width: 250px;
+  margin-bottom: 20px !important;
+  border: 1px solid #007580 !important;
 }
-.swal2-container.swal2-center>.swal2-popup {
-    width: 35% !important;
+.swal2-container.swal2-center > .swal2-popup {
+  width: 35% !important;
 }
 .swal2-styled.swal2-cancel {
-    background: #FFFFFF !important;
-    border: 1px solid #007580 !important;
-    border-radius: 3px;
-    color: #007580 !important;
-    width: 250px;
-    margin-top: -10px;
+  background: #ffffff !important;
+  border: 1px solid #007580 !important;
+  border-radius: 3px;
+  color: #007580 !important;
+  width: 250px;
+  margin-top: -10px;
 }
 .swal2-html-container {
-    padding-top: 30px !important;
-  }
-  .swal2-actions{
-    flex-wrap: nowrap !important;
-    
-    gap: 20px;
-  }
-  .swal2-styled.swal2-confirm{
-    margin-bottom: 0px !important;
-    width: auto !important;
-  }
-  .swal2-styled.swal2-cancel{
-    margin-top: 0px !important;
-    width: auto !important;
+  padding-top: 30px !important;
+}
+.swal2-actions {
+  flex-wrap: nowrap !important;
 
-  }
-  .swal2-styled{
-    
-     margin: 0px !important; 
-    padding: 0.625em 2em;
-    box-shadow: none;
-    font-weight: 500;
-  }
-  .swal2-content{
-    
-    font-size: 2rem !important;
-  }
-  .swal2-container.swal2-center > .swal2-popup {
-    width: 35% !important;
-    height: 150px;
+  gap: 20px;
+}
+.swal2-styled.swal2-confirm {
+  margin-bottom: 0px !important;
+  width: auto !important;
+}
+.swal2-styled.swal2-cancel {
+  margin-top: 0px !important;
+  width: auto !important;
+}
+.swal2-styled {
+  margin: 0px !important;
+  padding: 0.625em 2em;
+  box-shadow: none;
+  font-weight: 500;
+  font-size: 1.6rem !important;
+}
+.swal2-content {
+  font-size: 2rem !important;
+}
+.swal2-container.swal2-center > .swal2-popup {
+  width: 35% !important;
+  height: 150px;
 }

@@ -7,18 +7,18 @@
 
               <th>##</th>
               <th>
-                الخدمة
+                عنوان ١
               </th>
-              <th>المنصة</th>
+              <th>عنوان ٢</th>
 
-              <th>الجهة المالكة</th>
+              <th> عنوان ٣</th>
 
-              <th>تقييم الخدمة </th>
-              <th>التفاصيل</th>
+              <th> عنوان ٤ </th>
+              <th>الاجراءات</th>
             </tr>
           </thead>
           <tbody>
-            <ng-container *ngFor="let item of [1,2,3,4,5,6,7,8];let i=index">
+            <ng-container *ngFor="let item of [1,2,3,4,5];let i=index">
               <tr class="cursor-pointer">
 
                 <td>
@@ -30,16 +30,13 @@
 
                 <td class="title-td">
                   <span>
-                    اسم الخدمة
+                    تفاصيل 
                   </span>
                 </td>
-                <td>المنصة</td>
-                <td>الجهة المالكة</td>
+                <td>تفاصيل</td>
+                <td>تفاصيل </td>
                 <td class="td-span-span value-all-data">
-                  <span class="value-all-data">
-
-
-                  </span>
+                تفاصيل
                 </td>
                 <td>
                   
@@ -53,10 +50,10 @@
                       </g>
                       </svg>                  </button>
                   <mat-menu #menu="matMenu">
-                    <button mat-menu-item (click)="infoHot()">
+                    <a mat-menu-item [routerLink]="['./user-details', 1]">
                       <span>تفاصيل <i class="fa-light fa-eye"></i></span>
-                    </button>
-                    <button mat-menu-item (click)="errorHot()">
+                    </a>
+                    <button mat-menu-item >
                       <span>تعديل  <i class="fa-thin fa-pen-to-square"></i></span>
                     </button>
                     <button mat-menu-item (click)="deleteItem()">

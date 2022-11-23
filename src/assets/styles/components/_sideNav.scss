@@ -1,208 +1,220 @@
 @import "../base/color";
 
-    .side-menu {
-        box-shadow: 0 2px 12px #72727280;
-            width: 300px;
-            height: 100%;
-            min-height: 100vh;
-            background: linear-gradient(174.28deg, #67AC5B -7.1%, #036362 141.58%);
-            color: #fff;
-            .logo {
-                padding: 40px;
-                display: block;
-                color: #fff;
-                text-decoration: none;
-                font-size: 2.5rem;
-            }
+.side-menu {
+  box-shadow: 0 2px 12px #72727280;
+  width: 300px;
+  height: 100%;
+  min-height: 100vh;
+  background: linear-gradient(174.28deg, #67ac5b -7.1%, #036362 141.58%);
+  color: #fff;
+  .logo {
+    padding: 40px;
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    font-size: 2.5rem;
+  }
 
+  .side-menu__head {
+    padding: 5.4rem 4.3rem 1.8rem;
 
-        .side-menu__head {
-            padding: 5.4rem 4.3rem 1.8rem;
-
-            // border-bottom: 1px solid #E6E6E6;
-            .logo {
-                margin-bottom: 5.4rem;
-                text-align: center;
-            }
-
-            .user-card {
-                background-color: $bg-color-primary;
-                border-radius: .4rem;
-                display: flex;
-                align-items: flex-end;
-                padding: 1.8rem;
-
-                &__image {
-                    margin-inline-end: 1rem;
-                }
-
-                &__data {
-                    .user-name {
-                        color: $primary-color;
-                        font-size: 2rem;
-                        font-weight: 800;
-                    }
-
-                    .user-role {
-                        color: $text-color;
-                        font-weight: 500;
-                    }
-                }
-            }
-        }
-
-        .side-menu__content {
-            .nav-list {
-                padding: 0;
-                margin: 0;
-                list-style: none;
-
-                .nav-item {
-                    .nav-link {
-                        position: relative;
-                        padding: 1.2rem 4.4rem;
-                        transition: all .3s ease-in-out;
-
-                        &::before {
-                            content: "";
-                            position: absolute;
-                            top: 50%;
-                            right: 0;
-                            width: 1rem;
-                            height: 5rem;
-                            border-radius: .6rem 0 0 .6rem;
-                            background-color: $primary-color;
-                            transform: translate(0, -50%);
-                            transition: all .3s ease-in-out;
-                            opacity: 0;
-
-                            [dir="ltr"] & {
-                                right: auto;
-                                left: 0;
-                            }
-                        }
-                        .icon {
-                            margin-inline-end: 1.2rem;
-                            display: inline-block;
-                            width: 3rem;
-                            height: 3rem;
-                            text-align: center;
-                            vertical-align: middle;
-
-                            svg {
-                                transition: all .3s ease-in-out;
-                                fill: #fff;
-                            }
-                        }
-
-                        .text {
-                            color: #fff;
-                            font-weight: 500;
-                            font-size: 1.6rem;
-                            transition: all .3s ease-in-out;
-                        }
-
-                        &:hover,
-                        &.active {
-                         background: #EFFFEC;
-                         border-radius: 8px;
-                         margin: 0 15px;
-                            .icon {
-                                svg {
-                                    fill: #67AC5B;
-                                }
-                            }
-
-                            .text {
-                                color: #67AC5B;
-                            }
-                        }
-
-                        &.active {
-                            &::before {
-                                opacity: 1;
-                            }
-                        }
-
-                        &.logout {
-                            border: 0;
-                            background-color: transparent;
-                            display: block;
-                            width: 100%;
-                            text-align: start;
-                        }
-                    }
-                }
-
-                .devider {
-                    padding: 0 3.4rem;
-
-                    hr {
-                        border-color: #E6E6E6;
-                        opacity: 1;
-                    }
-                }
-            }
-        }
-
-        @media all and (max-width: 1440px) {
-            .side-menu__head {
-                padding: 3.4rem 2.3rem 1.8rem;
-
-                .logo {
-                    margin-bottom: 2rem;
-
-                    img {
-                        max-width: 13rem;
-                    }
-                }
-
-                .user-card {
-                    padding: 1rem;
-
-                    &__image {
-                        margin-inline-end: 1rem;
-                    }
-
-                    &__data {
-                        .user-name {
-                            font-size: 1.6rem;
-                        }
-
-                        .user-role {}
-                    }
-                }
-            }
-
-            .side-menu__content {
-                .nav-list {
-                    padding: 0;
-                    margin: 0;
-                    list-style: none;
-
-                    .nav-item {
-                        .nav-link {
-                            padding: 1rem 2rem;
-
-                            &::before {
-                                content: "";
-                                width: .6rem;
-                                height: 4rem;
-                                border-radius: .4rem 0 0 .4rem;
-                            }
-
-                            .icon {
-                                margin-inline-end: 1.4rem;
-                            }
-
-                            .text {
-                                font-size: 1.6rem;
-                            }
-
-                        }
-                    }
-
-                }
-            }
-        }
+    // border-bottom: 1px solid #E6E6E6;
+    .logo {
+      margin-bottom: 5.4rem;
+      text-align: center;
     }
+
+    .user-card {
+      background-color: $bg-color-primary;
+      border-radius: 0.4rem;
+      display: flex;
+      align-items: flex-end;
+      padding: 1.8rem;
+
+      &__image {
+        margin-inline-end: 1rem;
+      }
+
+      &__data {
+        .user-name {
+          color: $primary-color;
+          font-size: 2rem;
+          font-weight: 800;
+        }
+
+        .user-role {
+          color: $text-color;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+
+  .side-menu__content {
+    .nav-list {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+
+      .nav-item {
+        .nav-link {
+          position: relative;
+          padding: 1.2rem 4.4rem;
+          transition: all 0.3s ease-in-out;
+          margin-bottom: 10px;
+
+          &::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            right: 0;
+            width: 1rem;
+            height: 5rem;
+            border-radius: 0.6rem 0 0 0.6rem;
+            background-color: $primary-color;
+            transform: translate(0, -50%);
+            transition: all 0.3s ease-in-out;
+            opacity: 0;
+
+            [dir="ltr"] & {
+              right: auto;
+              left: 0;
+            }
+          }
+          .icon {
+            margin-inline-end: 1.2rem;
+            display: inline-block;
+            width: 3rem;
+            height: 3rem;
+            text-align: center;
+            vertical-align: middle;
+
+            svg {
+              transition: all 0.3s ease-in-out;
+              fill: #fff;
+            }
+          }
+
+          .text {
+            color: #fff;
+            font-weight: 500;
+            font-size: 1.6rem;
+            transition: all 0.3s ease-in-out;
+            font-weight: bold;
+          }
+
+          &:hover,
+          &.active {
+            background: #efffec;
+            border-radius: 8px;
+            margin: 0 15px;
+            .icon {
+              svg {
+                fill: #67ac5b;
+              }
+            }
+
+            .text {
+              color: #67ac5b;
+            }
+          }
+
+          &.active {
+            &::before {
+              opacity: 1;
+            }
+          }
+
+          &.logout {
+            border: 0;
+            background-color: transparent;
+            display: block;
+            width: 100%;
+            text-align: start;
+          }
+        }
+      }
+
+      .devider {
+        padding: 0 3.4rem;
+
+        hr {
+          border-color: #e6e6e6;
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  @media all and (max-width: 1440px) {
+    .side-menu__head {
+      padding: 3.4rem 2.3rem 1.8rem;
+
+      .logo {
+        margin-bottom: 2rem;
+
+        img {
+          max-width: 13rem;
+        }
+      }
+
+      .user-card {
+        padding: 1rem;
+
+        &__image {
+          margin-inline-end: 1rem;
+        }
+
+        &__data {
+          .user-name {
+            font-size: 1.6rem;
+          }
+
+          .user-role {
+          }
+        }
+      }
+    }
+
+    .side-menu__content {
+      .nav-list {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+
+        .nav-item {
+          .nav-link {
+            padding: 1rem 2rem;
+
+            &::before {
+              content: "";
+              width: 0.6rem;
+              height: 4rem;
+              border-radius: 0.4rem 0 0 0.4rem;
+            }
+
+            .icon {
+              margin-inline-end: 1.4rem;
+            }
+
+            .text {
+              font-size: 1.6rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.router-link-active {
+  background: #efffec;
+  border-radius: 8px;
+  margin: 0 15px;
+  .text {
+    color: #67ac5b !important;
+  }
+  svg {
+    fill: #67ac5b !important;
+  }
+}

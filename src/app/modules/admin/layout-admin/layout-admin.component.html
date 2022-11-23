@@ -3,10 +3,12 @@
         <app-side-nav></app-side-nav>
     
     </div>
-    <div class="main-content ">
-        <app-head-nav></app-head-nav>
+    <div class="main-content">
+        <app-pages-head></app-pages-head>
+
+             <ng-content></ng-content>
+        <!-- <app-head-nav></app-head-nav>
         <div class="px-20 card-wrap">
-            <ng-content ></ng-content>
 
             <div class="card-custom">
                 <div class="card-head">
@@ -21,21 +23,12 @@
                         <span class="desc">dsddd</span>
                     </div>
                     <app-forms></app-forms>
-                    <app-pagination></app-pagination>
                     <app-spinner></app-spinner>
-                    <app-table></app-table>
-                    <button class="main-btn">الاول</button>
-                    <button class="tr-btn">الثاني</button>
+          
                 </div>                
             </div>
         </div>
-        <!-- <div class="card"> -->
-            <!-- <div class ="list-item"> -->
-                <!-- <h2 class="title">sdsdsd</h2> -->
-               <!-- <span class="desc">dsds</span> -->
-            <!-- </div> -->
-        <!-- </div> -->
-<!--  -->
+  -->
   
     </div>
     

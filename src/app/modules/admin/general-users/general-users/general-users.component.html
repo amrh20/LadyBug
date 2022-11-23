@@ -1,0 +1,41 @@
+<div class="general-users-wrapper">
+    <div class="page-title">
+        <h1 class="fs-24">
+            المستخدمين
+        </h1>
+
+    </div>
+    <div class="filter-container">
+        <div class="row">
+            <div class="col">
+                <div class="search-input">
+                    <input type="text" class="search-ground"
+                        placeholder="إبحث عن" name="" id="">
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="select-value">
+
+                    <div class="position-relative">
+                        <select name="" id="" class="select-ground">
+                            <option value="" selected> الكل</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <button class="main-btn" [routerLink]="['./create-user']">
+                    اضافه مستخدم
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="">
+        <app-table></app-table>
+        <app-pagination></app-pagination>
+    </div>
+
+</div>

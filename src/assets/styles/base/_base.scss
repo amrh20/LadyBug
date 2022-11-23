@@ -4,12 +4,10 @@
         text-align: right;
         direction: right;
     }
-
 }
 [dir="ltr"] {
     html,
     body {
-
         text-align: left;
         direction: ltr;
     }
@@ -17,17 +15,49 @@
 *,
 html,
 body {
-    font-family: 'Cairo-Regular';
-}   
+    font-family: "Cairo-Regular";
+}
 :root {
     font-size: 62.5%;
     body {
         margin: 0;
-       font-family: 'Cairo-Regular';
-       font-size: 1.6rem;
-       direction: rtl;
+        font-family: "Cairo-Regular";
+        font-size: 1.6rem;
+        direction: rtl;
     }
 }
-body,html{
+body,
+html {
     background-color: #e7e7e7;
+}
+
+.page-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fff;
+    padding: 30px 20px;
+    h1 {
+        margin: 0;
+        font-family: "Cairo-Medium";
+    }
+}
+
+.filter-container {
+    background: #fff;
+    padding-top: 28px;
+    padding-bottom: 28px;
+
+    .grid-3 {
+        gap: 24px !important;
+    }
+
+    padding-inline-start: 23px;
+    padding-inline-end: 23px;
+
+    input,
+    select {
+        width: 100%;
+        background-color: #fff;
+    }
 }

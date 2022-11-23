@@ -2,15 +2,15 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: 'Admin', loadChildren: () => import('./modules/admin/admin.module').then(m => m.AdminModule) },
+  { path: 'admin', loadChildren: () => import('./modules/admin/admin.module').then(m => m.AdminModule) },
   {
     path:'',
-    redirectTo:'/Admin',
+    redirectTo:'/admin/general-uers',
     pathMatch:'full'
   },
   {
     path:'**',
-    redirectTo:'/Admin',
+    redirectTo:'/admin/general-uers',
     pathMatch:'full'
 
   }
