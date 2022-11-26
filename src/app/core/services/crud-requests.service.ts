@@ -10,18 +10,18 @@ export class CrudRequestsService {
   constructor(private http: HttpClient) { }
 
   get = (url: string) => {
-    return this.http.get(environment.baseUrl + '/api/' + url);
+    return this.http.get(environment.baseUrl + url);
   }
   post = (url: string, params: any = null) => {
-    return this.http.post(environment.baseUrl + '/api/' + url, params);
+    return this.http.post(environment.baseUrl + url, params);
   }
 
   put = (url: string, params: any = null) => {
-    return this.http.post(environment.baseUrl + '/api/' + url, params);
+    return this.http.post(environment.baseUrl + url, params);
   }
 
   delete = (id: any, url: string) => {
-    return this.http.get(environment.baseUrl + '/api/' + url);
+    return this.http.get(environment.baseUrl +  url);
   }
 
   UploadFile(data: any) {

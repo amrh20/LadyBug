@@ -3,7 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 export const environment = {
   production: false,
-  baseUrl: ''
+  baseUrl: 'http://3.143.65.61/Lady-Bug/public/api/v1/'
 };
 
 /*

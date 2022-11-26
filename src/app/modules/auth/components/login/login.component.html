@@ -1,0 +1,37 @@
+<div class="mt-30">
+    <form [formGroup]="loginForm">
+        <div>
+            <label >
+                {{"email"|translate}}
+            </label>
+            <input type="email" formControlName="identify" [placeholder]="'email' |translate">
+            <div class="error-msg" *ngIf="(loginForm.controls['identify'].touched || submitted)">
+                <div *ngIf="loginForm.controls['identify'].hasError('required')">
+                    {{"must_required" | translate}}
+                </div>
+                
+                <div *ngIf="loginForm.controls['identify'].hasError('identify') ">
+                    {{"must_email" |translate}}
+                </div>
+                
+            </div>
+        </div>
+        <div class="my-20">
+            <label >
+                {{"password"|translate}}
+            </label>
+            <input type="password" formControlName="password" [placeholder]="'password' |translate">
+            <div class="error-msg" *ngIf="(loginForm.controls['password'].touched || submitted)">
+                <div *ngIf="loginForm.controls['password'].hasError('required')">
+                    {{"must_required" | translate}}
+                </div>
+            </div>
+        </div>
+        <div class="text-center">
+            <app-spinner *ngIf="loading"></app-spinner>
+            <button class="main-btn w-100" *ngIf="!loading" (click)="login()">
+                {{"login" |translate}}
+            </button>
+        </div>
+    </form>
+</div>

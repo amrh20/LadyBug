@@ -1,3 +1,9 @@
 {
-  
-}
+    "name":"name",
+    "login":"Log In",
+    
+  "password":"Password",
+  "email":"Email",
+  "must_email":"Should be Email",
+  "must_required":"Should Be Required"
+  }
