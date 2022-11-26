@@ -7,9 +7,7 @@ import { RolesIndexComponent } from "./roles-index/roles-index.component";
 import { RoleDetailsComponent } from "./role-details/role-details.component";
 import { CreateRoleComponent } from "./create-role/create-role.component";
 import { RouterModule } from "@angular/router";
-import { FormsModule } from "@angular/forms";
 import { SharedModule } from "src/app/shared/shared.module";
-import { BrowserModule } from "@angular/platform-browser";
 
 @NgModule({
   declarations: [

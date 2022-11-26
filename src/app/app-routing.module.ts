@@ -10,14 +10,6 @@ const routes: Routes = [
     canLoad: [ISloginAdminGuard],
   },
   {
-    path: "roles",
-    loadChildren: () =>
-      import("./modules/admin/roles/roles-routing.module").then(
-        (m) => m.RolesRoutingModule
-      ),
-    canLoad: [ISloginAdminGuard],
-  },
-  {
     path: "auth",
     loadChildren: () =>
       import("./modules/auth/auth.module").then((m) => m.AuthModule),
