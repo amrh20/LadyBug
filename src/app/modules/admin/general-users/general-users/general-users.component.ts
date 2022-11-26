@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CrudRequestsService } from '../../../../core/services/crud-requests.service';
 import { SettingService } from '../../../../core/services/setting.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-general-users',
@@ -19,9 +20,7 @@ export class GeneralUsersComponent implements OnInit {
     this.DataTable=data.data.all;
     })
   }
-  deleteItem =(id:any)=>{
 
-  }
   blockItem =(id:any,$event:any)=>{
     console.log(id)
     console.log($event.checked)
@@ -36,5 +35,27 @@ export class GeneralUsersComponent implements OnInit {
       this._SettingService.errorHot(err.message)
 
     })
+  }
+
+  deleteItem =(id:any)=>{
+    Swal.fire({
+      text: '   هل أنت متاكد من الحذف  ؟',
+      allowOutsideClick: true,
+      // iconHtml:"<img src='../../../../assets/images/delete-alert.svg'/>",
+      showCloseButton: true,
+      showCancelButton: true,
+      focusConfirm: false,
+      confirmButtonText:
+      ' تأكيد الحذف',
+      confirmButtonAriaLabel:  ' تأكيد الحذف',
+      cancelButtonText:
+      'التراجع',
+    cancelButtonAriaLabel: 'التراجع'
+      }).then((val: any)=>{
+        if(val.isConfirmed) {
+   
+        }
+       
+      })
   }
 }

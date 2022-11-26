@@ -1,46 +1,126 @@
 <div class="px-20 card-wrap">
-    <!-- <app-head-nav></app-head-nav> -->
-    <div class="card-custom">
-        <div class="card-head">
-            <h2 class="title">
-                اضافه مشرف
-            </h2>
-        </div>
-        <div class="card-content">
-            <div class="row">
-                <div class="col-6 mb-5">
-                    <input type="text" placeholder="الاسم" name="" id="">
+  <!-- <app-head-nav></app-head-nav> -->
+  <div class="card-custom">
+    <div class="card-head">
+      <h2 class="title"> 
 
-                </div>
-
-                <div class="col-6 mb-5">
-                    <input type="text" placeholder="الاسم" name="" id="">
-
-                </div>
-                <div class="col-6 mb-5">
-                    <input type="text" placeholder="الاسم" name="" id="">
-
-                </div>
-
-                <div class="col-6 mb-5">
-                    <ngx-multiple-select 
-    id="cities" 
-    [enableAll]="true" 
-    [enableSearch]="true" 
-    [label]="'name'" 
-    [value]="'id'" 
-    [placeholder]="'اختر الصلاحيات...'" 
-    [selectedData]="selectedRoles" 
-    [sourceData]="Roles" 
-    (onSelect)="onSelect($event)">
-  </ngx-multiple-select>
-
-                </div>
-            </div>
-            <div class="actions mt-5">
-                <button class="main-btn">حفظ </button>
-                <button class="tr-btn mx-3">الغاء</button>
-            </div>
-        </div>
+        {{!isEdit?'اضافه' : ' تعديل '}} مشرف
+      </h2>
     </div>
+    <div class="card-content">
+      <form [formGroup]="form">
+        <div class="row">
+          <div class="col-6 mb-5">
+            <input
+              type="text"
+              placeholder="الاسم"
+              formControlName="name">
+            <div
+              class="error-msg"
+              *ngIf="form.controls['name'].touched || isSubmit">
+              <div *ngIf="form.controls['name'].hasError('required')">{{"must_required" | translate}}</div>
+
+
+
+
+            </div>
+          </div>
+
+
+          <div class="col-6 mb-5">
+            <input
+              type="email"
+              placeholder="البريد الالكتروني"
+              formControlName="email">
+            <div
+              class="error-msg"
+              *ngIf="form.controls['email'].touched || isSubmit">
+              <div *ngIf="form.controls['email'].hasError('required')">{{"must_required" | translate}}</div>
+
+
+              <div *ngIf="form.controls['email'].hasError('email') ">{{"must_email" |translate}}</div>
+
+
+            </div>
+          </div>
+          <div class="col-6 mb-5">
+            <input
+              type="tel"
+              placeholder="رقم الهاتف"
+              numbersOnly
+              formControlName="mobile">
+            <div
+              class="error-msg"
+              *ngIf="form.controls['mobile'].touched || isSubmit">
+              <div *ngIf="form.controls['mobile'].hasError('required')">{{"must_required" | translate}}</div>
+            </div>
+          </div>
+
+          <div class="col-6 mb-5">
+            <input
+              type="password"
+              placeholder="رقم السري"
+              formControlName="password">
+            <div
+              class="error-msg"
+              *ngIf="form.controls['password'].touched || isSubmit">
+              <div *ngIf="form.controls['password'].hasError('required')">{{"must_required" | translate}}</div>
+            </div>
+          </div>
+          <div class="col-6 mb-5">
+            <input
+              type="password"
+              placeholder=" تاكيد رقم السري"
+              formControlName="password_confirmation">
+            <div
+              class="error-msg"
+              *ngIf="form.controls['password_confirmation'].touched || isSubmit">
+              <div *ngIf="form.controls['password_confirmation'].hasError('required')">{{"must_required" | translate}}</div>
+              <div *ngIf="form.hasError('notmatched')">
+                يجب ان يكون رقم التاكيد مشابه ل لرقم السري
+              </div>
+            </div>
+          </div>
+
+
+          <div class="col-6 mb-5" *ngIf="passSelected">
+            <ngx-multiple-select
+              id="cities"
+              [enableAll]="true"
+              [enableSearch]="true"
+              [label]="'name'"
+              [value]="'id'"
+              [placeholder]="'اختر الصلاحيات...'"
+              [selectedData]="selectedRoles"
+              [sourceData]="Roles"
+              (onSelect)="onSelect($event)"></ngx-multiple-select>
+            <div
+              class="error-msg"
+              *ngIf=" isSubmit && selectedRoles.length ==0">
+              <div>{{"must_required" | translate}}</div>
+
+
+            </div>
+          </div>
+        </div>
+        <div class="actions mt-5">
+          <app-spinner *ngIf="loading"></app-spinner>
+          <button
+            class="main-btn"
+            *ngIf="!loading"
+            (click)="sendData()">
+            حفظ
+          </button>
+          <button
+            class="tr-btn mx-3"
+            *ngIf="!loading"
+            (click)="goBack()">
+            الغاء
+          </button>
+        </div>
+      </form>
+
+
+    </div>
+  </div>
 </div>

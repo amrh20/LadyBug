@@ -1,17 +1,9 @@
-import {FormControl} from '@angular/forms';
+import { AbstractControl, ValidationErrors, ValidatorFn } from "@angular/forms";
 
-export class CustomValidators {
-
-    public static passwordsMatch(password : string, confirmedPassword : string) {
-
-        return(control : FormControl) : {
-        [s: string]: boolean
-        } => {
-            if (password !== confirmedPassword) {
-                return {'passwordMismatch': true}
-            } else {
-                return {'passwordMismatch': false};
-            }
-        }
-    }
-}
+export const passwordMatchingValidatior: ValidatorFn = (control: AbstractControl): ValidationErrors | null => {
+    const password = control.get('password');
+    const confirmPassword = control.get('password_confirmation');
+  
+    return password?.value === confirmPassword?.value ? null : { notmatched: true };
+  };
+  

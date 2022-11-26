@@ -13,6 +13,7 @@ import { LibraryModulesModule } from '../core/library-modules.module';
 import { MaterialModule } from '../core/material-module.module';
 import { HeadNavComponent } from './components/head-nav/head-nav.component';
 import { PagesHeadComponent } from './components/pages-head/pages-head.component';
+import { NumberDirective } from './directives/number.directive';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { PagesHeadComponent } from './components/pages-head/pages-head.component
     TableComponent,
     FormsComponent,
     HeadNavComponent,
-    PagesHeadComponent
+    PagesHeadComponent,
+    NumberDirective
   ],
   imports: [
     CommonModule,
@@ -44,7 +46,8 @@ import { PagesHeadComponent } from './components/pages-head/pages-head.component
     TableComponent,
     FormsComponent,
     HeadNavComponent,
-    PagesHeadComponent
+    PagesHeadComponent,
+    NumberDirective
   ]
 })
 export class SharedModule { }
