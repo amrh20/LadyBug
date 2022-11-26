@@ -1,21 +1,23 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { IsLoginGuard } from './core/guards/is-login.guard';
+import { ISloginAdminGuard } from './core/guards/islogin-admin.guard';
 
 const routes: Routes = [
   { path: 'admin', loadChildren: () => import('./modules/admin/admin.module').then(m => m.AdminModule) ,
-  // canLoad:[IsLoginGuard]
+  canLoad:[ISloginAdminGuard]
 },
   { path: 'auth', loadChildren: () => import('./modules/auth/auth.module').then(m => m.AuthModule) },
   {
     path:'',
-    redirectTo:'auth',
+    redirectTo:'admin',
     pathMatch:'full'
   }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes,{
+    scrollPositionRestoration: 'enabled'
+  })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

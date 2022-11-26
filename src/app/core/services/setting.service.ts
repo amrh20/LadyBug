@@ -7,23 +7,23 @@ const duration =2000;
 export class SettingService {
 
   constructor(private toastService: HotToastService) {}
-  infoHot =()=>{
-    this.toastService.info("I must be super-useful!",{
+  infoHot =(msg:any)=>{
+    this.toastService.info(msg,{
       duration: duration
     })
   }
-  warningHot =()=>{
-    this.toastService.warning("I must be super-useful!",{
+  warningHot =(msg:any)=>{
+    this.toastService.warning(msg,{
       duration: duration
     })
   }
-  errorHot =()=>{
-    this.toastService.error("I must be super-useful!",{
+  errorHot =(msg:any)=>{
+    this.toastService.error(msg,{
       duration: duration
     })
   }
-  successHot =()=>{
-    this.toastService.success("I must be super-useful!",{
+  successHot =(msg:any)=>{
+    this.toastService.success(msg,{
       duration: duration
     })
   }

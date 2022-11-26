@@ -225,17 +225,21 @@ div.conainner-table {
 }
 
 .num-td {
+
   font-weight: 400;
   font-size: 20px;
   color: #8c8c8c;
-
-  display: inline-block !important;
+  text-align: center;
+  display: inline-flex !important;
   min-height: 32px;
   max-height: 32px;
   border: 1px solid #8c8c8c;
   border-radius: 8px;
-
+  min-width: 50px;
   padding: 3px 6px;
+  justify-content: center;
+  align-items: center;
+
 }
 td,
 th {

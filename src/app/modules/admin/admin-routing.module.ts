@@ -7,10 +7,10 @@ const routes: Routes = [
     path:'',
     component:IndexComponent,
     children:[
-      { path: 'general-uers', loadChildren: () => import('./general-users/general-users.module').then(m => m.GeneralUsersModule) },
+      { path: 'generic-user', loadChildren: () => import('./general-users/general-users.module').then(m => m.GeneralUsersModule) },
       {
         path:'',
-        redirectTo:'general-uers',
+        redirectTo:'generic-user',
         pathMatch:'full'
       }
     ]

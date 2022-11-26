@@ -7,6 +7,7 @@ import { CreateComponent } from './create/create.component';
 import { GeneralUsersComponent } from './general-users/general-users.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { UserIndexComponent } from './user-index/user-index.component';
+import { MaterialModule } from 'src/app/core/material-module.module';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { UserIndexComponent } from './user-index/user-index.component';
   imports: [
     CommonModule,
     GeneralUsersRoutingModule,
-    SharedModule
+    SharedModule,
+    MaterialModule
   ]
 })
 export class GeneralUsersModule { }

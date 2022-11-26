@@ -1,9 +1,9 @@
 <div class="pages-head d-flex justify-content-between align-items-center">
     <div class="d-flex align-items-center">
-        <img src="../../../../assets/images/user.jpg" alt=""
+        <img [src]="UserData?.photo_url" alt=""
             class="user-img">
         <h2 class="mb-0">
-            اسم المستخدم
+            {{UserData?.name}}
         </h2>
 
     </div>

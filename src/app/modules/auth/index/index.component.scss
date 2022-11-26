@@ -1,11 +1,27 @@
-.side-login {
-    min-height: 100vh;
-    width: 50%;
+
+@media (min-width: 800px) {
+    .side-login {
+        min-height: 100vh;
+        width: 50%;
+    }
+    .content-login {
+        box-shadow: -8px 6px 6px 0 rgba(107, 114, 128, 0.05);
+        background-color: #fff;
+        min-height: 50%;
+        padding: 42px 32px 32px;
+        border-radius: 8px;
+        position: absolute;
+        top: 25%;
+        min-width: 90%;
+        inset-inline-start: -20%;
+    
+    }
 }
+
 
 .side-img {
     background: linear-gradient(88.98deg, #036362 -10.61%, #67ac5b 108.81%);
-    height: 100% !important;
+    min-height: 100vh !important;
     position: relative;
     overflow: hidden;
 
@@ -15,6 +31,7 @@
         position: absolute;
         inset-inline-start: 10%;
         bottom: -100px;
+        object-fit: contain;
     }
 }
 
@@ -24,11 +41,26 @@
     min-height: 50%;
     padding: 42px 32px 32px;
     border-radius: 8px;
-    position: absolute;
-    top: 25%;
-    min-width: 90%;
-    inset-inline-start: -20%;
 
 }
 
 .login-title {}
+@media (max-width: 800px) {
+   
+
+    .side-img {
+        background: linear-gradient(88.98deg, #036362 -10.61%, #67ac5b 108.81%);
+        min-height: 50vh !important;
+        position: relative;
+        overflow: hidden;
+    
+        .img-back {
+            max-width: 80%;
+            height: 80%;
+            position: absolute;
+            inset-inline-start: 15%;
+            top: 10%;
+            object-fit: contain;
+        }
+    }
+}

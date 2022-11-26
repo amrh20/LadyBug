@@ -10,7 +10,7 @@
 
             <li class="nav-item">
                 <a routerLink="home" class="nav-link" routerLinkActive="active"
-                    [routerLink]="['/admin/general-uers']"
+                    [routerLink]="['/admin/generic-user']"
                     routerLinkActive="router-link-active">
                     <span class="icon">
                         <svg width="24" height="23" viewBox="0 0 24 23"
@@ -2285,6 +2285,7 @@
                                                                                                                                     </a>
                                                                                                                                 </li>
                                                                                                                                 <li
+                                                                                                                                (click)="logOut()"
                                                                                                                                     class="nav-item">
                                                                                                                                     <button
                                                                                                                                         class="nav-link
@@ -2421,6 +2422,7 @@
                                                                                                                                                     </svg>
                                                                                                                                                 </span>
                                                                                                                                                 <span
+
                                                                                                                                                     class="text">تسجيل
                                                                                                                                                     الخروج
                                                                                                                                                 </span>

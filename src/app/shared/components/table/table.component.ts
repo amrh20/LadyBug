@@ -8,21 +8,9 @@ import { SettingService } from '../../../core/services/setting.service';
   styleUrls: ['./table.component.scss']
 })
 export class TableComponent implements OnInit {
-
+  
   constructor(private _SettingService:SettingService) { }
-  infoHot =()=>{
-    this._SettingService.infoHot()
-
-  }
-  warningHot =()=>{
-    this._SettingService.warningHot()
-
-  }
-  errorHot =()=>{
-    this._SettingService.errorHot()
-  }
-  successHot =()=>{
-  }
+ 
   ngOnInit(): void {
   }
   deleteItem =()=>{
