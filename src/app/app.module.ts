@@ -11,6 +11,7 @@ import { LibraryModulesModule } from './core/library-modules.module';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { NgxMultipleSelectModule } from 'ngx-multiple-select';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
     MaterialModule,
     LibraryModulesModule,
     HttpClientModule,
+    NgxMultipleSelectModule,
     TranslateModule.forRoot({
         loader: {
             provide: TranslateLoader,

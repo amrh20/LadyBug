@@ -8,6 +8,7 @@ import { GeneralUsersComponent } from './general-users/general-users.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { UserIndexComponent } from './user-index/user-index.component';
 import { MaterialModule } from 'src/app/core/material-module.module';
+import { NgxMultipleSelectModule } from 'ngx-multiple-select';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { MaterialModule } from 'src/app/core/material-module.module';
     CommonModule,
     GeneralUsersRoutingModule,
     SharedModule,
-    MaterialModule
+    MaterialModule,
+    NgxMultipleSelectModule
   ]
 })
 export class GeneralUsersModule { }

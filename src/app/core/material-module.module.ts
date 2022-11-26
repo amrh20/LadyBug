@@ -97,6 +97,7 @@ import { MatMenuModule } from '@angular/material/menu';
     MatSliderModule,*/
     MatSlideToggleModule,
     MatMenuModule,
+    
  /*    MatSidenavModule,
     MatToolbarModule,
     MatCardModule,

@@ -23,7 +23,17 @@
                 </div>
 
                 <div class="col-6 mb-5">
-                    <input type="text" placeholder="الاسم" name="" id="">
+                    <ngx-multiple-select 
+    id="cities" 
+    [enableAll]="true" 
+    [enableSearch]="true" 
+    [label]="'name'" 
+    [value]="'id'" 
+    [placeholder]="'Select City'" 
+    [selectedData]="selectedRoles" 
+    [sourceData]="Roles" 
+    (onSelect)="onSelect($event)">
+  </ngx-multiple-select>
 
                 </div>
             </div>

@@ -15,7 +15,7 @@
     background: url("../../images/icons/inputs/search.svg") no-repeat calc(100% - 16px);
   }
   
-  input,
+  input:not([type="radio"] , [type="checkbox"]),
   select {
     padding: 14px 16px;
     width: 100%;
