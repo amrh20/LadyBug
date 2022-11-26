@@ -8,6 +8,11 @@ const routes: Routes = [
     component:IndexComponent,
     children:[
       { path: 'general-uers', loadChildren: () => import('./general-users/general-users.module').then(m => m.GeneralUsersModule) },
+      {
+        path:'',
+        redirectTo:'general-uers',
+        pathMatch:'full'
+      }
     ]
   }
   

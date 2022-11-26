@@ -76,3 +76,7 @@ button:disabled,
 button[disabled] {
   cursor: not-allowed !important;
 }
+ul,ol{
+  padding: 0px;
+  margin: 0px;
+}

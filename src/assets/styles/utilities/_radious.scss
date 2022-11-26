@@ -1,0 +1,7 @@
+// -16
+$fontSizes:2,4,6,8,10,12,14,16,18;
+@each $var in $fontSizes {
+  .br-#{$var} {
+    border-radius: #{$var}px !important;
+  }
+}

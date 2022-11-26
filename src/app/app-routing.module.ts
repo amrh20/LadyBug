@@ -4,10 +4,14 @@ import { IsLoginGuard } from './core/guards/is-login.guard';
 
 const routes: Routes = [
   { path: 'admin', loadChildren: () => import('./modules/admin/admin.module').then(m => m.AdminModule) ,
-  canLoad:[IsLoginGuard]
+  // canLoad:[IsLoginGuard]
 },
   { path: 'auth', loadChildren: () => import('./modules/auth/auth.module').then(m => m.AuthModule) },
-
+  {
+    path:'',
+    redirectTo:'admin',
+    pathMatch:'full'
+  }
 ];
 
 @NgModule({

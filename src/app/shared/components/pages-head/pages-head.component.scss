@@ -10,6 +10,7 @@
     position: fixed;
     top: 0;
     width: calc(100vw - 290px);
+    z-index: 999;
     h2 {
         font-family: "Cairo-Medium";
         margin: 0;
