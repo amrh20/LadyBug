@@ -81,7 +81,10 @@
                               <span> <i class="fa-light fa-eye"></i> تفاصيل </span>
                             </a>
                             <button mat-menu-item >
-                              <span> <i class="fa-thin fa-pen-to-square"></i> تعديل </span>
+                              
+                              <a mat-menu-item [routerLink]="['edit-user', variable.id]">
+                                <span> <i class="fa-thin fa-pen-to-square"></i> تعديل </span>
+                              </a>
                             </button>
                             <button mat-menu-item (click)="deleteItem(variable.id)">
                               <span><i class="fa-thin fa-trash"></i> حذف </span>

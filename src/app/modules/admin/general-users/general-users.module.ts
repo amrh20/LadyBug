@@ -9,6 +9,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { UserIndexComponent } from './user-index/user-index.component';
 import { MaterialModule } from 'src/app/core/material-module.module';
 import { NgxMultipleSelectModule } from 'ngx-multiple-select';
+import { ReactiveFormsModule } from '@angular/forms';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 @NgModule({
@@ -23,7 +25,9 @@ import { NgxMultipleSelectModule } from 'ngx-multiple-select';
     GeneralUsersRoutingModule,
     SharedModule,
     MaterialModule,
-    NgxMultipleSelectModule
+    NgxMultipleSelectModule,
+    ReactiveFormsModule,
+    TranslateModule
   ]
 })
 export class GeneralUsersModule { }

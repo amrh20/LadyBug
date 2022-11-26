@@ -17,7 +17,7 @@ export class CrudRequestsService {
   }
 
   put = (url: string, params: any = null) => {
-    return this.http.post(environment.baseUrl + url, params);
+    return this.http.put(environment.baseUrl + url, params);
   }
 
   delete = (id: any, url: string) => {
