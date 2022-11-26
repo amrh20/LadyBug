@@ -5,12 +5,12 @@
                 {{"email"|translate}}
             </label>
             <input type="email" formControlName="identify" [placeholder]="'email' |translate">
-            <div class="error-msg" *ngIf="(loginForm.controls['identify'].touched || submitted)">
+            <div class="error-msg" *ngIf="loginForm.controls['identify'].touched || submitted">
                 <div *ngIf="loginForm.controls['identify'].hasError('required')">
                     {{"must_required" | translate}}
                 </div>
                 
-                <div *ngIf="loginForm.controls['identify'].hasError('identify') ">
+                <div *ngIf="loginForm.controls['identify'].hasError('email') ">
                     {{"must_email" |translate}}
                 </div>
                 
