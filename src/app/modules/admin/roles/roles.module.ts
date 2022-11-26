@@ -8,6 +8,9 @@ import { RoleDetailsComponent } from "./role-details/role-details.component";
 import { CreateRoleComponent } from "./create-role/create-role.component";
 import { RouterModule } from "@angular/router";
 import { SharedModule } from "src/app/shared/shared.module";
+import { MaterialModule } from "src/app/core/material-module.module";
+import { NgxMultipleSelectModule } from "ngx-multiple-select";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -16,6 +19,15 @@ import { SharedModule } from "src/app/shared/shared.module";
     RoleDetailsComponent,
     CreateRoleComponent,
   ],
-  imports: [CommonModule, RolesRoutingModule, SharedModule, RouterModule],
+  imports: [
+    CommonModule,
+    RolesRoutingModule,
+    SharedModule,
+    RouterModule,
+    MaterialModule,
+    NgxMultipleSelectModule,
+    FormsModule,
+    ReactiveFormsModule,
+  ],
 })
 export class RolesModule {}
