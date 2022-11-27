@@ -18,7 +18,6 @@ export class RoleDetailsComponent implements OnInit {
     this._activeRouter.params.subscribe((res: any) => {
       this._crudeService.get(`roles/${res.id}`).subscribe((res: any) => {
         this.PermissionsDetails = res.data;
-        console.log(this.PermissionsDetails.permissions);
       });
     });
   }

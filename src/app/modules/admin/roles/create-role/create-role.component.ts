@@ -16,7 +16,7 @@ export class CreateRoleComponent implements OnInit {
     name: new FormControl(""),
     permissions: new FormControl(""),
   });
-  passSelected: boolean = false;
+  passSelected: boolean = true;
   selectedpermissions: any = [];
   permissions: any = [];
   editMood: boolean = false;
@@ -30,6 +30,7 @@ export class CreateRoleComponent implements OnInit {
   ngOnInit(): void {
     this.getRoles();
     this.editMood = false;
+
     this._activeRouter.params.subscribe((res: any) => {
       this.id = res.id;
       this._CrudRequestsService
@@ -40,7 +41,6 @@ export class CreateRoleComponent implements OnInit {
             display_name: data?.data?.display_name,
             description: data?.data?.description,
           });
-
           this.passSelected = true;
           let arr = [];
           for (var i = 0, len = data.data.permissions.length; i < len; i++) {
@@ -51,6 +51,7 @@ export class CreateRoleComponent implements OnInit {
     });
     if (this.id) {
       this.editMood = true;
+      this.passSelected = false;
     }
   }
 
