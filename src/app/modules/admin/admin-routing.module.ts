@@ -27,6 +27,11 @@ const routes: Routes = [
           ),
       },
       {
+        path: "task-type",
+        loadChildren: () =>
+          import("./task-type/task-type.module").then((m) => m.TaskTypeModule),
+      },
+      {
         path: "",
         redirectTo: "generic-user",
         pathMatch: "full",
