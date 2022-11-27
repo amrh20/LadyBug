@@ -20,6 +20,13 @@ const routes: Routes = [
           import("./roles/roles.module").then((m) => m.RolesModule),
       },
       {
+        path: "permissions",
+        loadChildren: () =>
+          import("./permissions/permissions.module").then(
+            (m) => m.PermissionsModule
+          ),
+      },
+      {
         path: "",
         redirectTo: "generic-user",
         pathMatch: "full",
