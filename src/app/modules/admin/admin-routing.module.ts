@@ -32,6 +32,11 @@ const routes: Routes = [
           import("./task-type/task-type.module").then((m) => m.TaskTypeModule),
       },
       {
+        path: "jobs",
+        loadChildren: () =>
+          import("./jobs/jobs.module").then((m) => m.JobsModule),
+      },
+      {
         path: "",
         redirectTo: "generic-user",
         pathMatch: "full",
