@@ -20,7 +20,7 @@ export class CrudRequestsService {
   };
 
   delete = (url: string) => {
-    return this.http.get(environment.baseUrl + url);
+    return this.http.delete(environment.baseUrl + url);
   };
 
   UploadFile(data: any) {

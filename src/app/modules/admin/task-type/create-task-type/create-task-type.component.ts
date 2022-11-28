@@ -52,11 +52,16 @@ export class CreateTaskTypeComponent implements OnInit {
 
   sendData = () => {
     this.isSubmit = true;
-
+    let data = {
+      name: {
+        ar: this.form.get("name_ar_localized")?.value,
+        en: this.form.get("name_en_localized")?.value,
+      },
+    };
     if (this.form.valid) {
       this.loading = true;
       if (this.isEdit) {
-        this._crud.put(`task_types/${this.idEdit}`, this.form.value).subscribe(
+        this._crud.put(`task_types/${this.idEdit}`, data).subscribe(
           (res: any) => {
             this.loading = false;
             this.isSubmit = false;
@@ -74,7 +79,7 @@ export class CreateTaskTypeComponent implements OnInit {
           () => {}
         );
       } else {
-        this._crud.post(`task_types`, this.form.value).subscribe(
+        this._crud.post(`task_types`, data).subscribe(
           (res: any) => {
             this.loading = false;
             this.isSubmit = false;
