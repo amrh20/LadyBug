@@ -15,6 +15,11 @@ const routes: Routes = [
           ),
       },
       {
+        path: "Product",
+        loadChildren: () =>
+          import("./products/products.module").then((m) => m.ProductsModule),
+      },
+      {
         path: "roles",
         loadChildren: () =>
           import("./roles/roles.module").then((m) => m.RolesModule),
@@ -25,6 +30,12 @@ const routes: Routes = [
           import("./permissions/permissions.module").then(
             (m) => m.PermissionsModule
           ),
+      },
+      {
+        
+        path: "posts",
+        loadChildren: () =>
+          import("./posts/posts.module").then((m) => m.PostsModule),
       },
       {
         path: "task-type",

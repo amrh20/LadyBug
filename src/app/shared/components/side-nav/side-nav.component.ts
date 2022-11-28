@@ -11,9 +11,18 @@ export class SideNavComponent implements OnInit {
   constructor(private _route:Router) { }
 
   ngOnInit(): void {
+    if(this._route.url.includes('/posts')){
+      this.type='posts';
+    }else if(this._route.url.includes('/Product')){
+      this.type='Product';
+    }
   }
   logOut=()=>{
     localStorage.removeItem('_token')
     this._route.navigate(['/auth/login'])
+  }
+  type:any='';
+  toggle(TYPE:any){
+    this.type=TYPE == this.type?'':TYPE;
   }
 }

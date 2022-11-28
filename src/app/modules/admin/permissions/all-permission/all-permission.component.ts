@@ -19,7 +19,7 @@ export class AllPermissionComponent implements OnInit {
   DataTable: any = [];
   getUsers = () => {
     this._CrudRequestsService.get("permissions").subscribe((data: any) => {
-      this.DataTable = data.data;
+      this.DataTable = data.data.all;
     });
   };
   deleteItem = (id: any) => {
