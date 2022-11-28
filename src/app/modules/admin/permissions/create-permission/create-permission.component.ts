@@ -99,6 +99,6 @@ export class CreatePermissionComponent implements OnInit {
     }
   };
   goBack = () => {
-    this.route.navigate(["/admin/persmissions"]);
+    this.route.navigate(["/admin/permissions"]);
   };
 }

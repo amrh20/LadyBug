@@ -43,6 +43,19 @@ const routes: Routes = [
           import("./task-type/task-type.module").then((m) => m.TaskTypeModule),
       },
       {
+        path: "jobs",
+        loadChildren: () =>
+          import("./jobs/jobs.module").then((m) => m.JobsModule),
+      },
+      {
+        path: "measuring-units",
+        loadChildren: () =>
+          import("./measuring-units/measuring-units.module").then(
+            (m) => m.MeasuringUnitsModule
+          ),
+      },
+
+      {
         path: "",
         redirectTo: "generic-user",
         pathMatch: "full",

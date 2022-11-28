@@ -4,7 +4,7 @@
         <div class="card-head">
             <h2 class="title">
 
-                {{isEdit? 'اضافه' : ' تعديل '}} صلاحيه
+                {{!isEdit?'اضافه' : ' تعديل '}} وحده مقياس
             </h2>
         </div>
         <div class="card-content">
@@ -13,13 +13,14 @@
                     <div class="col-6 mb-5">
                         <input
                             type="text"
-                            placeholder="الاسم"
-                            formControlName="name">
+                            placeholder="الاسم بالعربي"
+                            formControlName="name_ar_localized">
                         <div
                             class="error-msg"
-                            *ngIf="form.controls['name'].touched || isSubmit">
+                            *ngIf="form.controls['name_ar_localized'].touched ||
+                            isSubmit">
                             <div
-                                *ngIf="form.controls['name'].hasError('required')">{{"must_required"
+                                *ngIf="form.controls['name_ar_localized'].hasError('required')">{{"must_required"
                                 | translate}}</div>
 
 
@@ -29,36 +30,52 @@
                     <div class="col-6 mb-5">
                         <input
                             type="text"
-                            placeholder="العرض"
-                            formControlName="display_name">
+                            placeholder="الاسم بالانجليزي"
+                            formControlName="name_en_localized">
                         <div
                             class="error-msg"
-                            *ngIf="form.controls['display_name'].touched ||
+                            *ngIf="form.controls['name_en_localized'].touched ||
                             isSubmit">
                             <div
-                                *ngIf="form.controls['display_name'].hasError('required')">{{"must_required"
+                                *ngIf="form.controls['name_en_localized'].hasError('required')">{{"must_required"
                                 | translate}}</div>
-
-
-
 
                         </div>
                     </div>
+
+
                     <div class="col-6 mb-5">
                         <input
                             type="text"
-                            placeholder="الوصف"
-                            formControlName="description">
+                            placeholder="الكود "
+                            formControlName="code">
                         <div
                             class="error-msg"
-                            *ngIf="form.controls['description'].touched ||
+                            *ngIf="form.controls['code'].touched ||
                             isSubmit">
                             <div
-                                *ngIf="form.controls['description'].hasError('required')">{{"must_required"
+                                *ngIf="form.controls['code'].hasError('required')">{{"must_required"
                                 | translate}}</div>
+
                         </div>
                     </div>
 
+
+                    <div class="col-6 mb-5">
+                        <input
+                            type="text"
+                            placeholder="قابليه القياس "
+                            formControlName="measurable">
+                        <div
+                            class="error-msg"
+                            *ngIf="form.controls['measurable'].touched ||
+                            isSubmit">
+                            <div
+                                *ngIf="form.controls['measurable'].hasError('required')">{{"must_required"
+                                | translate}}</div>
+
+                        </div>
+                    </div>
 
 
                 </div>

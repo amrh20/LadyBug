@@ -6,11 +6,11 @@ import { SettingService } from "src/app/core/services/setting.service";
 import { passwordMatchingValidatior } from "src/app/core/validators/confirm-validators";
 
 @Component({
-  selector: "app-create-task-type",
-  templateUrl: "./create-task-type.component.html",
-  styleUrls: ["./create-task-type.component.scss"],
+  selector: "app-create-job",
+  templateUrl: "./create-job.component.html",
+  styleUrls: ["./create-job.component.scss"],
 })
-export class CreateTaskTypeComponent implements OnInit {
+export class CreateJobComponent implements OnInit {
   form = new FormGroup(
     {
       name_ar_localized: new FormControl("", [Validators.required]),
@@ -42,7 +42,7 @@ export class CreateTaskTypeComponent implements OnInit {
   getUser = (id: any) => {
     this.isEdit = true;
 
-    this._CrudRequestsService.get("task_types/" + id).subscribe((data: any) => {
+    this._CrudRequestsService.get("human_jobs/" + id).subscribe((data: any) => {
       this.form.patchValue({
         name_ar_localized: data.data.name_ar_localized,
         name_en_localized: data.data.name_en_localized,
@@ -60,8 +60,9 @@ export class CreateTaskTypeComponent implements OnInit {
     };
     if (this.form.valid) {
       this.loading = true;
+
       if (this.isEdit) {
-        this._crud.put(`task_types/${this.idEdit}`, data).subscribe(
+        this._crud.put(`human_jobs/${this.idEdit}`, data).subscribe(
           (res: any) => {
             this.loading = false;
             this.isSubmit = false;
@@ -79,7 +80,7 @@ export class CreateTaskTypeComponent implements OnInit {
           () => {}
         );
       } else {
-        this._crud.post(`task_types`, data).subscribe(
+        this._crud.post(`human_jobs`, data).subscribe(
           (res: any) => {
             this.loading = false;
             this.isSubmit = false;
@@ -102,6 +103,6 @@ export class CreateTaskTypeComponent implements OnInit {
     }
   };
   goBack = () => {
-    this.route.navigate(["/admin/task-type"]);
+    this.route.navigate(["/admin/jobs"]);
   };
 }
