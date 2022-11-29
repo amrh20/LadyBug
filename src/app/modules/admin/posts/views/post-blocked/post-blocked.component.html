@@ -2,12 +2,12 @@
     <div class="page-title d-flex justify-content-between align-items-center
         w-100">
         <h1 class="fs-24">
-            
+
             المنشورات المحظوره
-                  
+
         </h1>
 
-    
+
     </div>
     <div class="filter-container">
         <div class="row">
@@ -41,10 +41,11 @@
             <ng-container header>
                 <tr>
                     <th>##</th>
-                    <th>الاسم</th>
-                    <th>العرض</th>
+                    <th>reporter</th>
                     <th>الوصف</th>
-                    <th>اجراءت</th>
+                    <th>تاريخ الانشاء</th>
+                    <th>تاريخ التحديث</th>
+                    <th> الاجراءات</th>
                 </tr>
             </ng-container>
             <ng-container content *ngIf="DataTable?.length != 0">
@@ -53,9 +54,11 @@
 
                             {{variable.id}}
                         </span></td>
-                    <td>{{variable.name}}</td>
-                    <td>{{variable.display_name}}</td>
+                    <td>{{variable.reporter}}</td>
                     <td>{{variable.description}}</td>
+                    <td>{{variable.created_at | date: 'dd-MM_YYYY'}}</td>
+                    <td>{{variable.updated_at | date: 'dd-MM_YYYY'}}</td>
+
                     <td>
 
                         <button class="menu--item" mat-icon-button

@@ -44,6 +44,7 @@
         padding-top: 16px;
         font-weight: 400;
         font-size: 18px;
+        white-space: pre-wrap;
       }
 
       tr {
@@ -225,7 +226,6 @@ div.conainner-table {
 }
 
 .num-td {
-
   font-weight: 400;
   font-size: 20px;
   color: #8c8c8c;
@@ -239,7 +239,6 @@ div.conainner-table {
   padding: 3px 6px;
   justify-content: center;
   align-items: center;
-
 }
 td,
 th {

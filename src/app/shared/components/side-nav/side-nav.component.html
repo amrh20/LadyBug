@@ -1706,10 +1706,9 @@
                                                             المحاصيل</span>
                                                         </a>
                                                       </li>
-                                                      <li class="nav-item" >
+                                                      <li class="nav-item">
                                                         <a class="nav-link"
-                                                        (click)="toggle('posts')"
-                                                          >
+                                                          (click)="toggle('posts')">
                                                           <span class="icon">
                                                             <svg width="24"
                                                               height="23"
@@ -1799,59 +1798,74 @@
                                                                 12.2464Z" />
                                                               </svg>
                                                             </span>
-                                                            <span class="text">
+                                                            <span class="text
+                                                              w-100 d-flex
+                                                              align-items-center
+                                                              justify-content-between">
                                                               المنشورات
+                                                              <i
+                                                                class="fa-regular
+                                                                fa-chevron-left"></i>
                                                             </span>
+
                                                           </a>
-                                                          <ul class="sub-items" *ngIf="type=='posts'">
+                                                          <ul class="sub-items"
+                                                            *ngIf="type=='posts'">
                                                             <li>
-                                                              <a class="nav-link"
-                                                              routerLink="/admin/posts/posts"
-                                                              routerLinkActive="router-link-active">
-                                                     
-                                                                <span class="text">
-                                                                 <span>-</span>  المنشورات
+                                                              <a
+                                                                class="nav-link"
+                                                                routerLink="/admin/posts/posts"
+                                                                routerLinkActive="router-link-active">
+                                                                <span
+                                                                  class="text">
+                                                                  <span>-</span>
+                                                                  المنشورات
                                                                 </span>
                                                               </a>
                                                             </li>
 
                                                             <li>
-                                                              <a class="nav-link"
-                                                              routerLink="/admin/posts/postType"
-                                                              routerLinkActive="router-link-active">
-                                                     
-                                                                <span class="text">
-                                                                 <span>-</span>   انواع المنشورات
+                                                              <a
+                                                                class="nav-link"
+                                                                routerLink="/admin/posts/postType"
+                                                                routerLinkActive="router-link-active">
+                                                                <span
+                                                                  class="text">
+                                                                  <span>-</span>
+                                                                  انواع
+                                                                  المنشورات
                                                                 </span>
                                                               </a>
                                                             </li>
                                                             <li>
-                                                              <a class="nav-link"
-                                                              routerLink="/admin/posts/postBlocked"
-                                                              routerLinkActive="router-link-active">
-                                                     
-                                                                <span class="text">
-                                                                 <span>-</span>    
-                                                                 المنشورات المحظوره
-                                                                 
+                                                              <a
+                                                                class="nav-link"
+                                                                routerLink="/admin/posts/postBlocked"
+                                                                routerLinkActive="router-link-active">
+                                                                <span
+                                                                  class="text">
+                                                                  <span>-</span>
+                                                                  المنشورات
+                                                                  المحظوره
                                                                 </span>
                                                               </a>
                                                             </li>
                                                             <li>
-                                                              <a class="nav-link"
-                                                              routerLink="/admin/posts/TypeBlocked"
-                                                              routerLinkActive="router-link-active">
-                                                     
-                                                                <span class="text">
-                                                                 <span>-</span>    
-                  انواع الحظر
+                                                              <a
+                                                                class="nav-link"
+                                                                routerLink="/admin/posts/TypeBlocked"
+                                                                routerLinkActive="router-link-active">
+                                                                <span
+                                                                  class="text">
+                                                                  <span>-</span>
+                                                                  انواع الحظر
                                                                 </span>
                                                               </a>
                                                             </li>
 
-                                                            
-                 
-                  
+
+
+
                                                           </ul>
                                                         </li>
                                                         <li class="nav-item">
@@ -2059,143 +2073,162 @@
                                                               </a>
                                                             </li>
 
-                                                              <li class="nav-item" >
-                                                                <a class="nav-link"
-                                                                (click)="toggle('Product')"
-                                                                  >
-                                                                  <span class="icon">
-                                                                    <svg width="24"
-                                                                      height="23"
-                                                                      viewBox="0
+                                                            <li
+                                                              class="nav-item">
+                                                              <a
+                                                                class="nav-link"
+                                                                (click)="toggle('Product')">
+                                                                <span
+                                                                  class="icon
+                                                                  d-flex">
+                                                                  <svg
+                                                                    width="24"
+                                                                    height="23"
+                                                                    viewBox="0
+                                                                    0
+                                                                    24
+                                                                    23"
+                                                                    xmlns="http://www.w3.org/2000/svg">
+                                                                    <path
+                                                                      d="M8.52316
+                                                                      12.2464C8.69244
+                                                                      12.691
+                                                                      8.71607
+                                                                      13.1789
+                                                                      8.59055
+                                                                      13.6382C8.5404
+                                                                      13.7969
+                                                                      8.48398
+                                                                      13.8493
+                                                                      8.473
+                                                                      13.8524L7.60784
+                                                                      14.1778C4.23023
+                                                                      15.4474
+                                                                      1.79146
+                                                                      16.3615
+                                                                      1.03444
+                                                                      17.9025C0.397689
+                                                                      19.2487
+                                                                      0.0453665
+                                                                      20.7146
                                                                       0
-                                                                      24
-                                                                      23"
-                                                                      xmlns="http://www.w3.org/2000/svg">
-                                                                      <path d="M8.52316
-                                                                        12.2464C8.69244
-                                                                        12.691
-                                                                        8.71607
-                                                                        13.1789
-                                                                        8.59055
-                                                                        13.6382C8.5404
-                                                                        13.7969
-                                                                        8.48398
-                                                                        13.8493
-                                                                        8.473
-                                                                        13.8524L7.60784
-                                                                        14.1778C4.23023
-                                                                        15.4474
-                                                                        1.79146
-                                                                        16.3615
-                                                                        1.03444
-                                                                        17.9025C0.397689
-                                                                        19.2487
-                                                                        0.0453665
-                                                                        20.7146
-                                                                        0
-                                                                        22.2065C0
-                                                                        22.6447
-                                                                        0.35086
-                                                                        23
-                                                                        0.783667
-                                                                        23H22.7263C23.1591
-                                                                        23
-                                                                        23.51
-                                                                        22.6447
-                                                                        23.51
-                                                                        22.2065C23.4646
-                                                                        20.7146
-                                                                        23.1123
-                                                                        19.2487
-                                                                        22.4756
-                                                                        17.9025C21.7185
-                                                                        16.3615
-                                                                        19.2798
-                                                                        15.4458
-                                                                        15.9022
-                                                                        14.1778L15.037
-                                                                        13.8461C15.026
-                                                                        13.8461
-                                                                        14.9696
-                                                                        13.7921
-                                                                        14.9194
-                                                                        13.6318C14.7975
-                                                                        13.1808
-                                                                        14.815
-                                                                        12.7028
-                                                                        14.9696
-                                                                        12.2622C16.4383
-                                                                        10.3898
-                                                                        17.1648
-                                                                        8.03018
-                                                                        17.0071
-                                                                        5.64437C17.1239
-                                                                        3.66903
-                                                                        16.1495
-                                                                        1.79096
-                                                                        14.4768
-                                                                        0.767554C12.8041
-                                                                        -0.255851
-                                                                        10.709
-                                                                        -0.255851
-                                                                        9.0363
-                                                                        0.767554C7.36361
-                                                                        1.79096
-                                                                        6.38919
-                                                                        3.66903
-                                                                        6.506
-                                                                        5.64437C6.34491
-                                                                        8.02237
-                                                                        7.06401
-                                                                        10.3759
-                                                                        8.52316
-                                                                        12.2464Z" />
-                                                                      </svg>
-                                                                    </span>
-                                                                    <span class="text">
-                                                                      المنتجات
-                                                                    </span>
-                                                                  </a>
-                                                                  <ul class="sub-items" *ngIf="type=='Product'">
-                                                                    <li>
-                                                                      <a class="nav-link"
+                                                                      22.2065C0
+                                                                      22.6447
+                                                                      0.35086
+                                                                      23
+                                                                      0.783667
+                                                                      23H22.7263C23.1591
+                                                                      23
+                                                                      23.51
+                                                                      22.6447
+                                                                      23.51
+                                                                      22.2065C23.4646
+                                                                      20.7146
+                                                                      23.1123
+                                                                      19.2487
+                                                                      22.4756
+                                                                      17.9025C21.7185
+                                                                      16.3615
+                                                                      19.2798
+                                                                      15.4458
+                                                                      15.9022
+                                                                      14.1778L15.037
+                                                                      13.8461C15.026
+                                                                      13.8461
+                                                                      14.9696
+                                                                      13.7921
+                                                                      14.9194
+                                                                      13.6318C14.7975
+                                                                      13.1808
+                                                                      14.815
+                                                                      12.7028
+                                                                      14.9696
+                                                                      12.2622C16.4383
+                                                                      10.3898
+                                                                      17.1648
+                                                                      8.03018
+                                                                      17.0071
+                                                                      5.64437C17.1239
+                                                                      3.66903
+                                                                      16.1495
+                                                                      1.79096
+                                                                      14.4768
+                                                                      0.767554C12.8041
+                                                                      -0.255851
+                                                                      10.709
+                                                                      -0.255851
+                                                                      9.0363
+                                                                      0.767554C7.36361
+                                                                      1.79096
+                                                                      6.38919
+                                                                      3.66903
+                                                                      6.506
+                                                                      5.64437C6.34491
+                                                                      8.02237
+                                                                      7.06401
+                                                                      10.3759
+                                                                      8.52316
+                                                                      12.2464Z"
+                                                                      />
+                                                                    </svg>
+                                                                  </span>
+                                                                  <span
+                                                                    class="text
+                                                                    w-100 d-flex
+                                                                    align-items-center
+                                                                    justify-content-between">
+                                                                    المنتجات
+                                                                    <i
+                                                                      class="fa-regular
+                                                                      fa-chevron-left"></i>
+                                                                  </span>
+                                                                </a>
+                                                                <ul
+                                                                  class="sub-items"
+                                                                  *ngIf="type=='Product'">
+                                                                  <li>
+                                                                    <a
+                                                                      class="nav-link"
                                                                       routerLink="/admin/Product/Products"
                                                                       routerLinkActive="router-link-active">
-                                                             
-                                                                        <span class="text">
-                                                                         <span>-</span>  المنتجات
-                                                                        </span>
-                                                                      </a>
-                                                                    </li>
-        
-                                                                    <li>
-                                                                      <a class="nav-link"
+                                                                      <span
+                                                                        class="text">
+                                                                        <span>-</span>
+                                                                        المنتجات
+                                                                      </span>
+                                                                    </a>
+                                                                  </li>
+
+                                                                  <li>
+                                                                    <a
+                                                                      class="nav-link"
                                                                       routerLink="/admin/Product/cities"
                                                                       routerLinkActive="router-link-active">
-                                                             
-                                                                        <span class="text">
-                                                                         <span>-</span>    المدن
-                                                                        </span>
-                                                                      </a>
-                                                                    </li>
-                                                                    <li>
-                                                                      <a class="nav-link"
+                                                                      <span
+                                                                        class="text">
+                                                                        <span>-</span>
+                                                                        المدن
+                                                                      </span>
+                                                                    </a>
+                                                                  </li>
+                                                                  <li>
+                                                                    <a
+                                                                      class="nav-link"
                                                                       routerLink="/admin/Product/zones"
                                                                       routerLinkActive="router-link-active">
-                                                             
-                                                                        <span class="text">
-                                                                         <span>-</span>    
-                                                                          المناطق
-                                                                         
-                                                                        </span>
-                                                                      </a>
-                                                                    </li>
-                                                        
-                                                                    
-                         
-                          
-                                                                  </ul>
-                                                                </li>
+                                                                      <span
+                                                                        class="text">
+                                                                        <span>-</span>
+                                                                        المناطق
+                                                                      </span>
+                                                                    </a>
+                                                                  </li>
+
+
+
+
+                                                                </ul>
+                                                              </li>
                                                               <li
                                                                 class="nav-item">
                                                                 <a
