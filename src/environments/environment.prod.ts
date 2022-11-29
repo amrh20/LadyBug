@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  baseUrl: ''
+  baseUrl: "http://54.160.5.149/ladybug2/api/v1/",
 };
