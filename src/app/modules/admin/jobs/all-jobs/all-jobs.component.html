@@ -13,14 +13,14 @@
     </div>
     <div class="filter-container">
         <div class="row">
-            <div class="col">
+            <div class="col-6">
                 <div class="search-input">
                     <input type="text" class="search-ground"
                         placeholder="إبحث عن" name="" id="">
                 </div>
             </div>
 
-            <div class="col">
+            <!-- <div class="col">
                 <div class="select-value">
 
                     <div class="position-relative">
@@ -29,7 +29,7 @@
                         </select>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <!-- <div class="col">
                 <button class="main-btn" [routerLink]="['./create-user']">
                     بحث
@@ -54,8 +54,8 @@
 
                             {{variable.id}}
                         </span></td>
-                    <td>{{variable.name_ar_localized}}</td>
-                    <td>{{variable.name_en_localized}}</td>
+                    <td>{{variable.name.ar}}</td>
+                    <td>{{variable.name.en}}</td>
                     <td>
 
                         <button class="menu--item" mat-icon-button
