@@ -1,24 +1,24 @@
 <div class="general-users-wrapper br-16">
-  <div class="page-title d-flex justify-content-between align-items-center
-    w-100">
-    <h1 class="fs-24">
+    <div class="page-title d-flex justify-content-between align-items-center
+        w-100">
+        <h1 class="fs-24">
 
-      المنتجات
+            المنتجات
 
-    </h1>
+        </h1>
 
 
-  </div>
-  <div class="filter-container">
-    <div class="row">
-      <div class="col-6">
-        <div class="search-input">
-          <input type="text" class="search-ground"
-            placeholder="إبحث عن" name="" id="">
-        </div>
-      </div>
+    </div>
+    <div class="filter-container">
+        <div class="row">
+            <div class="col-6">
+                <div class="search-input">
+                    <input type="text" class="search-ground"
+                        placeholder="إبحث عن" name="" id="">
+                </div>
+            </div>
 
-      <!-- <div class="col">
+            <!-- <div class="col">
                 <div class="select-value">
 
                     <div class="position-relative">
@@ -28,101 +28,95 @@
                     </div>
                 </div>
             </div> -->
-      <!-- <div class="col">
+            <!-- <div class="col">
                 <button class="main-btn" [routerLink]="['./create-user']">
                     بحث
                 </button>
             </div> -->
+        </div>
     </div>
-  </div>
 
-  <div class="bg-white pb-5 br-16">
-    <app-table>
-      <ng-container header>
-        <tr>
-          <th>##</th>
-          <th> الاسم بالعربي</th>
-          <th>الاسم بالانجليزي</th>
-          <th>السعر</th>
-          <th>التقييم</th>
-          <th>الوصف بالعربي</th>
-          <th>الوصف بالانجليزي</th>
-          <th> الاجراءات</th>
-        </tr>
-      </ng-container>
-      <ng-container content *ngIf="DataTable?.length != 0">
-        <tr *ngFor="let variable of DataTable;let i=index">
-          <td> <span class="num-td">
+    <div class="bg-white pb-5 br-16">
+        <app-table>
+            <ng-container header>
+                <tr>
+                    <th>##</th>
+                    <th> الاسم بالعربي</th>
+                    <!-- <th>الاسم بالانجليزي</th> -->
+                    <th>السعر</th>
+                    <th>التقييم</th>
+                    <th>الوصف بالعربي</th>
+                    <!-- <th>الوصف بالانجليزي</th> -->
+                    <th> الاجراءات</th>
+                </tr>
+            </ng-container>
+            <ng-container content *ngIf="DataTable?.length != 0">
+                <tr *ngFor="let variable of DataTable;let i=index">
+                    <td> <span class="num-td">
 
-              {{variable.id}}
-            </span></td>
-          <td>{{variable.name_ar_localized}}</td>
-          <td>{{variable.name_en_localized}}</td>
-          <td>{{variable.price}}</td>
-          <td>{{variable.rating}}</td>
-          <td>{{variable.description_ar_localized}}</td>
-          <td>{{variable.description_en_localized}}</td>
-          <td>
+                            {{variable.id}}
+                        </span></td>
+                    <td>{{variable.name.ar}}</td>
+                    <!-- <td>{{variable.name.en}}</td> -->
+                    <td>{{variable.price}}</td>
+                    <td>{{variable.rating}}</td>
+                    <td>{{variable.description.ar}}</td>
+                    <!-- <td>{{variable.description_en_localized}}</td> -->
+                    <td>
 
-            <button class="menu--item" mat-icon-button
-              [matMenuTriggerFor]="menu" aria-label="Example
-              icon-button with a
-              menu">
-              <svg xmlns="http://www.w3.org/2000/svg" width="42"
-                height="42"
-                viewBox="0 0 42 42" fill="none">
-                <g id="action">
-                  <rect id="Rectangle" width="42" height="42"
-                    rx="2"
-                    fill="#F2F2F2"/>
-                    <g id="ellipsis-v-regular copy 2">
-                      <path id="Shape" fill-rule="evenodd"
-                        clip-rule="evenodd"
-                        d="M19 13.4C19 14.725 20.075
-                        15.8 21.4 15.8C22.725 15.8
-                        23.8 14.725 23.8 13.4C23.8
-                        12.075 22.725 11 21.4
-                        11C20.075 11 19 12.075 19
-                        13.4ZM21.4 18.6C22.725 18.6
-                        23.8 19.675 23.8 21C23.8 22.325
-                        22.725 23.4 21.4
-                        23.4C20.075 23.4 19 22.325 19
-                        21C19 19.675 20.075 18.6
-                        21.4 18.6ZM21.4 31C20.075 31 19
-                        29.925 19 28.6C19 27.275
-                        20.075 26.2 21.4 26.2C22.725
-                        26.2 23.8 27.275 23.8
-                        28.6C23.8 29.925 22.725 31 21.4
-                        31Z" fill="black"/>
-                      </g>
-                    </g>
-                  </svg> </button>
-                <mat-menu #menu="matMenu">
-                  <a mat-menu-item
-                    [routerLink]="['./permission-details',
-                    variable.id]">
-                    <span> <i class="fa-light fa-eye"></i>
-                      تفاصيل </span>
-                  </a>
-                  <button mat-menu-item
-                    [routerLink]="['./create-permission',
-                    variable.id]">
-                    <span> <i class="fa-thin
-                        fa-pen-to-square"></i> تعديل
-                    </span>
-                  </button>
-                  <button mat-menu-item
-                    (click)="deleteItem(variable.id)">
-                    <span><i class="fa-thin fa-trash"></i>
-                      حذف </span>
-                  </button>
-                </mat-menu>
-              </td>
-            </tr>
-          </ng-container>
+                        <button class="menu--item" mat-icon-button
+                            [matMenuTriggerFor]="menu" aria-label="Example
+                            icon-button with a
+                            menu">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="42"
+                                height="42"
+                                viewBox="0 0 42 42" fill="none">
+                                <g id="action">
+                                    <rect id="Rectangle" width="42" height="42"
+                                        rx="2"
+                                        fill="#F2F2F2"/>
+                                        <g id="ellipsis-v-regular copy 2">
+                                            <path id="Shape" fill-rule="evenodd"
+                                                clip-rule="evenodd"
+                                                d="M19 13.4C19 14.725 20.075
+                                                15.8 21.4 15.8C22.725 15.8
+                                                23.8 14.725 23.8 13.4C23.8
+                                                12.075 22.725 11 21.4
+                                                11C20.075 11 19 12.075 19
+                                                13.4ZM21.4 18.6C22.725 18.6
+                                                23.8 19.675 23.8 21C23.8 22.325
+                                                22.725 23.4 21.4
+                                                23.4C20.075 23.4 19 22.325 19
+                                                21C19 19.675 20.075 18.6
+                                                21.4 18.6ZM21.4 31C20.075 31 19
+                                                29.925 19 28.6C19 27.275
+                                                20.075 26.2 21.4 26.2C22.725
+                                                26.2 23.8 27.275 23.8
+                                                28.6C23.8 29.925 22.725 31 21.4
+                                                31Z" fill="black"/>
+                                            </g>
+                                        </g>
+                                    </svg> </button>
+                                <mat-menu #menu="matMenu">
+                                    <a mat-menu-item
+                                        [routerLink]="['./permission-details',
+                                        variable.id]">
+                                        <span> <i class="fa-light fa-eye"></i>
+                                            تقييم </span>
+                                    </a>
 
-        </app-table>
-        <app-pagination></app-pagination>
-      </div>
+                                    <button mat-menu-item
+                                        (click)="deleteItem(variable.id)">
+                                        <span><i class="fa-thin fa-trash"></i>
+                                            حذف </span>
+                                    </button>
+                                </mat-menu>
+                            </td>
+                        </tr>
+                    </ng-container>
 
-    </div>
+                </app-table>
+                <app-pagination></app-pagination>
+            </div>
+
+        </div>

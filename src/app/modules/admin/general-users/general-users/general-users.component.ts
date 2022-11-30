@@ -24,13 +24,14 @@ export class GeneralUsersComponent implements OnInit {
   }
   DataTable: any = [];
   getUsers = () => {
-    this._CrudRequestsService.get("generic_users").subscribe((data: any) => {
-      this.DataTable = data.data.all;
-    });
+    this._CrudRequestsService
+      .get("generic_users?page=1&perpage=10")
+      .subscribe((data: any) => {
+        this.DataTable = data.data.all;
+      });
   };
 
   blockItem = (id: any, $event: any) => {
-    console.log(id);
     console.log($event.checked);
     this._CrudRequestsService.get(`users/toggle_activate/${id}`).subscribe(
       (data: any) => {
