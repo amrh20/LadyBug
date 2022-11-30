@@ -14,6 +14,7 @@ import { MaterialModule } from '../core/material-module.module';
 import { HeadNavComponent } from './components/head-nav/head-nav.component';
 import { PagesHeadComponent } from './components/pages-head/pages-head.component';
 import { NumberDirective } from './directives/number.directive';
+import { LoadingComponent } from './components/loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { NumberDirective } from './directives/number.directive';
     FormsComponent,
     HeadNavComponent,
     PagesHeadComponent,
-    NumberDirective
+    NumberDirective,
+    LoadingComponent
   ],
   imports: [
     CommonModule,
@@ -47,6 +49,7 @@ import { NumberDirective } from './directives/number.directive';
     FormsComponent,
     HeadNavComponent,
     PagesHeadComponent,
+    LoadingComponent,
     NumberDirective
   ]
 })
