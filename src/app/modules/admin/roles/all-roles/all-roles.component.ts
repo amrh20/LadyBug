@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { FormControl, FormGroup } from "@angular/forms";
 import { CrudRequestsService } from "src/app/core/services/crud-requests.service";
 import { SettingService } from "src/app/core/services/setting.service";
 import Swal from "sweetalert2";
@@ -9,6 +10,9 @@ import Swal from "sweetalert2";
   styleUrls: ["./all-roles.component.scss"],
 })
 export class AllRolesComponent implements OnInit {
+  filterForm = new FormGroup({
+    name: new FormControl(""),
+  });
   constructor(
     private _CrudRequestsService: CrudRequestsService,
     private _SettingService: SettingService
@@ -17,11 +21,19 @@ export class AllRolesComponent implements OnInit {
     this.getUsers();
   }
   DataTable: any = [];
-  getUsers = () => {
+  getUsers = (name: any = "") => {
     this._CrudRequestsService.get("roles").subscribe((data: any) => {
       this.DataTable = data.data.all;
     });
   };
+  search() {
+    let name = this.filterForm.get("name")?.value;
+    this._CrudRequestsService
+      .get(`roles?name=${name}`)
+      .subscribe((data: any) => {
+        this.DataTable = data.data.all;
+      });
+  }
   deleteItem = (id: any) => {
     Swal.fire({
       text: "   هل أنت متاكد من الحذف  ؟",
