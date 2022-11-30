@@ -13,6 +13,8 @@ import { SharedModule } from '../../../shared/shared.module';
 import { MaterialModule } from '../../../core/material-module.module';
 import { TranslateModule } from '@ngx-translate/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PostBloackedDetailsComponent } from './views/post-bloacked-details/post-bloacked-details.component';
+import { PostBlockedCreateComponent } from './views/post-blocked-create/post-blocked-create.component';
 
 
 @NgModule({
@@ -23,7 +25,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     PostBlockedComponent,
     TypeBlockedComponent,
     TypeBlockedCreateComponent,
-    PostWrapComponent
+    PostWrapComponent,
+    PostBloackedDetailsComponent,
+    PostBlockedCreateComponent
   ],
   imports: [
     CommonModule,

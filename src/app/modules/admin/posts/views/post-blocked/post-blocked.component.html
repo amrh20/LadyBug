@@ -2,11 +2,8 @@
   <div class="page-title d-flex justify-content-between align-items-center
     w-100">
     <h1 class="fs-24">
-
       المنشورات المحظوره
-
     </h1>
-
 
   </div>
   <div class="filter-container">
@@ -17,22 +14,6 @@
             placeholder="إبحث عن" name="" id="">
         </div>
       </div>
-
-      <!-- <div class="col">
-                <div class="select-value">
-
-                    <div class="position-relative">
-                        <select name="" id="" class="select-ground">
-                            <option value="" selected> الكل</option>
-                        </select>
-                    </div>
-                </div>
-            </div> -->
-      <!-- <div class="col">
-                <button class="main-btn" [routerLink]="['./create-user']">
-                    بحث
-                </button>
-            </div> -->
     </div>
   </div>
 
@@ -56,8 +37,8 @@
             </span></td>
           <td>{{variable.reporter}}</td>
           <td>{{variable.description}}</td>
-          <td>{{variable.created_at | date: 'dd-MM_YYYY'}}</td>
-          <td>{{variable.updated_at | date: 'dd-MM_YYYY'}}</td>
+          <td>{{variable.created_at | date: 'dd-MM-YYYY'}}</td>
+          <td>{{variable.updated_at | date: 'dd-MM-YYYY'}}</td>
 
           <td>
 
@@ -96,13 +77,12 @@
                   </svg> </button>
                 <mat-menu #menu="matMenu">
                   <a mat-menu-item
-                    [routerLink]="['./permission-details',
-                    variable.id]">
+                    [routerLink]="['/admin/posts/post-blocked-details',variable.id]">
                     <span> <i class="fa-light fa-eye"></i>
                       تفاصيل </span>
                   </a>
                   <button mat-menu-item
-                    [routerLink]="['./create-permission',
+                    [routerLink]="['/admin/posts/edit-post-blocked',
                     variable.id]">
                     <span> <i class="fa-thin
                         fa-pen-to-square"></i> تعديل
