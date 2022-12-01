@@ -22,8 +22,9 @@ export class AllRolesComponent implements OnInit {
   }
   DataTable: any = [];
   getUsers = (name: any = "") => {
-    this._CrudRequestsService.get("roles").subscribe((data: any) => {
+    this._CrudRequestsService.get("roles"+`?page=${this.current}&perPage=10`).subscribe((data: any) => {
       this.DataTable = data.data.all;
+      this.last= data.data.meta.pagesCount;
     });
   };
   search() {
@@ -59,4 +60,11 @@ export class AllRolesComponent implements OnInit {
       }
     });
   };
+  current:any=1;
+  last:any=0;
+  pageChange($e:any){
+    this.current=$e;
+    this.getUsers();
+
+  }
 }

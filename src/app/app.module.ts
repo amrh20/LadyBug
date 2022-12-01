@@ -12,6 +12,7 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { NgxMultipleSelectModule } from 'ngx-multiple-select';
+import { NgxInputStarRatingModule } from '@ngx-lite/input-star-rating';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { NgxMultipleSelectModule } from 'ngx-multiple-select';
             useFactory: HttpLoaderFactory,
             deps: [HttpClient]
         }
-    })
+    }),
+    NgxInputStarRatingModule
   ],
   providers: [Interceptors],
   bootstrap: [AppComponent]

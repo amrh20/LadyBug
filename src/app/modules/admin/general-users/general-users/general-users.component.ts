@@ -25,9 +25,10 @@ export class GeneralUsersComponent implements OnInit {
   DataTable: any = [];
   getUsers = () => {
     this._CrudRequestsService
-      .get("generic_users?page=1&perpage=10")
+      .get("generic_users"+`?page=${this.current}&perPage=10`)
       .subscribe((data: any) => {
         this.DataTable = data.data.all;
+        this.last= data.data.meta.pagesCount;
       });
   };
 
@@ -75,5 +76,11 @@ export class GeneralUsersComponent implements OnInit {
       .subscribe((data: any) => {
         this.DataTable = data.data.all;
       });
+  }
+  current:any=1;
+  last:any=0;
+  pageChange($e:any){
+    this.current=$e;
+    this.getUsers()
   }
 }
