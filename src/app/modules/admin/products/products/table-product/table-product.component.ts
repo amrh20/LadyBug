@@ -33,9 +33,11 @@ export class TableProductComponent implements OnInit {
     let name = this.filterForm.get("name")?.value;
     let description = this.filterForm.get("description")?.value;
     this._CrudRequestsService
-      .get(`products?name=${name}&description=${description}`)
+      .get(`products?name=${name}&description=${description}&page=${this.current}&perPage=10`)
       .subscribe((data: any) => {
         this.DataTable = data.data.data;
+        this.last= data.data.meta.pagesCount;
+
       });
   }
   deleteItem = (id: any) => {
@@ -83,7 +85,7 @@ export class TableProductComponent implements OnInit {
   last:any=0;
   pageChange($e:any){
     this.current=$e;
-    this.getUsers();
+    this.search();
 
   }
 }

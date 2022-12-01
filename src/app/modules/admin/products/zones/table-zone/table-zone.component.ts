@@ -35,9 +35,11 @@ export class TableZoneComponent implements OnInit {
   search() {
     let name = this.filterForm.get("name")?.value;
     this._CrudRequestsService
-      .get(`districts?name=${name}`)
+      .get(`districts?name=${name}&page=${this.current}&perPage=10`)
       .subscribe((data: any) => {
         this.DataTable = data.data.all;
+        this.last= data.data.meta.pagesCount;
+
       });
   }
   deleteItem = (id: any) => {
@@ -68,6 +70,6 @@ export class TableZoneComponent implements OnInit {
 
   pageChange($e: any) {
     this.current = $e;
-    this.getUsers();
+    this.search();
   }
 }

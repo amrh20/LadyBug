@@ -66,6 +66,6 @@ export class AllPermissionComponent implements OnInit {
   last:any=0;
   pageChange($e:any){
     this.current=$e;
-    this.getUsers()
+    this.search()
   }
 }

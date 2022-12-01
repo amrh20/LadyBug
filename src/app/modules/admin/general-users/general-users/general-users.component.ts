@@ -72,15 +72,16 @@ export class GeneralUsersComponent implements OnInit {
     let email = this.filterForm.get("email")?.value;
     let mobile = this.filterForm.get("mobile")?.value;
     this._CrudRequestsService
-      .get(`users?name=${name}&email=${email}&mobile=${mobile}`)
+      .get(`users?name=${name}&email=${email}&mobile=${mobile}&page=${this.current}&perPage=10`)
       .subscribe((data: any) => {
         this.DataTable = data.data.all;
+        this.last= data.data.meta.pagesCount;      
       });
   }
   current:any=1;
   last:any=0;
   pageChange($e:any){
     this.current=$e;
-    this.getUsers()
+    this.search()
   }
 }
