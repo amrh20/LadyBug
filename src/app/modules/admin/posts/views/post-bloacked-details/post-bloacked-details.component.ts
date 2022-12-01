@@ -1,14 +1,14 @@
 import { Component, OnInit } from "@angular/core";
-import { CrudRequestsService } from "../../../../core/services/crud-requests.service";
-import { SettingService } from "../../../../core/services/setting.service";
 import { Router, ActivatedRoute } from "@angular/router";
+import { CrudRequestsService } from "src/app/core/services/crud-requests.service";
+import { SettingService } from "src/app/core/services/setting.service";
 
 @Component({
-  selector: "app-details",
-  templateUrl: "./details.component.html",
-  styleUrls: ["./details.component.scss"],
+  selector: "app-post-bloacked-details",
+  templateUrl: "./post-bloacked-details.component.html",
+  styleUrls: ["./post-bloacked-details.component.scss"],
 })
-export class DetailsComponent implements OnInit {
+export class PostBloackedDetailsComponent implements OnInit {
   constructor(
     private _CrudRequestsService: CrudRequestsService,
     private _SettingService: SettingService,
@@ -24,10 +24,8 @@ export class DetailsComponent implements OnInit {
   }
   detailsData: any = {};
   getUser = (id: any) => {
-    this._CrudRequestsService
-      .get("generic_users/" + id)
-      .subscribe((data: any) => {
-        this.detailsData = data.data;
-      });
+    this._CrudRequestsService.get("reports/" + id).subscribe((data: any) => {
+      this.detailsData = data.data;
+    });
   };
 }

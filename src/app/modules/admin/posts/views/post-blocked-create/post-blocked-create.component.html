@@ -4,7 +4,7 @@
         <div class="card-head">
             <h2 class="title">
 
-                {{!isEdit? 'اضافه' : ' تعديل '}} صلاحيه
+                {{!isEdit?'اضافه' : ' تعديل '}} المنشور
             </h2>
         </div>
         <div class="card-content">
@@ -13,41 +13,7 @@
                     <div class="col-6 mb-5">
                         <input
                             type="text"
-                            placeholder="الاسم"
-                            formControlName="name">
-                        <div
-                            class="error-msg"
-                            *ngIf="form.controls['name'].touched || isSubmit">
-                            <div
-                                *ngIf="form.controls['name'].hasError('required')">{{"must_required"
-                                | translate}}</div>
-
-
-                        </div>
-                    </div>
-
-                    <div class="col-6 mb-5">
-                        <input
-                            type="text"
-                            placeholder="العرض"
-                            formControlName="display_name">
-                        <div
-                            class="error-msg"
-                            *ngIf="form.controls['display_name'].touched ||
-                            isSubmit">
-                            <div
-                                *ngIf="form.controls['display_name'].hasError('required')">{{"must_required"
-                                | translate}}</div>
-
-
-
-
-                        </div>
-                    </div>
-                    <div class="col-6 mb-5">
-                        <input
-                            type="text"
-                            placeholder="الوصف"
+                            placeholder="الوصف "
                             formControlName="description">
                         <div
                             class="error-msg"
@@ -56,8 +22,32 @@
                             <div
                                 *ngIf="form.controls['description'].hasError('required')">{{"must_required"
                                 | translate}}</div>
+
+
                         </div>
                     </div>
+
+                    <div class="col-6 mb-5">
+
+                        <select
+                            formControlName="report_type_id">
+                            <option value="" selected disabled>report type</option>
+                            <option [value]="item.id" *ngFor="let item of
+                                reportTypes">
+                                {{item.name.ar}}
+                            </option>
+                        </select>
+                        <div
+                            class="error-msg"
+                            *ngIf="form.controls['report_type_id'].touched ||
+                            isSubmit">
+                            <div
+                                *ngIf="form.controls['report_type_id'].hasError('required')">{{"must_required"
+                                | translate}}</div>
+
+                        </div>
+                    </div>
+
 
 
 

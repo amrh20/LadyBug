@@ -1,29 +1,32 @@
-<div class="pagination   justify-content-between align-items-center w-100">
-    <div>
-      <button (click)="previous()" class="btn-pagination fs-20 fw-500 color-greyNatural"
-        [disabled]="current != 1 ? false : true">
-        <img src="assets/images/icons/pagination/right.svg" class="d-inline-block pe-14" alt="">
-        السابق
-      </button>
-    </div>
-  
-    <div>
-      <ul>
-        <li *ngFor="let item of pagesArr;let i =index"
-          class="bg-thinBase border-radius-8 me-6 fs-20 fw-400 color-greyNatural" (click)="paginationSend(item,i)"
-          [ngClass]="{ 'active-pagination': current == item  ,'dots-pagination':item == '...'?true:false}">
-          <span>
-            {{ item }}
-          </span>
-        </li>
-      </ul>
-    </div>
-    <div>
-      <button (click)="next()" [disabled]="last <= current" class="btn-pagination fs-20 fw-500 color-greyNatural">
-        التالي
-  
-        <img src="assets/images/icons/pagination/left.svg" class="d-inline-block ps-14" alt="">
-      </button>
-    </div>
+<div class="pagination justify-content-between align-items-center w-100">
+  <div>
+    <button (click)="previous()" class="btn-pagination fs-20 fw-500
+      color-greyNatural"
+      [disabled]="current != 1 ? false : true">
+      <!-- <img src="assets/images/icons/pagination/right.svg" class="d-inline-block pe-14" alt=""> -->
+      السابق
+    </button>
   </div>
-  
+
+  <div>
+    <ul>
+      <li *ngFor="let item of pagesArr;let i=index"
+        class="bg-thinBase border-radius-8 me-6 fs-20 fw-400 color-greyNatural"
+        (click)="paginationSend(item,i)"
+        [ngClass]="{ 'active-pagination': current == item
+        ,'dots-pagination':item == '...'?true:false}">
+        <span>
+          {{ item }}
+        </span>
+      </li>
+    </ul>
+  </div>
+  <div>
+    <button (click)="next()" [disabled]="last <= current" class="btn-pagination
+      fs-20 fw-500 color-greyNatural">
+      التالي
+
+      <!-- <img src="assets/images/icons/pagination/left.svg" class="d-inline-block ps-14" alt=""> -->
+    </button>
+  </div>
+</div>
