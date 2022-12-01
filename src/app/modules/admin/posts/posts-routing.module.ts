@@ -55,9 +55,6 @@ const routes: Routes = [
         path: "typeBlockedEdit/:id",
         component: TypeBlockedCreateComponent,
       },
-      {
-        path: "",
-      },
     ],
   },
 ];

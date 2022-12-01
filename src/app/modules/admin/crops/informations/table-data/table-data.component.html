@@ -1,26 +1,32 @@
 <div class="general-users-wrapper br-16">
-    <div class="page-title d-flex justify-content-between align-items-center
-        w-100">
-        <h1 class="fs-24">
-            معلومات المحاصيل
-        </h1>
-        <div class="">
-            <button class="main-btn"
-                [routerLink]="['/admin/farmed-blog/farmed-type-create']">
-                اضافه معلومات المحاصيل
-            </button>
-        </div>
+  <div
+    class="page-title d-flex justify-content-between align-items-center w-100"
+  >
+    <h1 class="fs-24">معلومات المحاصيل</h1>
+    <div class="">
+      <button
+        class="main-btn"
+        [routerLink]="['/admin/farmed-blog/farmed-type-create']"
+      >
+        اضافه معلومات المحاصيل
+      </button>
     </div>
-    <div class="filter-container">
-        <div class="row">
-            <div class="col-6">
-                <div class="search-input">
-                    <input type="text" class="search-ground"
-                        placeholder="إبحث عن" name="" id="">
-                </div>
-            </div>
+  </div>
+  <div class="filter-container">
+    <div class="row">
+      <div class="col-6">
+        <div class="search-input">
+          <input
+            type="text"
+            class="search-ground"
+            placeholder="إبحث عن"
+            name=""
+            id=""
+          />
+        </div>
+      </div>
 
-            <!-- <div class="col">
+      <!-- <div class="col">
                 <div class="select-value">
 
                     <div class="position-relative">
@@ -30,62 +36,74 @@
                     </div>
                 </div>
             </div> -->
-            <!-- <div class="col">
+      <!-- <div class="col">
                 <button class="main-btn" [routerLink]="['./create-user']">
                     بحث
                 </button>
             </div> -->
-        </div>
     </div>
+  </div>
 
-    <div class="bg-white pb-5 br-16">
-        <app-table>
-            <ng-container header>
-                <tr>
-                    <th>##</th>
-                    <th>صوره</th>
-                    <th> نوع المزارع
-                    </th>
-                    <th>
-                        مرحلة النوع المزروع
+  <div class="bg-white pb-5 br-16">
+    <app-table>
+      <ng-container header>
+        <tr>
+          <th>##</th>
+          <th>صوره</th>
+          <th>نوع المزارع</th>
+          <th>مرحلة النوع المزروع</th>
+          <th>الاسم بالعربي</th>
+          <th>الاسم بالانجليزي</th>
+          <th>اجراءت</th>
+        </tr>
+      </ng-container>
+      <ng-container content *ngIf="DataTable?.length != 0">
+        <tr *ngFor="let variable of DataTable; let i = index">
+          <td>
+            <span class="num-td">
+              {{ variable?.id }}
+            </span>
+          </td>
+          <td>
+            <img src="{{ variable.assets[0] }}" class="img-assets" alt="" />
+          </td>
+          <td>{{ variable.farmed_type }}</td>
+          <td>{{ variable.farmed_type_stage }}</td>
 
-                    </th>
-                    <th>الاسم بالعربي</th>
-                    <th>الاسم بالانجليزي</th>
-                    <th>اجراءت</th>
-                </tr>
-            </ng-container>
-            <ng-container content *ngIf="DataTable?.length != 0">
-                <tr *ngFor="let variable of DataTable;let i=index">
-                    <td> <span class="num-td">
+          <td>{{ variable.content.ar }}</td>
 
-                            {{variable?.id}}
-                        </span></td>
-                        <td><img src={{variable.assets[0]}} class="img-assets" alt=""></td>
-                        <td>{{variable.farmed_type}}</td>
-                        <td>{{variable.farmed_type_stage}}</td>
-                        
-                        <td>{{variable.content.ar}}</td>
+          <td>{{ variable.content.en }}</td>
 
-                        <td>{{variable.content.en}}</td>
-
-                        <td>
-
-                        <button class="menu--item" mat-icon-button
-                            [matMenuTriggerFor]="menu" aria-label="Example
+          <td>
+            <button
+              class="menu--item"
+              mat-icon-button
+              [matMenuTriggerFor]="menu"
+              aria-label="Example
                             icon-button with a
-                            menu">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="42"
-                                height="42"
-                                viewBox="0 0 42 42" fill="none">
-                                <g id="action">
-                                    <rect id="Rectangle" width="42" height="42"
-                                        rx="2"
-                                        fill="#F2F2F2"/>
-                                        <g id="ellipsis-v-regular copy 2">
-                                            <path id="Shape" fill-rule="evenodd"
-                                                clip-rule="evenodd"
-                                                d="M19 13.4C19 14.725 20.075
+                            menu"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="42"
+                height="42"
+                viewBox="0 0 42 42"
+                fill="none"
+              >
+                <g id="action">
+                  <rect
+                    id="Rectangle"
+                    width="42"
+                    height="42"
+                    rx="2"
+                    fill="#F2F2F2"
+                  />
+                  <g id="ellipsis-v-regular copy 2">
+                    <path
+                      id="Shape"
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M19 13.4C19 14.725 20.075
                                                 15.8 21.4 15.8C22.725 15.8
                                                 23.8 14.725 23.8 13.4C23.8
                                                 12.075 22.725 11 21.4
@@ -100,31 +118,31 @@
                                                 20.075 26.2 21.4 26.2C22.725
                                                 26.2 23.8 27.275 23.8
                                                 28.6C23.8 29.925 22.725 31 21.4
-                                                31Z" fill="black"/>
-                                            </g>
-                                        </g>
-                                    </svg> </button>
-                                <mat-menu #menu="matMenu">
-                              
-                                    <button mat-menu-item
-                                        [routerLink]="['/admin/farmed-blog/farmed-type-edit',
-                                        variable.id]">
-                                        <span> <i class="fa-thin
-                                                fa-pen-to-square"></i> تعديل
-                                        </span>
-                                    </button>
-                                    <button mat-menu-item
-                                        (click)="deleteItem(variable.id)">
-                                        <span><i class="fa-thin fa-trash"></i>
-                                            حذف </span>
-                                    </button>
-                                </mat-menu>
-                            </td>
-                        </tr>
-                    </ng-container>
-
-                </app-table>
-                <app-pagination></app-pagination>
-            </div>
-
-        </div>
+                                                31Z"
+                      fill="black"
+                    />
+                  </g>
+                </g>
+              </svg>
+            </button>
+            <mat-menu #menu="matMenu">
+              <button
+                mat-menu-item
+                [routerLink]="[
+                  '/admin/farmed-blog/farmed-type-edit',
+                  variable.id
+                ]"
+              >
+                <span> <i class="fa-thin fa-pen-to-square"></i> تعديل </span>
+              </button>
+              <button mat-menu-item (click)="deleteItem(variable.id)">
+                <span><i class="fa-thin fa-trash"></i> حذف </span>
+              </button>
+            </mat-menu>
+          </td>
+        </tr>
+      </ng-container>
+    </app-table>
+    <app-pagination></app-pagination>
+  </div>
+</div>
