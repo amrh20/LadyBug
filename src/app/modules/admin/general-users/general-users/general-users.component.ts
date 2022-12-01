@@ -72,7 +72,7 @@ export class GeneralUsersComponent implements OnInit {
     let email = this.filterForm.get("email")?.value;
     let mobile = this.filterForm.get("mobile")?.value;
     this._CrudRequestsService
-      .get(`generic_users?name=${name}&email=${email}&mobile=${mobile}`)
+      .get(`users?name=${name}&email=${email}&mobile=${mobile}`)
       .subscribe((data: any) => {
         this.DataTable = data.data.all;
       });

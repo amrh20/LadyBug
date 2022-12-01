@@ -48,8 +48,8 @@ export class CreateMeasuringUnitsComponent implements OnInit {
       .get("measuring_units/" + id)
       .subscribe((data: any) => {
         this.form.patchValue({
-          name_ar_localized: data.data.name_ar_localized,
-          name_en_localized: data.data.name_en_localized,
+          name_ar_localized: data.data.name.ar,
+          name_en_localized: data.data.name.en,
           measurable: data.measurable,
           code: data.code,
         });

@@ -44,8 +44,8 @@ export class CreateTaskTypeComponent implements OnInit {
 
     this._CrudRequestsService.get("task_types/" + id).subscribe((data: any) => {
       this.form.patchValue({
-        name_ar_localized: data.data.name_ar_localized,
-        name_en_localized: data.data.name_en_localized,
+        name_ar_localized: data.data.name.ar,
+        name_en_localized: data.data.name.en,
       });
     });
   };

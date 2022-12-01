@@ -1,22 +1,19 @@
-import { Component, OnInit } from '@angular/core';
-import { CrudRequestsService } from '../../../../../core/services/crud-requests.service';
-import { SettingService } from '../../../../../core/services/setting.service';
-import { Router, ActivatedRoute } from '@angular/router';
-import { Validators, FormControl, FormGroup } from '@angular/forms';
+import { Component, OnInit } from "@angular/core";
+import { CrudRequestsService } from "../../../../../core/services/crud-requests.service";
+import { SettingService } from "../../../../../core/services/setting.service";
+import { Router, ActivatedRoute } from "@angular/router";
+import { Validators, FormControl, FormGroup } from "@angular/forms";
 
 @Component({
-  selector: 'app-type-blocked-create',
-  templateUrl: './type-blocked-create.component.html',
-  styleUrls: ['./type-blocked-create.component.scss']
+  selector: "app-type-blocked-create",
+  templateUrl: "./type-blocked-create.component.html",
+  styleUrls: ["./type-blocked-create.component.scss"],
 })
 export class TypeBlockedCreateComponent implements OnInit {
-
-  form = new FormGroup(
-    {
-      name_ar_localized: new FormControl("", [Validators.required]),
-      name_en_localized: new FormControl("", [Validators.required]),
-    }
-  );
+  form = new FormGroup({
+    name_ar_localized: new FormControl("", [Validators.required]),
+    name_en_localized: new FormControl("", [Validators.required]),
+  });
   loading: boolean = false;
   isSubmit: any = false;
   isEdit: any = false;
@@ -41,21 +38,23 @@ export class TypeBlockedCreateComponent implements OnInit {
   getUser = (id: any) => {
     this.isEdit = true;
 
-    this._CrudRequestsService.get("report_types/" + id).subscribe((data: any) => {
-      this.form.patchValue({
-        name_ar_localized: data.data.name_ar_localized,
-        name_en_localized: data.data.name_en_localized,
+    this._CrudRequestsService
+      .get("report_types/" + id)
+      .subscribe((data: any) => {
+        this.form.patchValue({
+          name_ar_localized: data.data.name.ar,
+          name_en_localized: data.data.name.en,
+        });
       });
-    });
   };
 
   sendData = () => {
     this.isSubmit = true;
-    let data={
-      name:{
-        ar:this.form.value.name_ar_localized,
-        en:this.form.value.name_en_localized,
-      }
+    let data = {
+      name: {
+        ar: this.form.value.name_ar_localized,
+        en: this.form.value.name_en_localized,
+      },
     };
     if (this.form.valid) {
       this.loading = true;
@@ -78,7 +77,6 @@ export class TypeBlockedCreateComponent implements OnInit {
           () => {}
         );
       } else {
-       
         this._crud.post(`report_types`, data).subscribe(
           (res: any) => {
             this.loading = false;
@@ -104,5 +102,4 @@ export class TypeBlockedCreateComponent implements OnInit {
   goBack = () => {
     this.route.navigate(["/admin/posts/TypeBlocked"]);
   };
-
 }
