@@ -36,9 +36,10 @@ export class TableDataComponent implements OnInit {
     let title = this.filterForm.get("title")?.value;
 
     this._CrudRequestsService
-      .get(`farmed_type_ginfos?title=${title}&content=${content}`)
+      .get(`farmed_type_ginfos?title=${title}&content=${content}&page=${this.current}&perPage=10`)
       .subscribe((data: any) => {
         this.DataTable = data.data.all;
+        this.last = data.data.meta.pagesCount;
       });
   }
   deleteItem = (id: any) => {
@@ -70,6 +71,6 @@ export class TableDataComponent implements OnInit {
   last: any = 0;
   pageChange($e: any) {
     this.current = $e;
-    this.getUsers();
+    this.search();
   }
 }

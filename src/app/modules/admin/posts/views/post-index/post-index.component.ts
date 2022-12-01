@@ -33,9 +33,10 @@ export class PostIndexComponent implements OnInit {
   search() {
     let content = this.filterForm.get("content")?.value;
     this._CrudRequestsService
-      .get(`posts?content=${content}`)
+      .get(`posts?content=${content}&page=${this.current}&perPage=10`)
       .subscribe((data: any) => {
         this.DataTable = data.data.all;
+        this.last= data.data.meta.pagesCount;      
       });
   }
 
@@ -68,6 +69,6 @@ export class PostIndexComponent implements OnInit {
   last: any = 0;
   pageChange($e: any) {
     this.current = $e;
-    this.getPosts();
+    this.search();
   }
 }

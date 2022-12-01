@@ -31,9 +31,10 @@ export class PostBlockedComponent implements OnInit {
   search() {
     let content = this.filterForm.get("content")?.value;
     this._CrudRequestsService
-      .get(`reports?content=${content}`)
+      .get(`reports?content=${content}&page=${this.current}&perPage=10`)
       .subscribe((data: any) => {
         this.DataTable = data.data.all;
+        this.last= data.data.meta.pagesCount;      
       });
   }
 
@@ -66,6 +67,6 @@ export class PostBlockedComponent implements OnInit {
   last:any=0;
   pageChange($e:any){
     this.current=$e;
-    this.getUsers()
+    this.search()
   }
 }
