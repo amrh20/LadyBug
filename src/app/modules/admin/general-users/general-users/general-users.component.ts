@@ -25,15 +25,14 @@ export class GeneralUsersComponent implements OnInit {
   DataTable: any = [];
   getUsers = () => {
     this._CrudRequestsService
-      .get("generic_users"+`?page=${this.current}&perPage=10`)
+      .get("users" + `?page=${this.current}&perPage=10`)
       .subscribe((data: any) => {
         this.DataTable = data.data.all;
-        this.last= data.data.meta.pagesCount;
+        this.last = data.data.meta.pagesCount;
       });
   };
 
   blockItem = (id: any, $event: any) => {
-    console.log($event.checked);
     this._CrudRequestsService.get(`users/toggle_activate/${id}`).subscribe(
       (data: any) => {
         if (data.success) {
