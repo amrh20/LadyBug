@@ -12,6 +12,8 @@ import { SharedModule } from '../../../shared/shared.module';
 import { MaterialModule } from '../../../core/material-module.module';
 import { TranslateModule } from '@ngx-translate/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RatingProductComponent } from './products/table-product/components/rating-product/rating-product.component';
+import { NgxInputStarRatingModule } from '@ngx-lite/input-star-rating';
 
 
 @NgModule({
@@ -21,7 +23,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     TableProductComponent,
     TableCityComponent,
     CreateCityComponent,
-    ProductWrapComponent
+    ProductWrapComponent,
+    RatingProductComponent
   ],
   imports: [
     CommonModule,
@@ -31,6 +34,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     TranslateModule,
     FormsModule,
     ReactiveFormsModule,
+    NgxInputStarRatingModule
   ]
 })
 export class ProductsModule { }

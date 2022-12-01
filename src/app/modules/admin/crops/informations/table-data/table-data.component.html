@@ -118,31 +118,32 @@
                                                 20.075 26.2 21.4 26.2C22.725
                                                 26.2 23.8 27.275 23.8
                                                 28.6C23.8 29.925 22.725 31 21.4
-                                                31Z"
-                      fill="black"
-                    />
-                  </g>
-                </g>
-              </svg>
-            </button>
-            <mat-menu #menu="matMenu">
-              <button
-                mat-menu-item
-                [routerLink]="[
-                  '/admin/farmed-blog/farmed-type-edit',
-                  variable.id
-                ]"
-              >
-                <span> <i class="fa-thin fa-pen-to-square"></i> تعديل </span>
-              </button>
-              <button mat-menu-item (click)="deleteItem(variable.id)">
-                <span><i class="fa-thin fa-trash"></i> حذف </span>
-              </button>
-            </mat-menu>
-          </td>
-        </tr>
-      </ng-container>
-    </app-table>
-    <app-pagination></app-pagination>
-  </div>
-</div>
+                                                31Z" fill="black"/>
+                                            </g>
+                                        </g>
+                                    </svg> </button>
+                                <mat-menu #menu="matMenu">
+                              
+                                    <button mat-menu-item
+                                        [routerLink]="['/admin/farmed-blog/farmed-type-edit',
+                                        variable.id]">
+                                        <span> <i class="fa-thin
+                                                fa-pen-to-square"></i> تعديل
+                                        </span>
+                                    </button>
+                                    <button mat-menu-item
+                                        (click)="deleteItem(variable.id)">
+                                        <span><i class="fa-thin fa-trash"></i>
+                                            حذف </span>
+                                    </button>
+                                </mat-menu>
+                            </td>
+                        </tr>
+                    </ng-container>
+
+                </app-table>
+                
+                <app-pagination [last]="last" [current]="current" (pageChange)="pageChange($event)"></app-pagination>
+            </div>
+
+        </div>

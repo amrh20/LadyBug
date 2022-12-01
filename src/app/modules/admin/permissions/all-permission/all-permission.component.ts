@@ -22,17 +22,19 @@ export class AllPermissionComponent implements OnInit {
   }
   DataTable: any = [];
   getUsers = () => {
-    this._CrudRequestsService.get("permissions").subscribe((data: any) => {
+    this._CrudRequestsService.get("permissions"+`?page=${this.current}&perPage=10`).subscribe((data: any) => {
       this.DataTable = data.data.all;
+      this.last= data.data.meta.pagesCount;
     });
   };
   search() {
     let name = this.filterForm.get("name")?.value;
     console.log(name);
     this._CrudRequestsService
-      .get(`permissions?name=${name}`)
+      .get(`permissions?name=${name}`+`&page=${this.current}&perPage=10`)
       .subscribe((data: any) => {
         this.DataTable = data.data.all;
+        this.last= data.data.meta.pagesCount;
       });
   }
   deleteItem = (id: any) => {
@@ -60,4 +62,10 @@ export class AllPermissionComponent implements OnInit {
       }
     });
   };
+  current:any=1;
+  last:any=0;
+  pageChange($e:any){
+    this.current=$e;
+    this.getUsers()
+  }
 }

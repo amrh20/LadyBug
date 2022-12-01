@@ -24,6 +24,7 @@
     "@auth0/angular-jwt": "^5.1.0",
     "@ngneat/hot-toast": "^4.1.0",
     "@ngneat/overview": "^3.0.0",
+    "@ngx-lite/input-star-rating": "^0.3.7",
     "@ngx-translate/core": "^14.0.0",
     "@ngx-translate/http-loader": "^7.0.0",
     "bootstrap": "^5.1.3",

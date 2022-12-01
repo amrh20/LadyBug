@@ -51,31 +51,28 @@
 
           <th>وحده القياس بالعربي</th>
 
-          <th>وحده القياس بالانجليزي</th>
-          <th>اجراءت</th>
-        </tr>
-      </ng-container>
-      <ng-container content *ngIf="DataTable?.length != 0">
-        <tr *ngFor="let variable of DataTable; let i = index">
-          <td>
-            <span class="num-td">
-              {{ variable.id }}
-            </span>
-          </td>
-          <td>
-            {{ variable.measurable }}
-          </td>
-          <td>
-            {{ variable.code }}
-          </td>
-          <td>{{ variable.name.ar }}</td>
-          <td>{{ variable.name.en }}</td>
-          <td>
-            <button
-              class="menu--item"
-              mat-icon-button
-              [matMenuTriggerFor]="menu"
-              aria-label="Example
+                    <th>وحده القياس بالانجليزي</th>
+                    <th>اجراءت</th>
+                </tr>
+            </ng-container>
+            <ng-container content *ngIf="DataTable?.length != 0">
+                <tr *ngFor="let variable of DataTable;let i=index">
+                    <td> <span class="num-td">
+
+                            {{variable.id}}
+                        </span></td>
+                    <td>
+                        {{variable.measurable}}
+                    </td>
+                    <td>
+                        {{variable.code}}
+                    </td>
+                    <td>{{variable.name.ar}}</td>
+                    <td>{{variable.name.en}}</td>
+                    <td>
+
+                        <button class="menu--item" mat-icon-button
+                            [matMenuTriggerFor]="menu" aria-label="Example
                             icon-button with a
                             menu"
             >
@@ -128,20 +125,25 @@
                                         <span> <i class="fa-light fa-eye"></i>
                                             تفاصيل </span>
                                     </a> -->
-              <button
-                mat-menu-item
-                [routerLink]="['./create-measuring-units', variable.id]"
-              >
-                <span> <i class="fa-thin fa-pen-to-square"></i> تعديل </span>
-              </button>
-              <button mat-menu-item (click)="deleteItem(variable.id)">
-                <span><i class="fa-thin fa-trash"></i> حذف </span>
-              </button>
-            </mat-menu>
-          </td>
-        </tr>
-      </ng-container>
-    </app-table>
-    <app-pagination></app-pagination>
-  </div>
-</div>
+                                    <button mat-menu-item
+                                        [routerLink]="['./create-measuring-units',
+                                        variable.id]">
+                                        <span> <i class="fa-thin
+                                                fa-pen-to-square"></i> تعديل
+                                        </span>
+                                    </button>
+                                    <button mat-menu-item
+                                        (click)="deleteItem(variable.id)">
+                                        <span><i class="fa-thin fa-trash"></i>
+                                            حذف </span>
+                                    </button>
+                                </mat-menu>
+                            </td>
+                        </tr>
+                    </ng-container>
+
+                </app-table>
+                <app-pagination [last]="last" [current]="current" (pageChange)="pageChange($event)"></app-pagination>
+            </div>
+
+        </div>
