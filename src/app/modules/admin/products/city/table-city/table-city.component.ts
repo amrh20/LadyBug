@@ -1,31 +1,42 @@
-import { Component, OnInit } from '@angular/core';
-import Swal from 'sweetalert2';
-import { CrudRequestsService } from '../../../../../core/services/crud-requests.service';
-import { SettingService } from '../../../../../core/services/setting.service';
+import { Component, OnInit } from "@angular/core";
+import { FormGroup, FormControl } from "@angular/forms";
+import Swal from "sweetalert2";
+import { CrudRequestsService } from "../../../../../core/services/crud-requests.service";
+import { SettingService } from "../../../../../core/services/setting.service";
 
 @Component({
-  selector: 'app-table-city',
-  templateUrl: './table-city.component.html',
-  styleUrls: ['./table-city.component.scss']
+  selector: "app-table-city",
+  templateUrl: "./table-city.component.html",
+  styleUrls: ["./table-city.component.scss"],
 })
 export class TableCityComponent implements OnInit {
+  filterForm = new FormGroup({
+    name: new FormControl(""),
+  });
 
- 
-  DataTable:any=[];
+  DataTable: any = [];
   constructor(
     private _CrudRequestsService: CrudRequestsService,
     private _SettingService: SettingService
   ) {}
   ngOnInit(): void {
     this.getUsers();
- 
   }
   getUsers = () => {
     this._CrudRequestsService.get("cities").subscribe((data: any) => {
       this.DataTable = data.data.all;
     });
   };
-  
+
+  search() {
+    let name = this.filterForm.get("name")?.value;
+    this._CrudRequestsService
+      .get(`cities?name=${name}`)
+      .subscribe((data: any) => {
+        this.DataTable = data.data.all;
+      });
+  }
+
   deleteItem = (id: any) => {
     Swal.fire({
       text: "   هل أنت متاكد من الحذف  ؟",
@@ -39,14 +50,15 @@ export class TableCityComponent implements OnInit {
       cancelButtonAriaLabel: "التراجع",
     }).then((val: any) => {
       if (val.isConfirmed) {
-        
-        this._CrudRequestsService.delete("cities/"+id).subscribe( (res: any) => {
-          this._SettingService.successHot(res.message);
-          this.getUsers();
-        },
-        (err) => {
-          this._SettingService.errorHot(err.message);
-        });
+        this._CrudRequestsService.delete("cities/" + id).subscribe(
+          (res: any) => {
+            this._SettingService.successHot(res.message);
+            this.getUsers();
+          },
+          (err) => {
+            this._SettingService.errorHot(err.message);
+          }
+        );
       }
     });
   };

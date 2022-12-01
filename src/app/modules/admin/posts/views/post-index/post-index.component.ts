@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { FormGroup, FormControl } from "@angular/forms";
 import { environment } from "src/environments/environment";
 import Swal from "sweetalert2";
 import { CrudRequestsService } from "../../../../../core/services/crud-requests.service";
@@ -12,6 +13,9 @@ import { SettingService } from "../../../../../core/services/setting.service";
 export class PostIndexComponent implements OnInit {
   DataTable: any = [];
   assetsUrl = environment.baseUrl;
+  filterForm = new FormGroup({
+    content: new FormControl(""),
+  });
   constructor(
     private _CrudRequestsService: CrudRequestsService,
     private _SettingService: SettingService
@@ -24,6 +28,15 @@ export class PostIndexComponent implements OnInit {
       this.DataTable = data.data.all;
     });
   };
+
+  search() {
+    let content = this.filterForm.get("content")?.value;
+    this._CrudRequestsService
+      .get(`posts?content=${content}`)
+      .subscribe((data: any) => {
+        this.DataTable = data.data.all;
+      });
+  }
 
   deleteItem = (id: any) => {
     Swal.fire({

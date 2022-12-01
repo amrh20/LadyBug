@@ -10,7 +10,7 @@
       </button>
     </div>
   </div>
-  <div class="filter-container">
+  <form class="filter-container" [formGroup]="filterForm">
     <div class="row">
       <div class="col">
         <div class="search-input">
@@ -18,28 +18,15 @@
             type="text"
             class="search-ground"
             placeholder="بحث"
-            name=""
-            id=""
+            formControlName="name"
           />
         </div>
       </div>
-
       <div class="col">
-        <div class="select-value">
-          <div class="position-relative">
-            <select name="" id="" class="select-ground">
-              <option value="" selected>الكل</option>
-            </select>
-          </div>
-        </div>
+        <button class="main-btn" (click)="search()">بحث</button>
       </div>
-      <!-- <div class="col">
-                <button class="main-btn" [routerLink]="['./create-user']">
-                    بحث
-                </button>
-            </div> -->
     </div>
-  </div>
+  </form>
 
   <div class="bg-white pb-5 br-16">
     <app-table>

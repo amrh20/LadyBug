@@ -4,21 +4,23 @@
   >
     <h1 class="fs-24">المنشورات</h1>
   </div>
-  <div class="filter-container">
+  <form class="filter-container" [formGroup]="filterForm">
     <div class="row">
-      <div class="col-6">
+      <div class="col">
         <div class="search-input">
           <input
             type="text"
             class="search-ground"
             placeholder="بحث"
-            name=""
-            id=""
+            formControlName="content"
           />
         </div>
       </div>
+      <div class="col">
+        <button class="main-btn" (click)="search()">بحث</button>
+      </div>
     </div>
-  </div>
+  </form>
 
   <div class="bg-white pb-5 br-16">
     <app-table>
