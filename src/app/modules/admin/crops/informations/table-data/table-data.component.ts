@@ -24,9 +24,10 @@ export class TableDataComponent implements OnInit {
   }
   getUsers = () => {
     this._CrudRequestsService
-      .get("farmed_type_ginfos")
+      .get("farmed_type_ginfos" + `?page=${this.current}&perPage=10`)
       .subscribe((data: any) => {
         this.DataTable = data.data.all;
+        this.last = data.data.meta.pagesCount;
       });
   };
 
@@ -65,4 +66,10 @@ export class TableDataComponent implements OnInit {
       }
     });
   };
+  current: any = 1;
+  last: any = 0;
+  pageChange($e: any) {
+    this.current = $e;
+    this.getUsers();
+  }
 }

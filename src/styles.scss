@@ -5,3 +5,8 @@ button.menu--item{
     all: unset;
     cursor: pointer;
 }
+.ngx-input-star-rating__full{
+    svg{
+        fill:gold !important;
+    }
+}

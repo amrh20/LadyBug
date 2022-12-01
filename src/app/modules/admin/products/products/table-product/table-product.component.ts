@@ -23,8 +23,9 @@ export class TableProductComponent implements OnInit {
     this.getUsers();
   }
   getUsers = () => {
-    this._CrudRequestsService.get("products").subscribe((data: any) => {
+    this._CrudRequestsService.get("products"+`?page=${this.current}&perPage=10`).subscribe((data: any) => {
       this.DataTable = data.data.data;
+      this.last= data.data.meta.pagesCount;
     });
   };
 
@@ -50,7 +51,7 @@ export class TableProductComponent implements OnInit {
       cancelButtonAriaLabel: "التراجع",
     }).then((val: any) => {
       if (val.isConfirmed) {
-        this._CrudRequestsService.delete("post_types/" + id).subscribe(
+        this._CrudRequestsService.delete("products/" + id).subscribe(
           (res: any) => {
             this._SettingService.successHot(res.message);
             this.getUsers();
@@ -62,4 +63,27 @@ export class TableProductComponent implements OnInit {
       }
     });
   };
+  isShow:any=false;
+  productName:any='';
+  productId:any='';
+  productRate:any='';
+  isHide(e:any){
+    this.isShow=false;
+  }
+  openRate(item:any){
+    this.isShow=true;
+    this.productName=item.name.ar;
+    this.productId=item.id;
+    this.productRate=item.rating;
+  }
+  reGet($e:any){
+    this.getUsers()
+  }
+  current:any=1;
+  last:any=0;
+  pageChange($e:any){
+    this.current=$e;
+    this.getUsers();
+
+  }
 }

@@ -122,6 +122,10 @@
         </tr>
       </ng-container>
     </app-table>
-    <app-pagination></app-pagination>
+    <app-pagination
+      [last]="last"
+      [current]="current"
+      (pageChange)="pageChange($event)"
+    ></app-pagination>
   </div>
 </div>

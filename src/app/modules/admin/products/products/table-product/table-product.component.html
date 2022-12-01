@@ -111,10 +111,7 @@
               </svg>
             </button>
             <mat-menu #menu="matMenu">
-              <a
-                mat-menu-item
-                [routerLink]="['./permission-details', variable.id]"
-              >
+              <a mat-menu-item (click)="openRate(variable)">
                 <span> <i class="fa-light fa-eye"></i> تقييم </span>
               </a>
 
@@ -126,6 +123,19 @@
         </tr>
       </ng-container>
     </app-table>
-    <app-pagination></app-pagination>
+    <app-pagination
+      [last]="last"
+      [current]="current"
+      (pageChange)="pageChange($event)"
+    ></app-pagination>
   </div>
 </div>
+
+<app-rating-product
+  [isShow]="isShow"
+  (isHide)="isHide($event)"
+  [productName]="productName"
+  [rate]="productRate"
+  [id]="productId"
+  (reGet)="reGet($event)"
+></app-rating-product>

@@ -17,9 +17,7 @@ const routes: Routes = [
       {
         path: "farmed-blog",
         loadChildren: () =>
-          import("./crops/crops.module").then(
-            (m) => m.CropsModule
-          ),
+          import("./crops/crops.module").then((m) => m.CropsModule),
       },
       {
         path: "Product",
@@ -39,7 +37,6 @@ const routes: Routes = [
           ),
       },
       {
-        
         path: "posts",
         loadChildren: () =>
           import("./posts/posts.module").then((m) => m.PostsModule),

@@ -11,6 +11,8 @@ import { FormGroup, FormControl } from "@angular/forms";
 })
 export class TableDataPocessComponent implements OnInit {
   DataTable: any = [];
+  current: any = 1;
+  last: any = 0;
   filterForm = new FormGroup({
     name: new FormControl(""),
   });
@@ -23,9 +25,10 @@ export class TableDataPocessComponent implements OnInit {
   }
   getUsers = () => {
     this._CrudRequestsService
-      .get("farmed_type_stages")
+      .get("farmed_type_stages" + `?page=${this.current}&perPage=10`)
       .subscribe((data: any) => {
         this.DataTable = data.data.all;
+        this.last = data.data.meta.pagesCount;
       });
   };
   search() {
@@ -62,4 +65,9 @@ export class TableDataPocessComponent implements OnInit {
       }
     });
   };
+
+  pageChange($e: any) {
+    this.current = $e;
+    this.getUsers();
+  }
 }
