@@ -15,6 +15,8 @@ export class SideNavComponent implements OnInit {
       this.type='posts';
     }else if(this._route.url.includes('/Product')){
       this.type='Product';
+    }else if(this._route.url.includes('/farmed-blog')){
+      this.type='farmed-blog';
     }
   }
   logOut=()=>{

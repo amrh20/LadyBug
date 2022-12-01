@@ -15,6 +15,13 @@ const routes: Routes = [
           ),
       },
       {
+        path: "farmed-blog",
+        loadChildren: () =>
+          import("./crops/crops.module").then(
+            (m) => m.CropsModule
+          ),
+      },
+      {
         path: "Product",
         loadChildren: () =>
           import("./products/products.module").then((m) => m.ProductsModule),

@@ -1391,8 +1391,7 @@
                                                 </li>
                                                 <li class="nav-item">
                                                   <a class="nav-link"
-                                                    routerLinkActive="active"
-                                                    routerLink="profile">
+                                                    (click)="toggle('farmed-blog')">
                                                     <span class="icon">
                                                       <svg width="24"
                                                         height="23"
@@ -1482,10 +1481,55 @@
                                                           12.2464Z" />
                                                         </svg>
                                                       </span>
-                                                      <span class="text">
+                                                      <span class="text
+                                                        w-100 d-flex
+                                                        align-items-center
+                                                        justify-content-between">
                                                         معلومات
-                                                        المحاصيل</span>
+                                                        المحاصيل
+                                                        <i
+                                                          class="fa-regular
+                                                          fa-chevron-left"></i>
+                                                      </span>
+
                                                     </a>
+                                                    <ul class="sub-items"
+                                                      *ngIf="type=='farmed-blog'">
+                                                      <li>
+                                                        <a
+                                                          class="nav-link"
+                                                          routerLink="/admin/farmed-blog/farmed-type-ginfos"
+                                                          routerLinkActive="router-link-active">
+                                                          <span
+                                                            class="text">
+                                                            <span>-</span>
+                                                            
+                  معلومات المحاصيل
+                  
+                                                          </span>
+                                                        </a>
+                                                      </li>
+
+                                                      <li>
+                                                        <a
+                                                          class="nav-link"
+                                                          routerLink="/admin/farmed-blog/farmed-type-stages"
+                                                          routerLinkActive="router-link-active">
+                                                          <span
+                                                            class="text">
+                                                            <span>-</span>
+                                                           
+                  مراحل نمو المحاصيل
+                  
+                                                          </span>
+                                                        </a>
+                                                      </li>
+                                                 
+
+
+
+
+                                                    </ul>
                                                   </li>
                                                   <li class="nav-item">
                                                     <a class="nav-link"
