@@ -1,0 +1,48 @@
+.upload{
+    label {
+        display: block;
+        border: 1px solid #D6D5DE;        border-radius: 2px;
+        font-size: 1em;
+        text-align: center;
+        cursor: pointer;
+
+        padding: 14px 16px;
+        width: 100%;
+        background: #FFFFFF;
+        border: 1px solid #D6D5DE;
+        border-radius: 8px;
+        -webkit-appearance: none;
+        appearance: none;
+        position: relative;
+        -webkit-border-radius: 8px;
+        -moz-border-radius: 8px;
+        -ms-border-radius: 8px;
+        -o-border-radius: 8px;
+        outline: none;
+        box-shadow: none;
+    }
+    cursor: pointer;
+ 
+    
+    input {
+        border: 0;
+        clip: rect(1px, 1px, 1px, 1px);
+        height: 1px; 
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+
+    }
+    
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        width: 100vw;
+        overflow: hidden;
+        background-color: black;
+    }
+}
