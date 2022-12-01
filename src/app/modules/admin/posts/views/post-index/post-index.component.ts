@@ -24,8 +24,9 @@ export class PostIndexComponent implements OnInit {
     this.getPosts();
   }
   getPosts = () => {
-    this._CrudRequestsService.get("posts").subscribe((data: any) => {
+    this._CrudRequestsService.get("posts" +`?page=${this.current}&perPage=10`).subscribe((data: any) => {
       this.DataTable = data.data.all;
+      this.last= data.data.meta.pagesCount;      
     });
   };
 
@@ -63,4 +64,10 @@ export class PostIndexComponent implements OnInit {
       }
     });
   };
+  current: any = 1;
+  last: any = 0;
+  pageChange($e: any) {
+    this.current = $e;
+    this.getPosts();
+  }
 }
