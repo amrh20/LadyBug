@@ -24,10 +24,8 @@ export class DetailsComponent implements OnInit {
   }
   detailsData: any = {};
   getUser = (id: any) => {
-    this._CrudRequestsService
-      .get("generic_users/" + id)
-      .subscribe((data: any) => {
-        this.detailsData = data.data;
-      });
+    this._CrudRequestsService.get("users/" + id).subscribe((data: any) => {
+      this.detailsData = data.data;
+    });
   };
 }
