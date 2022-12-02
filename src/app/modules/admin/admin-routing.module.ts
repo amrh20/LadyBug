@@ -20,10 +20,9 @@ const routes: Routes = [
           import("./crops/crops.module").then((m) => m.CropsModule),
       },
       {
-        path:'farmer',
+        path: "farmer",
         loadChildren: () =>
           import("./farmer/farmer.module").then((m) => m.FarmerModule),
-        
       },
       {
         path: "Product",

@@ -1,62 +1,123 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { IndexWrapFarmerComponent } from './index-wrap-farmer/index-wrap-farmer.component';
+import { NgModule } from "@angular/core";
+import { RouterModule, Routes } from "@angular/router";
+import { IndexWrapFarmerComponent } from "./index-wrap-farmer/index-wrap-farmer.component";
 
 const routes: Routes = [
   {
-    path:'',
-    component:IndexWrapFarmerComponent,
-    children:[
+    path: "",
+    component: IndexWrapFarmerComponent,
+    children: [
       {
-        path:'TypeOfCultivar',
+        path: "TypeOfCultivar",
         loadChildren: () =>
-          import("./type-of-cultivar/type-of-cultivar.module").then((m) => m.TypeOfCultivarModule),
+          import("./type-of-cultivar/type-of-cultivar.module").then(
+            (m) => m.TypeOfCultivarModule
+          ),
       },
       {
-        path:'FarmingWays',
+        path: "plant-illuminating-sources",
         loadChildren: () =>
-          import("./farming-ways/farming-ways.module").then((m) => m.FarmingWaysModule),
+          import(
+            "./plant-illuminating-sources/plant-illuminating-sources.module"
+          ).then((m) => m.PlantIlluminatingSourcesModule),
       },
       {
-        path:'FarmingMethods',
+        path: "animal_fodder_sources",
         loadChildren: () =>
-          import("./farming-methods/farming-methods.module").then((m) => m.FarmingMethodsModule),
-        
+          import("./animal-fodder-sources/animal-fodder-sources.module").then(
+            (m) => m.AnimalFodderSourcesModule
+          ),
       },
       {
-        path:'IrrigationMethods',
+        path: "chemical-fertilizer-sources",
         loadChildren: () =>
-        import("./irrigation-methods/irrigation-methods.module").then((m) => m.IrrigationMethodsModule),
-      
+          import(
+            "./chemical-fertilizer-sources/chemical-fertilizer-sources.module"
+          ).then((m) => m.ChemicalFertilizerSourcesModule),
       },
       {
-        path:'AnimalBreedingPurposes',
+        path: "seedling_sources",
         loadChildren: () =>
-        import("./animals-purposes/animals-purposes.module").then((m) => m.AnimalsPurposesModule),
-      
-      },
-      //  
-      {
-        path:'SoilTypes',
-        loadChildren: () =>
-        import("./soil-types/soil-types.module").then((m) => m.SoilTypesModule),
+          import("./seedling-sources/seedling-sources.module").then(
+            (m) => m.SeedlingSourcesModule
+          ),
       },
       {
-        path:'FeedTypes',
+        path: "animal_medicine",
         loadChildren: () =>
-        import("./feed-types/feed-types.module").then((m) => m.FeedTypesModule),
+          import("./animal-medicine/animal-medicine.module").then(
+            (m) => m.AnimalMedicineModule
+          ),
       },
       {
-        path:'TypesSalts',
+        path: "plant_pot",
         loadChildren: () =>
-        import("./types-salts/types-salts.module").then((m) => m.TypesSaltsModule),
-      }
-    ]
-  }
+          import("./plant-pot/plant-pot.module").then((m) => m.PlantPotModule),
+      },
+      {
+        path: "acidity_types",
+        loadChildren: () =>
+          import("./acidity-types/acidity-types.module").then(
+            (m) => m.AcidityTypesModule
+          ),
+      },
+
+      {
+        path: "FarmingWays",
+        loadChildren: () =>
+          import("./farming-ways/farming-ways.module").then(
+            (m) => m.FarmingWaysModule
+          ),
+      },
+      {
+        path: "FarmingMethods",
+        loadChildren: () =>
+          import("./farming-methods/farming-methods.module").then(
+            (m) => m.FarmingMethodsModule
+          ),
+      },
+      {
+        path: "IrrigationMethods",
+        loadChildren: () =>
+          import("./irrigation-methods/irrigation-methods.module").then(
+            (m) => m.IrrigationMethodsModule
+          ),
+      },
+      {
+        path: "AnimalBreedingPurposes",
+        loadChildren: () =>
+          import("./animals-purposes/animals-purposes.module").then(
+            (m) => m.AnimalsPurposesModule
+          ),
+      },
+      //
+      {
+        path: "SoilTypes",
+        loadChildren: () =>
+          import("./soil-types/soil-types.module").then(
+            (m) => m.SoilTypesModule
+          ),
+      },
+      {
+        path: "FeedTypes",
+        loadChildren: () =>
+          import("./feed-types/feed-types.module").then(
+            (m) => m.FeedTypesModule
+          ),
+      },
+      {
+        path: "TypesSalts",
+        loadChildren: () =>
+          import("./types-salts/types-salts.module").then(
+            (m) => m.TypesSaltsModule
+          ),
+      },
+    ],
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class FarmerRoutingModule { }
+export class FarmerRoutingModule {}
