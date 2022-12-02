@@ -1,0 +1,131 @@
+<div class="general-users-wrapper br-16">
+    <div
+      class="page-title d-flex justify-content-between align-items-center w-100"
+    >
+      <h1 class="fs-24"> 
+        اساليب الزراعة    </h1>
+      <div class="">
+        <button
+          class="main-btn"
+          [routerLink]="['/admin/farmer/FarmingMethods/createFarmingMethods']"
+        >
+          اضافه  
+          اساليب الزراعة          
+        </button>
+      </div>
+    </div>
+    <!-- <form class="filter-container" [formGroup]="filterForm"> -->
+      <!-- <div class="row"> -->
+        <!-- <div class="col"> -->
+          <!-- <div class="search-input"> -->
+            <!-- <input -->
+              <!-- type="text" -->
+              <!-- class="search-ground" -->
+              <!-- placeholder="بحث بالعنوان" -->
+              <!-- formControlName="title" -->
+            <!-- /> -->
+          <!-- </div> -->
+        <!-- </div> -->
+        <!-- <div class="col"> -->
+          <!-- <button class="main-btn" (click)="search()">بحث</button> -->
+        <!-- </div> -->
+      <!-- </div> -->
+    <!-- </form> -->
+  <!--  -->
+    <div class="bg-white pb-5 br-16">
+      <app-table>
+        <ng-container header>
+          <tr>
+            <th>##</th>
+            <th> اسم نوع بالعربي</th>
+            <th> اسم نوع بالانجليزي</th>
+            <th>اجراءت</th>
+          </tr>
+        </ng-container>
+        <ng-container content *ngIf="DataTable?.length != 0">
+          <tr *ngFor="let variable of DataTable; let i = index">
+            <td>
+              <span class="num-td">
+                {{ variable?.id }}
+              </span>
+            </td>
+            <td>{{ variable.name.ar}}</td>
+            <td>{{ variable.name.en}}</td>
+         
+  
+  
+  
+            <td>
+              <button
+                class="menu--item"
+                mat-icon-button
+                [matMenuTriggerFor]="menu"
+                aria-label="Example
+                              icon-button with a
+                              menu"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="42"
+                  height="42"
+                  viewBox="0 0 42 42"
+                  fill="none"
+                >
+                  <g id="action">
+                    <rect
+                      id="Rectangle"
+                      width="42"
+                      height="42"
+                      rx="2"
+                      fill="#F2F2F2"
+                    />
+                    <g id="ellipsis-v-regular copy 2">
+                      <path
+                        id="Shape"
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M19 13.4C19 14.725 20.075
+                                                  15.8 21.4 15.8C22.725 15.8
+                                                  23.8 14.725 23.8 13.4C23.8
+                                                  12.075 22.725 11 21.4
+                                                  11C20.075 11 19 12.075 19
+                                                  13.4ZM21.4 18.6C22.725 18.6
+                                                  23.8 19.675 23.8 21C23.8 22.325
+                                                  22.725 23.4 21.4
+                                                  23.4C20.075 23.4 19 22.325 19
+                                                  21C19 19.675 20.075 18.6
+                                                  21.4 18.6ZM21.4 31C20.075 31 19
+                                                  29.925 19 28.6C19 27.275
+                                                  20.075 26.2 21.4 26.2C22.725
+                                                  26.2 23.8 27.275 23.8
+                                                  28.6C23.8 29.925 22.725 31 21.4
+                                                  31Z" fill="black"/>
+                                              </g>
+                                          </g>
+                                      </svg> </button>
+                                  <mat-menu #menu="matMenu">
+                                
+                                      <button mat-menu-item
+                                          [routerLink]="['/admin/farmer/FarmingMethods/editFarmingMethods',
+                                          variable.id]">
+                                          <span> <i class="fa-thin
+                                                  fa-pen-to-square"></i> تعديل
+                                          </span>
+                                      </button>
+                                      <button mat-menu-item
+                                          (click)="deleteItem(variable.id)">
+                                          <span><i class="fa-thin fa-trash"></i>
+                                              حذف </span>
+                                      </button>
+                                  </mat-menu>
+                              </td>
+                          </tr>
+                      </ng-container>
+  
+                  </app-table>
+                  
+                  <app-pagination [last]="last" [current]="current" (pageChange)="pageChange($event)"></app-pagination>
+              </div>
+  
+          </div>
+  

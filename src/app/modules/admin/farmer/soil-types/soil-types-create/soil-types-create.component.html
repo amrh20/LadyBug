@@ -4,7 +4,10 @@
         <div class="card-head">
             <h2 class="title">
 
-                {{!isEdit?'اضافه' : ' تعديل '}}          فصيلة نوع المزروع
+                {{!isEdit?'اضافه' : ' تعديل '}}                   
+                أنواع التربة                
+ 
+
  
             </h2>
         </div>
@@ -12,31 +15,6 @@
             <form [formGroup]="form">
                 <div class="row">
                
-                    <div class="col-6 mb-5">
-                        <div class="select-value">
-
-                            <div class="position-relative">
-                                <select name="" id="" class="select-ground" formControlName="farmed_type_id">
-                                    <option value="" selected> نوع المزارع	</option>
-                                    <option  *ngFor="let variable of farmed_typesData;let i=index" [value]="variable.id"> {{variable.name.ar}}</option>
-                                    
-                                </select>
-                            </div>
-                        </div>
-                        <div
-                            class="error-msg"
-                            *ngIf="form.controls['farmed_type_id'].touched ||
-                            isSubmit">
-                            <div
-                                *ngIf="form.controls['farmed_type_id'].hasError('required')">{{"must_required"
-                                | translate}}</div>
-
-
-
-
-                        </div>
-                    </div>
-
                 
                     <div class="col-6 mb-5">
                         <input
@@ -68,9 +46,8 @@
                                 | translate}}</div>
                         </div>
                     </div>
-               
 
-
+                    
                 </div>
                 <div class="actions mt-5">
                     <app-spinner *ngIf="loading"></app-spinner>
