@@ -3,11 +3,8 @@
   margin-top: 40px;
   display: flex;
   -webkit-user-select: none;
-  /* Chrome all / Safari all */
   -moz-user-select: none;
-  /* Firefox all */
   -ms-user-select: none;
-  /* IE 10+ */
   user-select: none;
   justify-content: space-between !important;
   align-items: center !important;
@@ -18,34 +15,22 @@
       display: inline-flex !important;
       justify-content: center !important;
       align-items: center !important;
-      width: 39px;
+      width: 34px;
       height: 44px;
-      max-width: 39px;
       max-height: 44px;
       vertical-align: middle !important;
-      flex: none;
-      order: 0;
-      flex-grow: 0;
-      padding: 10px 14px !important;
-
-      span {
-        position: relative;
-        top: 2px;
-      }
     }
 
     .dots-pagination {
       width: auto !important;
       height: 44px !important;
-
       align-items: flex-end !important;
       background-color: transparent !important;
     }
 
     li:last-of-type {
-      width: 50px !important;
+      width: 34px !important;
       height: 44px !important;
-      max-width: 50px !important;
       max-height: 44px !important;
     }
   }
