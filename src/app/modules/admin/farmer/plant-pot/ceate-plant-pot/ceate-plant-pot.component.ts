@@ -45,8 +45,7 @@ export class CeatePlantPotComponent implements OnInit {
       .get("home_plant_pot_sizes/" + id)
       .subscribe((data: any) => {
         this.form.patchValue({
-          size: data.data.name.ar,
-          name_en_localized: data.data.name.en,
+          size: data.data.size,
         });
       });
   };
