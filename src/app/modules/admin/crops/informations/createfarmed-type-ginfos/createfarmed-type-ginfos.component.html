@@ -130,7 +130,7 @@
 
                         </div>
                     </div>
-                    <div class="col-6 mb-5 upload">
+                        <div class="col-6 mb-5 upload">
                         <label for="apply"><input type="file" name="" id="apply" accept="image/png , image/jpeg"
                             (change)="changeFile($event)"
                             >
@@ -140,6 +140,19 @@
                             
                         
                         </label>
+                        <div
+                        class="error-msg"
+                        *ngIf="file == null &&
+                        isSubmit && !isEdit">
+                        <div
+                            *ngIf="file ==null">{{"must_required"
+                            | translate}}</div>
+
+
+
+
+                    </div>
+                        
                     </div>
 
 
