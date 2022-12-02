@@ -61,7 +61,8 @@
             </span>
           </td>
           <td>
-            <img src="{{ variable.assets[0] }}" class="img-assets" alt="" />
+
+            <img *ngIf="variable.assets[0]" src="{{ variable.assets[0] }}" class="img-assets" alt="" />
           </td>
           <td>{{ variable.farmed_type }}</td>
           <td>{{ variable.farmed_type_stage }}</td>
