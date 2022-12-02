@@ -84,9 +84,10 @@ export class CreatefarmedTypeGinfosComponent implements OnInit {
       data.append('assets[0]',this.file)
 
      }
-    if (this.form.valid) {
-      this.loading = true;
+    if (this.form.valid ) {
       if (this.isEdit) {
+      this.loading = true;
+
         this._crud.post(`farmed_type_ginfos/${this.idEdit}`, data).subscribe(
           (res: any) => {
             this.loading = false;
@@ -105,7 +106,9 @@ export class CreatefarmedTypeGinfosComponent implements OnInit {
           () => {}
         );
       } else {
-       
+       if( this.file != null){
+      this.loading = true;
+
         this._crud.post(`farmed_type_ginfos`, data).subscribe(
           (res: any) => {
             this.loading = false;
@@ -126,6 +129,8 @@ export class CreatefarmedTypeGinfosComponent implements OnInit {
           },
           () => {}
         );
+       }
+     
       }
     }
   };
