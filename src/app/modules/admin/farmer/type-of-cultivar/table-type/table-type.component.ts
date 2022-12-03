@@ -35,9 +35,10 @@ export class TableTypeComponent implements OnInit {
   search() {
     let content = this.filterForm.get("content")?.value;
     let title = this.filterForm.get("title")?.value;
+    this.current=1;
 
     this._CrudRequestsService
-      .get(`farmed_type_classes?title=${title}&content=${content}&page=${this.current}&perPage=10`)
+      .get(`farmed_type_classes?name=${title}&content=${content}&page=${this.current}&perPage=10`)
       .subscribe((data: any) => {
         this.DataTable = data.data.all;
         this.last = data.data.meta.pagesCount;
