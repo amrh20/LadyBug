@@ -87,7 +87,6 @@ export class PostDetailsComponent implements OnInit {
       }
     });
   }
-
   togglePopup() {
     this.expression = !this.expression;
   }
