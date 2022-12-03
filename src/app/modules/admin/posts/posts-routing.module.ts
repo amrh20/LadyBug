@@ -9,6 +9,7 @@ import { TypeBlockedCreateComponent } from "./views/type-blocked-create/type-blo
 import { TypeBlockedComponent } from "./views/type-blocked/type-blocked.component";
 import { PostBloackedDetailsComponent } from "./views/post-bloacked-details/post-bloacked-details.component";
 import { PostBlockedCreateComponent } from "./views/post-blocked-create/post-blocked-create.component";
+import { PostDetailsComponent } from "./views/post-details/post-details.component";
 
 const routes: Routes = [
   {
@@ -34,6 +35,10 @@ const routes: Routes = [
       {
         path: "post-blocked-details/:id",
         component: PostBloackedDetailsComponent,
+      },
+      {
+        path: "post-details/:id",
+        component: PostDetailsComponent,
       },
       {
         path: "edit-post-blocked/:id",

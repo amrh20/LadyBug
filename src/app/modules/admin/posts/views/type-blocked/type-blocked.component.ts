@@ -22,10 +22,12 @@ export class TypeBlockedComponent implements OnInit {
     this.getUsers();
   }
   getUsers = () => {
-    this._CrudRequestsService.get("report_types"+`?page=${this.current}&perPage=10`).subscribe((data: any) => {
-      this.DataTable = data.data.all;
-      this.last= data.data.meta.pagesCount;
-    });
+    this._CrudRequestsService
+      .get("report_types" + `?page=${this.current}&perPage=10`)
+      .subscribe((data: any) => {
+        this.DataTable = data.data.all;
+        this.last = data.data.meta.pagesCount;
+      });
   };
 
   search() {
@@ -35,7 +37,6 @@ export class TypeBlockedComponent implements OnInit {
       .subscribe((data: any) => {
         this.DataTable = data.data.all;
         this.last = data.data.meta.pagesCount;
-
       });
   }
 
@@ -46,7 +47,7 @@ export class TypeBlockedComponent implements OnInit {
       showCloseButton: true,
       showCancelButton: true,
       focusConfirm: false,
-      confirmButtonText: " تأكيد الحذف",
+      confirmButtonText: "تأكيد",
       confirmButtonAriaLabel: " تأكيد الحجر",
       cancelButtonText: "التراجع",
       cancelButtonAriaLabel: "التراجع",
@@ -64,11 +65,10 @@ export class TypeBlockedComponent implements OnInit {
       }
     });
   };
-  current:any=1;
-  last:any=0;
-  pageChange($e:any){
-    this.current=$e;
+  current: any = 1;
+  last: any = 0;
+  pageChange($e: any) {
+    this.current = $e;
     this.search();
-
   }
 }

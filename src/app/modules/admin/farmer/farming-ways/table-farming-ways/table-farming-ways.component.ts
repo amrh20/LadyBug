@@ -1,17 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import Swal from 'sweetalert2';
-import { FormGroup, FormControl } from '@angular/forms';
-import { CrudRequestsService } from '../../../../../core/services/crud-requests.service';
-import { SettingService } from '../../../../../core/services/setting.service';
+import { Component, OnInit } from "@angular/core";
+import Swal from "sweetalert2";
+import { FormGroup, FormControl } from "@angular/forms";
+import { CrudRequestsService } from "../../../../../core/services/crud-requests.service";
+import { SettingService } from "../../../../../core/services/setting.service";
 
 @Component({
-  selector: 'app-table-farming-ways',
-  templateUrl: './table-farming-ways.component.html',
-  styleUrls: ['./table-farming-ways.component.scss']
+  selector: "app-table-farming-ways",
+  templateUrl: "./table-farming-ways.component.html",
+  styleUrls: ["./table-farming-ways.component.scss"],
 })
 export class TableFarmingWaysComponent implements OnInit {
-
-
   DataTable: any = [];
   filterForm = new FormGroup({
     title: new FormControl(""),
@@ -34,7 +32,7 @@ export class TableFarmingWaysComponent implements OnInit {
 
   search() {
     let title = this.filterForm.get("title")?.value;
-    this.current=1;
+    this.current = 1;
     this._CrudRequestsService
       .get(`farming_ways?name=${title}&page=${this.current}&perPage=10`)
       .subscribe((data: any) => {
@@ -49,7 +47,7 @@ export class TableFarmingWaysComponent implements OnInit {
       showCloseButton: true,
       showCancelButton: true,
       focusConfirm: false,
-      confirmButtonText: " تأكيد الحذف",
+      confirmButtonText: "تأكيد",
       confirmButtonAriaLabel: " تأكيد الحجر",
       cancelButtonText: "التراجع",
       cancelButtonAriaLabel: "التراجع",
@@ -73,5 +71,4 @@ export class TableFarmingWaysComponent implements OnInit {
     this.current = $e;
     this.search();
   }
-
 }

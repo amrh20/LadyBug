@@ -1,13 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import Swal from 'sweetalert2';
-import { FormGroup, FormControl } from '@angular/forms';
-import { CrudRequestsService } from '../../../../../core/services/crud-requests.service';
-import { SettingService } from '../../../../../core/services/setting.service';
+import { Component, OnInit } from "@angular/core";
+import Swal from "sweetalert2";
+import { FormGroup, FormControl } from "@angular/forms";
+import { CrudRequestsService } from "../../../../../core/services/crud-requests.service";
+import { SettingService } from "../../../../../core/services/setting.service";
 
 @Component({
-  selector: 'app-animal-breeding-purposes-table',
-  templateUrl: './animal-breeding-purposes-table.component.html',
-  styleUrls: ['./animal-breeding-purposes-table.component.scss']
+  selector: "app-animal-breeding-purposes-table",
+  templateUrl: "./animal-breeding-purposes-table.component.html",
+  styleUrls: ["./animal-breeding-purposes-table.component.scss"],
 })
 export class AnimalBreedingPurposesTableComponent implements OnInit {
   DataTable: any = [];
@@ -32,9 +32,11 @@ export class AnimalBreedingPurposesTableComponent implements OnInit {
 
   search() {
     let title = this.filterForm.get("title")?.value;
-    this.current=1;
+    this.current = 1;
     this._CrudRequestsService
-      .get(`animal_breeding_purposes?name=${title}&page=${this.current}&perPage=10`)
+      .get(
+        `animal_breeding_purposes?name=${title}&page=${this.current}&perPage=10`
+      )
       .subscribe((data: any) => {
         this.DataTable = data.data.all;
         this.last = data.data.meta.pagesCount;
@@ -47,21 +49,23 @@ export class AnimalBreedingPurposesTableComponent implements OnInit {
       showCloseButton: true,
       showCancelButton: true,
       focusConfirm: false,
-      confirmButtonText: " تأكيد الحذف",
+      confirmButtonText: "تأكيد",
       confirmButtonAriaLabel: " تأكيد الحجر",
       cancelButtonText: "التراجع",
       cancelButtonAriaLabel: "التراجع",
     }).then((val: any) => {
       if (val.isConfirmed) {
-        this._CrudRequestsService.delete("animal_breeding_purposes/" + id).subscribe(
-          (res: any) => {
-            this._SettingService.successHot(res.message);
-            this.getUsers();
-          },
-          (err) => {
-            this._SettingService.errorHot(err.message);
-          }
-        );
+        this._CrudRequestsService
+          .delete("animal_breeding_purposes/" + id)
+          .subscribe(
+            (res: any) => {
+              this._SettingService.successHot(res.message);
+              this.getUsers();
+            },
+            (err) => {
+              this._SettingService.errorHot(err.message);
+            }
+          );
       }
     });
   };

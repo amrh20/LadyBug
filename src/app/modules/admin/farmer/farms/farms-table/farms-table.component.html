@@ -1,63 +1,57 @@
 <div class="general-users-wrapper br-10">
-    <div
-      class="page-title d-flex justify-content-between align-items-center w-100"
-    >
-      <h1 class="fs-24"> 
-        المزارع
-    </h1>
-     
-    </div>
-    <form class="filter-container" [formGroup]="filterForm">
-      <div class="row">
-        <div class="col">
-          <div class="search-input">
-            <input
-              type="text"
-              class="search-ground"
-              placeholder="بحث بالعنوان"
-              formControlName="title"
-            />
-          </div>
-        </div>
-        <div class="col">
-          <button class="main-btn" (click)="search()">بحث</button>
+  <div
+    class="page-title d-flex justify-content-between align-items-center w-100"
+  >
+    <h1 class="fs-24">المزارع</h1>
+  </div>
+  <form class="filter-container" [formGroup]="filterForm">
+    <div class="row">
+      <div class="col">
+        <div class="search-input">
+          <input
+            type="text"
+            class="search-ground"
+            placeholder="بحث"
+            formControlName="title"
+          />
         </div>
       </div>
-    </form>
+      <div class="col">
+        <button class="main-btn" (click)="search()">بحث</button>
+      </div>
+    </div>
+  </form>
   <!--  -->
-    <div class="bg-white pb-5 br-10">
-      <app-table>
-        <ng-container header>
-          <tr>
-            <th>##</th>
-            <th> اسم  </th>
-            <th>   الكود</th>
-            <th>نوع المزروع</th>
-            <th>فئة النوع 
-                المزروع</th>
-          </tr>
-        </ng-container>
-        <ng-container content *ngIf="DataTable?.length != 0">
-          <tr *ngFor="let variable of DataTable; let i = index">
-            <td>
-              <span class="num-td">
-                {{ variable?.id }}
-              </span>
-            </td>
-            <td>{{ variable.admin}}</td>
-            <td>{{ variable.code}}</td>
-            <td>{{ variable.farmed_type}}</td>
-            <td>{{ variable.farmed_type_class}}</td>
-         
-  
-  
-  
-                      </ng-container>
-  
-                  </app-table>
-                  
-                  <app-pagination [last]="last" [current]="current" (pageChange)="pageChange($event)"></app-pagination>
-              </div>
-  
-          </div>
-  
+  <div class="bg-white pb-5 br-10">
+    <app-table>
+      <ng-container header>
+        <tr>
+          <th>##</th>
+          <th>اسم</th>
+          <th>الكود</th>
+          <th>نوع المزروع</th>
+          <th>فئة النوع المزروع</th>
+        </tr>
+      </ng-container>
+      <ng-container content *ngIf="DataTable?.length != 0">
+        <tr *ngFor="let variable of DataTable; let i = index">
+          <td>
+            <span class="num-td">
+              {{ variable?.id }}
+            </span>
+          </td>
+          <td>{{ variable.admin }}</td>
+          <td>{{ variable.code }}</td>
+          <td>{{ variable.farmed_type }}</td>
+          <td>{{ variable.farmed_type_class }}</td>
+        </tr></ng-container
+      >
+    </app-table>
+
+    <app-pagination
+      [last]="last"
+      [current]="current"
+      (pageChange)="pageChange($event)"
+    ></app-pagination>
+  </div>
+</div>

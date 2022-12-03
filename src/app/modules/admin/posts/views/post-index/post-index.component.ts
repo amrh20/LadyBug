@@ -24,10 +24,12 @@ export class PostIndexComponent implements OnInit {
     this.getPosts();
   }
   getPosts = () => {
-    this._CrudRequestsService.get("posts" +`?page=${this.current}&perPage=10`).subscribe((data: any) => {
-      this.DataTable = data.data.all;
-      this.last= data.data.meta.pagesCount;      
-    });
+    this._CrudRequestsService
+      .get("posts" + `?page=${this.current}&perPage=10`)
+      .subscribe((data: any) => {
+        this.DataTable = data.data.all;
+        this.last = data.data.meta.pagesCount;
+      });
   };
 
   search() {
@@ -36,7 +38,7 @@ export class PostIndexComponent implements OnInit {
       .get(`posts?content=${content}&page=${this.current}&perPage=10`)
       .subscribe((data: any) => {
         this.DataTable = data.data.all;
-        this.last= data.data.meta.pagesCount;      
+        this.last = data.data.meta.pagesCount;
       });
   }
 
@@ -47,7 +49,7 @@ export class PostIndexComponent implements OnInit {
       showCloseButton: true,
       showCancelButton: true,
       focusConfirm: false,
-      confirmButtonText: " تأكيد الحذف",
+      confirmButtonText: "تأكيد",
       confirmButtonAriaLabel: " تأكيد الحجر",
       cancelButtonText: "التراجع",
       cancelButtonAriaLabel: "التراجع",
