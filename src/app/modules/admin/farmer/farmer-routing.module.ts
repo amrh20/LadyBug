@@ -15,6 +15,21 @@ const routes: Routes = [
           ),
       },
       {
+        path: "farms",
+        loadChildren: () =>
+          import("./farms/farms.module").then(
+            (m) => m.FarmsModule
+          ),
+      },
+      {
+        path: "farmedTypes",
+        loadChildren: () =>
+          import("./farmes-type/farmes-type.module").then(
+            (m) => m.FarmesTypeModule
+          ),
+      },
+      //
+      {
         path: "plant-illuminating-sources",
         loadChildren: () =>
           import(
