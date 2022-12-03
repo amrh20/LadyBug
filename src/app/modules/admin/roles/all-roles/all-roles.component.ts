@@ -22,10 +22,12 @@ export class AllRolesComponent implements OnInit {
   }
   DataTable: any = [];
   getUsers = (name: any = "") => {
-    this._CrudRequestsService.get("roles"+`?page=${this.current}&perPage=10`).subscribe((data: any) => {
-      this.DataTable = data.data.all;
-      this.last= data.data.meta.pagesCount;
-    });
+    this._CrudRequestsService
+      .get("roles" + `?page=${this.current}&perPage=10`)
+      .subscribe((data: any) => {
+        this.DataTable = data.data.all;
+        this.last = data.data.meta.pagesCount;
+      });
   };
   search() {
     let name = this.filterForm.get("name")?.value;
@@ -33,8 +35,7 @@ export class AllRolesComponent implements OnInit {
       .get(`roles?name=${name}&page=${this.current}&perPage=10`)
       .subscribe((data: any) => {
         this.DataTable = data.data.all;
-        this.last= data.data.meta.pagesCount;
-
+        this.last = data.data.meta.pagesCount;
       });
   }
   deleteItem = (id: any) => {
@@ -44,7 +45,7 @@ export class AllRolesComponent implements OnInit {
       showCloseButton: true,
       showCancelButton: true,
       focusConfirm: false,
-      confirmButtonText: " تأكيد الحذف",
+      confirmButtonText: "تأكيد",
       confirmButtonAriaLabel: " تأكيد الحجر",
       cancelButtonText: "التراجع",
       cancelButtonAriaLabel: "التراجع",
@@ -62,11 +63,10 @@ export class AllRolesComponent implements OnInit {
       }
     });
   };
-  current:any=1;
-  last:any=0;
-  pageChange($e:any){
-    this.current=$e;
+  current: any = 1;
+  last: any = 0;
+  pageChange($e: any) {
+    this.current = $e;
     this.search();
-
   }
 }

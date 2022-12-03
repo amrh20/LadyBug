@@ -38,8 +38,7 @@ export class TableZoneComponent implements OnInit {
       .get(`districts?name=${name}&page=${this.current}&perPage=10`)
       .subscribe((data: any) => {
         this.DataTable = data.data.all;
-        this.last= data.data.meta.pagesCount;
-
+        this.last = data.data.meta.pagesCount;
       });
   }
   deleteItem = (id: any) => {
@@ -49,7 +48,7 @@ export class TableZoneComponent implements OnInit {
       showCloseButton: true,
       showCancelButton: true,
       focusConfirm: false,
-      confirmButtonText: " تأكيد الحذف",
+      confirmButtonText: "تأكيد",
       confirmButtonAriaLabel: " تأكيد الحجر",
       cancelButtonText: "التراجع",
       cancelButtonAriaLabel: "التراجع",

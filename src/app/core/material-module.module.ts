@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
 // Material Form Controls
 /*
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
@@ -13,15 +13,15 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSliderModule } from '@angular/material/slider';
 */
 // Material Navigation
-import { MatSlideToggleModule } from '@angular/material/slide-toggle'; 
+import { MatSlideToggleModule } from "@angular/material/slide-toggle";
 
-import { MatMenuModule } from '@angular/material/menu';
+import { MatMenuModule } from "@angular/material/menu";
 // import { MatSidenavModule } from '@angular/material/sidenav';
 // import { MatToolbarModule } from '@angular/material/toolbar';
 // Material Layout
 // import { MatCardModule } from '@angular/material/card';
 // import { MatDividerModule } from '@angular/material/divider';
-// import { MatExpansionModule } from '@angular/material/expansion';
+import { MatExpansionModule } from "@angular/material/expansion";
 // import { MatGridListModule } from '@angular/material/grid-list';
 // import { MatListModule } from '@angular/material/list';
 // import { MatStepperModule } from '@angular/material/stepper';
@@ -50,7 +50,7 @@ import { MatMenuModule } from '@angular/material/menu';
   declarations: [],
   imports: [
     CommonModule,
-  /*  MatAutocompleteModule,
+    /*  MatAutocompleteModule,
     MatCheckboxModule,
     MatDatepickerModule,
     MatFormFieldModule,
@@ -60,7 +60,46 @@ import { MatMenuModule } from '@angular/material/menu';
     MatSliderModule,*/
     MatSlideToggleModule,
     MatMenuModule,
- /*    MatSidenavModule,
+    MatExpansionModule,
+    /*    MatSidenavModule,
+    MatToolbarModule,
+    MatCardModule,
+    MatDividerModule,
+
+    MatGridListModule,
+    MatListModule,
+    MatStepperModule,
+    MatTabsModule,
+    MatTreeModule,
+    MatButtonModule,
+    MatButtonToggleModule,
+    MatBadgeModule,
+    MatChipsModule,
+    MatIconModule,
+    MatProgressSpinnerModule,
+    MatProgressBarModule,
+    MatRippleModule,
+    MatBottomSheetModule,
+    MatDialogModule,
+    MatSnackBarModule,
+    MatTooltipModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatTableModule */
+  ],
+  exports: [
+    /*  MatAutocompleteModule,
+    MatCheckboxModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatRadioModule,
+    MatSelectModule,
+    MatSliderModule,*/
+    MatSlideToggleModule,
+    MatMenuModule,
+
+    /*    MatSidenavModule,
     MatToolbarModule,
     MatCardModule,
     MatDividerModule,
@@ -86,43 +125,5 @@ import { MatMenuModule } from '@angular/material/menu';
     MatSortModule,
     MatTableModule */
   ],
-  exports: [
-  /*  MatAutocompleteModule,
-    MatCheckboxModule,
-    MatDatepickerModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatRadioModule,
-    MatSelectModule,
-    MatSliderModule,*/
-    MatSlideToggleModule,
-    MatMenuModule,
-    
- /*    MatSidenavModule,
-    MatToolbarModule,
-    MatCardModule,
-    MatDividerModule,
-    MatExpansionModule,
-    MatGridListModule,
-    MatListModule,
-    MatStepperModule,
-    MatTabsModule,
-    MatTreeModule,
-    MatButtonModule,
-    MatButtonToggleModule,
-    MatBadgeModule,
-    MatChipsModule,
-    MatIconModule,
-    MatProgressSpinnerModule,
-    MatProgressBarModule,
-    MatRippleModule,
-    MatBottomSheetModule,
-    MatDialogModule,
-    MatSnackBarModule,
-    MatTooltipModule,
-    MatPaginatorModule,
-    MatSortModule,
-    MatTableModule */
-  ]
 })
-export class MaterialModule { }
+export class MaterialModule {}

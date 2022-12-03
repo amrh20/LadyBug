@@ -22,19 +22,21 @@ export class AllPermissionComponent implements OnInit {
   }
   DataTable: any = [];
   getUsers = () => {
-    this._CrudRequestsService.get("permissions"+`?page=${this.current}&perPage=10`).subscribe((data: any) => {
-      this.DataTable = data.data.all;
-      this.last= data.data.meta.pagesCount;
-    });
+    this._CrudRequestsService
+      .get("permissions" + `?page=${this.current}&perPage=10`)
+      .subscribe((data: any) => {
+        this.DataTable = data.data.all;
+        this.last = data.data.meta.pagesCount;
+      });
   };
   search() {
     let name = this.filterForm.get("name")?.value;
     console.log(name);
     this._CrudRequestsService
-      .get(`permissions?name=${name}`+`&page=${this.current}&perPage=10`)
+      .get(`permissions?name=${name}` + `&page=${this.current}&perPage=10`)
       .subscribe((data: any) => {
         this.DataTable = data.data.all;
-        this.last= data.data.meta.pagesCount;
+        this.last = data.data.meta.pagesCount;
       });
   }
   deleteItem = (id: any) => {
@@ -44,7 +46,7 @@ export class AllPermissionComponent implements OnInit {
       showCloseButton: true,
       showCancelButton: true,
       focusConfirm: false,
-      confirmButtonText: " تأكيد الحذف",
+      confirmButtonText: "تأكيد",
       confirmButtonAriaLabel: " تأكيد الحجر",
       cancelButtonText: "التراجع",
       cancelButtonAriaLabel: "التراجع",
@@ -62,10 +64,10 @@ export class AllPermissionComponent implements OnInit {
       }
     });
   };
-  current:any=1;
-  last:any=0;
-  pageChange($e:any){
-    this.current=$e;
-    this.search()
+  current: any = 1;
+  last: any = 0;
+  pageChange($e: any) {
+    this.current = $e;
+    this.search();
   }
 }

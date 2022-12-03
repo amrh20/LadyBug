@@ -22,10 +22,12 @@ export class PostBlockedComponent implements OnInit {
     this.getUsers();
   }
   getUsers = () => {
-    this._CrudRequestsService.get("reports"+`?page=${this.current}&perPage=10`).subscribe((data: any) => {
-      this.DataTable = data.data.all;
-      this.last= data.data.meta.pagesCount;
-    });
+    this._CrudRequestsService
+      .get("reports" + `?page=${this.current}&perPage=10`)
+      .subscribe((data: any) => {
+        this.DataTable = data.data.all;
+        this.last = data.data.meta.pagesCount;
+      });
   };
 
   search() {
@@ -34,7 +36,7 @@ export class PostBlockedComponent implements OnInit {
       .get(`reports?content=${content}&page=${this.current}&perPage=10`)
       .subscribe((data: any) => {
         this.DataTable = data.data.all;
-        this.last= data.data.meta.pagesCount;      
+        this.last = data.data.meta.pagesCount;
       });
   }
 
@@ -45,7 +47,7 @@ export class PostBlockedComponent implements OnInit {
       showCloseButton: true,
       showCancelButton: true,
       focusConfirm: false,
-      confirmButtonText: " تأكيد الحذف",
+      confirmButtonText: "تأكيد",
       confirmButtonAriaLabel: " تأكيد الحجر",
       cancelButtonText: "التراجع",
       cancelButtonAriaLabel: "التراجع",
@@ -63,10 +65,10 @@ export class PostBlockedComponent implements OnInit {
       }
     });
   };
-  current:any=1;
-  last:any=0;
-  pageChange($e:any){
-    this.current=$e;
-    this.search()
+  current: any = 1;
+  last: any = 0;
+  pageChange($e: any) {
+    this.current = $e;
+    this.search();
   }
 }

@@ -1,17 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import Swal from 'sweetalert2';
-import { CrudRequestsService } from 'src/app/core/services/crud-requests.service';
-import { SettingService } from '../../../../../core/services/setting.service';
-import { FormGroup, FormControl } from '@angular/forms';
+import { Component, OnInit } from "@angular/core";
+import Swal from "sweetalert2";
+import { CrudRequestsService } from "src/app/core/services/crud-requests.service";
+import { SettingService } from "../../../../../core/services/setting.service";
+import { FormGroup, FormControl } from "@angular/forms";
 
 @Component({
-  selector: 'app-types-salts-table',
-  templateUrl: './types-salts-table.component.html',
-  styleUrls: ['./types-salts-table.component.scss']
+  selector: "app-types-salts-table",
+  templateUrl: "./types-salts-table.component.html",
+  styleUrls: ["./types-salts-table.component.scss"],
 })
 export class TypesSaltsTableComponent implements OnInit {
-
-
   DataTable: any = [];
   filterForm = new FormGroup({
     title: new FormControl(""),
@@ -34,7 +32,7 @@ export class TypesSaltsTableComponent implements OnInit {
 
   search() {
     let title = this.filterForm.get("title")?.value;
-    this.current=1;
+    this.current = 1;
 
     this._CrudRequestsService
       .get(`salt_types?name=${title}&page=${this.current}&perPage=10`)
@@ -50,7 +48,7 @@ export class TypesSaltsTableComponent implements OnInit {
       showCloseButton: true,
       showCancelButton: true,
       focusConfirm: false,
-      confirmButtonText: " تأكيد الحذف",
+      confirmButtonText: "تأكيد",
       confirmButtonAriaLabel: " تأكيد الحجر",
       cancelButtonText: "التراجع",
       cancelButtonAriaLabel: "التراجع",
@@ -74,6 +72,4 @@ export class TypesSaltsTableComponent implements OnInit {
     this.current = $e;
     this.search();
   }
-
-
 }
