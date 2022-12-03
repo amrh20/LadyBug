@@ -16,3 +16,38 @@
         padding: 10px;
     }
 }
+.report-popup {
+    position: fixed;
+    z-index: 22222;
+    top: 50%;
+    left: 50%;
+    background: #fff;
+    padding: 30px;
+    transform: translate(-50%, -50%);
+    width: 30%;
+    height: 320px;
+    overflow: hidden;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+    display: none;
+}
+.report-overlay {
+    position: absolute;
+    width: 100%;
+    height: 300vh;
+    background-color: rgba($color: #000000, $alpha: 0.3);
+    z-index: 2222;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+    overflow: hidden;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+    display: none;
+}
+
+.show-popup {
+    overflow: visible;
+    opacity: 1;
+    display: block;
+}

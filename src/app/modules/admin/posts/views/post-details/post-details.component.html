@@ -7,8 +7,8 @@
     <div class="card-content">
       <div class="d-flex align-items-center justify-content-between">
         <div>
-          <h1 class="mb-3">الناشر : {{ detailsData.author.name }}</h1>
-          <span> الوظيفه : {{ detailsData.author.job_name }} </span>
+          <h1 class="mb-3">الناشر : {{ detailsData?.author?.name }}</h1>
+          <span> الوظيفه : {{ detailsData.author?.job_name }} </span>
         </div>
         <div>
           <button
@@ -65,7 +65,7 @@
             <a mat-menu-item (click)="block()">
               <span> <i class="fa-light fa-ban"></i> حظر </span>
             </a>
-            <button mat-menu-item>
+            <button mat-menu-item (click)="togglePopup()">
               <span><i class="fa-regular fa-circle-info"></i> ابلاغ </span>
             </button>
           </mat-menu>
@@ -76,7 +76,7 @@
         {{ detailsData.content }}
       </p>
 
-      <div class="mb-4" *ngIf="detailsData.video_assets.length != 0">
+      <div class="mb-4" *ngIf="detailsData?.video_assets?.length != 0">
         <video
           width="100%"
           height="300"
@@ -94,17 +94,17 @@
               >
                 <h2>التعليقات</h2>
                 <div>
-                  {{ detailsData.comments.length }}
+                  {{ detailsData.comments?.length }}
                   <i class="fa-regular fa-comment"></i>
                 </div>
               </div>
             </mat-panel-title>
           </mat-expansion-panel-header>
 
-          <div *ngFor="let item of detailsData.comments">
+          <div *ngFor="let item of detailsData?.comments">
             <div class="d-flex align-items-center mb-5">
               <div class="img">
-                <img [src]="item.commenter.photo_url" alt="" />
+                <img [src]="item.commenter?.photo_url" alt="" />
               </div>
               <div class="img" *ngIf="item.commenter.photo_url == null">
                 <img src="https://via.placeholder.com/150" alt="" />
@@ -129,7 +129,7 @@
               </div>
             </div>
           </div>
-          <div *ngIf="detailsData.comments.length == 0">
+          <div *ngIf="detailsData.comments?.length == 0">
             <p>لا يوجد تعليقات</p>
           </div>
         </mat-expansion-panel>
@@ -173,4 +173,34 @@
       </mat-accordion>
     </div>
   </div>
+</div>
+
+<div
+  class="report-overlay"
+  [ngClass]="{ 'show-popup': expression }"
+  (click)="togglePopup()"
+></div>
+
+<div class="report-popup" [ngClass]="{ 'show-popup': expression }">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="mb-0">ابلاغ</h2>
+    <i class="fa fa-close" (click)="togglePopup()"></i>
+  </div>
+
+  <form [formGroup]="reportForm">
+    <div class="mb-5">
+      <select class="select-ground" formControlName="report_type_id">
+        <option value="">نوع الابلاغ</option>
+        <option [value]="item.id" *ngFor="let item of reportTypes">
+          {{ item.name.ar }}
+        </option>
+      </select>
+    </div>
+    <div class="mb-5">
+      <input type="text" placeholder="الوصف" formControlName="description" />
+    </div>
+    <div class="actions d-flex justify-content-center w-100">
+      <button class="main-btn" (click)="report()">حفظ</button>
+    </div>
+  </form>
 </div>
