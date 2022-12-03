@@ -34,9 +34,9 @@ export class FarmingMethodsTableComponent implements OnInit {
 
   search() {
     let title = this.filterForm.get("title")?.value;
-
+    this.current=1;
     this._CrudRequestsService
-      .get(`farming_methods?type=${title}&page=${this.current}&perPage=10`)
+      .get(`farming_methods?name=${title}&page=${this.current}&perPage=10`)
       .subscribe((data: any) => {
         this.DataTable = data.data.all;
         this.last = data.data.meta.pagesCount;

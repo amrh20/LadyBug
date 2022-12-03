@@ -34,9 +34,10 @@ export class TypesSaltsTableComponent implements OnInit {
 
   search() {
     let title = this.filterForm.get("title")?.value;
+    this.current=1;
 
     this._CrudRequestsService
-      .get(`salt_types?type=${title}&page=${this.current}&perPage=10`)
+      .get(`salt_types?name=${title}&page=${this.current}&perPage=10`)
       .subscribe((data: any) => {
         this.DataTable = data.data.all;
         this.last = data.data.meta.pagesCount;
