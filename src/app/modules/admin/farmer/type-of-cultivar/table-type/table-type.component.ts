@@ -34,7 +34,6 @@ export class TableTypeComponent implements OnInit {
   search() {
     let content = this.filterForm.get("content")?.value;
     let title = this.filterForm.get("title")?.value;
-    this.current = 1;
 
     this._CrudRequestsService
       .get(

@@ -32,7 +32,6 @@ export class FeedTypessTableComponent implements OnInit {
 
   search() {
     let title = this.filterForm.get("title")?.value;
-    this.current = 1;
 
     this._CrudRequestsService
       .get(`animal_fodder_types?name=${title}&page=${this.current}&perPage=10`)
