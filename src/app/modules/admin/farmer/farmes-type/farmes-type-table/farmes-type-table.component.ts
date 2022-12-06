@@ -1,18 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
-import { CrudRequestsService } from '../../../../../core/services/crud-requests.service';
-import { SettingService } from '../../../../../core/services/setting.service';
-import Swal from 'sweetalert2';
+import { Component, OnInit } from "@angular/core";
+import { FormGroup, FormControl } from "@angular/forms";
+import { CrudRequestsService } from "../../../../../core/services/crud-requests.service";
+import { SettingService } from "../../../../../core/services/setting.service";
+import Swal from "sweetalert2";
 
 @Component({
-  selector: 'app-farmes-type-table',
-  templateUrl: './farmes-type-table.component.html',
-  styleUrls: ['./farmes-type-table.component.scss']
+  selector: "app-farmes-type-table",
+  templateUrl: "./farmes-type-table.component.html",
+  styleUrls: ["./farmes-type-table.component.scss"],
 })
 export class FarmesTypeTableComponent implements OnInit {
-
-
-
   DataTable: any = [];
   filterForm = new FormGroup({
     title: new FormControl(""),
@@ -49,7 +46,7 @@ export class FarmesTypeTableComponent implements OnInit {
       showCloseButton: true,
       showCancelButton: true,
       focusConfirm: false,
-      confirmButtonText: " تأكيد الحذف",
+      confirmButtonText: "تأكيد",
       confirmButtonAriaLabel: " تأكيد الحجر",
       cancelButtonText: "التراجع",
       cancelButtonAriaLabel: "التراجع",
@@ -73,5 +70,4 @@ export class FarmesTypeTableComponent implements OnInit {
     this.current = $e;
     this.search();
   }
-
 }

@@ -1,16 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import Swal from 'sweetalert2';
-import { CrudRequestsService } from '../../../../../core/services/crud-requests.service';
-import { SettingService } from '../../../../../core/services/setting.service';
-import { FormGroup, FormControl } from '@angular/forms';
+import { Component, OnInit } from "@angular/core";
+import Swal from "sweetalert2";
+import { CrudRequestsService } from "../../../../../core/services/crud-requests.service";
+import { SettingService } from "../../../../../core/services/setting.service";
+import { FormGroup, FormControl } from "@angular/forms";
 
 @Component({
-  selector: 'app-table-type',
-  templateUrl: './table-type.component.html',
-  styleUrls: ['./table-type.component.scss']
+  selector: "app-table-type",
+  templateUrl: "./table-type.component.html",
+  styleUrls: ["./table-type.component.scss"],
 })
 export class TableTypeComponent implements OnInit {
-
   DataTable: any = [];
   filterForm = new FormGroup({
     title: new FormControl(""),
@@ -37,7 +36,9 @@ export class TableTypeComponent implements OnInit {
     let title = this.filterForm.get("title")?.value;
 
     this._CrudRequestsService
-      .get(`farmed_type_classes?name=${title}&content=${content}&page=${this.current}&perPage=10`)
+      .get(
+        `farmed_type_classes?name=${title}&content=${content}&page=${this.current}&perPage=10`
+      )
       .subscribe((data: any) => {
         this.DataTable = data.data.all;
         this.last = data.data.meta.pagesCount;
@@ -50,7 +51,7 @@ export class TableTypeComponent implements OnInit {
       showCloseButton: true,
       showCancelButton: true,
       focusConfirm: false,
-      confirmButtonText: " تأكيد الحذف",
+      confirmButtonText: "تأكيد",
       confirmButtonAriaLabel: " تأكيد الحجر",
       cancelButtonText: "التراجع",
       cancelButtonAriaLabel: "التراجع",

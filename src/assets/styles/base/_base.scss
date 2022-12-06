@@ -39,7 +39,7 @@ html {
     padding: 30px 20px;
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
-    
+
     h1 {
         margin: 0;
         font-family: "Cairo-Medium";
@@ -63,4 +63,16 @@ html {
         width: 100%;
         background-color: #fff;
     }
+}
+
+.mat-expansion-panel-header {
+    height: 75px;
+}
+.mat-accordion .mat-expansion-panel {
+    margin-bottom: 15px;
+    box-shadow: 0 14px 24px #6c6c6c1a;
+}
+
+.swal2-container.swal2-center > .swal2-popup {
+    height: 200px !important;
 }

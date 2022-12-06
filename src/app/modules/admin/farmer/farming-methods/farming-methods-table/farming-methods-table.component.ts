@@ -1,17 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
-import { CrudRequestsService } from '../../../../../core/services/crud-requests.service';
-import { SettingService } from '../../../../../core/services/setting.service';
-import Swal from 'sweetalert2';
+import { Component, OnInit } from "@angular/core";
+import { FormGroup, FormControl } from "@angular/forms";
+import { CrudRequestsService } from "../../../../../core/services/crud-requests.service";
+import { SettingService } from "../../../../../core/services/setting.service";
+import Swal from "sweetalert2";
 
 @Component({
-  selector: 'app-farming-methods-table',
-  templateUrl: './farming-methods-table.component.html',
-  styleUrls: ['./farming-methods-table.component.scss']
+  selector: "app-farming-methods-table",
+  templateUrl: "./farming-methods-table.component.html",
+  styleUrls: ["./farming-methods-table.component.scss"],
 })
 export class FarmingMethodsTableComponent implements OnInit {
-
- 
   DataTable: any = [];
   filterForm = new FormGroup({
     title: new FormControl(""),
@@ -48,7 +46,7 @@ export class FarmingMethodsTableComponent implements OnInit {
       showCloseButton: true,
       showCancelButton: true,
       focusConfirm: false,
-      confirmButtonText: " تأكيد الحذف",
+      confirmButtonText: "تأكيد",
       confirmButtonAriaLabel: " تأكيد الحجر",
       cancelButtonText: "التراجع",
       cancelButtonAriaLabel: "التراجع",
@@ -72,5 +70,4 @@ export class FarmingMethodsTableComponent implements OnInit {
     this.current = $e;
     this.search();
   }
-
 }

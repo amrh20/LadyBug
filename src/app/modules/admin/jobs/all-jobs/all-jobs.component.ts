@@ -22,10 +22,12 @@ export class AllJobsComponent implements OnInit {
   }
   DataTable: any = [];
   getUsers = () => {
-    this._CrudRequestsService.get("human_jobs"+`?page=${this.current}&perPage=10`).subscribe((data: any) => {
-      this.DataTable = data.data.all;
-      this.last= data.data.meta.pagesCount;
-    });
+    this._CrudRequestsService
+      .get("human_jobs" + `?page=${this.current}&perPage=10`)
+      .subscribe((data: any) => {
+        this.DataTable = data.data.all;
+        this.last = data.data.meta.pagesCount;
+      });
   };
 
   search() {
@@ -34,8 +36,7 @@ export class AllJobsComponent implements OnInit {
       .get(`human_jobs?name=${name}&page=${this.current}&perPage=10`)
       .subscribe((data: any) => {
         this.DataTable = data.data.all;
-        this.last= data.data.meta.pagesCount;
-
+        this.last = data.data.meta.pagesCount;
       });
   }
   deleteItem = (id: any) => {
@@ -45,7 +46,7 @@ export class AllJobsComponent implements OnInit {
       showCloseButton: true,
       showCancelButton: true,
       focusConfirm: false,
-      confirmButtonText: " تأكيد الحذف",
+      confirmButtonText: "تأكيد",
       confirmButtonAriaLabel: " تأكيد الحجر",
       cancelButtonText: "التراجع",
       cancelButtonAriaLabel: "التراجع",
@@ -63,10 +64,10 @@ export class AllJobsComponent implements OnInit {
       }
     });
   };
-  current:any=1;
-  last:any=0;
-  pageChange($e:any){
-    this.current=$e;
-    this.search()
+  current: any = 1;
+  last: any = 0;
+  pageChange($e: any) {
+    this.current = $e;
+    this.search();
   }
 }

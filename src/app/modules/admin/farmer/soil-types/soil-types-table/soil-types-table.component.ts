@@ -1,13 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import Swal from 'sweetalert2';
-import { CrudRequestsService } from 'src/app/core/services/crud-requests.service';
-import { SettingService } from '../../../../../core/services/setting.service';
-import { FormGroup, FormControl } from '@angular/forms';
+import { Component, OnInit } from "@angular/core";
+import Swal from "sweetalert2";
+import { CrudRequestsService } from "src/app/core/services/crud-requests.service";
+import { SettingService } from "../../../../../core/services/setting.service";
+import { FormGroup, FormControl } from "@angular/forms";
 
 @Component({
-  selector: 'app-soil-types-table',
-  templateUrl: './soil-types-table.component.html',
-  styleUrls: ['./soil-types-table.component.scss']
+  selector: "app-soil-types-table",
+  templateUrl: "./soil-types-table.component.html",
+  styleUrls: ["./soil-types-table.component.scss"],
 })
 export class SoilTypesTableComponent implements OnInit {
   DataTable: any = [];
@@ -47,7 +47,7 @@ export class SoilTypesTableComponent implements OnInit {
       showCloseButton: true,
       showCancelButton: true,
       focusConfirm: false,
-      confirmButtonText: " تأكيد الحذف",
+      confirmButtonText: "تأكيد",
       confirmButtonAriaLabel: " تأكيد الحجر",
       cancelButtonText: "التراجع",
       cancelButtonAriaLabel: "التراجع",
@@ -71,6 +71,4 @@ export class SoilTypesTableComponent implements OnInit {
     this.current = $e;
     this.search();
   }
-
-
 }

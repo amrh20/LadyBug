@@ -2,31 +2,37 @@
   <!-- <app-head-nav></app-head-nav> -->
   <div class="card-custom">
     <div class="card-head">
-      <h2 class="title" *ngIf="!editMood">
-        اضافه دور
-      </h2>
-      <h2 class="title" *ngIf="editMood">
-        تعديل دور
-      </h2>
+      <h2 class="title" *ngIf="!editMood">اضافه دور</h2>
+      <h2 class="title" *ngIf="editMood">تعديل دور</h2>
     </div>
     <div class="card-content">
       <form [formGroup]="addForm">
         <div class="row">
           <div class="col-6 mb-5">
-            <input type="text" placeholder="الاسم" name="" id=""
-              formControlName="name">
-
+            <input
+              type="text"
+              placeholder="الاسم"
+              name=""
+              id=""
+              formControlName="name"
+            />
           </div>
 
           <div class="col-6 mb-5">
-            <input type="text" placeholder="العرض" name="" id=""
-              formControlName="display_name">
-
+            <input
+              type="text"
+              placeholder="العرض"
+              name=""
+              id=""
+              formControlName="display_name"
+            />
           </div>
           <div class="col-6 mb-5">
-            <input type="text" placeholder="الوصف"
-              formControlName="description">
-
+            <input
+              type="text"
+              placeholder="الوصف"
+              formControlName="description"
+            />
           </div>
 
           <div class="col-6 mb-5">
@@ -40,19 +46,23 @@
               [placeholder]="'اختر الصلاحيات...'"
               [selectedData]="selectedpermissions"
               [sourceData]="permissions"
-              (onSelect)="onSelect($event)">
+              (onSelect)="onSelect($event)"
+            >
             </ngx-multiple-select>
-
           </div>
         </div>
       </form>
 
       <div class="actions mt-5">
-        <button class="main-btn" (click)="add()" *ngIf="!editMood">اضافه
+        <button class="main-btn" (click)="add()" *ngIf="!editMood">
+          اضافه
         </button>
-        <button class="main-btn" (click)="edit()" *ngIf="editMood">تعديل
+        <button class="main-btn" (click)="edit()" *ngIf="editMood">
+          تعديل
         </button>
-        <button class="tr-btn mx-3" [routerLink]="['/admin/roles']">الغاء</button>
+        <button class="tr-btn mx-3" [routerLink]="['/admin/roles']">
+          الغاء
+        </button>
       </div>
     </div>
   </div>

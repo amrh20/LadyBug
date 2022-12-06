@@ -31,7 +31,7 @@
           <th>صوره</th>
           <th>نوع المنشور</th>
           <th>الاعجاب</th>
-          <th>عدم الاعجاب</th>
+          <th>لم يعجب</th>
           <th>تاريخ النشر</th>
           <th>الاجراءات</th>
         </tr>
@@ -108,10 +108,7 @@
             <mat-menu #menu="matMenu">
               <a
                 mat-menu-item
-                [routerLink]="[
-                  '/admin/posts/post-blocked-details',
-                  variable.id
-                ]"
+                [routerLink]="['/admin/posts/post-details', variable.id]"
               >
                 <span> <i class="fa-light fa-eye"></i> تفاصيل </span>
               </a>
@@ -123,6 +120,10 @@
         </tr>
       </ng-container>
     </app-table>
-    <app-pagination [last]="last" [current]="current" (pageChange)="pageChange($event)"></app-pagination>
+    <app-pagination
+      [last]="last"
+      [current]="current"
+      (pageChange)="pageChange($event)"
+    ></app-pagination>
   </div>
 </div>

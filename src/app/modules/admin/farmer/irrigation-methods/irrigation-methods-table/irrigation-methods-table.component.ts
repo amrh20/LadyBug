@@ -1,16 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import Swal from 'sweetalert2';
-import { FormGroup, FormControl } from '@angular/forms';
-import { CrudRequestsService } from '../../../../../core/services/crud-requests.service';
-import { SettingService } from '../../../../../core/services/setting.service';
+import { Component, OnInit } from "@angular/core";
+import Swal from "sweetalert2";
+import { FormGroup, FormControl } from "@angular/forms";
+import { CrudRequestsService } from "../../../../../core/services/crud-requests.service";
+import { SettingService } from "../../../../../core/services/setting.service";
 
 @Component({
-  selector: 'app-irrigation-methods-table',
-  templateUrl: './irrigation-methods-table.component.html',
-  styleUrls: ['./irrigation-methods-table.component.scss']
+  selector: "app-irrigation-methods-table",
+  templateUrl: "./irrigation-methods-table.component.html",
+  styleUrls: ["./irrigation-methods-table.component.scss"],
 })
 export class IrrigationMethodsTableComponent implements OnInit {
-
   DataTable: any = [];
   filterForm = new FormGroup({
     title: new FormControl(""),
@@ -48,7 +47,7 @@ export class IrrigationMethodsTableComponent implements OnInit {
       showCloseButton: true,
       showCancelButton: true,
       focusConfirm: false,
-      confirmButtonText: " تأكيد الحذف",
+      confirmButtonText: "تأكيد",
       confirmButtonAriaLabel: " تأكيد الحجر",
       cancelButtonText: "التراجع",
       cancelButtonAriaLabel: "التراجع",

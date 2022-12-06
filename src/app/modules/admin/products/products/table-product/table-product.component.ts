@@ -23,21 +23,24 @@ export class TableProductComponent implements OnInit {
     this.getUsers();
   }
   getUsers = () => {
-    this._CrudRequestsService.get("products"+`?page=${this.current}&perPage=10`).subscribe((data: any) => {
-      this.DataTable = data.data.data;
-      this.last= data.data.meta.pagesCount;
-    });
+    this._CrudRequestsService
+      .get("products" + `?page=${this.current}&perPage=10`)
+      .subscribe((data: any) => {
+        this.DataTable = data.data.data;
+        this.last = data.data.meta.pagesCount;
+      });
   };
 
   search() {
     let name = this.filterForm.get("name")?.value;
     let description = this.filterForm.get("description")?.value;
     this._CrudRequestsService
-      .get(`products?name=${name}&description=${description}&page=${this.current}&perPage=10`)
+      .get(
+        `products?name=${name}&description=${description}&page=${this.current}&perPage=10`
+      )
       .subscribe((data: any) => {
         this.DataTable = data.data.data;
-        this.last= data.data.meta.pagesCount;
-
+        this.last = data.data.meta.pagesCount;
       });
   }
   deleteItem = (id: any) => {
@@ -47,7 +50,7 @@ export class TableProductComponent implements OnInit {
       showCloseButton: true,
       showCancelButton: true,
       focusConfirm: false,
-      confirmButtonText: " تأكيد الحذف",
+      confirmButtonText: "تأكيد",
       confirmButtonAriaLabel: " تأكيد الحجر",
       cancelButtonText: "التراجع",
       cancelButtonAriaLabel: "التراجع",
@@ -65,27 +68,26 @@ export class TableProductComponent implements OnInit {
       }
     });
   };
-  isShow:any=false;
-  productName:any='';
-  productId:any='';
-  productRate:any='';
-  isHide(e:any){
-    this.isShow=false;
+  isShow: any = false;
+  productName: any = "";
+  productId: any = "";
+  productRate: any = "";
+  isHide(e: any) {
+    this.isShow = false;
   }
-  openRate(item:any){
-    this.isShow=true;
-    this.productName=item.name.ar;
-    this.productId=item.id;
-    this.productRate=item.rating;
+  openRate(item: any) {
+    this.isShow = true;
+    this.productName = item.name.ar;
+    this.productId = item.id;
+    this.productRate = item.rating;
   }
-  reGet($e:any){
-    this.getUsers()
+  reGet($e: any) {
+    this.getUsers();
   }
-  current:any=1;
-  last:any=0;
-  pageChange($e:any){
-    this.current=$e;
+  current: any = 1;
+  last: any = 0;
+  pageChange($e: any) {
+    this.current = $e;
     this.search();
-
   }
 }

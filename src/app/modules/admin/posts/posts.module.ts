@@ -15,6 +15,8 @@ import { TranslateModule } from "@ngx-translate/core";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { PostBloackedDetailsComponent } from "./views/post-bloacked-details/post-bloacked-details.component";
 import { PostBlockedCreateComponent } from "./views/post-blocked-create/post-blocked-create.component";
+import { PostDetailsComponent } from "./views/post-details/post-details.component";
+import { MatExpansionModule } from "@angular/material/expansion";
 
 @NgModule({
   declarations: [
@@ -27,6 +29,7 @@ import { PostBlockedCreateComponent } from "./views/post-blocked-create/post-blo
     PostWrapComponent,
     PostBloackedDetailsComponent,
     PostBlockedCreateComponent,
+    PostDetailsComponent,
   ],
   imports: [
     CommonModule,
@@ -36,6 +39,7 @@ import { PostBlockedCreateComponent } from "./views/post-blocked-create/post-blo
     TranslateModule,
     FormsModule,
     ReactiveFormsModule,
+    MatExpansionModule,
   ],
 })
 export class PostsModule {}
