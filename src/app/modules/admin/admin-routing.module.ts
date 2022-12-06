@@ -63,6 +63,10 @@ const routes: Routes = [
             (m) => m.MeasuringUnitsModule
           ),
       },
+      {
+        path: "acs",
+        loadChildren: () => import("./acs/acs.module").then((m) => m.AcsModule),
+      },
 
       {
         path: "",

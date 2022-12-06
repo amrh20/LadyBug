@@ -1,0 +1,125 @@
+<div class="px-20 card-wrap">
+  <!-- <app-head-nav></app-head-nav> -->
+  <div class="card-custom">
+    <div class="card-head">
+      <h2 class="title">{{ !isEdit ? "اضافه" : " تعديل " }} ماده فعاله</h2>
+    </div>
+    <div class="card-content">
+      <form [formGroup]="form">
+        <div class="row">
+          <div class="col-6 mb-5">
+            <input
+              type="text"
+              placeholder="الاسم بالعربي"
+              formControlName="name_ar_localized"
+            />
+            <div
+              class="error-msg"
+              *ngIf="form.controls['name_ar_localized'].touched || isSubmit"
+            >
+              <div
+                *ngIf="form.controls['name_ar_localized'].hasError('required')"
+              >
+                {{ "must_required" | translate }}
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6 mb-5">
+            <input
+              type="text"
+              placeholder="الاسم بالانجليزي"
+              formControlName="name_en_localized"
+            />
+            <div
+              class="error-msg"
+              *ngIf="form.controls['name_en_localized'].touched || isSubmit"
+            >
+              <div
+                *ngIf="form.controls['name_en_localized'].hasError('required')"
+              >
+                {{ "must_required" | translate }}
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6 mb-5">
+            <select formControlName="who_class" class="select-ground">
+              <option value="">who_class</option>
+              <option [value]="item.value" *ngFor="let item of relations">
+                {{ item.name }}
+              </option>
+            </select>
+            <div
+              class="error-msg"
+              *ngIf="form.controls['who_class'].touched || isSubmit"
+            >
+              <div *ngIf="form.controls['who_class'].hasError('required')">
+                {{ "must_required" | translate }}
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6 mb-5">
+            <input
+              type="number"
+              placeholder=" ايام الانسحاب"
+              formControlName="withdrawal_days"
+            />
+            <div
+              class="error-msg"
+              *ngIf="form.controls['withdrawal_days'].touched || isSubmit"
+            >
+              <div
+                *ngIf="form.controls['withdrawal_days'].hasError('required')"
+              >
+                {{ "must_required" | translate }}
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6 mb-5">
+            <input
+              type="text"
+              placeholder=" الاحتياطات بالعربي "
+              formControlName="precautionsـar"
+            />
+            <div
+              class="error-msg"
+              *ngIf="form.controls['precautionsـar'].touched || isSubmit"
+            >
+              <div *ngIf="form.controls['precautionsـar'].hasError('required')">
+                {{ "must_required" | translate }}
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6 mb-5">
+            <input
+              type="text"
+              placeholder=" الاحتياطات بالانجليزي "
+              formControlName="precautionsـen"
+            />
+            <div
+              class="error-msg"
+              *ngIf="form.controls['precautionsـen'].touched || isSubmit"
+            >
+              <div *ngIf="form.controls['precautionsـen'].hasError('required')">
+                {{ "must_required" | translate }}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="actions mt-5">
+          <app-spinner *ngIf="loading"></app-spinner>
+          <button class="main-btn" *ngIf="!loading" (click)="sendData()">
+            حفظ
+          </button>
+          <button class="tr-btn mx-3" *ngIf="!loading" (click)="goBack()">
+            الغاء
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
