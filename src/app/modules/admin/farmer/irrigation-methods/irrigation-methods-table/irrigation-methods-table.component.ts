@@ -33,7 +33,6 @@ export class IrrigationMethodsTableComponent implements OnInit {
 
   search() {
     let title = this.filterForm.get("title")?.value;
-    this.current=1;
 
     this._CrudRequestsService
       .get(`irrigation_ways?name=${title}&page=${this.current}&perPage=10`)

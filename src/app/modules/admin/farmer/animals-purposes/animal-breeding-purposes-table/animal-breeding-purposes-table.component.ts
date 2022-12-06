@@ -32,7 +32,6 @@ export class AnimalBreedingPurposesTableComponent implements OnInit {
 
   search() {
     let title = this.filterForm.get("title")?.value;
-    this.current=1;
     this._CrudRequestsService
       .get(`animal_breeding_purposes?name=${title}&page=${this.current}&perPage=10`)
       .subscribe((data: any) => {

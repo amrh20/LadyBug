@@ -34,7 +34,6 @@ export class TableFarmingWaysComponent implements OnInit {
 
   search() {
     let title = this.filterForm.get("title")?.value;
-    this.current=1;
     this._CrudRequestsService
       .get(`farming_ways?name=${title}&page=${this.current}&perPage=10`)
       .subscribe((data: any) => {
