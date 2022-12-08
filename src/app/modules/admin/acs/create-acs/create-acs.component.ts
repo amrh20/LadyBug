@@ -89,6 +89,7 @@ export class CreateAcsComponent implements OnInit {
 
             if (res.success) {
               this._setting.successHot(res.message);
+              this.goBack();
             } else {
               this._setting.errorHot(res.message);
             }

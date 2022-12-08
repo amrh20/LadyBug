@@ -63,6 +63,7 @@ export class AllAcsComponent implements OnInit {
       if (val.isConfirmed) {
         this._CrudRequestsService.delete(`acs/${id}`).subscribe((res: any) => {
           this._SettingService.successHot("تم الحذف بنجاح");
+          this.getacs();
         });
       }
     });
