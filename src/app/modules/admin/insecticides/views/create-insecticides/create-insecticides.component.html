@@ -1,0 +1,246 @@
+<div class="px-20 card-wrap">
+    <!-- <app-head-nav></app-head-nav> -->
+    <div class="card-custom">
+      <div class="card-head">
+        <h2 class="title">
+  
+          {{!isEdit?'اضافه' : ' تعديل '}} المبيدات الحشريه
+        </h2>
+      </div>
+      <div class="card-content">
+        <form [formGroup]="form">
+          <div class="row">
+            <div class="col-6 mb-5">
+                <input
+                  type="text"
+                  placeholder="الاسم بالعربي"
+                  formControlName="name_ar">
+                <div
+                  class="error-msg"
+                  *ngIf="form.controls['name_ar'].touched ||
+                  isSubmit">
+                  <div
+                    *ngIf="form.controls['name_ar'].hasError('required')">{{"must_required"
+                    | translate}}</div>
+    
+    
+                </div>
+              </div>
+    
+              <div class="col-6 mb-5">
+                <input
+                  type="text"
+                  placeholder="الاسم بالانجليزي"
+                  formControlName="name_en">
+                <div
+                  class="error-msg"
+                  *ngIf="form.controls['name_en'].touched ||
+                  isSubmit">
+                  <div
+                    *ngIf="form.controls['name_en'].hasError('required')">{{"must_required"
+                    | translate}}</div>  
+                </div>
+              </div>
+            
+              <div class="col-6 mb-5">
+                <input
+                  type="text"
+                  placeholder="الملاحظات بالعربي"
+                  formControlName="notes_ar">
+                <div
+                  class="error-msg"
+                  *ngIf="form.controls['notes_ar'].touched ||
+                  isSubmit">
+                  <div
+                    *ngIf="form.controls['notes_ar'].hasError('required')">{{"must_required"
+                    | translate}}</div>
+    
+    
+                </div>
+              </div>
+    
+              <div class="col-6 mb-5">
+                <input
+                  type="text"
+                  placeholder="الملاحظات بالانجليزي"
+                  formControlName="notes_en">
+                <div
+                  class="error-msg"
+                  *ngIf="form.controls['notes_en'].touched ||
+                  isSubmit">
+                  <div
+                    *ngIf="form.controls['notes_en'].hasError('required')">{{"must_required"
+                    | translate}}</div>  
+                </div>
+              </div>
+              <div class="col-6 mb-5">
+                <input
+                  type="text"
+                  placeholder="احتياطات بالعربي"
+                  formControlName="precautions_ar">
+                <div
+                  class="error-msg"
+                  *ngIf="form.controls['precautions_ar'].touched ||
+                  isSubmit">
+                  <div
+                    *ngIf="form.controls['precautions_ar'].hasError('required')">{{"must_required"
+                    | translate}}</div>
+    
+    
+                </div>
+              </div>
+    
+              <div class="col-6 mb-5">
+                <input
+                  type="text"
+                  placeholder="احتياطات بالانجليزي"
+                  formControlName="precautions_en">
+                <div
+                  class="error-msg"
+                  *ngIf="form.controls['precautions_en'].touched ||
+                  isSubmit">
+                  <div
+                    *ngIf="form.controls['precautions_en'].hasError('required')">{{"must_required"
+                    | translate}}</div>  
+                </div>
+              </div>
+              <div class="col-6 mb-5">
+                
+                <input
+                *ngIf="show"
+                  type="date"
+                  formControlName="reg_date"
+                  id="date-inp"
+                  placeholder="dd-mm-yyyy"
+                  [(ngModel)]="min"
+                  >
+                <div
+                  class="error-msg"
+                  *ngIf="form.controls['reg_date'].touched ||
+                  isSubmit">
+                  <div
+                    *ngIf="form.controls['reg_date'].hasError('required')">{{"must_required"
+                    | translate}}</div>  
+                </div>
+              </div>
+              <div class="col-6 mb-5">
+                <input
+                  type="text"
+                  placeholder="الحاصل"
+                  formControlName="conc">
+                <div
+                  class="error-msg"
+                  *ngIf="form.controls['conc'].touched ||
+                  isSubmit">
+                  <div
+                    *ngIf="form.controls['conc'].hasError('required')">{{"must_required"
+                    | translate}}</div>  
+                </div>
+              </div>
+              <div class="col-6 mb-5">
+                <input
+                  type="text"
+                  placeholder=" المنتج"
+                  formControlName="producer">
+                <div
+                  class="error-msg"
+                  *ngIf="form.controls['producer'].touched ||
+                  isSubmit">
+                  <div
+                    *ngIf="form.controls['producer'].hasError('required')">{{"must_required"
+                    | translate}}</div>  
+                </div>
+              </div>
+            <div class="col-6 mb-5">
+                <div class="select-value">
+
+                    <div class="position-relative">
+                        <select name="" id="" class="select-ground" formControlName="country_id">
+                            <option value="" selected>   اختر الدولة	</option>
+                            <option  *ngFor="let variable of allCountries;let i=index" [value]="variable?.id"> {{variable?.name.ar}}</option>
+                            
+                        </select>
+                    </div>
+                </div>
+                <div
+                    class="error-msg"
+                    *ngIf="form.controls['country_id'].touched ||
+                    isSubmit">
+                    <div
+                        *ngIf="form.controls['country_id'].hasError('required')">{{"must_required"
+                        | translate}}</div>
+
+                </div>
+            </div>
+
+            <div class="col-6 mb-5">
+                <div class="select-value">
+
+                    <div class="position-relative">
+                        <select name="" id="" class="select-ground" formControlName="dosage_form">
+                            <option value="" selected>   اختر شكل جرعات</option>
+                            <option   value="liquid"> سائل</option>
+                            <option   value="powder">مسحوق </option>
+                            
+                        </select>
+                    </div>
+                </div>
+                <div
+                    class="error-msg"
+                    *ngIf="form.controls['dosage_form'].touched ||
+                    isSubmit">
+                    <div
+                        *ngIf="form.controls['dosage_form'].hasError('required')">{{"must_required"
+                        | translate}}</div>
+
+                </div>
+            </div>
+
+  
+            <div class="col-6 mb-5">
+                <ngx-multiple-select
+                  *ngIf="ascData"
+                  id="permissions"
+                  [enableAll]="true"
+                  [enableSearch]="true"
+                  [label]="'name'"
+                  [value]="'id'"
+                  [placeholder]="'اختر المواد الفعالة...'"
+                  [selectedData]="selectedasc"
+                  [sourceData]="asc"
+                  (onSelect)="onSelect($event)"
+                >
+                </ngx-multiple-select>
+                <div
+                class="error-msg"
+               >
+                <div
+                    *ngIf="selectedasc.length ==0 && isSubmit">{{"must_required"
+                    | translate}}</div>
+
+            </div>
+              </div>
+  
+          </div>
+          <div class="actions mt-5">
+            <app-spinner *ngIf="loading"></app-spinner>
+            <button
+              class="main-btn"
+              *ngIf="!loading"
+              (click)="sendData()">
+              حفظ
+            </button>
+            <button
+              class="tr-btn mx-3"
+              *ngIf="!loading"
+              (click)="goBack()">
+              الغاء
+            </button>
+          </div>
+        </form>
+  
+  
+      </div>
+    </div>
+  </div>
+  

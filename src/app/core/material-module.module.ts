@@ -5,7 +5,6 @@ import { CommonModule } from "@angular/common";
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
  
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatRadioModule } from '@angular/material/radio';
@@ -15,6 +14,7 @@ import { MatSliderModule } from '@angular/material/slider';
 // Material Navigation
 import { MatSlideToggleModule } from "@angular/material/slide-toggle";
 
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatMenuModule } from "@angular/material/menu";
 // import { MatSidenavModule } from '@angular/material/sidenav';
 // import { MatToolbarModule } from '@angular/material/toolbar';
@@ -52,13 +52,13 @@ import { MatExpansionModule } from "@angular/material/expansion";
     CommonModule,
     /*  MatAutocompleteModule,
     MatCheckboxModule,
-    MatDatepickerModule,
     MatFormFieldModule,
     MatInputModule,
     MatRadioModule,
     MatSelectModule,
     MatSliderModule,*/
     MatSlideToggleModule,
+    MatDatepickerModule,
     MatMenuModule,
     MatExpansionModule,
     /*    MatSidenavModule,
@@ -90,7 +90,6 @@ import { MatExpansionModule } from "@angular/material/expansion";
   exports: [
     /*  MatAutocompleteModule,
     MatCheckboxModule,
-    MatDatepickerModule,
     MatFormFieldModule,
     MatInputModule,
     MatRadioModule,
@@ -98,6 +97,7 @@ import { MatExpansionModule } from "@angular/material/expansion";
     MatSliderModule,*/
     MatSlideToggleModule,
     MatMenuModule,
+    MatDatepickerModule,
 
     /*    MatSidenavModule,
     MatToolbarModule,
