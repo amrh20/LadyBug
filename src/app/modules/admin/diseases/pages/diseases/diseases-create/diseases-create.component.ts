@@ -1,28 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { CrudRequestsService } from '../../../../../core/services/crud-requests.service';
-import { SettingService } from '../../../../../core/services/setting.service';
+import { CrudRequestsService } from '../../../../../../core/services/crud-requests.service';
+import { SettingService } from '../../../../../../core/services/setting.service';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-create-insecticides',
-  templateUrl: './create-insecticides.component.html',
-  styleUrls: ['./create-insecticides.component.scss']
+  selector: 'app-diseases-create',
+  templateUrl: './diseases-create.component.html',
+  styleUrls: ['./diseases-create.component.scss']
 })
-export class CreateInsecticidesComponent implements OnInit {
+export class DiseasesCreateComponent implements OnInit {
+
   form = new FormGroup(
     {
       name_ar: new FormControl("", [Validators.required]),
       name_en: new FormControl("", [Validators.required]),
-      notes_ar: new FormControl("", [Validators.required]),
-      notes_en: new FormControl("", [Validators.required]),
-      precautions_en: new FormControl("", [Validators.required]),
-      precautions_ar: new FormControl("", [Validators.required]),
-      country_id: new FormControl("", [Validators.required]),
-      dosage_form: new FormControl("", [Validators.required]),
-      producer: new FormControl("", [Validators.required]),
-      reg_date:new FormControl("", [Validators.required]),
-      conc:new FormControl("", [Validators.required]),
+      description_ar: new FormControl("", [Validators.required]),
+      description_en: new FormControl("", [Validators.required]),
     }
   );
   loading: boolean = false;
@@ -56,47 +50,47 @@ export class CreateInsecticidesComponent implements OnInit {
     this.isEdit = true;
     this.ascData=false;
     this.show=false;
-    this._CrudRequestsService.get("insecticides/" + id).subscribe((data: any) => {
-      var today:any = new Date(data.data.reg_date);
-
-      var dd = String(today. getDate()).padStart(2, '0');
-var mm = String(today. getMonth() + 1).padStart(2, '0'); 
-var yyyy = today. getFullYear();
-​
- today = yyyy + '/' +mm+ '/' + dd;
+    this._CrudRequestsService.get("diseases/" + id).subscribe((data: any) => {
+      
       this.form.patchValue({
         name_ar: data.data.name.ar,
         name_en: data.data.name.en,
-        precautions_ar: data.data.precautions.ar,
-        precautions_en: data.data.precautions.en,
-        notes_ar: data.data.notes.ar,
-        notes_en: data.data.notes.en,
-        country_id: data.data.country.id,
-        dosage_form:data.data.dosage_form,
-        producer:data.data.producer,
-        reg_date:today,
-        conc:data.data.conc,
+        description_ar: data.data.description.ar,
+        description_en: data.data.description.en,
       });
       let arr =[];
-      for (var i = 0, len = data.data.acs.length; i < len; i++) {
+      for (var i = 0, len = data.data.pathogens.length; i < len; i++) {
         arr.push(data.data.acs[i].id)
       };
       this.selectedasc=arr;
+      let arrcountries :any=[];
+      for (var i = 0, len = data.data.countries.length; i < len; i++) {
+        arr.push(data.data.acs[i].id)
+      };
+      this.selectedCountries=arrcountries;
+      
       this.ascData=true;
       this.show=true;
-
+      this.ascData=true;
     });
   };
+  CountriesData:any=[];
+  selectedCountries:any=[];
+  onSelectCountries($e:any){
+    this.selectedCountries=$e;
+  }
   allCountries:any=[];
   getCountries = () => {
     this.isEdit = true;
     this._CrudRequestsService.get("countries" ).subscribe((data: any) => {
-      this.allCountries=data.data.all;
+      this.CountriesData=data.data.all.map(function(o:any) {
+        return {id:o.id,name:o.name.ar};
+    });
     });
   };
   acsGet(){
     
-    this._CrudRequestsService.get("acs" ).subscribe((data: any) => {
+    this._CrudRequestsService.get("pathogens" ).subscribe((data: any) => {
       this.asc=  data.data.all.map(function(o:any) {
         return {id:o.id,name:o.name.ar};
     });
@@ -111,26 +105,18 @@ var yyyy = today. getFullYear();
         ar: this.form.get("name_ar")?.value,
         en: this.form.get("name_en")?.value,
       },
-      precautions:{
+      description:{
         ar: this.form.get("precautions_ar")?.value,
         en: this.form.get("precautions_en")?.value,
       },
-      notes:{
-        ar: this.form.get("notes_ar")?.value,
-        en: this.form.get("notes_en")?.value,
-      },
-      country_id:this.form.get("country_id")?.value,
-      acs:this.selectedasc,
-    dosage_form:this.form.get("dosage_form")?.value,
-    producer:this.form.get("producer")?.value,
-    reg_date:this.form.get("reg_date")?.value,
-    conc:this.form.get("conc")?.value,
+      countries:this.selectedCountries,
+      pathogens: this.selectedasc
     };
-    if (this.form.valid && this.selectedasc.length !=0) {
+    if (this.form.valid && this.selectedasc.length !=0 && this.selectedCountries.length !=0) {
       this.loading = true;
 
       if (this.isEdit) {
-        this._crud.put(`insecticides/${this.idEdit}`, data).subscribe(
+        this._crud.put(`diseases/${this.idEdit}`, data).subscribe(
           (res: any) => {
             this.loading = false;
             this.isSubmit = false;
@@ -148,7 +134,7 @@ var yyyy = today. getFullYear();
           () => {}
         );
       } else {
-        this._crud.post(`insecticides`, data).subscribe(
+        this._crud.post(`diseases`, data).subscribe(
           (res: any) => {
             this.loading = false;
             this.isSubmit = false;
@@ -170,7 +156,7 @@ var yyyy = today. getFullYear();
     }
   };
   goBack = () => {
-    this.route.navigate(["/admin/insecticides"]);
+    this.route.navigate(["/admin/Diseases/indexDiseases"]);
   };
   selectedasc:any=[];
   asc:any=[];
