@@ -20,6 +20,11 @@ export class SideNavComponent implements OnInit {
     }else if(this._route.url.includes('/farmer')){
       this.type='farmer';
     }
+    else if(this._route.url.includes('/Diseases')){
+      this.type='Diseases';
+    }
+  // 
+
   }
   logOut=()=>{
     localStorage.removeItem('_token')

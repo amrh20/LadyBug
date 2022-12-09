@@ -20,11 +20,14 @@ const routes: Routes = [
           import("./crops/crops.module").then((m) => m.CropsModule),
       },
       {
-        // 
-        
         path: "insecticides",
         loadChildren: () =>
           import("./insecticides/insecticides.module").then((m) => m.InsecticidesModule),
+      },
+      {
+        path: "Diseases",
+        loadChildren: () =>
+          import("./diseases/diseases.module").then((m) => m.DiseasesModule),
       },
       {
         path: "farmer",
