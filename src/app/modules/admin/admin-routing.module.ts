@@ -22,7 +22,9 @@ const routes: Routes = [
       {
         path: "insecticides",
         loadChildren: () =>
-          import("./insecticides/insecticides.module").then((m) => m.InsecticidesModule),
+          import("./insecticides/insecticides.module").then(
+            (m) => m.InsecticidesModule
+          ),
       },
       {
         path: "Diseases",
@@ -76,6 +78,11 @@ const routes: Routes = [
       {
         path: "acs",
         loadChildren: () => import("./acs/acs.module").then((m) => m.AcsModule),
+      },
+      {
+        path: "pathogen",
+        loadChildren: () =>
+          import("./pathogen/pathogen.module").then((m) => m.PathogenModule),
       },
 
       {
