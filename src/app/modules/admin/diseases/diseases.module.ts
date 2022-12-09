@@ -13,6 +13,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 import { SharedModule } from '../../../shared/shared.module';
 import { MaterialModule } from '../../../core/material-module.module';
+import { DiseaseRegistrationsTableComponent } from './pages/disease_registrations/disease-registrations-table/disease-registrations-table.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { MaterialModule } from '../../../core/material-module.module';
     DiseasesDetailsComponent,
     InfectionRatesTableComponent,
     InfectionRatesCreateComponent,
-    IndexDiseasesComponent
+    IndexDiseasesComponent,
+    DiseaseRegistrationsTableComponent
   ],
   imports: [
     CommonModule,

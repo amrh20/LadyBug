@@ -26,6 +26,12 @@ const routes: Routes = [
             (m) => m.InsecticidesModule
           ),
       },
+      // 
+      {
+        path: "Business",
+        loadChildren: () =>
+          import("./business/business.module").then((m) => m.BusinessModule),
+      },
       {
         path: "Diseases",
         loadChildren: () =>

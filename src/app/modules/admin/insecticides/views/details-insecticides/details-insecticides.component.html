@@ -14,7 +14,7 @@
                        الاسم
                    </h2>
                    <span class="desc">
-                       {{detailsData?.name}}
+                       {{detailsData?.name.ar}}
                    </span>
                </div>
            </div>
@@ -43,7 +43,7 @@
             <div class="list-item">
                 <h2 class="title">
                  احتياطات                     </h2>
-                <span class="desc">  {{detailsData?.precautions}}</span>
+                <span class="desc">  {{detailsData?.precautions.ar}}</span>
             </div>
         </div>
               
@@ -51,7 +51,7 @@
             <div class="list-item">
                 <h2 class="title">
                  الملاحظات                     </h2>
-                <span class="desc">  {{detailsData?.notes}}</span>
+                <span class="desc">  {{detailsData?.notes.ar}}</span>
             </div>
         </div>
            <div class=" col-md-4" *ngIf="detailsData?.acs.length !=0">
