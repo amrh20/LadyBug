@@ -6,6 +6,7 @@ import { DiseasesCreateComponent } from './pages/diseases/diseases-create/diseas
 import { DiseasesDetailsComponent } from './pages/diseases/diseases-details/diseases-details.component';
 import { InfectionRatesTableComponent } from './pages/infection_rates/infection-rates-table/infection-rates-table.component';
 import { InfectionRatesCreateComponent } from './pages/infection_rates/infection-rates-create/infection-rates-create.component';
+import { DiseaseRegistrationsTableComponent } from './pages/disease_registrations/disease-registrations-table/disease-registrations-table.component';
 
 const routes: Routes = [
   {
@@ -24,6 +25,10 @@ const routes: Routes = [
       { path: 'InfectionRates', component: InfectionRatesTableComponent },
       { path: 'edit-InfectionRates/:id', component: InfectionRatesCreateComponent },
       { path: 'create-InfectionRates', component:  InfectionRatesCreateComponent},
+      {
+        path:'diseaseRegistrations',
+        component:DiseaseRegistrationsTableComponent
+      }
     
     ]
   }
