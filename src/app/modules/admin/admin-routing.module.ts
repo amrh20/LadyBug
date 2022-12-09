@@ -26,7 +26,7 @@ const routes: Routes = [
             (m) => m.InsecticidesModule
           ),
       },
-      // 
+      //
       {
         path: "Business",
         loadChildren: () =>
@@ -90,7 +90,13 @@ const routes: Routes = [
         loadChildren: () =>
           import("./pathogen/pathogen.module").then((m) => m.PathogenModule),
       },
-
+      {
+        path: "pathogen-types",
+        loadChildren: () =>
+          import("./pathogen-type/pathogen-type.module").then(
+            (m) => m.PathogenTypeModule
+          ),
+      },
       {
         path: "",
         redirectTo: "generic-user",
