@@ -105,6 +105,39 @@
                 </div>
               </div>
               <div class="col-6 mb-5">
+                
+                <input
+                *ngIf="show"
+                  type="date"
+                  formControlName="reg_date"
+                  id="date-inp"
+                  placeholder="dd-mm-yyyy"
+                  [(ngModel)]="min"
+                  >
+                <div
+                  class="error-msg"
+                  *ngIf="form.controls['reg_date'].touched ||
+                  isSubmit">
+                  <div
+                    *ngIf="form.controls['reg_date'].hasError('required')">{{"must_required"
+                    | translate}}</div>  
+                </div>
+              </div>
+              <div class="col-6 mb-5">
+                <input
+                  type="text"
+                  placeholder="الحاصل"
+                  formControlName="conc">
+                <div
+                  class="error-msg"
+                  *ngIf="form.controls['conc'].touched ||
+                  isSubmit">
+                  <div
+                    *ngIf="form.controls['conc'].hasError('required')">{{"must_required"
+                    | translate}}</div>  
+                </div>
+              </div>
+              <div class="col-6 mb-5">
                 <input
                   type="text"
                   placeholder=" المنتج"
@@ -118,14 +151,13 @@
                     | translate}}</div>  
                 </div>
               </div>
-              
             <div class="col-6 mb-5">
                 <div class="select-value">
 
                     <div class="position-relative">
                         <select name="" id="" class="select-ground" formControlName="country_id">
                             <option value="" selected>   اختر الدولة	</option>
-                            <option  *ngFor="let variable of allCountries;let i=index" [value]="variable?.id"> {{variable?.name}}</option>
+                            <option  *ngFor="let variable of allCountries;let i=index" [value]="variable?.id"> {{variable?.name.ar}}</option>
                             
                         </select>
                     </div>

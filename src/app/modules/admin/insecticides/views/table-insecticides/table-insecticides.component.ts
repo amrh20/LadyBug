@@ -54,8 +54,12 @@ export class TableInsecticidesComponent implements OnInit {
       if (val.isConfirmed) {
         this._CrudRequestsService.delete(`insecticides/${id}`).subscribe(
           (res: any) => {
-            this._SettingService.successHot(res.message);
-            this.getUsers();
+            if(res.success){
+              this._SettingService.successHot(res.message);
+              this.getUsers();
+            }else{
+              this._SettingService.errorHot(res.message);
+            }
           },
           (err) => {
             this._SettingService.errorHot(err.message);

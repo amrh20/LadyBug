@@ -21,6 +21,8 @@ export class CreateInsecticidesComponent implements OnInit {
       country_id: new FormControl("", [Validators.required]),
       dosage_form: new FormControl("", [Validators.required]),
       producer: new FormControl("", [Validators.required]),
+      reg_date:new FormControl("", [Validators.required]),
+      conc:new FormControl("", [Validators.required]),
     }
   );
   loading: boolean = false;
@@ -49,21 +51,32 @@ export class CreateInsecticidesComponent implements OnInit {
       }
     });
   }
+  show:any=true;
   getUser = (id: any) => {
     this.isEdit = true;
     this.ascData=false;
+    this.show=false;
     this._CrudRequestsService.get("insecticides/" + id).subscribe((data: any) => {
-      console.log(data.data)
+      var today:any = new Date(data.data.reg_date);
+
+      var dd = String(today. getDate()). padStart(2, '0');
+var mm = String(today. getMonth() + 1). padStart(2, '0'); 
+var yyyy = today. getFullYear();
+​
+ today = yyyy + '/' +mm+ '/' + dd;
+ console.log(today)
       this.form.patchValue({
-        name_ar: data.data.name,
+        name_ar: data.data.name.ar,
         name_en: data.data.name.en,
-        precautions_ar: data.data.precautions,
+        precautions_ar: data.data.precautions.ar,
         precautions_en: data.data.precautions.en,
-        notes_ar: data.data.notes,
+        notes_ar: data.data.notes.ar,
         notes_en: data.data.notes.en,
         country_id: data.data.country.id,
         dosage_form:data.data.dosage_form,
         producer:data.data.producer,
+        reg_date:today,
+        conc:data.data.conc,
       });
       let arr =[];
       for (var i = 0, len = data.data.acs.length; i < len; i++) {
@@ -71,6 +84,7 @@ export class CreateInsecticidesComponent implements OnInit {
       };
       this.selectedasc=arr;
       this.ascData=true;
+      this.show=true;
 
     });
   };
@@ -84,9 +98,13 @@ export class CreateInsecticidesComponent implements OnInit {
   acsGet(){
     
     this._CrudRequestsService.get("acs" ).subscribe((data: any) => {
-      this.asc=data.data.all;
+      this.asc=  data.data.all.map(function(o:any) {
+        return {id:o.id,name:o.name.ar};
+    });
+      ;
     });
   }
+  min:any=new Date();
   sendData = () => {
     this.isSubmit = true;
     let data = {
@@ -103,9 +121,11 @@ export class CreateInsecticidesComponent implements OnInit {
         en: this.form.get("notes_en")?.value,
       },
       country_id:this.form.get("country_id")?.value,
-    asc:this.selectedasc,
+      acs:this.selectedasc,
     dosage_form:this.form.get("dosage_form")?.value,
     producer:this.form.get("producer")?.value,
+    reg_date:this.form.get("reg_date")?.value,
+    conc:this.form.get("conc")?.value,
     };
     if (this.form.valid && this.selectedasc.length !=0) {
       this.loading = true;
@@ -133,7 +153,6 @@ export class CreateInsecticidesComponent implements OnInit {
           (res: any) => {
             this.loading = false;
             this.isSubmit = false;
-
             if (res.success) {
               this._setting.successHot(res.message);
               this.form.reset();
