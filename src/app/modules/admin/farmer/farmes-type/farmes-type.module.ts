@@ -18,6 +18,12 @@ import { TaxonomiesDetailsComponent } from './farmes-type-table/views/taxonomies
 import { FarmedTypeNutValsTableComponent } from './farmes-type-table/views/farmed_type_nut_vals/farmed-type-nut-vals-table/farmed-type-nut-vals-table.component';
 import { FarmedTypeNutValsCreateComponent } from './farmes-type-table/views/farmed_type_nut_vals/farmed-type-nut-vals-create/farmed-type-nut-vals-create.component';
 import { FarmedTypeNutValsDetalisComponent } from './farmes-type-table/views/farmed_type_nut_vals/farmed-type-nut-vals-detalis/farmed-type-nut-vals-detalis.component';
+import { MarketingDatasCreateComponent } from './farmes-type-table/views/marketing_datas/marketing-datas-create/marketing-datas-create.component';
+import { MarketingDatasTableComponent } from './farmes-type-table/views/marketing_datas/marketing-datas-table/marketing-datas-table.component';
+import { MarketingDatasDetailsComponent } from './farmes-type-table/views/marketing_datas/marketing-datas-details/marketing-datas-details.component';
+import { FertilizationNeedsCreateComponent } from './farmes-type-table/views/fertilization_needs/fertilization-needs-create/fertilization-needs-create.component';
+import { FertilizationNeedsDetailsComponent } from './farmes-type-table/views/fertilization_needs/fertilization-needs-details/fertilization-needs-details.component';
+import { FertilizationNeedsTableComponent } from './farmes-type-table/views/fertilization_needs/fertilization-needs-table/fertilization-needs-table.component';
 
 
 @NgModule({
@@ -33,7 +39,13 @@ import { FarmedTypeNutValsDetalisComponent } from './farmes-type-table/views/far
     TaxonomiesDetailsComponent,
     FarmedTypeNutValsTableComponent,
     FarmedTypeNutValsCreateComponent,
-    FarmedTypeNutValsDetalisComponent
+    FarmedTypeNutValsDetalisComponent,
+    MarketingDatasCreateComponent,
+    MarketingDatasTableComponent,
+    MarketingDatasDetailsComponent,
+    FertilizationNeedsCreateComponent,
+    FertilizationNeedsDetailsComponent,
+    FertilizationNeedsTableComponent
   ],
   imports: [
     CommonModule,

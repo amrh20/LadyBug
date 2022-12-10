@@ -1,0 +1,59 @@
+<div class="px-20 card-wrap">
+  <!-- <app-head-nav></app-head-nav> -->
+  <div class="card-custom">
+    <div class="card-head">
+      <h2 class="title">تفاصيل بيانات التسوق</h2>
+    </div>
+
+    <div class="card-content">
+      <div class="row">
+        <div class="col-md-4 mt-5">
+          <div class="list-item">
+            <h2 class="title">الدولة</h2>
+            <span class="desc">
+              {{ detailsData?.country.name }}
+            </span>
+          </div>
+        </div>
+        <div class="col-md-4 mt-5">
+          <div class="list-item">
+            <h2 class="title">السنة</h2>
+            <span class="desc">
+              {{ detailsData?.year }}
+            </span>
+          </div>
+        </div>
+        <div class="col-md-4 mt-5">
+          <div class="list-item">
+            <h2 class="title">الانتاج بالطن</h2>
+            <span class="desc">
+              {{ detailsData?.production }}
+            </span>
+          </div>
+        </div>
+
+        <div class="col-md-4 mt-5">
+          <div class="list-item">
+            <h2 class="title">الاستهلاك بالطن</h2>
+            <span class="desc">
+              {{ detailsData?.consumption }}
+            </span>
+          </div>
+        </div>
+
+        <div class="col-md-4 mt-5">
+          <div class="list-item">
+            <h2 class="title">التصدير بالطن</h2>
+            <span class="desc"> {{ detailsData?.export }} </span>
+          </div>
+        </div>
+        <div class="col-md-4 mt-5">
+          <div class="list-item">
+            <h2 class="title">متوسط السعر</h2>
+            <span class="desc"> {{ detailsData?.price_avg }} </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

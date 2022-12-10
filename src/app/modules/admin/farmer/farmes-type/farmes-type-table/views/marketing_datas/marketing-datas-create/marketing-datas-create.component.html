@@ -1,0 +1,111 @@
+<div class="px-20 card-wrap">
+  <!-- <app-head-nav></app-head-nav> -->
+  <div class="card-custom">
+    <div class="card-head">
+      <h2 class="title">{{ !isEdit ? "اضافه" : " تعديل " }} بيانات التسويق</h2>
+    </div>
+    <div class="card-content">
+      <form [formGroup]="form">
+        <div class="row">
+          <div class="col-6 mb-5">
+            <select formControlName="country_id">
+              <option value="">اختر الدوله</option>
+              <option [value]="item.id" *ngFor="let item of countries">
+                {{ item.name.ar }}
+              </option>
+            </select>
+            <div
+              class="error-msg"
+              *ngIf="form.controls['country_id'].touched || isSubmit"
+            >
+              <div *ngIf="form.controls['country_id'].hasError('required')">
+                {{ "must_required" | translate }}
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6 mb-5">
+            <input type="text" placeholder="السنة" formControlName="year" />
+            <div
+              class="error-msg"
+              *ngIf="form.controls['year'].touched || isSubmit"
+            >
+              <div *ngIf="form.controls['year'].hasError('required')">
+                {{ "must_required" | translate }}
+              </div>
+            </div>
+          </div>
+          <div class="col-6 mb-5">
+            <input
+              type="text"
+              placeholder="الانتاج بالطن"
+              formControlName="production"
+            />
+            <div
+              class="error-msg"
+              *ngIf="form.controls['production'].touched || isSubmit"
+            >
+              <div *ngIf="form.controls['production'].hasError('required')">
+                {{ "must_required" | translate }}
+              </div>
+            </div>
+          </div>
+          <div class="col-6 mb-5">
+            <input
+              type="text"
+              placeholder="الاستهلاك بالطن"
+              formControlName="consumption"
+            />
+            <div
+              class="error-msg"
+              *ngIf="form.controls['consumption'].touched || isSubmit"
+            >
+              <div *ngIf="form.controls['consumption'].hasError('required')">
+                {{ "must_required" | translate }}
+              </div>
+            </div>
+          </div>
+          <div class="col-6 mb-5">
+            <input
+              type="text"
+              placeholder=" التصدير بالطن"
+              formControlName="export"
+            />
+            <div
+              class="error-msg"
+              *ngIf="form.controls['export'].touched || isSubmit"
+            >
+              <div *ngIf="form.controls['export'].hasError('required')">
+                {{ "must_required" | translate }}
+              </div>
+            </div>
+          </div>
+          <div class="col-6 mb-5">
+            <input
+              type="text"
+              placeholder=" متوسط السعر"
+              formControlName="price_avg"
+            />
+            <div
+              class="error-msg"
+              *ngIf="form.controls['price_avg'].touched || isSubmit"
+            >
+              <div *ngIf="form.controls['price_avg'].hasError('required')">
+                {{ "must_required" | translate }}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="actions mt-5">
+          <app-spinner *ngIf="loading"></app-spinner>
+          <button class="main-btn" *ngIf="!loading" (click)="sendData()">
+            حفظ
+          </button>
+          <button class="tr-btn mx-3" *ngIf="!loading" (click)="goBack()">
+            الغاء
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

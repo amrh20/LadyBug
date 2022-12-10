@@ -129,34 +129,60 @@
               >
                 <span> <i class="fa-light fa-eye"></i> تفاصيل </span>
               </a>
-         
+
               <a
-              mat-menu-item
-              [routerLink]="[
-                '/admin/farmer/farmedTypes/taxonomies',
-                variable.id
-              ]"
-            >
-              <span> <i class="fa-light fa-eye"></i> التصنيف العالمي </span>
-            </a>
-            <a
-            mat-menu-item
-            [routerLink]="[
-              '/admin/farmer/farmedTypes/farmed_type_extras',
-              variable.id
-            ]"
-          >
-            <span> <i class="fa-light fa-eye"></i> معلومات إضافية  </span>
-          </a>
-          <a
-          mat-menu-item
-          [routerLink]="[
-            '/admin/farmer/farmedTypes/farmed_type_nut_vals',
-            variable.id
-          ]"
-        >
-          <span> <i class="fa-light fa-eye"></i> القيمة الغذائية للعناصر الموجودة في المحصول  </span>
-        </a>
+                mat-menu-item
+                [routerLink]="[
+                  '/admin/farmer/farmedTypes/taxonomies',
+                  variable.id
+                ]"
+              >
+                <span> <i class="fa-light fa-eye"></i> التصنيف العالمي </span>
+              </a>
+              <a
+                mat-menu-item
+                [routerLink]="[
+                  '/admin/farmer/farmedTypes/farmed_type_extras',
+                  variable.id
+                ]"
+              >
+                <span> <i class="fa-light fa-eye"></i> معلومات إضافية </span>
+              </a>
+              <a
+                mat-menu-item
+                [routerLink]="[
+                  '/admin/farmer/farmedTypes/farmed_type_nut_vals',
+                  variable.id
+                ]"
+              >
+                <span>
+                  <i class="fa-light fa-eye"></i> القيمة الغذائية للعناصر
+                  الموجودة في المحصول
+                </span>
+              </a>
+
+              <a
+                mat-menu-item
+                [routerLink]="[
+                  '/admin/farmer/farmedTypes/marketing-datas',
+                  variable.id
+                ]"
+              >
+                <span> <i class="fa-light fa-eye"></i> بيانات التسويق </span>
+              </a>
+
+              <a
+                mat-menu-item
+                [routerLink]="[
+                  '/admin/farmer/farmedTypes/fertilization-needs',
+                  variable.id
+                ]"
+              >
+                <span>
+                  <i class="fa-light fa-eye"></i> احتياجات السماد للمحصول
+                </span>
+              </a>
+
               <button
                 mat-menu-item
                 [routerLink]="[
