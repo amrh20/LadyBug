@@ -1,0 +1,50 @@
+<div class="px-20 card-wrap">
+  <!-- <app-head-nav></app-head-nav> -->
+  <div class="card-custom">
+    <div class="card-head">
+      <h2 class="title">تفاصيل المزرعه</h2>
+    </div>
+    <div class="card-content">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="list-item">
+            <h2 class="title">الصوره</h2>
+            <img [src]="detailsData?.farmed_type_photo" alt="" />
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="list-item">
+            <h2 class="title">اسم نوع المزرعة</h2>
+            <span class="desc">
+              {{ detailsData?.farmed_type_name?.ar }}
+            </span>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="list-item">
+            <h2 class="title">مصادر الأسمدة الكيماوية</h2>
+            <span class="desc">
+              {{ detailsData?.chemical_fertilizer_sources[0] }}
+            </span>
+          </div>
+        </div>
+        <div class="col-md-4 mt-5">
+          <div class="list-item">
+            <h2 class="title">area unit</h2>
+            <span class="desc">
+              {{ detailsData?.area_unit?.ar }}
+            </span>
+          </div>
+        </div>
+        <div class="col-md-4 mt-5">
+          <div class="list-item">
+            <h2 class="title">تاريخ الزراعة</h2>
+            <span class="desc">
+              {{ detailsData?.farming_date }}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
