@@ -1,0 +1,112 @@
+<div class="px-20 card-wrap">
+  <!-- <app-head-nav></app-head-nav> -->
+  <div class="card-custom">
+    <div class="card-head">
+      <h2 class="title">تفاصيل احتياجات السماد للمحصول</h2>
+    </div>
+
+    <div class="card-content">
+      <div class="row">
+        <div class="col-md-4 mt-5">
+          <div class="list-item">
+            <h2 class="title">مرحلة نمو المحصول</h2>
+            <span class="desc">
+              {{ detailsData?.farmed_type_stage?.name }}
+            </span>
+          </div>
+        </div>
+        <div class="col-md-4 mt-5">
+          <div class="list-item">
+            <h2 class="title">نيتروجين</h2>
+            <span class="desc">
+              {{ detailsData?.nut_elem_value.n }}
+            </span>
+          </div>
+        </div>
+        <div class="col-md-4 mt-5">
+          <div class="list-item">
+            <h2 class="title">فوسفور</h2>
+            <span class="desc">
+              {{ detailsData?.nut_elem_value.p }}
+            </span>
+          </div>
+        </div>
+
+        <div class="col-md-4 mt-5">
+          <div class="list-item">
+            <h2 class="title">بوتاسيوم</h2>
+            <span class="desc">
+              {{ detailsData?.nut_elem_value.k }}
+            </span>
+          </div>
+        </div>
+
+        <div class="col-md-4 mt-5">
+          <div class="list-item">
+            <h2 class="title">حديد</h2>
+            <span class="desc">
+              {{ detailsData?.nut_elem_value.fe }}
+            </span>
+          </div>
+        </div>
+        <div class="col-md-4 mt-5">
+          <div class="list-item">
+            <h2 class="title">بورون</h2>
+            <span class="desc">
+              {{ detailsData?.nut_elem_value.b }}
+            </span>
+          </div>
+        </div>
+
+        <div class="col-md-4 mt-5">
+          <div class="list-item">
+            <h2 class="title">كالسيوم</h2>
+            <span class="desc"> {{ detailsData?.nut_elem_value.ca }}</span>
+          </div>
+        </div>
+        <div class="col-md-4 mt-5">
+          <div class="list-item">
+            <h2 class="title">ماغنيسيوم</h2>
+            <span class="desc">{{ detailsData?.nut_elem_value.mg }}</span>
+          </div>
+        </div>
+        <div class="col-md-4 mt-5">
+          <div class="list-item">
+            <h2 class="title">كبريت</h2>
+            <span class="desc">{{ detailsData.nut_elem_value.s }}</span>
+          </div>
+        </div>
+        <div class="col-md-4 mt-5">
+          <div class="list-item">
+            <h2 class="title">زنك</h2>
+            <span class="desc">{{ detailsData.nut_elem_value.zn }}</span>
+          </div>
+        </div>
+        <div class="col-md-4 mt-5">
+          <div class="list-item">
+            <h2 class="title">منجنيز</h2>
+            <span class="desc">{{ detailsData.nut_elem_value.mn }}</span>
+          </div>
+        </div>
+        <div class="col-md-4 mt-5">
+          <div class="list-item">
+            <h2 class="title">نحاس</h2>
+            <span class="desc">{{ detailsData.nut_elem_value.cu }}</span>
+          </div>
+        </div>
+        <div class="col-md-4 mt-5">
+          <div class="list-item">
+            <h2 class="title">كلوريد</h2>
+            <span class="desc">{{ detailsData.nut_elem_value.cl }}</span>
+          </div>
+        </div>
+        <div class="col-md-4 mt-5">
+          <div class="list-item">
+            <h2 class="title">مولبيدنم</h2>
+            <span class="desc">{{ detailsData.nut_elem_value.mo }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -4,11 +4,11 @@ import { CrudRequestsService } from "src/app/core/services/crud-requests.service
 import { SettingService } from "src/app/core/services/setting.service";
 
 @Component({
-  selector: "app-marketing-datas-details",
-  templateUrl: "./marketing-datas-details.component.html",
-  styleUrls: ["./marketing-datas-details.component.scss"],
+  selector: "app-fertilization-needs-details",
+  templateUrl: "./fertilization-needs-details.component.html",
+  styleUrls: ["./fertilization-needs-details.component.scss"],
 })
-export class MarketingDatasDetailsComponent implements OnInit {
+export class FertilizationNeedsDetailsComponent implements OnInit {
   constructor(
     private _CrudRequestsService: CrudRequestsService,
     private _SettingService: SettingService,
@@ -25,7 +25,7 @@ export class MarketingDatasDetailsComponent implements OnInit {
   detailsData: any = {};
   getUser = (id: any) => {
     this._CrudRequestsService
-      .get("marketing_datas/" + id)
+      .get("farmed_type_fertilization_needs/" + id)
       .subscribe((data: any) => {
         this.detailsData = data.data;
       });

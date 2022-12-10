@@ -1,0 +1,269 @@
+<div class="px-20 card-wrap">
+  <!-- <app-head-nav></app-head-nav> -->
+  <div class="card-custom">
+    <div class="card-head">
+      <h2 class="title">
+        {{ !isEdit ? "اضافه" : " تعديل " }}
+        احتياجات السماد للمحصول
+      </h2>
+    </div>
+    <div class="card-content">
+      <form [formGroup]="form">
+        <div class="row">
+          <div class="col-6 mb-5">
+            <select name="" id="" formControlName="farmed_type_stage_id">
+              <option value="">اختر مرحلة نمو المحصول</option>
+              <option [value]="item.id" *ngFor="let item of fertilizationneeds">
+                {{ item.name }}
+              </option>
+            </select>
+            <div
+              class="error-msg"
+              *ngIf="form.controls['nut_elem_valuen'].touched || isSubmit"
+            >
+              <div
+                *ngIf="form.controls['nut_elem_valuen'].hasError('required')"
+              >
+                {{ "must_required" | translate }}
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6 mb-5">
+            <input
+              type="number"
+              placeholder=" نيتروجين"
+              formControlName="nut_elem_valuen"
+            />
+            <div
+              class="error-msg"
+              *ngIf="form.controls['nut_elem_valuen'].touched || isSubmit"
+            >
+              <div
+                *ngIf="form.controls['nut_elem_valuen'].hasError('required')"
+              >
+                {{ "must_required" | translate }}
+              </div>
+            </div>
+          </div>
+          <div class="col-6 mb-5">
+            <input
+              type="number"
+              placeholder=" فوسفور"
+              formControlName="nut_elem_valuep"
+            />
+            <div
+              class="error-msg"
+              *ngIf="form.controls['nut_elem_valuep'].touched || isSubmit"
+            >
+              <div
+                *ngIf="form.controls['nut_elem_valuep'].hasError('required')"
+              >
+                {{ "must_required" | translate }}
+              </div>
+            </div>
+          </div>
+          <div class="col-6 mb-5">
+            <input
+              type="number"
+              placeholder=" بوتاسيوم"
+              formControlName="nut_elem_valuek"
+            />
+            <div
+              class="error-msg"
+              *ngIf="form.controls['nut_elem_valuek'].touched || isSubmit"
+            >
+              <div
+                *ngIf="form.controls['nut_elem_valuek'].hasError('required')"
+              >
+                {{ "must_required" | translate }}
+              </div>
+            </div>
+          </div>
+          <div class="col-6 mb-5">
+            <input
+              type="number"
+              placeholder=" حديد"
+              formControlName="nut_elem_valuefe"
+            />
+            <div
+              class="error-msg"
+              *ngIf="form.controls['nut_elem_valuefe'].touched || isSubmit"
+            >
+              <div
+                *ngIf="form.controls['nut_elem_valuefe'].hasError('required')"
+              >
+                {{ "must_required" | translate }}
+              </div>
+            </div>
+          </div>
+          <div class="col-6 mb-5">
+            <input
+              type="number"
+              placeholder="بورون "
+              formControlName="nut_elem_valueb"
+            />
+            <div
+              class="error-msg"
+              *ngIf="form.controls['nut_elem_valueb'].touched || isSubmit"
+            >
+              <div
+                *ngIf="form.controls['nut_elem_valueb'].hasError('required')"
+              >
+                {{ "must_required" | translate }}
+              </div>
+            </div>
+          </div>
+          <div class="col-6 mb-5">
+            <input
+              type="number"
+              placeholder="كالسيوم"
+              formControlName="nut_elem_valueca"
+            />
+            <div
+              class="error-msg"
+              *ngIf="form.controls['nut_elem_valueca'].touched || isSubmit"
+            >
+              <div
+                *ngIf="form.controls['nut_elem_valueca'].hasError('required')"
+              >
+                {{ "must_required" | translate }}
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6 mb-5">
+            <input
+              type="number"
+              placeholder="ماغنيسيوم"
+              formControlName="nut_elem_valuemg"
+            />
+            <div
+              class="error-msg"
+              *ngIf="form.controls['nut_elem_valuemg'].touched || isSubmit"
+            >
+              <div
+                *ngIf="form.controls['nut_elem_valuemg'].hasError('required')"
+              >
+                {{ "must_required" | translate }}
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6 mb-5">
+            <input
+              type="number"
+              placeholder="كبريت "
+              formControlName="nut_elem_values"
+            />
+            <div
+              class="error-msg"
+              *ngIf="form.controls['nut_elem_values'].touched || isSubmit"
+            >
+              <div
+                *ngIf="form.controls['nut_elem_values'].hasError('required')"
+              >
+                {{ "must_required" | translate }}
+              </div>
+            </div>
+          </div>
+          <div class="col-6 mb-5">
+            <input
+              type="number"
+              placeholder="زنك "
+              formControlName="nut_elem_valuezn"
+            />
+            <div
+              class="error-msg"
+              *ngIf="form.controls['nut_elem_valuezn'].touched || isSubmit"
+            >
+              <div
+                *ngIf="form.controls['nut_elem_valuezn'].hasError('required')"
+              >
+                {{ "must_required" | translate }}
+              </div>
+            </div>
+          </div>
+          <div class="col-6 mb-5">
+            <input
+              type="number"
+              placeholder="منجنيز"
+              formControlName="nut_elem_valuemn"
+            />
+            <div
+              class="error-msg"
+              *ngIf="form.controls['nut_elem_valuemn'].touched || isSubmit"
+            >
+              <div
+                *ngIf="form.controls['nut_elem_valuemn'].hasError('required')"
+              >
+                {{ "must_required" | translate }}
+              </div>
+            </div>
+          </div>
+          <div class="col-6 mb-5">
+            <input
+              type="number"
+              placeholder="نحاس"
+              formControlName="nut_elem_valuecu"
+            />
+            <div
+              class="error-msg"
+              *ngIf="form.controls['nut_elem_valuecu'].touched || isSubmit"
+            >
+              <div
+                *ngIf="form.controls['nut_elem_valuecu'].hasError('required')"
+              >
+                {{ "must_required" | translate }}
+              </div>
+            </div>
+          </div>
+          <div class="col-6 mb-5">
+            <input
+              type="number"
+              placeholder="كلوريد"
+              formControlName="nut_elem_valuecl"
+            />
+            <div
+              class="error-msg"
+              *ngIf="form.controls['nut_elem_valuecl'].touched || isSubmit"
+            >
+              <div
+                *ngIf="form.controls['nut_elem_valuecl'].hasError('required')"
+              >
+                {{ "must_required" | translate }}
+              </div>
+            </div>
+          </div>
+          <div class="col-6 mb-5">
+            <input
+              type="number"
+              placeholder=" مولبيدنم"
+              formControlName="nut_elem_valuemo"
+            />
+            <div
+              class="error-msg"
+              *ngIf="form.controls['nut_elem_valuemo'].touched || isSubmit"
+            >
+              <div
+                *ngIf="form.controls['nut_elem_valuemo'].hasError('required')"
+              >
+                {{ "must_required" | translate }}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="actions mt-5">
+          <app-spinner *ngIf="loading"></app-spinner>
+          <button class="main-btn" *ngIf="!loading" (click)="sendData()">
+            حفظ
+          </button>
+          <button class="tr-btn mx-3" *ngIf="!loading" (click)="goBack()">
+            الغاء
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

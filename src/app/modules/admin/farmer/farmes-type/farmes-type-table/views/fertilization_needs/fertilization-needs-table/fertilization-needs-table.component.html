@@ -2,44 +2,45 @@
   <div
     class="page-title d-flex justify-content-between align-items-center w-100"
   >
-    <h1 class="fs-24">بيانات التسويق</h1>
+    <h1 class="fs-24">احتياجات السماد للمحصول</h1>
     <div class="">
       <button
         class="main-btn"
         [routerLink]="[
-          '/admin/farmer/farmedTypes/marketing-datas/Create/' + ids
+          '/admin/farmer/farmedTypes/fertilization-needs/Create/' + ids
         ]"
       >
-        اضافه بيانات التسويق
+        اضافه احتياجات السماد للمحصول
       </button>
     </div>
   </div>
   {{ success }}
-  <div class="bg-white pb-5 br-10 text-center py-3 not-found" *ngIf="!res?.id">
-    لا يوجد بيانات التسويق
+  <div
+    class="bg-white pb-5 br-10 text-center py-3 not-found"
+    *ngIf="res?.length == 0"
+  >
+    لا يوجد احتياجات السماد للمحصول
   </div>
-  <div class="bg-white pb-5 br-10" *ngIf="res?.id">
+  <div class="bg-white pb-5 br-10" *ngIf="res?.length > 0">
     <app-table>
       <ng-container header>
         <tr>
           <th>##</th>
-          <th>الدوله</th>
-          <th>السنة</th>
-          <th>الانتاج بالطن</th>
+          <th>farmed_type_stage</th>
+          <th>per</th>
 
           <th>اجراءت</th>
         </tr>
       </ng-container>
       <ng-container content>
-        <tr>
+        <tr *ngFor="let item of res">
           <td>
             <span class="num-td">
-              {{ res?.id }}
+              {{ item?.id }}
             </span>
           </td>
-          <td>{{ res?.country.name }}</td>
-          <td>{{ res?.year }}</td>
-          <td>{{ res?.production }}</td>
+          <td>{{ item?.farmed_type_stage?.name }}</td>
+          <td>{{ item?.per }}</td>
           <td>
             <button
               class="menu--item"
@@ -95,8 +96,8 @@
               <a
                 mat-menu-item
                 [routerLink]="[
-                  '/admin/farmer/farmedTypes/marketing-datas/details',
-                  res.id
+                  '/admin/farmer/farmedTypes/fertilization-needs/details',
+                  item.id
                 ]"
               >
                 <span> <i class="fa-light fa-eye"></i> تفاصيل </span>
@@ -104,13 +105,13 @@
               <button
                 mat-menu-item
                 [routerLink]="[
-                  '/admin/farmer/farmedTypes/marketing-datas/edit',
-                  res.id
+                  '/admin/farmer/farmedTypes/fertilization-needs/edit',
+                  item.id
                 ]"
               >
                 <span> <i class="fa-thin fa-pen-to-square"></i> تعديل </span>
               </button>
-              <button mat-menu-item (click)="deleteItem(res.id)">
+              <button mat-menu-item (click)="deleteItem(item.id)">
                 <span><i class="fa-thin fa-trash"></i> حذف </span>
               </button>
             </mat-menu>

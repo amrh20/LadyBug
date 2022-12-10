@@ -5,11 +5,11 @@ import { SettingService } from "src/app/core/services/setting.service";
 import Swal from "sweetalert2";
 
 @Component({
-  selector: "app-marketing-datas-table",
-  templateUrl: "./marketing-datas-table.component.html",
-  styleUrls: ["./marketing-datas-table.component.scss"],
+  selector: "app-fertilization-needs-table",
+  templateUrl: "./fertilization-needs-table.component.html",
+  styleUrls: ["./fertilization-needs-table.component.scss"],
 })
-export class MarketingDatasTableComponent implements OnInit {
+export class FertilizationNeedsTableComponent implements OnInit {
   deleteItem = (id: any) => {
     Swal.fire({
       text: "   هل أنت متاكد من الحذف  ؟",
@@ -23,15 +23,17 @@ export class MarketingDatasTableComponent implements OnInit {
       cancelButtonAriaLabel: "التراجع",
     }).then((val: any) => {
       if (val.isConfirmed) {
-        this._CrudRequestsService.delete("marketing_datas/" + id).subscribe(
-          (res: any) => {
-            this._SettingService.successHot(res.message);
-            this.getUser(this.ids);
-          },
-          (err) => {
-            this._SettingService.errorHot(err.message);
-          }
-        );
+        this._CrudRequestsService
+          .delete("farmed_type_fertilization_needs/" + id)
+          .subscribe(
+            (res: any) => {
+              this._SettingService.successHot(res.message);
+              this.getUser(this.ids);
+            },
+            (err) => {
+              this._SettingService.errorHot(err.message);
+            }
+          );
       }
     });
   };
@@ -58,9 +60,10 @@ export class MarketingDatasTableComponent implements OnInit {
   getUser = (id: any) => {
     this.success = false;
     this._CrudRequestsService
-      .get("marketing_datas/by_ft_id/" + id)
+      .get("farmed_type_fertilization_needs/by_ft_id/" + id)
       .subscribe((data: any) => {
         this.res = data.data;
+        console.log(this.res);
         this.success = data.data.code;
       });
   };

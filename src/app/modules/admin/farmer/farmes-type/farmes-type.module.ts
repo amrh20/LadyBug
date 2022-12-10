@@ -21,6 +21,9 @@ import { FarmedTypeNutValsDetalisComponent } from './farmes-type-table/views/far
 import { MarketingDatasCreateComponent } from './farmes-type-table/views/marketing_datas/marketing-datas-create/marketing-datas-create.component';
 import { MarketingDatasTableComponent } from './farmes-type-table/views/marketing_datas/marketing-datas-table/marketing-datas-table.component';
 import { MarketingDatasDetailsComponent } from './farmes-type-table/views/marketing_datas/marketing-datas-details/marketing-datas-details.component';
+import { FertilizationNeedsCreateComponent } from './farmes-type-table/views/fertilization_needs/fertilization-needs-create/fertilization-needs-create.component';
+import { FertilizationNeedsDetailsComponent } from './farmes-type-table/views/fertilization_needs/fertilization-needs-details/fertilization-needs-details.component';
+import { FertilizationNeedsTableComponent } from './farmes-type-table/views/fertilization_needs/fertilization-needs-table/fertilization-needs-table.component';
 
 
 @NgModule({
@@ -39,7 +42,10 @@ import { MarketingDatasDetailsComponent } from './farmes-type-table/views/market
     FarmedTypeNutValsDetalisComponent,
     MarketingDatasCreateComponent,
     MarketingDatasTableComponent,
-    MarketingDatasDetailsComponent
+    MarketingDatasDetailsComponent,
+    FertilizationNeedsCreateComponent,
+    FertilizationNeedsDetailsComponent,
+    FertilizationNeedsTableComponent
   ],
   imports: [
     CommonModule,
