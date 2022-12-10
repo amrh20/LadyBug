@@ -6,6 +6,7 @@ import { FarmesTypeDetailsComponent } from './farmes-type-details/farmes-type-de
 import { FarmedTypeNutValsTableComponent } from './farmes-type-table/views/farmed_type_nut_vals/farmed-type-nut-vals-table/farmed-type-nut-vals-table.component';
 import { FarmedTypeExtrasTableComponent } from './farmes-type-table/views/farmed_type_extras/farmed-type-extras-table/farmed-type-extras-table.component';
 import { TaxonomiesTableComponent } from './farmes-type-table/views/taxonomies/taxonomies-table/taxonomies-table.component';
+import { TaxonomiesCreateComponent } from './farmes-type-table/views/taxonomies/taxonomies-create/taxonomies-create.component';
 
 const routes: Routes = [{
   path:'',
@@ -26,6 +27,12 @@ const routes: Routes = [{
 {
   path:'taxonomies/:id',
   component:TaxonomiesTableComponent
+},
+{
+  // 
+  path:'taxonomies/Create/:id',
+  component:TaxonomiesCreateComponent
+
 }
 ,{
   path:'farmed_type_extras/:id',
