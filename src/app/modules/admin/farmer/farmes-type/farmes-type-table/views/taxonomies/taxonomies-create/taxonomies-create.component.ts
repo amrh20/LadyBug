@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { CrudRequestsService } from '../../../../../../../../core/services/crud-requests.service';
+import { SettingService } from '../../../../../../../../core/services/setting.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-taxonomies-create',
@@ -7,9 +11,114 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TaxonomiesCreateComponent implements OnInit {
 
-  constructor() { }
 
+ 
+  form = new FormGroup(
+    {
+      kingdom: new FormControl("", [Validators.required]),
+      domain: new FormControl("", [Validators.required]),
+      phylum: new FormControl("", [Validators.required]),
+      subphylum: new FormControl("", [Validators.required]),
+      superclass: new FormControl("", [Validators.required]),
+      class: new FormControl("", [Validators.required]),
+      order: new FormControl("", [Validators.required]),
+      family: new FormControl("", [Validators.required]),
+      genus: new FormControl("", [Validators.required]),
+      species: new FormControl("", [Validators.required]),
+    }
+  );
+  loading: boolean = false;
+  isSubmit: any = false;
+  isEdit: any = false;
+  idEdit: any;
+  constructor(
+    private _CrudRequestsService: CrudRequestsService,
+    private _SettingService: SettingService,
+    private _crud: CrudRequestsService,
+    private _setting: SettingService,
+    private route: Router,
+    private _activeRoute: ActivatedRoute
+  ) {}
+  ids:any;
   ngOnInit(): void {
+    this._activeRoute.params.subscribe((params) => {
+      if (params["id"]) {
+        this.ids=params["id"];
+      }
+    
+    });
+  }
+  getUser = (id: any) => {
+    this.isEdit = true;
+
+    this._CrudRequestsService.get("taxonomies/" + id).subscribe((data: any) => {
+      this.form.patchValue({
+        name_ar_localized: data.data.name.ar,
+        name_en_localized: data.data.name.en,
+        type: data.data.type,
+      });
+    });
+  };
+  DataTable:any=[];
+
+ 
+  sendData = () => {
+    this.isSubmit = true;
+     let data ={
+      farmed_type_id:this.ids,
+      ...this.form.value
+     }
+    if (this.form.valid) {
+      this.loading = true;
+      if (this.isEdit) {
+        this._crud.put(`taxonomies/${this.idEdit}`, data).subscribe(
+          (res: any) => {
+            this.loading = false;
+            this.isSubmit = false;
+
+            if (res.success) {
+              this._setting.successHot(res.message);
+            } else {
+              this._setting.errorHot(res.message);
+            }
+          },
+          (err: any) => {
+            this.loading = false;
+            this._setting.errorHot(err.message);
+          },
+          () => {}
+        );
+      } else {
+       
+        this._crud.post(`taxonomies`, data).subscribe(
+          (res: any) => {
+            this.loading = false;
+            this.isSubmit = false;
+
+            if (res.success) {
+              this._setting.successHot(res.message);
+              this.form.reset();
+              this.goBack();
+              this.file=null;
+            } else {
+              this._setting.errorHot(res.message);
+            }
+          },
+          (err: any) => {
+            this.loading = false;
+            this._setting.errorHot(err.message);
+          },
+          () => {}
+        );
+      }
+    }
+  };
+  goBack = () => {
+    this.route.navigate([`/admin/farmer/farmedTypes/taxonomies/${this.ids}`]);
+  };
+  file:any=null;
+  changeFile($event:any){
+  this.file=$event.target.files[0];
   }
 
 }
