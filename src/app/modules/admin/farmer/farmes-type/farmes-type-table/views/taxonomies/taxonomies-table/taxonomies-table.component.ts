@@ -24,7 +24,7 @@ export class TaxonomiesTableComponent implements OnInit {
       cancelButtonAriaLabel: "التراجع",
     }).then((val: any) => {
       if (val.isConfirmed) {
-        this._CrudRequestsService.delete("farmed_types/" + id).subscribe(
+        this._CrudRequestsService.delete("taxonomies/" + id).subscribe(
           (res: any) => {
             this._SettingService.successHot(res.message);
             this.getUser(this.ids);
@@ -53,10 +53,14 @@ export class TaxonomiesTableComponent implements OnInit {
       this.ids=params["id"];
     });
   }
-  detailsData: any = {};
+  success:any;
+  detailsData: any;
+  res:any;
   getUser = (id: any) => {
+    this.success=false;
     this._CrudRequestsService.get("taxonomies/by_ft_id/"+id).subscribe((data: any) => {
-      this.detailsData = data.data;
+      this.res=data.data;
+      this.success=data.data.code;
     });
   };
 }

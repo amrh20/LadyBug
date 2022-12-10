@@ -20,3 +20,13 @@ button.mat-menu-item, a.mat-menu-item{
     width: 100%;
     text-align: start !important;
 }
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}

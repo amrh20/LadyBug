@@ -1,1 +1,320 @@
-<p>farmed-type-nut-vals-create works!</p>
+<div class="px-20 card-wrap">
+    <!-- <app-head-nav></app-head-nav> -->
+    <div class="card-custom">
+        <div class="card-head">
+            <h2 class="title">
+
+                {{!isEdit?'اضافه' : ' تعديل '}}      
+                القيمة الغذائية للعناصر الموجودة في المحصول
+                               
+                
+ 
+
+ 
+            </h2>
+        </div>
+        <div class="card-content">
+            <form [formGroup]="form">
+                <div class="row">
+               
+                
+                    <div class="col-6 mb-5">
+                        <input
+                            type="number"
+                            placeholder="السعرات الحرارية"
+                            formControlName="calories">
+                        <div
+                            class="error-msg"
+                            *ngIf="form.controls['calories'].touched ||
+                            isSubmit">
+                            <div
+                                *ngIf="form.controls['calories'].hasError('required')">{{"must_required"
+                                | translate}}</div>
+
+
+                        </div>
+                    </div>
+                    <div class="col-6 mb-5">
+                        <input
+                            type="number"
+                            placeholder="الدهون الكلية"
+                            formControlName="total_fat">
+                        <div
+                            class="error-msg"
+                            *ngIf="form.controls['total_fat'].touched ||
+                            isSubmit">
+                            <div
+                                *ngIf="form.controls['total_fat'].hasError('required')">{{"must_required"
+                                | translate}}</div>
+
+
+                        </div>
+                    </div>
+                    <div class="col-6 mb-5">
+                        <input
+                            type="number"
+                            placeholder="الدهون المشبعة"
+                            formControlName="sat_fat">
+                        <div
+                            class="error-msg"
+                            *ngIf="form.controls['sat_fat'].touched ||
+                            isSubmit">
+                            <div
+                                *ngIf="form.controls['sat_fat'].hasError('required')">{{"must_required"
+                                | translate}}</div>
+
+
+                        </div>
+                    </div>
+                    <div class="col-6 mb-5">
+                        <input
+                            type="number"
+                            placeholder=" الكوليسترول"
+                            formControlName="cholesterol">
+                        <div
+                            class="error-msg"
+                            *ngIf="form.controls['cholesterol'].touched ||
+                            isSubmit">
+                            <div
+                                *ngIf="form.controls['cholesterol'].hasError('required')">{{"must_required"
+                                | translate}}</div>
+
+
+                        </div>
+                    </div>
+                    <div class="col-6 mb-5">
+                        <input
+                            type="number"
+                            placeholder="الصوديوم "
+                            formControlName="na">
+                        <div
+                            class="error-msg"
+                            *ngIf="form.controls['na'].touched ||
+                            isSubmit">
+                            <div
+                                *ngIf="form.controls['na'].hasError('required')">{{"must_required"
+                                | translate}}</div>
+
+
+                        </div>
+                    </div>
+                    <div class="col-6 mb-5">
+                        <input
+                            type="number"
+                            placeholder="البوتاسيوم"
+                            formControlName="k">
+                        <div
+                            class="error-msg"
+                            *ngIf="form.controls['k'].touched ||
+                            isSubmit">
+                            <div
+                                *ngIf="form.controls['k'].hasError('required')">{{"must_required"
+                                | translate}}</div>
+
+
+                        </div>
+                    </div>
+               
+                    <div class="col-6 mb-5">
+                        <input
+                            type="number"
+                            placeholder="الكربوهيدرات"
+                            formControlName="total_carb">
+                        <div
+                            class="error-msg"
+                            *ngIf="form.controls['total_carb'].touched ||
+                            isSubmit">
+                            <div
+                                *ngIf="form.controls['total_carb'].hasError('required')">{{"must_required"
+                                | translate}}</div>
+
+
+                        </div>
+                    </div>
+                    <div class="col-6 mb-5">
+                        <input
+                            type="number"
+                            placeholder="الألياف الغذائية"
+                            formControlName="dietary_fiber">
+                        <div
+                            class="error-msg"
+                            *ngIf="form.controls['dietary_fiber'].touched ||
+                            isSubmit">
+                            <div
+                                *ngIf="form.controls['dietary_fiber'].hasError('required')">{{"must_required"
+                                | translate}}</div>
+
+
+                        </div>
+                    </div>
+                    <div class="col-6 mb-5">
+                        <input
+                            type="number"
+                            placeholder="السكريات "
+                            formControlName="sugar">
+                        <div
+                            class="error-msg"
+                            *ngIf="form.controls['sugar'].touched ||
+                            isSubmit">
+                            <div
+                                *ngIf="form.controls['sugar'].hasError('required')">{{"must_required"
+                                | translate}}</div>
+
+
+                        </div>
+                    </div>
+                    <div class="col-6 mb-5">
+                        <input
+                            type="number"
+                            placeholder="البروتين"
+                            formControlName="protein">
+                        <div
+                            class="error-msg"
+                            *ngIf="form.controls['protein'].touched ||
+                            isSubmit">
+                            <div
+                                *ngIf="form.controls['protein'].hasError('required')">{{"must_required"
+                                | translate}}</div>
+
+
+                        </div>
+                    </div>
+                    <div class="col-6 mb-5">
+                        <input
+                            type="number"
+                            placeholder="فيتامين ج"
+                            formControlName="v_c">
+                        <div
+                            class="error-msg"
+                            *ngIf="form.controls['v_c'].touched ||
+                            isSubmit">
+                            <div
+                                *ngIf="form.controls['v_c'].hasError('required')">{{"must_required"
+                                | translate}}</div>
+    
+    
+                        </div>
+                    </div>
+                    <div class="col-6 mb-5">
+                        <input
+                            type="number"
+                            placeholder="الحديد"
+                            formControlName="fe">
+                        <div
+                            class="error-msg"
+                            *ngIf="form.controls['fe'].touched ||
+                            isSubmit">
+                            <div
+                                *ngIf="form.controls['fe'].hasError('required')">{{"must_required"
+                                | translate}}</div>
+    
+    
+                        </div>
+                    </div>
+                    <div class="col-6 mb-5">
+                        <input
+                            type="number"
+                            placeholder="فيتامين ب6"
+                            formControlName="v_b6">
+                        <div
+                            class="error-msg"
+                            *ngIf="form.controls['v_b6'].touched ||
+                            isSubmit">
+                            <div
+                                *ngIf="form.controls['v_b6'].hasError('required')">{{"must_required"
+                                | translate}}</div>
+    
+    
+                        </div>
+                    </div>
+                    <div class="col-6 mb-5">
+                        <input
+                            type="number"
+                            placeholder="الماغنسيوم"
+                            formControlName="mg">
+                        <div
+                            class="error-msg"
+                            *ngIf="form.controls['mg'].touched ||
+                            isSubmit">
+                            <div
+                                *ngIf="form.controls['mg'].hasError('required')">{{"must_required"
+                                | translate}}</div>
+    
+    
+                        </div>
+                    </div>
+                    <div class="col-6 mb-5">
+                        <input
+                            type="number"
+                            placeholder="الكالسيوم"
+                            formControlName="ca">
+                        <div
+                            class="error-msg"
+                            *ngIf="form.controls['ca'].touched ||
+                            isSubmit">
+                            <div
+                                *ngIf="form.controls['ca'].hasError('required')">{{"must_required"
+                                | translate}}</div>
+    
+    
+                        </div>
+                    </div>
+                    
+                    <div class="col-6 mb-5">
+                        <input
+                            type="number"
+                            placeholder="فيتامين د"
+                            formControlName="v_d">
+                        <div
+                            class="error-msg"
+                            *ngIf="form.controls['v_d'].touched ||
+                            isSubmit">
+                            <div
+                                *ngIf="form.controls['v_d'].hasError('required')">{{"must_required"
+                                | translate}}</div>
+    
+    
+                        </div>
+                    </div>
+                    
+                    <div class="col-6 mb-5">
+                        <input
+                            type="number"
+                            placeholder="كوبالامين"
+                            formControlName="cobalamin">
+                        <div
+                            class="error-msg"
+                            *ngIf="form.controls['cobalamin'].touched ||
+                            isSubmit">
+                            <div
+                                *ngIf="form.controls['cobalamin'].hasError('required')">{{"must_required"
+                                | translate}}</div>
+    
+    
+                        </div>
+                    </div>
+                </div>
+
+       
+                
+                <div class="actions mt-5">
+                    <app-spinner *ngIf="loading"></app-spinner>
+                    <button
+                        class="main-btn"
+                        *ngIf="!loading"
+                        (click)="sendData()">
+                        حفظ
+                    </button>
+                    <button
+                        class="tr-btn mx-3"
+                        *ngIf="!loading"
+                        (click)="goBack()">
+                        الغاء
+                    </button>
+                </div>
+            </form>
+
+
+        </div>
+    </div>
+</div>
