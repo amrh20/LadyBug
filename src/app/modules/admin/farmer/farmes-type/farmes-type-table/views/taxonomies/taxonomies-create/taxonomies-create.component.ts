@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { CrudRequestsService } from '../../../../../../../../core/services/crud-requests.service';
 import { SettingService } from '../../../../../../../../core/services/setting.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import {LocationStrategy} from '@angular/common';
 
 @Component({
   selector: 'app-taxonomies-create',
@@ -37,25 +38,44 @@ export class TaxonomiesCreateComponent implements OnInit {
     private _crud: CrudRequestsService,
     private _setting: SettingService,
     private route: Router,
-    private _activeRoute: ActivatedRoute
+    private _activeRoute: ActivatedRoute,
+    private LocationStrategy:LocationStrategy
   ) {}
   ids:any;
   ngOnInit(): void {
-    this._activeRoute.params.subscribe((params) => {
-      if (params["id"]) {
-        this.ids=params["id"];
-      }
-    
-    });
+    if(this.route.url.includes('edit')){
+      this.isEdit=true;
+      this._activeRoute.params.subscribe((params) => {
+        if (params["id"]) {
+          this.getUser(params["id"]) 
+        }
+      });
+    }else{
+      this._activeRoute.params.subscribe((params) => {
+        if (params["id"]) {
+          this.ids=params["id"];
+        }
+      });
+    }
+  
   }
   getUser = (id: any) => {
     this.isEdit = true;
 
     this._CrudRequestsService.get("taxonomies/" + id).subscribe((data: any) => {
+      this.ids=data.data.farmed_type_id;
       this.form.patchValue({
-        name_ar_localized: data.data.name.ar,
-        name_en_localized: data.data.name.en,
-        type: data.data.type,
+  
+        kingdom: data.data.kingdom,
+        domain: data.data.domain,
+        phylum: data.data.phylum,
+        subphylum: data.data.subphylum,
+        superclass: data.data.superclass,
+        class: data.data.class,
+        order: data.data.order,
+        family: data.data.family,
+        genus: data.data.genus,
+        species: data.data.species,
       });
     });
   };
@@ -71,7 +91,7 @@ export class TaxonomiesCreateComponent implements OnInit {
     if (this.form.valid) {
       this.loading = true;
       if (this.isEdit) {
-        this._crud.put(`taxonomies/${this.idEdit}`, data).subscribe(
+        this._crud.post(`taxonomies`, data).subscribe(
           (res: any) => {
             this.loading = false;
             this.isSubmit = false;

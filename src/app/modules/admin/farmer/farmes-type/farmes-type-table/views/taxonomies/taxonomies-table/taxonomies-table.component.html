@@ -12,25 +12,32 @@
         </button>
       </div>
     </div>
-  
-    <div class="bg-white pb-5 br-10">
+    {{success}}
+    <div class="bg-white pb-5 br-10 text-center py-3 not-found" *ngIf="!res?.id">
+        لا يوجد تصنيف العالمي 
+    </div>
+    <div class="bg-white pb-5 br-10" *ngIf="res?.id">
       <app-table>
         <ng-container header>
           <tr>
             <th>##</th>
-            <th>اسم</th>
+            <th>المملكة</th>
+            <th>النطاق</th>
+            <th>شعبة </th>
         
             <th>اجراءت</th>
           </tr>
         </ng-container>
-        <ng-container content *ngIf="DataTable?.length != 0">
-          <tr *ngFor="let variable of DataTable; let i = index">
+        <ng-container content >
+          <tr >
             <td>
               <span class="num-td">
-                {{ variable?.id }}
+                {{ res?.id }}
               </span>
             </td>
-            <td>{{ variable.name.ar }}</td>
+            <td>{{ res?.kingdom }}</td>
+            <td>{{ res?.domain }}</td>
+            <td>{{ res?.phylum }}</td>
             <td>
               <button
                 class="menu--item"
@@ -83,17 +90,25 @@
                 </svg>
               </button>
               <mat-menu #menu="matMenu">
-           
+                <a
+                mat-menu-item
+                [routerLink]="[
+                  '/admin/farmer/farmedTypes/taxonomies/details',
+                  res.id
+                ]"
+              >
+                <span> <i class="fa-light fa-eye"></i> تفاصيل </span>
+              </a>
                 <button
                   mat-menu-item
                   [routerLink]="[
-                    '/admin/farmer/farmedTypes/FarmersTypeEdit',
-                    variable.id
+                    '/admin/farmer/farmedTypes/taxonomies/edit',
+                    res.id
                   ]"
                 >
                   <span> <i class="fa-thin fa-pen-to-square"></i> تعديل </span>
                 </button>
-                <button mat-menu-item (click)="deleteItem(variable.id)">
+                <button mat-menu-item (click)="deleteItem(res.id)">
                   <span><i class="fa-thin fa-trash"></i> حذف </span>
                 </button>
               </mat-menu>
