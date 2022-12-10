@@ -9,13 +9,31 @@ import { TranslateModule } from '@ngx-translate/core';
 import { SharedModule } from '../../../../shared/shared.module';
 import { MaterialModule } from '../../../../core/material-module.module';
 import { FarmesTypeDetailsComponent } from './farmes-type-details/farmes-type-details.component';
+import { FarmedTypeExtrasTableComponent } from './farmes-type-table/views/farmed_type_extras/farmed-type-extras-table/farmed-type-extras-table.component';
+import { FarmedTypeExtrasCreateComponent } from './farmes-type-table/views/farmed_type_extras/farmed-type-extras-create/farmed-type-extras-create.component';
+import { FarmedTypeExtrasDetasilComponent } from './farmes-type-table/views/farmed_type_extras/farmed-type-extras-detasil/farmed-type-extras-detasil.component';
+import { TaxonomiesCreateComponent } from './farmes-type-table/views/taxonomies/taxonomies-create/taxonomies-create.component';
+import { TaxonomiesTableComponent } from './farmes-type-table/views/taxonomies/taxonomies-table/taxonomies-table.component';
+import { TaxonomiesDetailsComponent } from './farmes-type-table/views/taxonomies/taxonomies-details/taxonomies-details.component';
+import { FarmedTypeNutValsTableComponent } from './farmes-type-table/views/farmed_type_nut_vals/farmed-type-nut-vals-table/farmed-type-nut-vals-table.component';
+import { FarmedTypeNutValsCreateComponent } from './farmes-type-table/views/farmed_type_nut_vals/farmed-type-nut-vals-create/farmed-type-nut-vals-create.component';
+import { FarmedTypeNutValsDetalisComponent } from './farmes-type-table/views/farmed_type_nut_vals/farmed-type-nut-vals-detalis/farmed-type-nut-vals-detalis.component';
 
 
 @NgModule({
   declarations: [
     FarmesTypeTableComponent,
     FarmesTypeCreateComponent,
-    FarmesTypeDetailsComponent
+    FarmesTypeDetailsComponent,
+    FarmedTypeExtrasTableComponent,
+    FarmedTypeExtrasCreateComponent,
+    FarmedTypeExtrasDetasilComponent,
+    TaxonomiesCreateComponent,
+    TaxonomiesTableComponent,
+    TaxonomiesDetailsComponent,
+    FarmedTypeNutValsTableComponent,
+    FarmedTypeNutValsCreateComponent,
+    FarmedTypeNutValsDetalisComponent
   ],
   imports: [
     CommonModule,
