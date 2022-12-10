@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { CrudRequestsService } from '../../../../../core/services/crud-requests.service';
-import { SettingService } from '../../../../../core/services/setting.service';
+import { CrudRequestsService } from '../../../../../../../../core/services/crud-requests.service';
+import { SettingService } from '../../../../../../../../core/services/setting.service';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-farmes-type-details',
-  templateUrl: './farmes-type-details.component.html',
-  styleUrls: ['./farmes-type-details.component.scss']
+  selector: 'app-farmed-type-extras-table',
+  templateUrl: './farmed-type-extras-table.component.html',
+  styleUrls: ['./farmed-type-extras-table.component.scss']
 })
-export class FarmesTypeDetailsComponent implements OnInit {
+export class FarmedTypeExtrasTableComponent implements OnInit {
 
   constructor(
     private _CrudRequestsService: CrudRequestsService,
@@ -25,7 +25,7 @@ export class FarmesTypeDetailsComponent implements OnInit {
   }
   detailsData: any = {};
   getUser = (id: any) => {
-    this._CrudRequestsService.get("farmed_types/" + id).subscribe((data: any) => {
+    this._CrudRequestsService.get("farmed_type_extras/by_ft_id/"+id).subscribe((data: any) => {
       this.detailsData = data.data;
     });
   };

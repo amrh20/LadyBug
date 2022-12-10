@@ -1,1 +1,110 @@
-<p>farmes-type-details works!</p>
+<div class="px-20 card-wrap">
+    <!-- <app-head-nav></app-head-nav> -->
+<div class="card-custom">
+   <div class="card-head">
+       <h2 class="title">
+          تفاصيل المزروع
+       </h2>
+   </div>
+
+   <div class="card-content">
+       <div class="row">
+        <div class=" col-md-4">
+            <div class="list-item">
+                <h2 class="title">
+                     المزروع
+                </h2>
+                <span class="desc">
+                    {{ detailsData.name?.ar }}
+                </span>
+            </div>
+        </div>
+        <div class=" col-md-4">
+            <div class="list-item">
+                <h2 class="title">
+                    نوع المزرعة
+                </h2>
+                <span class="desc">
+                    {{ detailsData.farm_activity_type_name?.ar }}
+                </span>
+            </div>
+        </div>
+        <div class=" col-md-4">
+            <div class="list-item">
+                <h2 class="title">
+                    المزهرة
+                                </h2>
+                <span class="desc">
+                    {{ detailsData.flowering_time }}
+                </span>
+            </div>
+        </div>
+        
+        <div class=" col-md-4">
+            <div class="list-item">
+                <h2 class="title">
+                    المزهرة (درجة الحرارة)
+                </h2>
+                <span class="desc">
+                    {{ detailsData.flowering_temperature }}
+                </span>
+            </div>
+        </div>
+     
+        <div class=" col-md-4">
+            <div class="list-item">
+                <h2 class="title">
+                    نضج ( وقت)
+                                </h2>
+                <span class="desc">                          {{ detailsData.maturity_time }}
+                </span>
+            </div>
+        </div>
+           <div class=" col-md-4">
+               <div class="list-item">
+                   <h2 class="title">
+                    نضج (درجة الحرارة)
+                   </h2>
+                   <span class="desc">                            {{ detailsData.maturity_temperature }}
+                   </span>
+               </div>
+           </div>
+           
+        
+           
+           <div class=" col-md-4">
+            <div class="list-item">
+                <h2 class="title">أملاح التربة
+                 
+                </h2>
+                <span class="desc"> {{ detailsData.suitable_water_salts_concentration }}</span>
+            </div>
+        </div>
+        <div class=" col-md-4">
+            <div class="list-item">
+                <h2 class="title"> 
+                    أنواع التربة
+                </h2>
+                <span class="desc">{{ detailsData.suitable_soil_types }}</span>
+            </div>
+        </div>
+        <div class=" col-md-4">
+            <div class="list-item">
+                <h2 class="title"> 
+                    أملاح الماء                </h2>
+                <span class="desc">{{ detailsData.suitable_soil_salts_concentration }}</span>
+            </div>
+        </div>
+        <div class=" col-md-4">
+            <div class="list-item">
+                <h2 class="title"> 
+                    PH
+                </h2>
+                <span class="desc">  {{ detailsData.suitable_ph }}</span>
+            </div>
+        </div>
+       
+       </div>
+   </div>
+</div>
+</div>
