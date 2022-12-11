@@ -1,95 +1,573 @@
 <div class="px-20 card-wrap">
-    <!-- <app-head-nav></app-head-nav> -->
-    <div class="card-custom">
-        <div class="card-head">
-            <h2 class="title">
-
-                {{!isEdit?'اضافه' : ' تعديل '}}                نوع المزروع
- 
-
- 
-            </h2>
-        </div>
-        <div class="card-content">
-            <form [formGroup]="form">
-                <div class="row">
-               
-                
-                    <div class="col-6 mb-5">
-                        <input
-                            type="text"
-                            placeholder="العنوان بالعربي"
-                            formControlName="name_ar_localized">
-                        <div
-                            class="error-msg"
-                            *ngIf="form.controls['name_ar_localized'].touched ||
-                            isSubmit">
-                            <div
-                                *ngIf="form.controls['name_ar_localized'].hasError('required')">{{"must_required"
-                                | translate}}</div>
-
-
-                        </div>
-                    </div>
-                    <div class="col-6 mb-5">
-                        <input
-                            type="text"
-                            placeholder="العنوان بالانجليزي"
-                            formControlName="name_en_localized">
-                        <div
-                            class="error-msg"
-                            *ngIf="form.controls['name_en_localized'].touched ||
-                            isSubmit">
-                            <div
-                                *ngIf="form.controls['name_en_localized'].hasError('required')">{{"must_required"
-                                | translate}}</div>
-                        </div>
-                    </div>
-               
-                    <div class="col-6 mb-5">
-                       
-                            <div class="select-value">
-
-                                <div class="position-relative">
-                                    <select name="" id="" class="select-ground" formControlName="type">
-                                        <option value="" selected>  النوع 	</option>
-                                        <option  [value]="'farming'">زراعه</option>
-                                        <option  [value]="'breeding'">تربيه</option>
-                                        
-                                    </select>
-                                </div>
-                            </div>
-                        <div
-                            class="error-msg"
-                            *ngIf="form.controls['type'].touched ||
-                            isSubmit">
-                            <div
-                                *ngIf="form.controls['type'].hasError('required')">{{"must_required"
-                                | translate}}</div>
-                        </div>
-                    </div>
-               
-
-                    
-                </div>
-                <div class="actions mt-5">
-                    <app-spinner *ngIf="loading"></app-spinner>
-                    <button
-                        class="main-btn"
-                        *ngIf="!loading"
-                        (click)="sendData()">
-                        حفظ
-                    </button>
-                    <button
-                        class="tr-btn mx-3"
-                        *ngIf="!loading"
-                        (click)="goBack()">
-                        الغاء
-                    </button>
-                </div>
-            </form>
-
-
-        </div>
+  <!-- <app-head-nav></app-head-nav> -->
+  <div class="card-custom">
+    <div class="card-head">
+      <h2 class="title">{{ !isEdit ? "اضافه" : " تعديل " }} المحصول</h2>
     </div>
+    <div class="card-content">
+      <form [formGroup]="form">
+        <div class="row">
+          <div class="col-6 mb-5">
+            <input
+              type="text"
+              placeholder="الاسم بالعربي"
+              formControlName="name_ar_localized"
+            />
+            <div
+              class="error-msg"
+              *ngIf="form.controls['name_ar_localized'].touched || isSubmit"
+            >
+              <div
+                *ngIf="form.controls['name_ar_localized'].hasError('required')"
+              >
+                {{ "must_required" | translate }}
+              </div>
+            </div>
+          </div>
+          <div class="col-6 mb-5">
+            <input
+              type="text"
+              placeholder="الاسم بالانجليزي"
+              formControlName="name_en_localized"
+            />
+            <div
+              class="error-msg"
+              *ngIf="form.controls['name_en_localized'].touched || isSubmit"
+            >
+              <div
+                *ngIf="form.controls['name_en_localized'].hasError('required')"
+              >
+                {{ "must_required" | translate }}
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6 mb-5">
+            <div class="select-value">
+              <div class="position-relative">
+                <select
+                  name=""
+                  id=""
+                  class="select-ground"
+                  formControlName="farm_activity_type_id"
+                >
+                  <option value="" selected>نشاط المزرعة</option>
+                  <option
+                    [value]="item.id"
+                    *ngFor="let item of farmActivityTypes"
+                  >
+                    {{ item.name }}
+                  </option>
+                </select>
+              </div>
+            </div>
+            <div
+              class="error-msg"
+              *ngIf="form.controls['farm_activity_type_id'].touched || isSubmit"
+            >
+              <div
+                *ngIf="
+                  form.controls['farm_activity_type_id'].hasError('required')
+                "
+              >
+                {{ "must_required" | translate }}
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6 mb-5">
+            <div class="select-value">
+              <div class="position-relative">
+                <select
+                  name=""
+                  id=""
+                  class="select-ground"
+                  formControlName="parent_id"
+                >
+                  <option value="" selected>المحصول الأساسي (العالمي)</option>
+
+                  <option [value]="item.id" *ngFor="let item of parents">
+                    {{ item.name }}
+                  </option>
+                </select>
+              </div>
+            </div>
+            <div
+              class="error-msg"
+              *ngIf="form.controls['parent_id'].touched || isSubmit"
+            >
+              <div *ngIf="form.controls['parent_id'].hasError('required')">
+                {{ "must_required" | translate }}
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6 mb-5">
+            <div class="select-value">
+              <div class="position-relative">
+                <select
+                  name=""
+                  id=""
+                  class="select-ground"
+                  formControlName="country_id"
+                >
+                  <option value="" selected>الدولة</option>
+                  <option [value]="item.id" *ngFor="let item of countries">
+                    {{ item.name }}
+                  </option>
+                </select>
+              </div>
+            </div>
+            <div
+              class="error-msg"
+              *ngIf="form.controls['country_id'].touched || isSubmit"
+            >
+              <div *ngIf="form.controls['country_id'].hasError('required')">
+                {{ "must_required" | translate }}
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6 mb-5">
+            <div class="select-value">
+              <div class="position-relative">
+                <ngx-multiple-select
+                  *ngIf="ascData"
+                  id="permissions"
+                  [enableAll]="true"
+                  [enableSearch]="true"
+                  [label]="'name'"
+                  [value]="'id'"
+                  [placeholder]="'  أنواع التربة المناسبة...'"
+                  [selectedData]="selectedData"
+                  [sourceData]="soilTypes"
+                  (onSelect)="onSelectCountries($event)"
+                >
+                </ngx-multiple-select>
+              </div>
+            </div>
+            <div
+              class="error-msg"
+              *ngIf="form.controls['suitable_soil_types'].touched || isSubmit"
+            >
+              <div
+                *ngIf="
+                  form.controls['suitable_soil_types'].hasError('required')
+                "
+              >
+                {{ "must_required" | translate }}
+              </div>
+            </div>
+          </div>
+          <div class="col-6 mb-5">
+            <div class="select-value">
+              <div class="position-relative">
+                <input
+                  type="text"
+                  placeholder="تركيز أملاح التربة المناسب من .."
+                  formControlName="suitable_soil_salts_concentrationF"
+                />
+              </div>
+            </div>
+            <div
+              class="error-msg"
+              *ngIf="
+                form.controls['suitable_soil_salts_concentrationF'].touched ||
+                isSubmit
+              "
+            >
+              <div
+                *ngIf="
+                  form.controls['suitable_soil_salts_concentrationF'].hasError(
+                    'required'
+                  )
+                "
+              >
+                {{ "must_required" | translate }}
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6 mb-5">
+            <div class="select-value">
+              <div class="position-relative">
+                <input
+                  type="text"
+                  placeholder="إلي"
+                  formControlName="suitable_soil_salts_concentrationT"
+                />
+              </div>
+            </div>
+            <div
+              class="error-msg"
+              *ngIf="
+                form.controls['suitable_soil_salts_concentrationT'].touched ||
+                isSubmit
+              "
+            >
+              <div
+                *ngIf="
+                  form.controls['suitable_soil_salts_concentrationT'].hasError(
+                    'required'
+                  )
+                "
+              >
+                {{ "must_required" | translate }}
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6 mb-5">
+            <div class="select-value">
+              <div class="position-relative">
+                <input
+                  type="text"
+                  placeholder="تركيز أملاء الماء المناسب من .."
+                  formControlName="suitable_water_salts_concentrationF"
+                />
+              </div>
+            </div>
+            <div
+              class="error-msg"
+              *ngIf="
+                form.controls['suitable_water_salts_concentrationF'].touched ||
+                isSubmit
+              "
+            >
+              <div
+                *ngIf="
+                  form.controls['suitable_water_salts_concentrationF'].hasError(
+                    'required'
+                  )
+                "
+              >
+                {{ "must_required" | translate }}
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6 mb-5">
+            <div class="select-value">
+              <div class="position-relative">
+                <input
+                  type="text"
+                  placeholder="إلي"
+                  formControlName="suitable_water_salts_concentrationT"
+                />
+              </div>
+            </div>
+            <div
+              class="error-msg"
+              *ngIf="
+                form.controls['suitable_water_salts_concentrationT'].touched ||
+                isSubmit
+              "
+            >
+              <div
+                *ngIf="
+                  form.controls['suitable_water_salts_concentrationT'].hasError(
+                    'required'
+                  )
+                "
+              >
+                {{ "must_required" | translate }}
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6 mb-5">
+            <div class="select-value">
+              <div class="position-relative">
+                <input
+                  type="text"
+                  placeholder="ph المناسب من"
+                  formControlName="suitable_phF"
+                />
+              </div>
+            </div>
+            <div
+              class="error-msg"
+              *ngIf="form.controls['suitable_phF'].touched || isSubmit"
+            >
+              <div *ngIf="form.controls['suitable_phF'].hasError('required')">
+                {{ "must_required" | translate }}
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6 mb-5">
+            <div class="select-value">
+              <div class="position-relative">
+                <input
+                  type="text"
+                  placeholder="إلي"
+                  formControlName="suitable_phT"
+                />
+              </div>
+            </div>
+            <div
+              class="error-msg"
+              *ngIf="form.controls['suitable_phT'].touched || isSubmit"
+            >
+              <div *ngIf="form.controls['suitable_phT'].hasError('required')">
+                {{ "must_required" | translate }}
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6 mb-5">
+            <div class="select-value">
+              <div class="position-relative">
+                <input
+                  type="text"
+                  placeholder="درجة الحرارة عند الزراعة من"
+                  formControlName="farming_temperatureF"
+                />
+              </div>
+            </div>
+            <div
+              class="error-msg"
+              *ngIf="form.controls['farming_temperatureF'].touched || isSubmit"
+            >
+              <div
+                *ngIf="
+                  form.controls['farming_temperatureF'].hasError('required')
+                "
+              >
+                {{ "must_required" | translate }}
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6 mb-5">
+            <div class="select-value">
+              <div class="position-relative">
+                <input
+                  type="text"
+                  placeholder="إلي"
+                  formControlName="farming_temperatureT"
+                />
+              </div>
+            </div>
+            <div
+              class="error-msg"
+              *ngIf="form.controls['farming_temperatureT'].touched || isSubmit"
+            >
+              <div
+                *ngIf="
+                  form.controls['farming_temperatureT'].hasError('required')
+                "
+              >
+                {{ "must_required" | translate }}
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6 mb-5">
+            <div class="select-value">
+              <div class="position-relative">
+                <input
+                  type="text"
+                  placeholder="درجة الحرارة عند التزهير من"
+                  formControlName="flowering_temperatureF"
+                />
+              </div>
+            </div>
+            <div
+              class="error-msg"
+              *ngIf="
+                form.controls['flowering_temperatureF'].touched || isSubmit
+              "
+            >
+              <div
+                *ngIf="
+                  form.controls['flowering_temperatureF'].hasError('required')
+                "
+              >
+                {{ "must_required" | translate }}
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6 mb-5">
+            <div class="select-value">
+              <div class="position-relative">
+                <input
+                  type="text"
+                  placeholder="إلي"
+                  formControlName="flowering_temperatureT"
+                />
+              </div>
+            </div>
+            <div
+              class="error-msg"
+              *ngIf="
+                form.controls['flowering_temperatureT'].touched || isSubmit
+              "
+            >
+              <div
+                *ngIf="
+                  form.controls['flowering_temperatureT'].hasError('required')
+                "
+              >
+                {{ "must_required" | translate }}
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6 mb-5">
+            <div class="select-value">
+              <div class="position-relative">
+                <input
+                  type="text"
+                  placeholder="درجة الحرارة عند النضج من"
+                  formControlName="maturity_temperatureF"
+                />
+              </div>
+            </div>
+            <div
+              class="error-msg"
+              *ngIf="form.controls['maturity_temperatureF'].touched || isSubmit"
+            >
+              <div
+                *ngIf="
+                  form.controls['maturity_temperatureF'].hasError('required')
+                "
+              >
+                {{ "must_required" | translate }}
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6 mb-5">
+            <div class="select-value">
+              <div class="position-relative">
+                <input
+                  type="text"
+                  placeholder="إلي"
+                  formControlName="maturity_temperatureT"
+                />
+              </div>
+            </div>
+            <div
+              class="error-msg"
+              *ngIf="form.controls['maturity_temperatureT'].touched || isSubmit"
+            >
+              <div
+                *ngIf="
+                  form.controls['maturity_temperatureT'].hasError('required')
+                "
+              >
+                {{ "must_required" | translate }}
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6 mb-5">
+            <div class="select-value">
+              <div class="position-relative">
+                <input
+                  type="text"
+                  placeholder="الرطوبة من"
+                  formControlName="humidityF"
+                />
+              </div>
+            </div>
+            <div
+              class="error-msg"
+              *ngIf="form.controls['humidityF'].touched || isSubmit"
+            >
+              <div *ngIf="form.controls['humidityF'].hasError('required')">
+                {{ "must_required" | translate }}
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6 mb-5">
+            <div class="select-value">
+              <div class="position-relative">
+                <input
+                  type="text"
+                  placeholder="إلي"
+                  formControlName="humidityT"
+                />
+              </div>
+            </div>
+            <div
+              class="error-msg"
+              *ngIf="form.controls['humidityT'].touched || isSubmit"
+            >
+              <div *ngIf="form.controls['humidityT'].hasError('required')">
+                {{ "must_required" | translate }}
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6 mb-5">
+            <div class="select-value">
+              <div class="position-relative">
+                <input
+                  type="text"
+                  placeholder="عدد الأيام حتى التزهير"
+                  formControlName="flowering_time"
+                />
+              </div>
+            </div>
+            <div
+              class="error-msg"
+              *ngIf="form.controls['flowering_time'].touched || isSubmit"
+            >
+              <div *ngIf="form.controls['flowering_time'].hasError('required')">
+                {{ "must_required" | translate }}
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6 mb-5">
+            <div class="select-value">
+              <div class="position-relative">
+                <input
+                  type="text"
+                  placeholder="عدد الأيام حتى النضج"
+                  formControlName="maturity_time"
+                />
+              </div>
+            </div>
+            <div
+              class="error-msg"
+              *ngIf="form.controls['maturity_time'].touched || isSubmit"
+            >
+              <div *ngIf="form.controls['maturity_time'].hasError('required')">
+                {{ "must_required" | translate }}
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6 mb-5 upload">
+            <label for="apply"
+              ><input
+                type="file"
+                name=""
+                id="apply"
+                accept="image/png , image/jpeg"
+                (change)="changeFile($event)"
+              />
+            </label>
+            <div class="error-msg" *ngIf="file == null && isSubmit && !isEdit">
+              <div *ngIf="file == null">{{ "must_required" | translate }}</div>
+            </div>
+          </div>
+        </div>
+        <div class="actions mt-5">
+          <app-spinner *ngIf="loading"></app-spinner>
+          <button class="main-btn" *ngIf="!loading" (click)="sendData()">
+            حفظ
+          </button>
+          <button class="tr-btn mx-3" *ngIf="!loading" (click)="goBack()">
+            الغاء
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>
