@@ -25,6 +25,10 @@ import { FertilizationNeedsCreateComponent } from "./farmes-type-table/views/fer
 import { FertilizationNeedsDetailsComponent } from "./farmes-type-table/views/fertilization_needs/fertilization-needs-details/fertilization-needs-details.component";
 import { FertilizationNeedsTableComponent } from "./farmes-type-table/views/fertilization_needs/fertilization-needs-table/fertilization-needs-table.component";
 import { NgxMultipleSelectModule } from "ngx-multiple-select";
+import { CountriesCreateComponent } from './farmes-type-table/views/CountriesFaremd/countries-create/countries-create.component';
+import { CountriesFaremdComponent } from './farmes-type-table/views/CountriesFaremd/countries-faremd/countries-faremd.component';
+import { NamesCountriesTableComponent } from './farmes-type-table/views/names_countries/names-countries-table/names-countries-table.component';
+import { NamesCountriesCreateComponent } from './farmes-type-table/views/names_countries/names-countries-create/names-countries-create.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +50,10 @@ import { NgxMultipleSelectModule } from "ngx-multiple-select";
     FertilizationNeedsCreateComponent,
     FertilizationNeedsDetailsComponent,
     FertilizationNeedsTableComponent,
+    CountriesCreateComponent,
+    CountriesFaremdComponent,
+    NamesCountriesTableComponent,
+    NamesCountriesCreateComponent
   ],
   imports: [
     CommonModule,
@@ -55,7 +63,8 @@ import { NgxMultipleSelectModule } from "ngx-multiple-select";
     TranslateModule,
     FormsModule,
     ReactiveFormsModule,
-    NgxMultipleSelectModule,
-  ],
+    NgxMultipleSelectModule
+  ]
+
 })
 export class FarmesTypeModule {}

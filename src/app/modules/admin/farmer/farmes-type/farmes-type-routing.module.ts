@@ -16,6 +16,10 @@ import { MarketingDatasCreateComponent } from "./farmes-type-table/views/marketi
 import { FertilizationNeedsTableComponent } from "./farmes-type-table/views/fertilization_needs/fertilization-needs-table/fertilization-needs-table.component";
 import { FertilizationNeedsCreateComponent } from "./farmes-type-table/views/fertilization_needs/fertilization-needs-create/fertilization-needs-create.component";
 import { FertilizationNeedsDetailsComponent } from "./farmes-type-table/views/fertilization_needs/fertilization-needs-details/fertilization-needs-details.component";
+import { CountriesFaremdComponent } from './farmes-type-table/views/CountriesFaremd/countries-faremd/countries-faremd.component';
+import { CountriesCreateComponent } from './farmes-type-table/views/CountriesFaremd/countries-create/countries-create.component';
+import { NamesCountriesTableComponent } from './farmes-type-table/views/names_countries/names-countries-table/names-countries-table.component';
+import { NamesCountriesCreateComponent } from './farmes-type-table/views/names_countries/names-countries-create/names-countries-create.component';
 
 const routes: Routes = [
   {
@@ -104,6 +108,40 @@ const routes: Routes = [
     path: "farmed_type_nut_vals/details/:id",
     component: FarmedTypeNutValsDetalisComponent,
   },
+  {
+    path: "CountriesFaremd/:id",
+    component: CountriesFaremdComponent,
+  },
+  {
+    path: "CountriesFaremd/edit/:id",
+    component: CountriesCreateComponent,
+  },
+  {
+    path: "CountriesFaremd/details/:id",
+    component: FarmedTypeNutValsDetalisComponent,
+  },
+  {
+    path: "CountriesFaremd/Create/:id",
+    component: CountriesCreateComponent,
+  },
+  {
+    path: "names_countries/:id",
+    component: NamesCountriesTableComponent,
+  },
+  {
+    path: "names_countries/edit/:id",
+    component: NamesCountriesCreateComponent,
+  },
+  {
+    path: "names_countries/details/:id",
+    component: NamesCountriesCreateComponent,
+  },
+  {
+    path: "names_countries/Create/:id",
+    component: NamesCountriesCreateComponent,
+  },
+
+  
 ];
 
 @NgModule({

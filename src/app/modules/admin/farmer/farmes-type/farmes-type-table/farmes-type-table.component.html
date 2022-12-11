@@ -129,7 +129,15 @@
               >
                 <span> <i class="fa-light fa-eye"></i> تفاصيل </span>
               </a>
-
+              <a
+              mat-menu-item
+              [routerLink]="[
+                '/admin/farmer/farmedTypes/CountriesFaremd',
+                variable.id
+              ]"
+            >
+              <span> <i class="fa-light fa-eye"></i> الدول المشهور فيها المحصول </span>
+            </a>
               <a
                 mat-menu-item
                 [routerLink]="[
@@ -139,6 +147,15 @@
               >
                 <span> <i class="fa-light fa-eye"></i> التصنيف العالمي </span>
               </a>
+              <a
+              mat-menu-item
+              [routerLink]="[
+                '/admin/farmer/farmedTypes/names_countries',
+                variable.id
+              ]"
+            >
+              <span> <i class="fa-light fa-eye"></i> اسم المحصول في الدول المختلفة  </span>
+            </a>
               <a
                 mat-menu-item
                 [routerLink]="[
