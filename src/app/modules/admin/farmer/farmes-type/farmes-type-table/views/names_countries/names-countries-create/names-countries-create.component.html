@@ -1,0 +1,70 @@
+<div class="px-20 card-wrap">
+    <!-- <app-head-nav></app-head-nav> -->
+    <div class="card-custom">
+        <div class="card-head">
+            <h2 class="title">
+
+                {{!isEdit?'اضافه' : ' تعديل '}}     
+                الدول المشهور فيها المحصول
+        
+ 
+
+ 
+            </h2>
+        </div>
+        <div class="card-content">
+            <form [formGroup]="form">
+                <div class="" formArrayName="countries">
+                    
+                    <button                         class="tr-btn d-block mr-auto mb-5"
+                    (click)="addCountries()" >اضافه دولة </button>
+               
+                    <div *ngFor="let quantity of countries().controls; let i=index" [formGroupName]="i" class="row my-3 position-relative">
+                       <div class="col-md-6">
+                        <div class="select-value">
+                            <div class="position-relative">
+                                <select name="" id="" class="select-ground" formControlName="countries" >
+                                    <option value="" selected>   اختر الدولة	</option>
+                                    <option  *ngFor="let variable of allCountries;let i=index" [value]="variable?.id"> {{variable?.name.ar}}</option>
+                                    
+                                </select>
+                                <div               class="error-msg"
+                                *ngIf="quantity.get('countries')?.errors && (quantity.get('countries')?.touched  || isSubmit)">هذا الحقل مطلوب</div>
+
+                            </div>
+                        </div>
+                       </div>
+                       <div class="col-md-6">
+                        <input type="text" formControlName="name" >
+                            <div                class="error-msg"
+                            *ngIf="quantity.get('name')?.errors && (quantity.get('name')?.touched || isSubmit)">هذا الحقل مطلوب</div>
+
+                        </div>
+                        <div>
+                            <button *ngIf="i !=0" class="removeEle"  (click)="removeQuantity(i)" >X</button>
+                        </div>
+                    </div>
+                </div>
+       
+                
+                <div class="actions mt-5">
+                    <app-spinner *ngIf="loading"></app-spinner>
+                    <button
+                        class="main-btn"
+                        *ngIf="!loading"
+                        (click)="sendData()">
+                        حفظ
+                    </button>
+                    <button
+                        class="tr-btn mx-3"
+                        *ngIf="!loading"
+                        (click)="goBack()">
+                        الغاء
+                    </button>
+                </div>
+            </form>
+
+
+        </div>
+    </div>
+</div>

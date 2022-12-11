@@ -24,6 +24,11 @@ import { MarketingDatasDetailsComponent } from './farmes-type-table/views/market
 import { FertilizationNeedsCreateComponent } from './farmes-type-table/views/fertilization_needs/fertilization-needs-create/fertilization-needs-create.component';
 import { FertilizationNeedsDetailsComponent } from './farmes-type-table/views/fertilization_needs/fertilization-needs-details/fertilization-needs-details.component';
 import { FertilizationNeedsTableComponent } from './farmes-type-table/views/fertilization_needs/fertilization-needs-table/fertilization-needs-table.component';
+import { CountriesCreateComponent } from './farmes-type-table/views/CountriesFaremd/countries-create/countries-create.component';
+import { CountriesFaremdComponent } from './farmes-type-table/views/CountriesFaremd/countries-faremd/countries-faremd.component';
+import { NgxMultipleSelectModule } from 'ngx-multiple-select';
+import { NamesCountriesTableComponent } from './farmes-type-table/views/names_countries/names-countries-table/names-countries-table.component';
+import { NamesCountriesCreateComponent } from './farmes-type-table/views/names_countries/names-countries-create/names-countries-create.component';
 
 
 @NgModule({
@@ -45,7 +50,11 @@ import { FertilizationNeedsTableComponent } from './farmes-type-table/views/fert
     MarketingDatasDetailsComponent,
     FertilizationNeedsCreateComponent,
     FertilizationNeedsDetailsComponent,
-    FertilizationNeedsTableComponent
+    FertilizationNeedsTableComponent,
+    CountriesCreateComponent,
+    CountriesFaremdComponent,
+    NamesCountriesTableComponent,
+    NamesCountriesCreateComponent
   ],
   imports: [
     CommonModule,
@@ -55,6 +64,7 @@ import { FertilizationNeedsTableComponent } from './farmes-type-table/views/fert
     TranslateModule,
     FormsModule,
     ReactiveFormsModule,
+    NgxMultipleSelectModule
   ]
 })
 export class FarmesTypeModule { }
