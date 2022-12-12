@@ -2,13 +2,13 @@
   <div
     class="page-title d-flex justify-content-between align-items-center w-100"
   >
-    <h1 class="fs-24">نوع المزروع</h1>
+    <h1 class="fs-24">معلومات اضافيه</h1>
     <div class="">
       <button
         class="main-btn"
         [routerLink]="['/admin/farmer/farmedTypes/taxonomies/Create/' + ids]"
       >
-        اضافه المحصول
+        اضافه معلومات اضافيه
       </button>
     </div>
   </div>
@@ -18,41 +18,26 @@
       <ng-container header>
         <tr>
           <th>##</th>
-          <th>اسم</th>
-          <th>المحصول</th>
-          <th>المزهرة</th>
-          <th>المزهرة (درجة الحرارة)</th>
-          <th>نضج ( وقت)</th>
-          <th>نضج (درجة الحرارة)</th>
-          <th>أملاح التربة</th>
-          <th>أملاح الماء</th>
-          <th>PH</th>
-          <th>أنواع التربة</th>
+          <th>الشركه المصنعه</th>
+          <th>الاسم العلمي</th>
+
           <th>اجراءت</th>
         </tr>
       </ng-container>
-      <ng-container content *ngIf="DataTable?.length != 0">
-        <tr *ngFor="let variable of DataTable; let i = index">
+      <!-- *ngIf="DataTable?.length != 0" -->
+      <ng-container content>
+        <!-- *ngFor="let variable of DataTable; let i = index" -->
+        <tr>
           <td>
             <span class="num-td">
-              {{ variable?.id }}
+              {{ detailsData?.id }}
             </span>
           </td>
-          <td>{{ variable.name.ar }}</td>
-          <td>{{ variable.farm_activity_type_name?.ar }}</td>
-
-          <td>{{ variable.flowering_time }}</td>
-          <td>{{ variable.flowering_temperature }}</td>
-
-          <td>{{ variable.maturity_time }}</td>
-          <td>{{ variable.maturity_temperature }}</td>
-          <td>{{ variable.suitable_soil_salts_concentration }}</td>
-          <td>{{ variable.suitable_water_salts_concentration }}</td>
-          <td>{{ variable.suitable_ph }}</td>
-          <td>{{ variable.suitable_soil_types }}</td>
+          <td>{{ detailsData.producer }}</td>
+          <td>{{ detailsData.scientific_name }}</td>
 
           <td>
-            <button
+            <!-- <button
               class="menu--item"
               mat-icon-button
               [matMenuTriggerFor]="menu"
@@ -115,7 +100,7 @@
               <button mat-menu-item (click)="deleteItem(variable.id)">
                 <span><i class="fa-thin fa-trash"></i> حذف </span>
               </button>
-            </mat-menu>
+            </mat-menu> -->
           </td>
         </tr>
       </ng-container>
