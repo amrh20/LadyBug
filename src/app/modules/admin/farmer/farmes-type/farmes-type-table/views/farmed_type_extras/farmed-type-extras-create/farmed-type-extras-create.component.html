@@ -1,0 +1,221 @@
+<div class="px-20 card-wrap">
+  <!-- <app-head-nav></app-head-nav> -->
+  <div class="card-custom">
+    <div class="card-head">
+      <h2 class="title">{{ !isEdit ? "اضافه" : " تعديل " }} بيانات اضافيه</h2>
+    </div>
+    <div class="card-content">
+      <form [formGroup]="form">
+        <div class="row">
+          <!-- <div class="col-6 mb-5">
+            <div class="select-value">
+              <div class="position-relative">
+                <select
+                  name=""
+                  id=""
+                  class="select-ground"
+                  formControlName="farmed_type_id"
+                >
+                  <option value="" selected>المحصول</option>
+                  <option
+                    *ngFor="let variable of farmed_typesData; let i = index"
+                    [value]="variable.id"
+                  >
+                    {{ variable.name.ar }}
+                  </option>
+                </select>
+              </div>
+            </div>
+            <div
+              class="error-msg"
+              *ngIf="form.controls['farmed_type_id'].touched || isSubmit"
+            >
+              <div *ngIf="form.controls['farmed_type_id'].hasError('required')">
+                {{ "must_required" | translate }}
+              </div>
+            </div>
+          </div> -->
+          <div class="col-6 mb-5">
+            <select formControlName="irrigation_rate_id">
+              <option value="">معدل الري</option>
+              <option [value]="item.id" *ngFor="let item of irrigationRates">
+                {{ item.name }}
+              </option>
+            </select>
+            <div
+              class="error-msg"
+              *ngIf="form.controls['irrigation_rate_id'].touched || isSubmit"
+            >
+              <div
+                *ngIf="form.controls['irrigation_rate_id'].hasError('required')"
+              >
+                {{ "must_required" | translate }}
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6 mb-5">
+            <select formControlName="seedling_type">
+              <option value="">أنواع البذور</option>
+              <option [value]="item.value" *ngFor="let item of seedlingTypes">
+                {{ item.name }}
+              </option>
+            </select>
+            <div
+              class="error-msg"
+              *ngIf="form.controls['seedling_type'].touched || isSubmit"
+            >
+              <div *ngIf="form.controls['seedling_type'].hasError('required')">
+                {{ "must_required" | translate }}
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6 mb-5">
+            <input
+              type="text"
+              placeholder="الاسم العلمي"
+              formControlName="scientific_name"
+            />
+            <div
+              class="error-msg"
+              *ngIf="form.controls['scientific_name'].touched || isSubmit"
+            >
+              <div
+                *ngIf="form.controls['scientific_name'].hasError('required')"
+              >
+                {{ "must_required" | translate }}
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6 mb-5">
+            <input
+              type="text"
+              placeholder=" تاريخ المحصول"
+              formControlName="history"
+            />
+            <div
+              class="error-msg"
+              *ngIf="form.controls['history'].touched || isSubmit"
+            >
+              <div *ngIf="form.controls['history'].hasError('required')">
+                {{ "must_required" | translate }}
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6 mb-5">
+            <input
+              type="text"
+              placeholder=" الشركة المصنعة"
+              formControlName="producer"
+            />
+            <div
+              class="error-msg"
+              *ngIf="form.controls['producer'].touched || isSubmit"
+            >
+              <div *ngIf="form.controls['producer'].hasError('required')">
+                {{ "must_required" | translate }}
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6 mb-5">
+            <input
+              type="text"
+              placeholder="  الوصف"
+              formControlName="description"
+            />
+            <div
+              class="error-msg"
+              *ngIf="form.controls['description'].touched || isSubmit"
+            >
+              <div *ngIf="form.controls['description'].hasError('required')">
+                {{ "must_required" | translate }}
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6 mb-5">
+            <input
+              type="number"
+              placeholder="  ساعات البرودة"
+              formControlName="cold_hours"
+            />
+            <div
+              class="error-msg"
+              *ngIf="form.controls['cold_hours'].touched || isSubmit"
+            >
+              <div *ngIf="form.controls['cold_hours'].hasError('required')">
+                {{ "must_required" | translate }}
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6 mb-5">
+            <input
+              type="number"
+              placeholder="   ساعات الإضاءة"
+              formControlName="illumination_hours"
+            />
+            <div
+              class="error-msg"
+              *ngIf="form.controls['illumination_hours'].touched || isSubmit"
+            >
+              <div
+                *ngIf="form.controls['illumination_hours'].hasError('required')"
+              >
+                {{ "must_required" | translate }}
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6 mb-5">
+            <input
+              type="text"
+              placeholder="    معدل البذور في الفدان"
+              formControlName="seeds_rate"
+            />
+            <div
+              class="error-msg"
+              *ngIf="form.controls['seeds_rate'].touched || isSubmit"
+            >
+              <div *ngIf="form.controls['seeds_rate'].hasError('required')">
+                {{ "must_required" | translate }}
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6 mb-5">
+            <input
+              type="number"
+              placeholder="  معدل الإنتاج  "
+              formControlName="production_rate"
+            />
+            <div
+              class="error-msg"
+              *ngIf="form.controls['production_rate'].touched || isSubmit"
+            >
+              <div
+                *ngIf="form.controls['production_rate'].hasError('required')"
+              >
+                {{ "must_required" | translate }}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="actions mt-5">
+          <app-spinner *ngIf="loading"></app-spinner>
+          <button class="main-btn" *ngIf="!loading" (click)="sendData()">
+            حفظ
+          </button>
+          <button class="tr-btn mx-3" *ngIf="!loading" (click)="goBack()">
+            الغاء
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

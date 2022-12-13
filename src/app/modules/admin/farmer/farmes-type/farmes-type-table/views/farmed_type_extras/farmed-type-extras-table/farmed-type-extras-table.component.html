@@ -6,7 +6,9 @@
     <div class="">
       <button
         class="main-btn"
-        [routerLink]="['/admin/farmer/farmedTypes/taxonomies/Create/' + ids]"
+        [routerLink]="[
+          '/admin/farmer/farmedTypes/create_farmed_type_extras/' + ids
+        ]"
       >
         اضافه معلومات اضافيه
       </button>
@@ -37,7 +39,7 @@
           <td>{{ detailsData.scientific_name }}</td>
 
           <td>
-            <!-- <button
+            <button
               class="menu--item"
               mat-icon-button
               [matMenuTriggerFor]="menu"
@@ -91,16 +93,16 @@
               <button
                 mat-menu-item
                 [routerLink]="[
-                  '/admin/farmer/farmedTypes/FarmersTypeEdit',
-                  variable.id
+                  '/admin/farmer/farmedTypes/edit_farmed_type_extras',
+                  detailsData.id
                 ]"
               >
                 <span> <i class="fa-thin fa-pen-to-square"></i> تعديل </span>
               </button>
-              <button mat-menu-item (click)="deleteItem(variable.id)">
+              <button mat-menu-item (click)="deleteItem(detailsData.id)">
                 <span><i class="fa-thin fa-trash"></i> حذف </span>
               </button>
-            </mat-menu> -->
+            </mat-menu>
           </td>
         </tr>
       </ng-container>
