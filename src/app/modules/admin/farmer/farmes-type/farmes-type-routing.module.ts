@@ -16,10 +16,11 @@ import { MarketingDatasCreateComponent } from "./farmes-type-table/views/marketi
 import { FertilizationNeedsTableComponent } from "./farmes-type-table/views/fertilization_needs/fertilization-needs-table/fertilization-needs-table.component";
 import { FertilizationNeedsCreateComponent } from "./farmes-type-table/views/fertilization_needs/fertilization-needs-create/fertilization-needs-create.component";
 import { FertilizationNeedsDetailsComponent } from "./farmes-type-table/views/fertilization_needs/fertilization-needs-details/fertilization-needs-details.component";
-import { CountriesFaremdComponent } from './farmes-type-table/views/CountriesFaremd/countries-faremd/countries-faremd.component';
-import { CountriesCreateComponent } from './farmes-type-table/views/CountriesFaremd/countries-create/countries-create.component';
-import { NamesCountriesTableComponent } from './farmes-type-table/views/names_countries/names-countries-table/names-countries-table.component';
-import { NamesCountriesCreateComponent } from './farmes-type-table/views/names_countries/names-countries-create/names-countries-create.component';
+import { CountriesFaremdComponent } from "./farmes-type-table/views/CountriesFaremd/countries-faremd/countries-faremd.component";
+import { CountriesCreateComponent } from "./farmes-type-table/views/CountriesFaremd/countries-create/countries-create.component";
+import { NamesCountriesTableComponent } from "./farmes-type-table/views/names_countries/names-countries-table/names-countries-table.component";
+import { NamesCountriesCreateComponent } from "./farmes-type-table/views/names_countries/names-countries-create/names-countries-create.component";
+import { FarmedTypeExtrasCreateComponent } from "./farmes-type-table/views/farmed_type_extras/farmed-type-extras-create/farmed-type-extras-create.component";
 
 const routes: Routes = [
   {
@@ -93,6 +94,10 @@ const routes: Routes = [
   },
 
   {
+    path: "edit_farmed_type_extras/:id",
+    component: FarmedTypeExtrasCreateComponent,
+  },
+  {
     path: "farmed_type_nut_vals/:id",
     component: FarmedTypeNutValsTableComponent,
   },
@@ -140,8 +145,6 @@ const routes: Routes = [
     path: "names_countries/Create/:id",
     component: NamesCountriesCreateComponent,
   },
-
-  
 ];
 
 @NgModule({

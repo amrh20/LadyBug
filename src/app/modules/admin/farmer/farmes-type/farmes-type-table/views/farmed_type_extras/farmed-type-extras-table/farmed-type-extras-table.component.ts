@@ -23,15 +23,17 @@ export class FarmedTypeExtrasTableComponent implements OnInit {
       cancelButtonAriaLabel: "التراجع",
     }).then((val: any) => {
       if (val.isConfirmed) {
-        this._CrudRequestsService.delete("farmed_type_extras/" + id).subscribe(
-          (res: any) => {
-            this._SettingService.successHot(res.message);
-            this.getUser(this.ids);
-          },
-          (err) => {
-            this._SettingService.errorHot(err.message);
-          }
-        );
+        this._CrudRequestsService
+          .delete("farmed_type_extras/by_ft_id/" + id)
+          .subscribe(
+            (res: any) => {
+              this._SettingService.successHot(res.message);
+              this.getUser(this.ids);
+            },
+            (err) => {
+              this._SettingService.errorHot(err.message);
+            }
+          );
       }
     });
   };
@@ -55,7 +57,7 @@ export class FarmedTypeExtrasTableComponent implements OnInit {
   detailsData: any = {};
   getUser = (id: any) => {
     this._CrudRequestsService
-      .get("farmed_type_extras/" + id)
+      .get("farmed_type_extras/by_ft_id/" + id)
       .subscribe((data: any) => {
         this.detailsData = data.data;
         console.log(this.detailsData.producer);
