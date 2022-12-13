@@ -14,7 +14,7 @@ export class FarmesTypeCreateComponent implements OnInit {
     name_ar_localized: new FormControl("", [Validators.required]),
     name_en_localized: new FormControl("", [Validators.required]),
     farm_activity_type_id: new FormControl("", [Validators.required]),
-    parent_id: new FormControl("", [Validators.required]),
+    parent_id: new FormControl(""),
     country_id: new FormControl("", [Validators.required]),
     suitable_soil_salts_concentrationF: new FormControl("", [
       Validators.required,
