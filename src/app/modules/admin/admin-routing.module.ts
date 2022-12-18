@@ -98,6 +98,13 @@ const routes: Routes = [
           import("./pathogen/pathogen.module").then((m) => m.PathogenModule),
       },
       {
+        path: "pathogen-growth-stage",
+        loadChildren: () =>
+          import(
+            "./pathogen/pathogen-growth-stage/pathogen-growth-stage.module"
+          ).then((m) => m.PathogenGrowthStageModule),
+      },
+      {
         path: "pathogen-types",
         loadChildren: () =>
           import("./pathogen-type/pathogen-type.module").then(

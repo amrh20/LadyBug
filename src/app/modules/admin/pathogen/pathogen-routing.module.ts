@@ -3,6 +3,8 @@ import { RouterModule, Routes } from "@angular/router";
 import { AllPathogensComponent } from "./all-pathogens/all-pathogens.component";
 import { CreatePathogenComponent } from "./create-pathogen/create-pathogen.component";
 import { PathogenDetailsComponent } from "./pathogen-details/pathogen-details.component";
+import { CreatePathogenGrowthStageComponent } from "./pathogen-growth-stage/create-pathogen-growth-stage/create-pathogen-growth-stage.component";
+import { PathogenGrowthStageComponent } from "./pathogen-growth-stage/pathogen-growth-stage.component";
 import { PathogenIndexComponent } from "./pathogen-index/pathogen-index.component";
 
 const routes: Routes = [

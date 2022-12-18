@@ -10,7 +10,7 @@ import { TranslateModule } from "@ngx-translate/core";
 import { NgxMultipleSelectModule } from "ngx-multiple-select";
 import { MaterialModule } from "src/app/core/material-module.module";
 import { SharedModule } from "src/app/shared/shared.module";
-import { PathogenDetailsComponent } from './pathogen-details/pathogen-details.component';
+import { PathogenDetailsComponent } from "./pathogen-details/pathogen-details.component";
 
 @NgModule({
   declarations: [
