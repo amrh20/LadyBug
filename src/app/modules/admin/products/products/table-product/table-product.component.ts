@@ -24,7 +24,7 @@ export class TableProductComponent implements OnInit {
   }
   getUsers = () => {
     this._CrudRequestsService
-      .get("products" + `?page=${this.current}&perPage=10`)
+      .get("admin_products" + `?page=${this.current}&perPage=10`)
       .subscribe((data: any) => {
         this.DataTable = data.data.data;
         this.last = data.data.meta.pagesCount;
@@ -36,7 +36,7 @@ export class TableProductComponent implements OnInit {
     let description = this.filterForm.get("description")?.value;
     this._CrudRequestsService
       .get(
-        `products?name=${name}&description=${description}&page=${this.current}&perPage=10`
+        `admin_products?name=${name}&description=${description}&page=${this.current}&perPage=10`
       )
       .subscribe((data: any) => {
         this.DataTable = data.data.data;
@@ -56,7 +56,7 @@ export class TableProductComponent implements OnInit {
       cancelButtonAriaLabel: "التراجع",
     }).then((val: any) => {
       if (val.isConfirmed) {
-        this._CrudRequestsService.delete("products/" + id).subscribe(
+        this._CrudRequestsService.delete("admin_products/" + id).subscribe(
           (res: any) => {
             this._SettingService.successHot(res.message);
             this.getUsers();
