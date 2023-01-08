@@ -102,7 +102,6 @@ export class FarmesTypeCreateComponent implements OnInit {
         this.selectedData = arrcountries;
         this.ascData = true;
 
-        console.log("this.selectedData", this.selectedData);
         this.form.patchValue({
           name_ar_localized: data.data.name.ar,
           name_en_localized: data.data.name.en,

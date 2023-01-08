@@ -112,6 +112,18 @@ const routes: Routes = [
           ),
       },
       {
+        path: "reports",
+        loadChildren: () =>
+          import("./reports/reports.module").then((m) => m.ReportsModule),
+      },
+      {
+        path: "reports-types",
+        loadChildren: () =>
+          import("./reports-types/reports-types.module").then(
+            (m) => m.ReportsTypesModule
+          ),
+      },
+      {
         path: "",
         redirectTo: "generic-user",
         pathMatch: "full",

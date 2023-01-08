@@ -1,16 +1,16 @@
-.nav-link{
+.nav-link {
     cursor: pointer;
 }
-.sub-items{
-    li{
+.sub-items {
+    background: #2a6d1e;
+    li {
         margin-bottom: 10px;
-
     }
-    .nav-link{
+    .nav-link {
         margin-inline-start: 20px;
         display: block;
-        .text{
-            span{
+        .text {
+            span {
                 display: inline-block !important;
                 margin-inline-end: 10px;
             }

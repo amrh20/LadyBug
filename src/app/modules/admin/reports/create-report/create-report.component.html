@@ -1,0 +1,63 @@
+<div class="px-20 card-wrap">
+  <!-- <app-head-nav></app-head-nav> -->
+  <div class="card-custom">
+    <div class="card-head">
+      <h2 class="title">{{ !isEdit ? "اضافه" : " تعديل " }} تقرير</h2>
+      <
+    </div>
+    <div class="card-content">
+      <form [formGroup]="form">
+        <div class="row">
+          <div class="col-6 mb-5">
+            <select class="select-ground" formControlName="report_type_id">
+              <option value="null" selected disabled>اختر النوع</option>
+              <option [value]="item.id" *ngFor="let item of report_typesData">
+                {{ item?.name?.ar }}
+              </option>
+            </select>
+          </div>
+          <div class="col-6 mb-5">
+            <select class="select-ground" formControlName="post_id">
+              <option value="null" selected disabled>اختر المنشور</option>
+              <option [value]="item.id" *ngFor="let item of posts">
+                {{ item?.author?.name }}
+              </option>
+            </select>
+          </div>
+          <div class="col-12 mb-5">
+            <input
+              type="text"
+              placeholder="الوصف  "
+              formControlName="description"
+            />
+          </div>
+
+          <div class="col-6 mb-5 upload">
+            <label for="apply"
+              ><input
+                type="file"
+                name=""
+                id="apply"
+                accept="image/png , image/jpeg"
+                (change)="changeFile($event)"
+              />
+              <!-- {{ file ? file.name.slice(0, 50) : "تحميل صوره " }} -->
+            </label>
+            <!-- <div class="error-msg" *ngIf="file == null && isSubmit && !isEdit">
+              <div *ngIf="file == null">{{ "must_required" | translate }}</div>
+            </div> -->
+          </div>
+        </div>
+        <div class="actions mt-5">
+          <app-spinner *ngIf="loading"></app-spinner>
+          <button class="main-btn" *ngIf="!loading" (click)="sendData()">
+            حفظ
+          </button>
+          <button class="tr-btn mx-3" *ngIf="!loading" (click)="goBack()">
+            الغاء
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
