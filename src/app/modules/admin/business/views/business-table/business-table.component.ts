@@ -22,12 +22,10 @@ export class BusinessTableComponent implements OnInit {
     this.getUsers();
   }
   getUsers = () => {
-    this._CrudRequestsService
-      .get("admin_businesses" + `?page=${this.current}&perPage=10`)
-      .subscribe((data: any) => {
-        this.DataTable = data.data.all;
-        this.last = data.data.meta.pagesCount;
-      });
+    this._CrudRequestsService.get("admin_businesses").subscribe((data: any) => {
+      this.DataTable = data.data.all;
+      this.last = data.data.meta.pagesCount;
+    });
   };
 
   search() {
