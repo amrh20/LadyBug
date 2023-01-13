@@ -1,0 +1,61 @@
+<div class="px-20 card-wrap">
+    <!-- <app-head-nav></app-head-nav> -->
+    <div class="card-custom">
+      <div class="card-head">
+        <h2 class="title">تفاصيل  البيزنس</h2>
+      </div>
+      <div class="card-content">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="list-item">
+              <h2 class="title">مجال العمل </h2>
+              <span class="desc">
+                {{ detailsData?.business_field }}
+              </span>
+            </div>
+          </div>
+  
+          <div class="col-md-4">
+            <div class="list-item">
+              <h2 class="title">الوصف</h2>
+              <span class="desc"> {{ detailsData?.description }} </span>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="list-item">
+              <h2 class="title"> الاسم التجاري  </h2>
+              <span class="desc"> {{ detailsData?.com_name }} </span>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="list-item">
+              <h2 class="title">تقييم لادي بج</h2>
+              <span class="desc"> {{ detailsData?.ladybug_rating }} </span>
+            </div>
+          </div>
+          
+          <div class="col-md-4">
+            <div class="list-item">
+              <h2 class="title">   الحالة </h2>
+              <span class="desc"> {{ detailsData?.status_name }} </span>
+            </div>
+          </div>
+          
+          <div class="col-md-4">
+            <div class="list-item">
+              <h2 class="title">   الخصوصية </h2>
+              <span class="desc"> {{ detailsData?.privacy_name }} </span>
+            </div>
+          </div>
+          
+          <div class="col-md-4 mt-5">
+            <div class="list-item">
+              <h2 class="title">الفروع</h2>
+              <span class="desc"> {{ detailsData?.branches }} </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

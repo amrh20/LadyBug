@@ -13,6 +13,7 @@ import { SharedModule } from '../../../shared/shared.module';
 import { TranslateModule } from '@ngx-translate/core';
 import { WorkFieldCreateComponent } from './views/WorkField/work-field-create/work-field-create.component';
 import { WorkFieldTableComponent } from './views/WorkField/work-field-table/work-field-table.component';
+import { ViewOneComponent } from './views/view-one/view-one.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { WorkFieldTableComponent } from './views/WorkField/work-field-table/work
     WorkFieldCreateComponent,
     PopupRateComponent,
     IndexBusinessComponent,
-    BusinessTableComponent
+    BusinessTableComponent,
+    ViewOneComponent
   ],
   imports: [
     CommonModule,
