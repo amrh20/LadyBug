@@ -1,8 +1,9 @@
 import { Component, OnInit } from "@angular/core";
-import Swal from "sweetalert2";
+import { FormControl, FormGroup } from "@angular/forms";
+
 import { CrudRequestsService } from "../../../../../core/services/crud-requests.service";
 import { SettingService } from "../../../../../core/services/setting.service";
-import { FormGroup, FormControl } from "@angular/forms";
+import Swal from "sweetalert2";
 
 @Component({
   selector: "app-business-table",
@@ -10,7 +11,7 @@ import { FormGroup, FormControl } from "@angular/forms";
   styleUrls: ["./business-table.component.scss"],
 })
 export class BusinessTableComponent implements OnInit {
-  DataTable: any = [];
+  DataTable: any = [ ];
   filterForm = new FormGroup({
     name: new FormControl(""),
   });
@@ -54,9 +55,11 @@ export class BusinessTableComponent implements OnInit {
   }
   openRate(item: any) {
     this.isShow = true;
-    this.productName = item.name.ar;
+    this.productName = item.com_name ;
     this.productId = item.id;
-    this.productRate = item.rating;
+    this.productRate = item.ladybug_rating ;
+    console.log(item)
+
   }
   reGet($e: any) {
     this.getUsers();

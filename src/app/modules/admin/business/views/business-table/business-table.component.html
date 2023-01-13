@@ -30,10 +30,14 @@
         <ng-container header>
           <tr>
             <th>##</th>
-            <th>  الاسم عربي</th>
-            <th>  الاسم انجليزي</th>
-  
-  
+            <th>  صورة </th>
+            <th>  الفروع </th>
+            <th>   مجال العمل </th>
+            <th>  الوصف </th>
+            <th> الاسم التجاري  </th>
+            <th>   تقييم لادي بج</th>
+            <th>   الحالة</th>
+            <th>  الخصوصية </th>
             <th>اجراءت</th>
           </tr>
         </ng-container>
@@ -44,9 +48,20 @@
                 {{ variable?.id }}
               </span>
             </td>
-            <td>{{ variable.name.ar }}</td>
+            <td>   <img
+              *ngIf="variable.main_asset "
+              src="{{ variable.main_asset  }}"
+              class="img-assets"
+              alt=""
+            /></td>
+            <td>{{ variable.branches  }}</td>
+            <td>{{ variable.business_field  }}</td>
+            <td>{{ variable.description   }}</td>
+            <td>{{ variable.com_name   }}</td>
+            <td>{{ variable.ladybug_rating   }}</td>
+            <td>{{ variable.status_name   }}</td>
+            <td>{{ variable.privacy_name   }}</td>
   
-            <td>{{ variable.name.en }}</td>
   
             <td>
               <button
@@ -100,13 +115,7 @@
                 </svg>
               </button>
               <mat-menu #menu="matMenu">
-                <button
-                  mat-menu-item
-                  [routerLink]="['/admin/Business/edit-WorkField', variable.id]"
-                >
-                  <span> <i class="fa-thin fa-pen-to-square"></i> تعديل </span>
-                </button>
-                <button mat-menu-item (click)="openRate(variable.id)">
+                <button mat-menu-item (click)="openRate(variable)">
                   <span><i class="fa-thin fa-star"></i> تقييم </span>
                 </button>
               </mat-menu>

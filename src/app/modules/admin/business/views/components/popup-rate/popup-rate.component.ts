@@ -1,4 +1,5 @@
-import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+
 import { CrudRequestsService } from '../../../../../../core/services/crud-requests.service';
 import { SettingService } from '../../../../../../core/services/setting.service';
 
@@ -35,11 +36,11 @@ export class PopupRateComponent implements OnInit {
   send() {
       if (this.rate) {
         let data={
-          product:this.id,
+          business:this.id,
           rating:this.rate
         }
         this.loading=true;
-        this._crud.post(`rate_product`, data).subscribe(
+        this._crud.post(`ladybug_rate_business`, data).subscribe(
           (res: any) => {
             this.loading = false;
 
@@ -49,10 +50,14 @@ export class PopupRateComponent implements OnInit {
               this._setting.successHot(res.message);
               
             } else {
+              
+            this.isHide.emit(false)
               this._setting.errorHot(res.message);
             }
           },
           (err: any) => {
+            this.isHide.emit(false)
+            this.reGet.emit(false)
             this.loading = false;
             this._setting.errorHot(err.message);
           },
