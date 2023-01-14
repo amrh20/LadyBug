@@ -1,12 +1,13 @@
-import { Injectable } from '@angular/core';
 import {
-  HttpRequest,
-  HttpHandler,
   HttpEvent,
+  HttpHandler,
+  HttpHeaders,
   HttpInterceptor,
-  HttpHeaders
+  HttpRequest
 } from '@angular/common/http';
 import { Observable, tap } from 'rxjs';
+
+import { Injectable } from '@angular/core';
 
 @Injectable()
 export class HandelInterceptor implements HttpInterceptor {
@@ -14,13 +15,23 @@ export class HandelInterceptor implements HttpInterceptor {
   constructor() {}
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    request = request.clone({
-      headers: new HttpHeaders({
-          'Accept': 'application/json',
-          'Accept-Language': 'all',
-          'x-api-key': '20LAdyx%ano@0o!#vXLZBUg65'
-      })
-  });
+    if(request.url.includes('admin_businesses')){
+      request = request.clone({
+        headers: new HttpHeaders({
+            'Accept': 'application/json',
+            'x-api-key': '20LAdyx%ano@0o!#vXLZBUg65'
+        })
+    });
+    }else{
+      request = request.clone({
+        headers: new HttpHeaders({
+            'Accept': 'application/json',
+            'Accept-Language': 'all',
+            'x-api-key': '20LAdyx%ano@0o!#vXLZBUg65'
+        })
+    });
+    }
+
   const token: any = localStorage.getItem('_token');
 
   if (token) {
