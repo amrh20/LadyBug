@@ -36,17 +36,18 @@ export class CreateRoleComponent implements OnInit {
       this._CrudRequestsService
         .get(`roles/${res.id}`)
         .subscribe((data: any) => {
+          console.log("data.data.permissions", data.data.permissions);
+          this.passSelected = true;
+          let arr = [];
+          for (var i = 0, len = data?.data?.permissions.length; i < len; i++) {
+            arr.push(data.data.permissions[i].id);
+          }
+          this.selectedpermissions = arr;
           this.addForm.patchValue({
             name: data?.data?.name,
             display_name: data?.data?.display_name,
             description: data?.data?.description,
           });
-          this.passSelected = true;
-          let arr = [];
-          for (var i = 0, len = data.data.permissions.length; i < len; i++) {
-            arr.push(data.data.permissions[i].id);
-          }
-          this.selectedpermissions = arr;
         });
     });
     if (this.id) {
