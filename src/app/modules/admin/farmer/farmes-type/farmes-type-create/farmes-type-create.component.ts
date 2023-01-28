@@ -141,7 +141,6 @@ export class FarmesTypeCreateComponent implements OnInit {
   file: any = null;
   changeFile($event: any) {
     this.file = $event.target.files[0];
-    console.log(this.file);
   }
   onSelectCountries($e: any) {
     this.selectedData = $e;

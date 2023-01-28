@@ -580,7 +580,7 @@
           <span
             class="text d-flex align-items-center justify-content-between w-100"
           >
-            التقارير
+            الإبلاغات
             <i class="fa-regular fa-chevron-left"></i>
           </span>
         </a>
@@ -594,11 +594,11 @@
             >
               <span class="text">
                 <span>-</span>
-                التقارير
+                الإبلاغات
               </span>
             </a>
           </li>
-          <li>
+          <!-- <li>
             <a
               class="nav-link"
               routerLink="/admin/reports-types"
@@ -606,12 +606,26 @@
             >
               <span class="text">
                 <span>-</span>
-                انواع التقارير
+                انواع الإبلاغات
               </span>
             </a>
-          </li>
+          </li> -->
         </ul>
       </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          routerLinkActive="active"
+          [routerLink]="['/admin/settings']"
+          routerLinkActive="router-link-active"
+        >
+          <span class="icon">
+            <i class="fa-regular fa-gear"></i>
+          </span>
+          <span class="text">الاعدادات</span>
+        </a>
+      </li>
+
       <li (click)="logOut()" class="nav-item">
         <button class="nav-link logout" type="button">
           <span class="icon">
