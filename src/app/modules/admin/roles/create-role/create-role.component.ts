@@ -58,7 +58,7 @@ export class CreateRoleComponent implements OnInit {
 
   getRoles = () => {
     this._CrudRequestsService.get("permissions").subscribe((data: any) => {
-      this.permissions = data.data;
+      this.permissions = data.data.all;
     });
   };
   onSelect(event: any) {
