@@ -1,6 +1,7 @@
+import { ActivatedRoute, Router } from "@angular/router";
 import { Component, OnInit } from "@angular/core";
-import { FormGroup, FormControl, Validators } from "@angular/forms";
-import { Router, ActivatedRoute } from "@angular/router";
+import { FormControl, FormGroup, Validators } from "@angular/forms";
+
 import { CrudRequestsService } from "src/app/core/services/crud-requests.service";
 import { SettingService } from "src/app/core/services/setting.service";
 import { passwordMatchingValidatior } from "src/app/core/validators/confirm-validators";
