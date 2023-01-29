@@ -1,6 +1,7 @@
+import { ActivatedRoute, Router } from "@angular/router";
 import { Component, OnInit } from "@angular/core";
-import { FormGroup, FormControl, Validators } from "@angular/forms";
-import { Router, ActivatedRoute } from "@angular/router";
+import { FormControl, FormGroup, Validators } from "@angular/forms";
+
 import { CrudRequestsService } from "src/app/core/services/crud-requests.service";
 import { SettingService } from "src/app/core/services/setting.service";
 
@@ -34,7 +35,9 @@ export class CreateReportComponent implements OnInit {
   ngOnInit(): void {
     this._activeRoute.params.subscribe((params) => {
       this.id = params["id"];
+
       if (params["id"]) {
+      this.isEdit = true;
         this.idEdit = params["id"];
         this._CrudRequestsService
           .get(`reports/${this.idEdit}`)
@@ -69,13 +72,15 @@ export class CreateReportComponent implements OnInit {
 
     if (this.isEdit) {
       this.loading = true;
-      this._crud.put(`reports/${this.idEdit}`, data).subscribe(
+      this._crud.put(`reports/${this.idEdit}`, this.form.value).subscribe(
         (res: any) => {
           this.loading = false;
           this.isSubmit = false;
 
           if (res.success) {
             this._setting.successHot(res.message);
+            this.form.reset();
+            this.goBack();
           } else {
             this._setting.errorHot(res.message);
           }

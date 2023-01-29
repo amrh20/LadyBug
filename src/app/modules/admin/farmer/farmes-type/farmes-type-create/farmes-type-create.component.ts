@@ -1,8 +1,9 @@
+import { ActivatedRoute, Router } from "@angular/router";
 import { Component, OnInit } from "@angular/core";
-import { FormGroup, Validators, FormControl } from "@angular/forms";
+import { FormControl, FormGroup, Validators } from "@angular/forms";
+
 import { CrudRequestsService } from "../../../../../core/services/crud-requests.service";
 import { SettingService } from "../../../../../core/services/setting.service";
-import { Router, ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: "app-farmes-type-create",
@@ -243,7 +244,7 @@ export class FarmesTypeCreateComponent implements OnInit {
           if (res.success) {
             this._setting.successHot(res.message);
             this.form.reset();
-            // this.goBack();
+            this.goBack();
             this.file = null;
           } else {
             this._setting.errorHot(res.message);
