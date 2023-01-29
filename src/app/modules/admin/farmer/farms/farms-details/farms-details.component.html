@@ -6,15 +6,17 @@
     </div>
     <div class="card-content">
       <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-12">
           <div class="list-item">
             <h2 class="title">الصوره</h2>
-            <img [src]="detailsData?.farmed_type_photo" alt="" />
+            <div class="img">
+              <img [src]="detailsData?.farmed_type_photo" alt="" />
+            </div>
           </div>
         </div>
         <div class="col-md-4">
           <div class="list-item">
-            <h2 class="title">اسم نوع المزرعة</h2>
+            <h2 class="title">اسم المحصول</h2>
             <span class="desc">
               {{ detailsData?.farmed_type_name?.ar }}
             </span>
@@ -23,8 +25,19 @@
         <div class="col-md-4">
           <div class="list-item">
             <h2 class="title">مصادر الأسمدة الكيماوية</h2>
+            <span
+              class="desc"
+              *ngFor="let item of detailsData?.chemical_fertilizer_sources"
+            >
+              {{ item?.name.ar }}
+            </span>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="list-item">
+            <h2 class="title">كود</h2>
             <span class="desc">
-              {{ detailsData?.chemical_fertilizer_sources[0] }}
+              {{ detailsData?.code }}
             </span>
           </div>
         </div>

@@ -1,76 +1,67 @@
 <div class="px-20 card-wrap">
-         <!-- <app-head-nav></app-head-nav> -->
-    <div class="card-custom">
-        <div class="card-head">
-            <h2 class="title">
-               تفاصيل مشرف
-            </h2>
+  <!-- <app-head-nav></app-head-nav> -->
+  <div class="card-custom">
+    <div class="card-head">
+      <h2 class="title">تفاصيل مشرف</h2>
+    </div>
+    <div class="card-content">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="list-item">
+            <h2 class="title">الصوره</h2>
+            <span class="desc">
+              <img [src]="detailsData?.photo_url" alt="" />
+            </span>
+          </div>
         </div>
-        <div class="card-content">
-            <div class="row">
-                <div class=" col-md-4">
-                    <div class="list-item">
-                        <h2 class="title">
-                            الاسم
-                        </h2>
-                        <span class="desc">
-                            {{detailsData?.name}}
-                        </span>
-                    </div>
-                </div>
-          
-                <div class=" col-md-4">
-                    <div class="list-item">
-                        <h2 class="title">
-                            البريد الالكتروني
-                        </h2>
-                        <span class="desc">                            {{detailsData?.email}}
-                        </span>
-                    </div>
-                </div>
-                <div class=" col-md-4">
-                    <div class="list-item">
-                        <h2 class="title">
-                            الوظيفه
-                        </h2>
-                        <span class="desc">                            {{detailsData?.job_name}}
-                        </span>
-                    </div>
-                </div>
-                
-             
-                
-                <div class=" col-md-4">
-                    <div class="list-item">
-                        <h2 class="title">
-                            رقم الهاتف
-                        </h2>
-                        <span class="desc">  {{detailsData?.mobile}}</span>
-                    </div>
-                </div>
-                <div class=" col-md-4" *ngIf="detailsData?.roles.length !=0">
-                    <div class="list-item">
-                        <h2 class="title">
-                             النوع
-                        </h2>
-                        <span class="desc">  
-                            <ng-container 
-                            *ngFor="let variable of detailsData?.roles;let i =index"
-                            >
-                        {{variable.name}} <ng-container *ngIf="detailsData?.roles.length-1 != i">
-                            ,
-                        </ng-container>
-                        </ng-container>
-                            
+        <div class="col-md-4">
+          <div class="list-item">
+            <h2 class="title">الاسم</h2>
+            <span class="desc">
+              {{ detailsData?.name }}
+            </span>
+          </div>
+        </div>
 
-                        </span>
-                    </div>
-                </div>
-            </div>
-            <!-- <div class="actions mt-5">
+        <div class="col-md-4">
+          <div class="list-item">
+            <h2 class="title">البريد الالكتروني</h2>
+            <span class="desc"> {{ detailsData?.email }} </span>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="list-item">
+            <h2 class="title">الوظيفه</h2>
+            <span class="desc"> {{ detailsData?.job_name }} </span>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="list-item">
+            <h2 class="title">رقم الهاتف</h2>
+            <span class="desc"> {{ detailsData?.mobile }}</span>
+          </div>
+        </div>
+        <div class="col-md-4" *ngIf="detailsData?.roles.length != 0">
+          <div class="list-item">
+            <h2 class="title">الصلاحيات</h2>
+            <span class="desc">
+              <ng-container
+                *ngFor="let variable of detailsData?.roles; let i = index"
+              >
+                {{ variable.name }}
+                <ng-container *ngIf="detailsData?.roles.length - 1 != i">
+                  ,
+                </ng-container>
+              </ng-container>
+            </span>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="actions mt-5">
                 <button class="main-btn">حفظ </button>
                 <button class="tr-btn mx-3">الغاء</button>
             </div> -->
-        </div>
     </div>
+  </div>
 </div>

@@ -37,10 +37,11 @@ export class CreatePermissionComponent implements OnInit {
       this.getUser(params["id"]);
       this.idEdit = params["id"];
     });
+    if (this.idEdit) {
+      this.isEdit = true;
+    }
   }
   getUser = (id: any) => {
-    this.isEdit = true;
-
     this._CrudRequestsService
       .get("permissions/" + id)
       .subscribe((data: any) => {
@@ -65,6 +66,7 @@ export class CreatePermissionComponent implements OnInit {
 
             if (res.success) {
               this._setting.successHot(res.message);
+              this.goBack();
             } else {
               this._setting.errorHot(res.message);
             }
