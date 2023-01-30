@@ -25,7 +25,7 @@ export class AllPathogensComponent implements OnInit {
   DataTable: any = [];
   getpathogens = () => {
     this._CrudRequestsService
-      .get("pathogens" + `?page=${this.current}&perPage=10`)
+      .get("admin/pathogens" + `?page=${this.current}&perPage=10`)
       .subscribe((data: any) => {
         this.DataTable = data.data.all;
         this.last = data.data.meta.pagesCount;
@@ -33,18 +33,20 @@ export class AllPathogensComponent implements OnInit {
   };
 
   blockItem = (id: any, $event: any) => {
-    this._CrudRequestsService.get(`pathogens/toggle_activate/${id}`).subscribe(
-      (data: any) => {
-        if (data.success) {
-          this._SettingService.successHot(data.message);
-        } else {
-          this._SettingService.errorHot(data.message);
+    this._CrudRequestsService
+      .get(`admin/pathogens/toggle_activate/${id}`)
+      .subscribe(
+        (data: any) => {
+          if (data.success) {
+            this._SettingService.successHot(data.message);
+          } else {
+            this._SettingService.errorHot(data.message);
+          }
+        },
+        (err: any) => {
+          this._SettingService.errorHot(err.message);
         }
-      },
-      (err: any) => {
-        this._SettingService.errorHot(err.message);
-      }
-    );
+      );
   };
 
   deleteItem = (id: any) => {

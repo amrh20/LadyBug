@@ -1,13 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import Swal from 'sweetalert2';
-import { FormGroup, FormControl } from '@angular/forms';
-import { CrudRequestsService } from '../../../../../../core/services/crud-requests.service';
-import { SettingService } from '../../../../../../core/services/setting.service';
+import { Component, OnInit } from "@angular/core";
+import Swal from "sweetalert2";
+import { FormGroup, FormControl } from "@angular/forms";
+import { CrudRequestsService } from "../../../../../../core/services/crud-requests.service";
+import { SettingService } from "../../../../../../core/services/setting.service";
 
 @Component({
-  selector: 'app-diseases-table',
-  templateUrl: './diseases-table.component.html',
-  styleUrls: ['./diseases-table.component.scss']
+  selector: "app-diseases-table",
+  templateUrl: "./diseases-table.component.html",
+  styleUrls: ["./diseases-table.component.scss"],
 })
 export class DiseasesTableComponent implements OnInit {
   filterForm = new FormGroup({
@@ -23,7 +23,7 @@ export class DiseasesTableComponent implements OnInit {
   DataTable: any = [];
   getUsers = () => {
     this._CrudRequestsService
-      .get("diseases" + `?page=${this.current}&perPage=10`)
+      .get("admin/diseases" + `?page=${this.current}&perPage=10`)
       .subscribe((data: any) => {
         this.DataTable = data.data.all;
         this.last = data.data.meta.pagesCount;
@@ -33,7 +33,7 @@ export class DiseasesTableComponent implements OnInit {
   search() {
     let name = this.filterForm.get("name")?.value;
     this._CrudRequestsService
-      .get(`diseases?name=${name}&page=${this.current}&perPage=10`)
+      .get(`admin/diseases?name=${name}&page=${this.current}&perPage=10`)
       .subscribe((data: any) => {
         this.DataTable = data.data.all;
         this.last = data.data.meta.pagesCount;
@@ -54,10 +54,10 @@ export class DiseasesTableComponent implements OnInit {
       if (val.isConfirmed) {
         this._CrudRequestsService.delete(`diseases/${id}`).subscribe(
           (res: any) => {
-            if(res.success){
+            if (res.success) {
               this._SettingService.successHot(res.message);
               this.getUsers();
-            }else{
+            } else {
               this._SettingService.errorHot(res.message);
             }
           },

@@ -25,8 +25,8 @@ export class FarmesTypeTableComponent implements OnInit {
     this._CrudRequestsService
       .get("admin/farmed_types" + `?page=${this.current}&perPage=10`)
       .subscribe((data: any) => {
-        this.DataTable = data.data.all;
-        this.last = data.data.meta.pagesCount;
+        this.DataTable = data.data?.all;
+        this.last = data.data?.meta?.pagesCount;
       });
   };
 

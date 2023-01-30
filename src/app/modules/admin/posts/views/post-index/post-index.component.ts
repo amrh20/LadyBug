@@ -25,7 +25,7 @@ export class PostIndexComponent implements OnInit {
   }
   getPosts = () => {
     this._CrudRequestsService
-      .get("admin_posts" + `?page=${this.current}&perPage=10`)
+      .get("admin/posts" + `?page=${this.current}&perPage=10`)
       .subscribe((data: any) => {
         this.DataTable = data.data.all;
         this.last = data.data.meta.pagesCount;
@@ -35,7 +35,7 @@ export class PostIndexComponent implements OnInit {
   search() {
     let content = this.filterForm.get("content")?.value;
     this._CrudRequestsService
-      .get(`admin_posts?content=${content}&page=${this.current}&perPage=10`)
+      .get(`admin/posts?content=${content}&page=${this.current}&perPage=10`)
       .subscribe((data: any) => {
         this.DataTable = data.data.all;
         this.last = data.data.meta.pagesCount;
@@ -55,7 +55,7 @@ export class PostIndexComponent implements OnInit {
       cancelButtonAriaLabel: "التراجع",
     }).then((val: any) => {
       if (val.isConfirmed) {
-        this._CrudRequestsService.delete("admin_posts/" + id).subscribe(
+        this._CrudRequestsService.delete("admin/posts/" + id).subscribe(
           (res: any) => {
             this._SettingService.successHot(res.message);
             this.getPosts();

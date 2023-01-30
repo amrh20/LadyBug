@@ -1,13 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import Swal from 'sweetalert2';
-import { CrudRequestsService } from '../../../../../core/services/crud-requests.service';
-import { SettingService } from '../../../../../core/services/setting.service';
-import { FormGroup, FormControl } from '@angular/forms';
+import { Component, OnInit } from "@angular/core";
+import Swal from "sweetalert2";
+import { CrudRequestsService } from "../../../../../core/services/crud-requests.service";
+import { SettingService } from "../../../../../core/services/setting.service";
+import { FormGroup, FormControl } from "@angular/forms";
 
 @Component({
-  selector: 'app-table-insecticides',
-  templateUrl: './table-insecticides.component.html',
-  styleUrls: ['./table-insecticides.component.scss']
+  selector: "app-table-insecticides",
+  templateUrl: "./table-insecticides.component.html",
+  styleUrls: ["./table-insecticides.component.scss"],
 })
 export class TableInsecticidesComponent implements OnInit {
   filterForm = new FormGroup({
@@ -23,7 +23,7 @@ export class TableInsecticidesComponent implements OnInit {
   DataTable: any = [];
   getUsers = () => {
     this._CrudRequestsService
-      .get("insecticides" + `?page=${this.current}&perPage=10`)
+      .get("admin/insecticides" + `?page=${this.current}&perPage=10`)
       .subscribe((data: any) => {
         this.DataTable = data.data.all;
         this.last = data.data.meta.pagesCount;
@@ -33,7 +33,7 @@ export class TableInsecticidesComponent implements OnInit {
   search() {
     let name = this.filterForm.get("name")?.value;
     this._CrudRequestsService
-      .get(`insecticides?name=${name}&page=${this.current}&perPage=10`)
+      .get(`admin/insecticides?name=${name}&page=${this.current}&perPage=10`)
       .subscribe((data: any) => {
         this.DataTable = data.data.all;
         this.last = data.data.meta.pagesCount;
@@ -54,10 +54,10 @@ export class TableInsecticidesComponent implements OnInit {
       if (val.isConfirmed) {
         this._CrudRequestsService.delete(`insecticides/${id}`).subscribe(
           (res: any) => {
-            if(res.success){
+            if (res.success) {
               this._SettingService.successHot(res.message);
               this.getUsers();
-            }else{
+            } else {
               this._SettingService.errorHot(res.message);
             }
           },
