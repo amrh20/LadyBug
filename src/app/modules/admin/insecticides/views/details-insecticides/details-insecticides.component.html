@@ -1,83 +1,66 @@
 <div class="px-20 card-wrap">
-    <!-- <app-head-nav></app-head-nav> -->
-<div class="card-custom">
-   <div class="card-head">
-       <h2 class="title">
-          تفاصيل المبيدات الحشريه
-       </h2>
-   </div>
-   <div class="card-content">
-       <div class="row">
-           <div class=" col-md-4">
-               <div class="list-item">
-                   <h2 class="title">
-                       الاسم
-                   </h2>
-                   <span class="desc">
-                       {{detailsData?.name.ar}}
-                   </span>
-               </div>
-           </div>
-     
-           <div class=" col-md-4">
-               <div class="list-item">
-                   <h2 class="title">
-                    الدوله                   </h2>
-                   <span class="desc">                            {{detailsData?.country.name}}
-                   </span>
-               </div>
-           </div>
-           <div class=" col-md-4">
-               <div class="list-item">
-                   <h2 class="title">
-                    شكل جرعات
-                   </h2>
-                   <span class="desc">                            {{detailsData?.dosage_form}}
-                   </span>
-               </div>
-           </div>
-           
-        
-           
-           <div class=" col-md-4">
-            <div class="list-item">
-                <h2 class="title">
-                 احتياطات                     </h2>
-                <span class="desc">  {{detailsData?.precautions.ar}}</span>
-            </div>
-        </div>
-              
-        <div class=" col-md-4">
-            <div class="list-item">
-                <h2 class="title">
-                 الملاحظات                     </h2>
-                <span class="desc">  {{detailsData?.notes.ar}}</span>
-            </div>
-        </div>
-           <div class=" col-md-4" *ngIf="detailsData?.acs.length !=0">
-            <div class="list-item">
-                <h2 class="title">
-                 المواد الفعله
-                </h2>
-                <span class="desc">  
-                    <ng-container 
-                    *ngFor="let variable of detailsData?.acs;let i =index"
-                    >
-                {{variable.name}} <ng-container *ngIf="detailsData?.acs.length-1 != i">
-                    ,
-                </ng-container>
-                </ng-container>
-                    
-
-                </span>
-            </div>
+  <!-- <app-head-nav></app-head-nav> -->
+  <div class="card-custom">
+    <div class="card-head">
+      <h2 class="title">تفاصيل المبيدات الحشريه</h2>
+    </div>
+    <div class="card-content">
+      <div class="row">
+        <div class="col-md-4 mb-5">
+          <div class="list-item">
+            <h2 class="title">الاسم</h2>
+            <span class="desc">
+              {{ detailsData?.name.ar }}
+            </span>
+          </div>
         </div>
 
-       </div>
-       <!-- <div class="actions mt-5">
+        <div class="col-md-4 mb-5">
+          <div class="list-item">
+            <h2 class="title">الدوله</h2>
+            <span class="desc"> {{ detailsData?.country.name }} </span>
+          </div>
+        </div>
+        <div class="col-md-4 mb-5">
+          <div class="list-item">
+            <h2 class="title">شكل جرعات</h2>
+            <span class="desc"> {{ detailsData?.dosage_form }} </span>
+          </div>
+        </div>
+
+        <div class="col-md-4 mb-5">
+          <div class="list-item">
+            <h2 class="title">احتياطات</h2>
+            <span class="desc"> {{ detailsData?.precautions.ar }}</span>
+          </div>
+        </div>
+
+        <div class="col-md-4 mb-5">
+          <div class="list-item">
+            <h2 class="title">الملاحظات</h2>
+            <span class="desc"> {{ detailsData?.notes.ar }}</span>
+          </div>
+        </div>
+        <div class="col-md-4 mb-5" *ngIf="detailsData?.acs.length != 0">
+          <div class="list-item">
+            <h2 class="title">المواد الفعله</h2>
+            <span class="desc">
+              <ng-container
+                *ngFor="let variable of detailsData?.acs; let i = index"
+              >
+                {{ variable.name }}
+                <ng-container *ngIf="detailsData?.acs.length - 1 != i">
+                  ,
+                </ng-container>
+              </ng-container>
+            </span>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="actions mt-5">
            <button class="main-btn">حفظ </button>
            <button class="tr-btn mx-3">الغاء</button>
        </div> -->
-   </div>
-</div>
+    </div>
+  </div>
 </div>
