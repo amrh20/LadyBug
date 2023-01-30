@@ -4,11 +4,14 @@
   >
     <h1 class="fs-24">معلومات اضافيه</h1>
     <div class="">
+      <!-- admin/farmer/farmedTypes/edit_farmed_type_extras -->
       <button
         class="main-btn"
         [routerLink]="[
-          '/admin/farmer/farmedTypes/create_farmed_type_extras/' + ids
+          '/admin/farmer/farmedTypes/create_farmed_type_extras',
+          ids
         ]"
+        *ngIf="checkobj == 0"
       >
         اضافه معلومات اضافيه
       </button>
@@ -16,7 +19,7 @@
   </div>
 
   <div class="bg-white pb-5 br-10">
-    <app-table>
+    <app-table *ngIf="checkobj != 0">
       <ng-container header>
         <tr>
           <th>##</th>

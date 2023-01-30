@@ -55,12 +55,13 @@ export class FarmedTypeExtrasTableComponent implements OnInit {
     });
   }
   detailsData: any = {};
+  checkobj: any;
   getUser = (id: any) => {
     this._CrudRequestsService
       .get("farmed_type_extras/by_ft_id/" + id)
       .subscribe((data: any) => {
         this.detailsData = data.data;
-        console.log(this.detailsData.producer);
+        this.checkobj = Object.keys(data.data).length;
       });
   };
 }

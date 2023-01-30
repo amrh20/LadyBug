@@ -2,14 +2,26 @@
   <!-- <app-head-nav></app-head-nav> -->
   <div class="card-custom">
     <div class="card-head">
-      <h2 class="title">تفاصيل المزروع</h2>
+      <h2 class="title">تفاصيل المحصول</h2>
     </div>
 
     <div class="card-content">
       <div class="row">
+        <div class="col-md-12 mt-5">
+          <div class="list-item">
+            <h2 class="title">الصوره</h2>
+            <span class="desc">
+              <img
+                [src]="detailsData?.photo_url"
+                alt=""
+                style="max-width: 150px"
+              />
+            </span>
+          </div>
+        </div>
         <div class="col-md-4 mt-5">
           <div class="list-item">
-            <h2 class="title">المزروع</h2>
+            <h2 class="title">الاسم</h2>
             <span class="desc">
               {{ detailsData.name?.ar }}
             </span>
@@ -17,15 +29,16 @@
         </div>
         <div class="col-md-4 mt-5">
           <div class="list-item">
-            <h2 class="title">نوع المزرعة</h2>
+            <h2 class="title">نشاط المزرعة</h2>
             <span class="desc">
-              {{ detailsData.farm_activity_type_name?.ar }}
+              {{ detailsData.farm_activity_type?.name?.ar }}
             </span>
           </div>
         </div>
+
         <div class="col-md-4 mt-5">
           <div class="list-item">
-            <h2 class="title">المزهرة</h2>
+            <h2 class="title">الأيام حتى الإزهار</h2>
             <span class="desc">
               {{ detailsData.flowering_time }}
             </span>
@@ -34,7 +47,21 @@
 
         <div class="col-md-4 mt-5">
           <div class="list-item">
-            <h2 class="title">المزهرة (درجة الحرارة)</h2>
+            <h2 class="title">الأيام حتى النضج</h2>
+            <span class="desc"> {{ detailsData.maturity_time }} </span>
+          </div>
+        </div>
+
+        <div class="col-md-4 mt-5">
+          <div class="list-item">
+            <h2 class="title">درجة حرارة الزراعة</h2>
+            <span class="desc"> {{ detailsData.farming_temperature }} </span>
+          </div>
+        </div>
+
+        <div class="col-md-4 mt-5">
+          <div class="list-item">
+            <h2 class="title">درجة حرارة التزهير</h2>
             <span class="desc">
               {{ detailsData.flowering_temperature }}
             </span>
@@ -43,43 +70,58 @@
 
         <div class="col-md-4 mt-5">
           <div class="list-item">
-            <h2 class="title">نضج ( وقت)</h2>
-            <span class="desc"> {{ detailsData.maturity_time }} </span>
-          </div>
-        </div>
-        <div class="col-md-4 mt-5">
-          <div class="list-item">
-            <h2 class="title">نضج (درجة الحرارة)</h2>
+            <h2 class="title">درجة حرارة النضج</h2>
             <span class="desc"> {{ detailsData.maturity_temperature }} </span>
           </div>
         </div>
 
         <div class="col-md-4 mt-5">
           <div class="list-item">
-            <h2 class="title">أملاح التربة</h2>
-            <span class="desc">
-              {{ detailsData.suitable_water_salts_concentration }}</span
-            >
+            <h2 class="title">الرطوبة</h2>
+            <span class="desc"> {{ detailsData.humidity }} </span>
           </div>
         </div>
+
         <div class="col-md-4 mt-5">
           <div class="list-item">
-            <h2 class="title">أنواع التربة</h2>
-            <span class="desc">{{ detailsData.suitable_soil_types }}</span>
-          </div>
-        </div>
-        <div class="col-md-4 mt-5">
-          <div class="list-item">
-            <h2 class="title">أملاح الماء</h2>
+            <h2 class="title">أملاح التربة المناسبة</h2>
             <span class="desc">{{
               detailsData.suitable_soil_salts_concentration
             }}</span>
           </div>
         </div>
+
         <div class="col-md-4 mt-5">
           <div class="list-item">
-            <h2 class="title">PH</h2>
+            <h2 class="title">أملاح الماء المناسبة</h2>
+            <span class="desc">
+              {{ detailsData.suitable_water_salts_concentration }}</span
+            >
+          </div>
+        </div>
+
+        <div class="col-md-4 mt-5">
+          <div class="list-item">
+            <h2 class="title">PH المناسب</h2>
             <span class="desc"> {{ detailsData.suitable_ph }}</span>
+          </div>
+        </div>
+
+        <div class="col-md-4 mt-5">
+          <div class="list-item">
+            <h2 class="title">أنواع التربة المناسبة</h2>
+            <span
+              class="desc mx-4"
+              *ngFor="let item of detailsData.suitable_soil_types"
+              >{{ item.ar }}</span
+            >
+          </div>
+        </div>
+
+        <div class="col-md-4 mt-5">
+          <div class="list-item">
+            <h2 class="title">المحصول العالمي له</h2>
+            <span class="desc">{{ detailsData.parent }}</span>
           </div>
         </div>
       </div>

@@ -67,6 +67,7 @@ export class FarmedTypeExtrasCreateComponent implements OnInit {
       this.farmed_typesData = data.data.all;
     });
   };
+  checkobj: any;
   getUser = (id: any) => {
     this.isEdit = true;
 
@@ -74,6 +75,7 @@ export class FarmedTypeExtrasCreateComponent implements OnInit {
       .get("farmed_type_extras/" + id)
       .subscribe((data: any) => {
         this.ids = data.data.farmed_type_id;
+
         this.form.patchValue({
           irrigation_rate_id: data.data.irrigation_rate.id,
           seedling_type: data.data.seedling_type.value,

@@ -8,6 +8,7 @@
       <form [formGroup]="form">
         <div class="row">
           <div class="col-6 mb-5">
+            <label for="">الاسم بالعربي</label>
             <input
               type="text"
               placeholder="الاسم بالعربي"
@@ -26,6 +27,7 @@
           </div>
 
           <div class="col-6 mb-5">
+            <label for="">الاسم بالانجليزي</label>
             <input
               type="text"
               placeholder="الاسم بالانجليزي"
@@ -44,6 +46,7 @@
           </div>
 
           <div class="col-6 mb-5">
+            <label for="">who_class</label>
             <select formControlName="who_class" class="select-ground">
               <option value="">who_class</option>
               <option [value]="item.value" *ngFor="let item of relations">
@@ -61,6 +64,7 @@
           </div>
 
           <div class="col-6 mb-5">
+            <label for="">ايام الانسحاب</label>
             <input
               type="number"
               placeholder=" ايام الانسحاب"
@@ -79,6 +83,7 @@
           </div>
 
           <div class="col-6 mb-5">
+            <label for="">الاحتياطات بالعربي </label>
             <input
               type="text"
               placeholder=" الاحتياطات بالعربي "
@@ -95,6 +100,7 @@
           </div>
 
           <div class="col-6 mb-5">
+            <label for=""> الاحتياطات بالانجليزي </label>
             <input
               type="text"
               placeholder=" الاحتياطات بالانجليزي "

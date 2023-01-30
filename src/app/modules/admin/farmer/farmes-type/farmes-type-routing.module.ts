@@ -94,6 +94,10 @@ const routes: Routes = [
   },
 
   {
+    path: "create_farmed_type_extras/:id",
+    component: FarmedTypeExtrasCreateComponent,
+  },
+  {
     path: "edit_farmed_type_extras/:id",
     component: FarmedTypeExtrasCreateComponent,
   },
