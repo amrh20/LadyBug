@@ -1,17 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import Swal from 'sweetalert2';
-import { FormGroup, FormControl } from '@angular/forms';
-import { CrudRequestsService } from '../../../../../../core/services/crud-requests.service';
-import { SettingService } from '../../../../../../core/services/setting.service';
+import { Component, OnInit } from "@angular/core";
+import Swal from "sweetalert2";
+import { FormGroup, FormControl } from "@angular/forms";
+import { CrudRequestsService } from "../../../../../../core/services/crud-requests.service";
+import { SettingService } from "../../../../../../core/services/setting.service";
 
 @Component({
-  selector: 'app-disease-registrations-table',
-  templateUrl: './disease-registrations-table.component.html',
-  styleUrls: ['./disease-registrations-table.component.scss']
+  selector: "app-disease-registrations-table",
+  templateUrl: "./disease-registrations-table.component.html",
+  styleUrls: ["./disease-registrations-table.component.scss"],
 })
 export class DiseaseRegistrationsTableComponent implements OnInit {
-
-
   DataTable: any = [];
   filterForm = new FormGroup({
     name: new FormControl(""),
@@ -25,7 +23,7 @@ export class DiseaseRegistrationsTableComponent implements OnInit {
   }
   getUsers = () => {
     this._CrudRequestsService
-      .get("disease_registrations" + `?page=${this.current}&perPage=10`)
+      .get("admin/disease_registrations" + `?page=${this.current}&perPage=10`)
       .subscribe((data: any) => {
         this.DataTable = data.data.all;
         this.last = data.data.meta.pagesCount;
@@ -36,18 +34,20 @@ export class DiseaseRegistrationsTableComponent implements OnInit {
     let name = this.filterForm.get("name")?.value;
 
     this._CrudRequestsService
-      .get(`disease_registrations?name=${name}&page=${this.current}&perPage=10`)
+      .get(
+        `admin/disease_registrations?name=${name}&page=${this.current}&perPage=10`
+      )
       .subscribe((data: any) => {
         this.DataTable = data.data.all;
         this.last = data.data.meta.pagesCount;
       });
   }
-  toogle(id:any,event:any){
+  toogle(id: any, event: any) {
     this._CrudRequestsService
-    .get(`disease_registrations/toggle_confirm/${id}`)
-    .subscribe((data: any) => {
-      this._SettingService.successHot(data.message)
-    });  
+      .get(`admin/disease_registrations/toggle_confirm/${id}`)
+      .subscribe((data: any) => {
+        this._SettingService.successHot(data.message);
+      });
   }
   current: any = 1;
   last: any = 0;

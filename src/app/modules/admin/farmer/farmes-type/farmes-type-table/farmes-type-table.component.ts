@@ -23,7 +23,7 @@ export class FarmesTypeTableComponent implements OnInit {
   }
   getUsers = () => {
     this._CrudRequestsService
-      .get("farmed_types" + `?page=${this.current}&perPage=10`)
+      .get("admin/farmed_types" + `?page=${this.current}&perPage=10`)
       .subscribe((data: any) => {
         this.DataTable = data.data.all;
         this.last = data.data.meta.pagesCount;

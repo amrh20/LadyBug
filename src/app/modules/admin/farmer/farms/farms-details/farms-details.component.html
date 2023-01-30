@@ -8,12 +8,22 @@
       <div class="row">
         <div class="col-md-12">
           <div class="list-item">
-            <h2 class="title">الصوره</h2>
+            <h2 class="title">صورة المحصول</h2>
             <div class="img">
               <img [src]="detailsData?.farmed_type_photo" alt="" />
             </div>
           </div>
         </div>
+
+        <div class="col-md-4">
+          <div class="list-item">
+            <h2 class="title">حقيقية</h2>
+            <span class="desc">
+              {{ detailsData?.real }}
+            </span>
+          </div>
+        </div>
+
         <div class="col-md-4">
           <div class="list-item">
             <h2 class="title">اسم المحصول</h2>
@@ -22,25 +32,25 @@
             </span>
           </div>
         </div>
-        <div class="col-md-4">
+
+        <div class="col-md-4 mt-5">
           <div class="list-item">
-            <h2 class="title">مصادر الأسمدة الكيماوية</h2>
-            <span
-              class="desc"
-              *ngFor="let item of detailsData?.chemical_fertilizer_sources"
-            >
-              {{ item?.name.ar }}
-            </span>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="list-item">
-            <h2 class="title">كود</h2>
+            <h2 class="title">تاريخ الزراعة</h2>
             <span class="desc">
-              {{ detailsData?.code }}
+              {{ detailsData?.farming_date }}
             </span>
           </div>
         </div>
+
+        <div class="col-md-4 mt-5">
+          <div class="list-item">
+            <h2 class="title">المساحة</h2>
+            <span class="desc">
+              {{ detailsData?.area }}
+            </span>
+          </div>
+        </div>
+
         <div class="col-md-4 mt-5">
           <div class="list-item">
             <h2 class="title">وحدة المساحة</h2>
@@ -49,11 +59,39 @@
             </span>
           </div>
         </div>
+
         <div class="col-md-4 mt-5">
           <div class="list-item">
-            <h2 class="title">تاريخ الزراعة</h2>
+            <h2 class="title">عدد المحصول</h2>
             <span class="desc">
-              {{ detailsData?.farming_date }}
+              {{ detailsData?.farmed_number }}
+            </span>
+          </div>
+        </div>
+
+        <div class="col-md-4 mt-5">
+          <div class="list-item">
+            <h2 class="title">الملاءمة</h2>
+            <span class="desc">
+              {{ detailsData?.farming_comatibility }}
+            </span>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="list-item">
+            <h2 class="title">مصادر الأسمدة الكيماوية</h2>
+            <span class="desc">
+              {{ detailsData?.chemical_fertilizer_sources }}
+            </span>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="list-item">
+            <h2 class="title">مصادر الشتلات</h2>
+            <span class="desc">
+              {{ detailsData?.seedling_sources }}
             </span>
           </div>
         </div>
