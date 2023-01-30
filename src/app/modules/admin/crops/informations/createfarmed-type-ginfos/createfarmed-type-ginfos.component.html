@@ -1,180 +1,170 @@
 <div class="px-20 card-wrap">
-    <!-- <app-head-nav></app-head-nav> -->
-    <div class="card-custom">
-        <div class="card-head">
-            <h2 class="title">
-
-                {{!isEdit?'اضافه' : ' تعديل '}} معلومات المحاصيل 
-            </h2>
-        </div>
-        <div class="card-content">
-            <form [formGroup]="form">
-                <div class="row">
-                    <div class="col-6 mb-5">
-                        <div class="select-value">
-
-                            <div class="position-relative">
-                                <select name="" id="" class="select-ground" formControlName="farmed_type_stage_id">
-                                    <option value="" selected> مرحلة النوع المزروع	</option>
-                                    <option  *ngFor="let variable of DataTable;let i=index" [value]="variable.id"> {{variable.name.ar}}</option>
-                                    
-                                </select>
-                            </div>
-                        </div>
-                        <div
-                            class="error-msg"
-                            *ngIf="form.controls['farmed_type_stage_id'].touched ||
-                            isSubmit">
-                            <div
-                                *ngIf="form.controls['farmed_type_stage_id'].hasError('required')">{{"must_required"
-                                | translate}}</div>
-
-                        </div>
-                    </div>
-
-                
-                    <div class="col-6 mb-5">
-                        <div class="select-value">
-
-                            <div class="position-relative">
-                                <select name="" id="" class="select-ground" formControlName="farmed_type_id">
-                                    <option value="" selected> نوع المزارع	</option>
-                                    <option  *ngFor="let variable of farmed_typesData;let i=index" [value]="variable.id"> {{variable.name.ar}}</option>
-                                    
-                                </select>
-                            </div>
-                        </div>
-                        <div
-                            class="error-msg"
-                            *ngIf="form.controls['farmed_type_id'].touched ||
-                            isSubmit">
-                            <div
-                                *ngIf="form.controls['farmed_type_id'].hasError('required')">{{"must_required"
-                                | translate}}</div>
-
-
-
-
-                        </div>
-                    </div>
-
-                
-                    <div class="col-6 mb-5">
-                        <input
-                            type="text"
-                            placeholder="العنوان بالعربي"
-                            formControlName="title_ar">
-                        <div
-                            class="error-msg"
-                            *ngIf="form.controls['title_ar'].touched ||
-                            isSubmit">
-                            <div
-                                *ngIf="form.controls['title_ar'].hasError('required')">{{"must_required"
-                                | translate}}</div>
-
-
-                        </div>
-                    </div>
-                    <div class="col-6 mb-5">
-                        <input
-                            type="text"
-                            placeholder="العنوان بالانجليزي"
-                            formControlName="title_en">
-                        <div
-                            class="error-msg"
-                            *ngIf="form.controls['title_en'].touched ||
-                            isSubmit">
-                            <div
-                                *ngIf="form.controls['title_en'].hasError('required')">{{"must_required"
-                                | translate}}</div>
-
-
-
-
-                        </div>
-                    </div>
-                    <div class="col-6 mb-5">
-                        <input
-                            type="text"
-                            placeholder="المحتوي بالعربي"
-                            formControlName="content_ar">
-                        <div
-                            class="error-msg"
-                            *ngIf="form.controls['content_ar'].touched ||
-                            isSubmit">
-                            <div
-                                *ngIf="form.controls['content_ar'].hasError('required')">{{"must_required"
-                                | translate}}</div>
-
-
-
-
-                        </div>
-                    </div>
-                    
-                    <div class="col-6 mb-5">
-                        <input
-                            type="text"
-                            placeholder="المحتوي بالانجليزي"
-                            formControlName="content_en">
-                        <div
-                            class="error-msg"
-                            *ngIf="form.controls['content_en'].touched ||
-                            isSubmit">
-                            <div
-                                *ngIf="form.controls['content_en'].hasError('required')">{{"must_required"
-                                | translate}}</div>
-
-
-
-
-                        </div>
-                    </div>
-                        <div class="col-6 mb-5 upload">
-                        <label for="apply"><input type="file" name="" id="apply" accept="image/png , image/jpeg"
-                            (change)="changeFile($event)"
-                            >
-                            {{
-                                file?file.name.slice(0,50):'تحميل صوره '
-                            }}
-                            
-                        
-                        </label>
-                        <div
-                        class="error-msg"
-                        *ngIf="file == null &&
-                        isSubmit && !isEdit">
-                        <div
-                            *ngIf="file ==null">{{"must_required"
-                            | translate}}</div>
-
-
-
-
-                    </div>
-                        
-                    </div>
-
-
-                </div>
-                <div class="actions mt-5">
-                    <app-spinner *ngIf="loading"></app-spinner>
-                    <button
-                        class="main-btn"
-                        *ngIf="!loading"
-                        (click)="sendData()">
-                        حفظ
-                    </button>
-                    <button
-                        class="tr-btn mx-3"
-                        *ngIf="!loading"
-                        (click)="goBack()">
-                        الغاء
-                    </button>
-                </div>
-            </form>
-
-
-        </div>
+  <!-- <app-head-nav></app-head-nav> -->
+  <div class="card-custom">
+    <div class="card-head">
+      <h2 class="title">
+        {{ !isEdit ? "اضافه" : " تعديل " }} معلومات المحاصيل
+      </h2>
     </div>
+    <div class="card-content">
+      <form [formGroup]="form">
+        <div class="row">
+          <div class="col-6 mb-5">
+            <label for="">مرحلة النوع المزروع </label>
+            <div class="select-value">
+              <div class="position-relative">
+                <select
+                  name=""
+                  id=""
+                  class="select-ground"
+                  formControlName="farmed_type_stage_id"
+                >
+                  <option value="" selected>مرحلة النوع المزروع</option>
+                  <option
+                    *ngFor="let variable of DataTable; let i = index"
+                    [value]="variable.id"
+                  >
+                    {{ variable.name.ar }}
+                  </option>
+                </select>
+              </div>
+            </div>
+            <div
+              class="error-msg"
+              *ngIf="form.controls['farmed_type_stage_id'].touched || isSubmit"
+            >
+              <div
+                *ngIf="
+                  form.controls['farmed_type_stage_id'].hasError('required')
+                "
+              >
+                {{ "must_required" | translate }}
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6 mb-5">
+            <div class="select-value">
+              <label for="">نوع المزارع </label>
+
+              <div class="position-relative">
+                <select
+                  name=""
+                  id=""
+                  class="select-ground"
+                  formControlName="farmed_type_id"
+                >
+                  <option value="" selected>نوع المزارع</option>
+                  <option
+                    *ngFor="let variable of farmed_typesData; let i = index"
+                    [value]="variable.id"
+                  >
+                    {{ variable.name.ar }}
+                  </option>
+                </select>
+              </div>
+            </div>
+            <div
+              class="error-msg"
+              *ngIf="form.controls['farmed_type_id'].touched || isSubmit"
+            >
+              <div *ngIf="form.controls['farmed_type_id'].hasError('required')">
+                {{ "must_required" | translate }}
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6 mb-5">
+            <label for="">"العنوان بالعربي</label>
+            <input
+              type="text"
+              placeholder="العنوان بالعربي"
+              formControlName="title_ar"
+            />
+            <div
+              class="error-msg"
+              *ngIf="form.controls['title_ar'].touched || isSubmit"
+            >
+              <div *ngIf="form.controls['title_ar'].hasError('required')">
+                {{ "must_required" | translate }}
+              </div>
+            </div>
+          </div>
+          <div class="col-6 mb-5">
+            <label for="">العنوان بالانجليزي</label>
+            <input
+              type="text"
+              placeholder="العنوان بالانجليزي"
+              formControlName="title_en"
+            />
+            <div
+              class="error-msg"
+              *ngIf="form.controls['title_en'].touched || isSubmit"
+            >
+              <div *ngIf="form.controls['title_en'].hasError('required')">
+                {{ "must_required" | translate }}
+              </div>
+            </div>
+          </div>
+          <div class="col-6 mb-5">
+            <label for="">المحتوي بالعربي</label>
+            <input
+              type="text"
+              placeholder="المحتوي بالعربي"
+              formControlName="content_ar"
+            />
+            <div
+              class="error-msg"
+              *ngIf="form.controls['content_ar'].touched || isSubmit"
+            >
+              <div *ngIf="form.controls['content_ar'].hasError('required')">
+                {{ "must_required" | translate }}
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6 mb-5">
+            <label for="">المحتوي بالانجليزي</label>
+            <input
+              type="text"
+              placeholder="المحتوي بالانجليزي"
+              formControlName="content_en"
+            />
+            <div
+              class="error-msg"
+              *ngIf="form.controls['content_en'].touched || isSubmit"
+            >
+              <div *ngIf="form.controls['content_en'].hasError('required')">
+                {{ "must_required" | translate }}
+              </div>
+            </div>
+          </div>
+          <div class="col-6 mb-5 upload">
+            <label for="apply"
+              ><input
+                type="file"
+                name=""
+                id="apply"
+                accept="image/png , image/jpeg"
+                (change)="changeFile($event)"
+              />
+              {{ file ? file.name.slice(0, 50) : "تحميل صوره " }}
+            </label>
+            <div class="error-msg" *ngIf="file == null && isSubmit && !isEdit">
+              <div *ngIf="file == null">{{ "must_required" | translate }}</div>
+            </div>
+          </div>
+        </div>
+        <div class="actions mt-5">
+          <app-spinner *ngIf="loading"></app-spinner>
+          <button class="main-btn" *ngIf="!loading" (click)="sendData()">
+            حفظ
+          </button>
+          <button class="tr-btn mx-3" *ngIf="!loading" (click)="goBack()">
+            الغاء
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>
