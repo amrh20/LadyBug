@@ -35,16 +35,9 @@
       <ng-container header>
         <tr>
           <th>##</th>
-          <th>اسم</th>
-          <th>نوع المزرعة</th>
-          <th>المزهرة</th>
-          <th>المزهرة (درجة الحرارة)</th>
-          <th>نضج ( وقت)</th>
-          <th>نضج (درجة الحرارة)</th>
-          <th>أملاح التربة</th>
-          <th>أملاح الماء</th>
-          <th>PH</th>
-          <th>أنواع التربة</th>
+          <th>الاسم</th>
+          <th>الأيام حتى الإزهار</th>
+
           <th>اجراءت</th>
         </tr>
       </ng-container>
@@ -56,17 +49,8 @@
             </span>
           </td>
           <td>{{ variable.name.ar }}</td>
-          <td>{{ variable.farm_activity_type_name?.ar }}</td>
 
           <td>{{ variable.flowering_time }}</td>
-          <td>{{ variable.flowering_temperature }}</td>
-
-          <td>{{ variable.maturity_time }}</td>
-          <td>{{ variable.maturity_temperature }}</td>
-          <td>{{ variable.suitable_soil_salts_concentration }}</td>
-          <td>{{ variable.suitable_water_salts_concentration }}</td>
-          <td>{{ variable.suitable_ph }}</td>
-          <td>{{ variable.suitable_soil_types }}</td>
 
           <td>
             <button

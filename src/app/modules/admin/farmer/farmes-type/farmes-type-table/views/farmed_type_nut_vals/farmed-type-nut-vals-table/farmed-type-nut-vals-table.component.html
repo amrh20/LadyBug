@@ -1,78 +1,74 @@
 <div class="general-users-wrapper br-10">
-    <div
-      class="page-title d-flex justify-content-between align-items-center w-100"
-    >
-      <h1 class="fs-24"> 
-        القيمة الغذائية للعناصر الموجودة في المحصول
-         </h1>
-      <div class="">
-        <button
-          class="main-btn"
-          [routerLink]="['/admin/farmer/farmedTypes/farmed_type_nut_vals/Create/'+ids]"
-        >
-          اضافه  
-          القيمة الغذائية للعناصر الموجودة في المحصول
-           
-        </button>
-      </div>
+  <div
+    class="page-title d-flex justify-content-between align-items-center w-100"
+  >
+    <h1 class="fs-24">القيمة الغذائية للعناصر الموجودة في المحصول</h1>
+    <div class="" *ngIf="checkobj == 0">
+      <button
+        class="main-btn"
+        [routerLink]="[
+          '/admin/farmer/farmedTypes/farmed_type_nut_vals/Create/' + ids
+        ]"
+      >
+        اضافه القيمة الغذائية للعناصر الموجودة في المحصول
+      </button>
     </div>
-    <div class="bg-white pb-5 br-10 text-center py-3 not-found" *ngIf="!res?.id">
-        لا يوجد 
-        القيمة الغذائية للعناصر الموجودة في المحصول
-          
-    </div>
-    <div class="bg-white pb-5 br-10" *ngIf="res?.id">
-      <app-table>
-        <ng-container header>
-          <tr>
-            <th>##</th>
-            <th>السعرات الحرارية</th>
-            <th>الدهون الكلية</th>
-            <th>الدهون المشبعة </th>
-        
-            <th>اجراءت</th>
-          </tr>
-        </ng-container>
-        <ng-container content >
-          <tr >
-            <td>
-              <span class="num-td">
-                {{ res?.id }}
-              </span>
-            </td>
-            <td>{{ res?.calories }}</td>
-            <td>{{ res?.total_fat }}</td>
-            <td>{{ res?.sat_fat }}</td>
-            <td>
-              <button
-                class="menu--item"
-                mat-icon-button
-                [matMenuTriggerFor]="menu"
-                aria-label="Example
+  </div>
+  <div class="bg-white pb-5 br-10 text-center py-3 not-found" *ngIf="!res?.id">
+    لا يوجد القيمة الغذائية للعناصر الموجودة في المحصول
+  </div>
+  <div class="bg-white pb-5 br-10" *ngIf="res?.id">
+    <app-table>
+      <ng-container header>
+        <tr>
+          <th>##</th>
+          <th>السعرات الحرارية</th>
+          <th>الدهون الكلية</th>
+          <th>الدهون المشبعة</th>
+
+          <th>اجراءت</th>
+        </tr>
+      </ng-container>
+      <ng-container content>
+        <tr>
+          <td>
+            <span class="num-td">
+              {{ res?.id }}
+            </span>
+          </td>
+          <td>{{ res?.calories }}</td>
+          <td>{{ res?.total_fat }}</td>
+          <td>{{ res?.sat_fat }}</td>
+          <td>
+            <button
+              class="menu--item"
+              mat-icon-button
+              [matMenuTriggerFor]="menu"
+              aria-label="Example
                                 icon-button with a
                                 menu"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="42"
+                height="42"
+                viewBox="0 0 42 42"
+                fill="none"
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="42"
-                  height="42"
-                  viewBox="0 0 42 42"
-                  fill="none"
-                >
-                  <g id="action">
-                    <rect
-                      id="Rectangle"
-                      width="42"
-                      height="42"
-                      rx="2"
-                      fill="#F2F2F2"
-                    />
-                    <g id="ellipsis-v-regular copy 2">
-                      <path
-                        id="Shape"
-                        fill-rule="evenodd"
-                        clip-rule="evenodd"
-                        d="M19 13.4C19 14.725 20.075
+                <g id="action">
+                  <rect
+                    id="Rectangle"
+                    width="42"
+                    height="42"
+                    rx="2"
+                    fill="#F2F2F2"
+                  />
+                  <g id="ellipsis-v-regular copy 2">
+                    <path
+                      id="Shape"
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M19 13.4C19 14.725 20.075
                                                     15.8 21.4 15.8C22.725 15.8
                                                     23.8 14.725 23.8 13.4C23.8
                                                     12.075 22.725 11 21.4
@@ -88,14 +84,14 @@
                                                     26.2 23.8 27.275 23.8
                                                     28.6C23.8 29.925 22.725 31 21.4
                                                     31Z"
-                        fill="black"
-                      />
-                    </g>
+                      fill="black"
+                    />
                   </g>
-                </svg>
-              </button>
-              <mat-menu #menu="matMenu">
-                <a
+                </g>
+              </svg>
+            </button>
+            <mat-menu #menu="matMenu">
+              <a
                 mat-menu-item
                 [routerLink]="[
                   '/admin/farmer/farmedTypes/farmed_type_nut_vals/details',
@@ -104,29 +100,28 @@
               >
                 <span> <i class="fa-light fa-eye"></i> تفاصيل </span>
               </a>
-                <button
-                  mat-menu-item
-                  [routerLink]="[
-                    '/admin/farmer/farmedTypes/farmed_type_nut_vals/edit',
-                    res.id
-                  ]"
-                >
-                  <span> <i class="fa-thin fa-pen-to-square"></i> تعديل </span>
-                </button>
-                <button mat-menu-item (click)="deleteItem(res.id)">
-                  <span><i class="fa-thin fa-trash"></i> حذف </span>
-                </button>
-              </mat-menu>
-            </td>
-          </tr>
-        </ng-container>
-      </app-table>
-  
-      <!-- <app-pagination -->
-        <!-- [last]="last" -->
-        <!-- [current]="current" -->
-        <!-- (pageChange)="pageChange($event)" -->
-      <!-- ></app-pagination> -->
-    </div>
+              <button
+                mat-menu-item
+                [routerLink]="[
+                  '/admin/farmer/farmedTypes/farmed_type_nut_vals/edit',
+                  res.id
+                ]"
+              >
+                <span> <i class="fa-thin fa-pen-to-square"></i> تعديل </span>
+              </button>
+              <button mat-menu-item (click)="deleteItem(res.id)">
+                <span><i class="fa-thin fa-trash"></i> حذف </span>
+              </button>
+            </mat-menu>
+          </td>
+        </tr>
+      </ng-container>
+    </app-table>
+
+    <!-- <app-pagination -->
+    <!-- [last]="last" -->
+    <!-- [current]="current" -->
+    <!-- (pageChange)="pageChange($event)" -->
+    <!-- ></app-pagination> -->
   </div>
-  
+</div>

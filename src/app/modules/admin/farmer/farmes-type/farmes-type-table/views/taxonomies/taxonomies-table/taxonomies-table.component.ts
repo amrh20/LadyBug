@@ -1,16 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import { CrudRequestsService } from '../../../../../../../../core/services/crud-requests.service';
-import { SettingService } from '../../../../../../../../core/services/setting.service';
-import { Router, ActivatedRoute } from '@angular/router';
-import Swal from 'sweetalert2';
+import { Component, OnInit } from "@angular/core";
+import { CrudRequestsService } from "../../../../../../../../core/services/crud-requests.service";
+import { SettingService } from "../../../../../../../../core/services/setting.service";
+import { Router, ActivatedRoute } from "@angular/router";
+import Swal from "sweetalert2";
 
 @Component({
-  selector: 'app-taxonomies-table',
-  templateUrl: './taxonomies-table.component.html',
-  styleUrls: ['./taxonomies-table.component.scss']
+  selector: "app-taxonomies-table",
+  templateUrl: "./taxonomies-table.component.html",
+  styleUrls: ["./taxonomies-table.component.scss"],
 })
 export class TaxonomiesTableComponent implements OnInit {
-
   deleteItem = (id: any) => {
     Swal.fire({
       text: "   هل أنت متاكد من الحذف  ؟",
@@ -36,9 +35,9 @@ export class TaxonomiesTableComponent implements OnInit {
       }
     });
   };
-  ids:any=1;
+  ids: any = 1;
 
-  DataTable:any=[];
+  DataTable: any = [];
   constructor(
     private _CrudRequestsService: CrudRequestsService,
     private _SettingService: SettingService,
@@ -50,17 +49,21 @@ export class TaxonomiesTableComponent implements OnInit {
   ngOnInit(): void {
     this._activeRoute.params.subscribe((params) => {
       this.getUser(params["id"]);
-      this.ids=params["id"];
+      this.ids = params["id"];
     });
   }
-  success:any;
+  success: any;
   detailsData: any;
-  res:any;
+  res: any;
+  checkobj: any;
   getUser = (id: any) => {
-    this.success=false;
-    this._CrudRequestsService.get("taxonomies/by_ft_id/"+id).subscribe((data: any) => {
-      this.res=data.data;
-      this.success=data.data.code;
-    });
+    this.success = false;
+    this._CrudRequestsService
+      .get("taxonomies/by_ft_id/" + id)
+      .subscribe((data: any) => {
+        this.res = data.data;
+        this.checkobj = Object.keys(this.res).length;
+        this.success = data.data.code;
+      });
   };
 }

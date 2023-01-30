@@ -36,6 +36,7 @@
             </div>
           </div> -->
           <div class="col-6 mb-5">
+            <label for="">معدل الري</label>
             <select formControlName="irrigation_rate_id">
               <option value="">معدل الري</option>
               <option [value]="item.id" *ngFor="let item of irrigationRates">
@@ -55,6 +56,7 @@
           </div>
 
           <div class="col-6 mb-5">
+            <label for="">أنواع البذور</label>
             <select formControlName="seedling_type">
               <option value="">أنواع البذور</option>
               <option [value]="item.value" *ngFor="let item of seedlingTypes">
@@ -72,6 +74,7 @@
           </div>
 
           <div class="col-6 mb-5">
+            <label for=""> الاسم العلمي </label>
             <input
               type="text"
               placeholder="الاسم العلمي"
@@ -90,6 +93,7 @@
           </div>
 
           <div class="col-6 mb-5">
+            <label for=""> تاريخ المحصول </label>
             <input
               type="text"
               placeholder=" تاريخ المحصول"
@@ -106,6 +110,7 @@
           </div>
 
           <div class="col-6 mb-5">
+            <label for=""> الشركة المصنعة </label>
             <input
               type="text"
               placeholder=" الشركة المصنعة"
@@ -122,6 +127,7 @@
           </div>
 
           <div class="col-6 mb-5">
+            <label for="">الوصف</label>
             <input
               type="text"
               placeholder="  الوصف"
@@ -138,6 +144,7 @@
           </div>
 
           <div class="col-6 mb-5">
+            <label for=""> ساعات البرودة </label>
             <input
               type="number"
               placeholder="  ساعات البرودة"
@@ -154,6 +161,7 @@
           </div>
 
           <div class="col-6 mb-5">
+            <label for=""> ساعات الإضاءة </label>
             <input
               type="number"
               placeholder="   ساعات الإضاءة"
@@ -172,6 +180,7 @@
           </div>
 
           <div class="col-6 mb-5">
+            <label for=""> معدل البذور في الفدان </label>
             <input
               type="text"
               placeholder="    معدل البذور في الفدان"
@@ -188,6 +197,7 @@
           </div>
 
           <div class="col-6 mb-5">
+            <label for=""> معدل الإنتاج </label>
             <input
               type="number"
               placeholder="  معدل الإنتاج  "

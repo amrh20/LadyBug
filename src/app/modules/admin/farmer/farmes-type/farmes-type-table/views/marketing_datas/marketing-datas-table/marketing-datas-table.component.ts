@@ -55,6 +55,7 @@ export class MarketingDatasTableComponent implements OnInit {
   success: any;
   detailsData: any;
   res: any;
+  checkobj: any;
   getUser = (id: any) => {
     this.success = false;
     this._CrudRequestsService
@@ -62,6 +63,7 @@ export class MarketingDatasTableComponent implements OnInit {
       .subscribe((data: any) => {
         this.res = data.data;
         this.success = data.data.code;
+        this.checkobj = Object.keys(this.res).length;
       });
   };
 }
