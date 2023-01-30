@@ -29,6 +29,7 @@ import { CountriesCreateComponent } from './farmes-type-table/views/CountriesFar
 import { CountriesFaremdComponent } from './farmes-type-table/views/CountriesFaremd/countries-faremd/countries-faremd.component';
 import { NamesCountriesTableComponent } from './farmes-type-table/views/names_countries/names-countries-table/names-countries-table.component';
 import { NamesCountriesCreateComponent } from './farmes-type-table/views/names_countries/names-countries-create/names-countries-create.component';
+import { DivvPipe } from './farmes-type-table/views/names_countries/names-countries-create/divv.pipe';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { NamesCountriesCreateComponent } from './farmes-type-table/views/names_c
     CountriesCreateComponent,
     CountriesFaremdComponent,
     NamesCountriesTableComponent,
-    NamesCountriesCreateComponent
+    NamesCountriesCreateComponent,
+    DivvPipe
   ],
   imports: [
     CommonModule,

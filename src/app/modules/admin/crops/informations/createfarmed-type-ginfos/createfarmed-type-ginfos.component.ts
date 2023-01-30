@@ -1,8 +1,9 @@
+import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+
 import { CrudRequestsService } from '../../../../../core/services/crud-requests.service';
 import { SettingService } from '../../../../../core/services/setting.service';
-import { Router, ActivatedRoute } from '@angular/router';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-createfarmed-type-ginfos',
@@ -45,6 +46,7 @@ export class CreatefarmedTypeGinfosComponent implements OnInit {
     this.getFarmed()
     this.farmed_types()
   }
+  assets:any;
   getUser = (id: any) => {
     this.isEdit = true;
 
@@ -57,6 +59,7 @@ export class CreatefarmedTypeGinfosComponent implements OnInit {
         farmed_type_stage_id:data.data.farmed_type_stage_id,
         farmed_type_id: data.data.farmed_type_id,
       });
+      this.assets= data.data.assets;
     });
   };
   DataTable:any=[];
@@ -80,8 +83,11 @@ export class CreatefarmedTypeGinfosComponent implements OnInit {
      data.append('content[en]',this.form.value.content_ar)
      data.append('farmed_type_stage_id',this.form.value.farmed_type_stage_id)
      data.append('farmed_type_id',this.form.value.farmed_type_id)
+     for (var i = 0, len = this.file.length; i < len; i++) {
+      data.append(`assets[${i}]`,this.file[i])
+      
+     };
      if(this.file){
-      data.append('assets[0]',this.file)
 
      }
     if (this.form.valid ) {
@@ -95,6 +101,7 @@ export class CreatefarmedTypeGinfosComponent implements OnInit {
 
             if (res.success) {
               this._setting.successHot(res.message);
+              this.goBack()
             } else {
               this._setting.errorHot(res.message);
             }
@@ -139,6 +146,7 @@ export class CreatefarmedTypeGinfosComponent implements OnInit {
   };
   file:any=null;
   changeFile($event:any){
-  this.file=$event.target.files[0];
+  this.file=$event.target.files;
+  console.log($event.target.files)
   }
 }

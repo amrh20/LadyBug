@@ -147,15 +147,29 @@
                 id="apply"
                 accept="image/png , image/jpeg"
                 (change)="changeFile($event)"
+                multiple
               />
-              {{ file ? file.name.slice(0, 50) : "تحميل صوره " }}
+              {{   "تحميل صوره " }}
             </label>
             <div class="error-msg" *ngIf="file == null && isSubmit && !isEdit">
               <div *ngIf="file == null">{{ "must_required" | translate }}</div>
             </div>
           </div>
+          <ul>
+            <li *ngFor="let variable of file">
+              {{variable.name.slice(0, 50)}}
+            </li>
+          </ul>
+          <div>
+            <div class="assets grid-6 grid-gaps-10" >
+              <div *ngFor="let item of assets">
+                <img [src]="item" alt="" >
+
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="actions mt-5">
+        <div class="actions mt-5 ">
           <app-spinner *ngIf="loading"></app-spinner>
           <button class="main-btn" *ngIf="!loading" (click)="sendData()">
             حفظ

@@ -1,8 +1,9 @@
+import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormArray, Validators, FormControl, FormBuilder } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+
 import { CrudRequestsService } from '../../../../../../../../core/services/crud-requests.service';
 import { SettingService } from 'src/app/core/services/setting.service';
-import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-names-countries-create',
@@ -10,11 +11,6 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./names-countries-create.component.scss']
 })
 export class NamesCountriesCreateComponent implements OnInit {
-
-
-
- 
-
  
   form = new FormGroup({});
   
@@ -156,4 +152,5 @@ name: this.form.value.countries[i].name
   changeFile($event:any){
   this.file=$event.target.files[0];
   }
+ 
 }

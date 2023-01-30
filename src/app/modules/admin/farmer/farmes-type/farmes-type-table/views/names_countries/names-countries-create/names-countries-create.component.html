@@ -25,7 +25,13 @@
                             <div class="position-relative">
                                 <select name="" id="" class="select-ground" formControlName="countries" >
                                     <option value="" selected>   اختر الدولة	</option>
-                                    <option  *ngFor="let variable of allCountries;let i=index" [value]="variable?.id"> {{variable?.name.ar}}</option>
+                                    <option
+                                    
+                                    *ngFor="let variable of allCountries ;let i=index" 
+                                    [value]="variable?.id"
+                                    > {{variable?.name.ar}}</option>
+                                   
+                               
                                     
                                 </select>
                                 <div               class="error-msg"
