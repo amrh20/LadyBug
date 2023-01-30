@@ -37,7 +37,7 @@ export class CreateReportComponent implements OnInit {
       this.id = params["id"];
 
       if (params["id"]) {
-      this.isEdit = true;
+        this.isEdit = true;
         this.idEdit = params["id"];
         this._CrudRequestsService
           .get(`reports/${this.idEdit}`)
@@ -55,7 +55,7 @@ export class CreateReportComponent implements OnInit {
       this.report_typesData = data.data.all;
     });
 
-    this._CrudRequestsService.get("admin_posts").subscribe((data: any) => {
+    this._CrudRequestsService.get("admin/posts").subscribe((data: any) => {
       this.posts = data.data.all;
     });
   }

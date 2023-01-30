@@ -1,13 +1,13 @@
-import { ActivatedRoute, Router } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from "@angular/router";
+import { Component, OnInit } from "@angular/core";
 
-import { CrudRequestsService } from '../../../../../core/services/crud-requests.service';
-import { SettingService } from '../../../../../core/services/setting.service';
+import { CrudRequestsService } from "../../../../../core/services/crud-requests.service";
+import { SettingService } from "../../../../../core/services/setting.service";
 
 @Component({
-  selector: 'app-view-one',
-  templateUrl: './view-one.component.html',
-  styleUrls: ['./view-one.component.scss']
+  selector: "app-view-one",
+  templateUrl: "./view-one.component.html",
+  styleUrls: ["./view-one.component.scss"],
 })
 export class ViewOneComponent implements OnInit {
   constructor(
@@ -25,9 +25,11 @@ export class ViewOneComponent implements OnInit {
   }
   detailsData: any = {};
   getUser = (id: any) => {
-    this._CrudRequestsService.get("admin_businesses/" + id).subscribe((data: any) => {
-      this.detailsData = data.data;
-      console.log(data.data);
-    });
+    this._CrudRequestsService
+      .get("admin/businesses/" + id)
+      .subscribe((data: any) => {
+        this.detailsData = data.data;
+        console.log(data.data);
+      });
   };
 }

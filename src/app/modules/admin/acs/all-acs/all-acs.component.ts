@@ -25,7 +25,7 @@ export class AllAcsComponent implements OnInit {
   DataTable: any = [];
   getacs = () => {
     this._CrudRequestsService
-      .get("acs" + `?page=${this.current}&perPage=10`)
+      .get("admin/acs" + `?page=${this.current}&perPage=10`)
       .subscribe((data: any) => {
         this.DataTable = data.data.all;
         this.last = data.data.meta.pagesCount;
@@ -33,7 +33,7 @@ export class AllAcsComponent implements OnInit {
   };
 
   blockItem = (id: any, $event: any) => {
-    this._CrudRequestsService.get(`acs/toggle_activate/${id}`).subscribe(
+    this._CrudRequestsService.get(`admin/acs/toggle_activate/${id}`).subscribe(
       (data: any) => {
         if (data.success) {
           this._SettingService.successHot(data.message);
@@ -61,10 +61,12 @@ export class AllAcsComponent implements OnInit {
       cancelButtonAriaLabel: "التراجع",
     }).then((val: any) => {
       if (val.isConfirmed) {
-        this._CrudRequestsService.delete(`acs/${id}`).subscribe((res: any) => {
-          this._SettingService.successHot("تم الحذف بنجاح");
-          this.getacs();
-        });
+        this._CrudRequestsService
+          .delete(`admin/acs/${id}`)
+          .subscribe((res: any) => {
+            this._SettingService.successHot("تم الحذف بنجاح");
+            this.getacs();
+          });
       }
     });
   };

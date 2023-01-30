@@ -38,9 +38,11 @@ export class PostDetailsComponent implements OnInit {
   }
 
   getUser = (id: any) => {
-    this._CrudRequestsService.get("posts/" + id).subscribe((data: any) => {
-      this.detailsData = data.data;
-    });
+    this._CrudRequestsService
+      .get("admin/posts/" + id)
+      .subscribe((data: any) => {
+        this.detailsData = data.data;
+      });
   };
 
   block() {
@@ -61,7 +63,7 @@ export class PostDetailsComponent implements OnInit {
           .subscribe(
             (res: any) => {
               this._SettingService.successHot(res.message);
-              this.router.navigate(["/admin/posts/posts"]);
+              this.router.navigate(["/admin/posts"]);
             },
             (err) => {
               this._SettingService.errorHot(err.message);
@@ -81,7 +83,7 @@ export class PostDetailsComponent implements OnInit {
       if (res.success) {
         this._SettingService.successHot(res.message);
         this.reportForm.reset();
-        this.router.navigate(["/admin/posts/posts"]);
+        this.router.navigate(["/admin/posts"]);
       } else {
         this._SettingService.errorHot(res.message);
       }

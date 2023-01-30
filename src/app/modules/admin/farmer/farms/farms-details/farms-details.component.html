@@ -73,7 +73,7 @@
           <div class="list-item">
             <h2 class="title">الملاءمة</h2>
             <span class="desc">
-              {{ detailsData?.farming_comatibility }}
+              {{ detailsData?.farming_compatibility?.messages }}
             </span>
           </div>
         </div>
@@ -92,6 +92,69 @@
             <h2 class="title">مصادر الشتلات</h2>
             <span class="desc">
               {{ detailsData?.seedling_sources }}
+            </span>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="list-item">
+            <h2 class="title">دائرة عرض</h2>
+            <span class="desc">
+              {{ detailsData?.location?.latitude }}
+            </span>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="list-item">
+            <h2 class="title">خط طول</h2>
+            <span class="desc">
+              {{ detailsData?.location?.longitude }}
+            </span>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="list-item">
+            <h2 class="title">الدولة</h2>
+            <span class="desc">
+              {{ detailsData?.location?.country }}
+            </span>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="list-item">
+            <h2 class="title">المدينة</h2>
+            <span class="desc">
+              {{ detailsData?.location?.city }}
+            </span>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="list-item">
+            <h2 class="title">الحي</h2>
+            <span class="desc">
+              {{ detailsData?.location?.district }}
+            </span>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="list-item">
+            <h2 class="title">الرقم البريدي</h2>
+            <span class="desc">
+              {{ detailsData?.location?.postal }}
+            </span>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="list-item">
+            <h2 class="title">التفاصيل</h2>
+            <span class="desc">
+              {{ detailsData?.location?.details }}
             </span>
           </div>
         </div>

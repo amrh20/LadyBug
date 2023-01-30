@@ -11,7 +11,7 @@ import Swal from "sweetalert2";
   styleUrls: ["./business-table.component.scss"],
 })
 export class BusinessTableComponent implements OnInit {
-  DataTable: any = [ ];
+  DataTable: any = [];
   filterForm = new FormGroup({
     name: new FormControl(""),
   });
@@ -23,7 +23,7 @@ export class BusinessTableComponent implements OnInit {
     this.getUsers();
   }
   getUsers = () => {
-    this._CrudRequestsService.get("admin_businesses").subscribe((data: any) => {
+    this._CrudRequestsService.get("admin/businesses").subscribe((data: any) => {
       this.DataTable = data.data.all;
       this.last = data.data.meta.pagesCount;
     });
@@ -33,7 +33,7 @@ export class BusinessTableComponent implements OnInit {
     let name = this.filterForm.get("name")?.value;
 
     this._CrudRequestsService
-      .get(`admin_businesses?name=${name}&page=${this.current}&perPage=10`)
+      .get(`admin/businesses?name=${name}&page=${this.current}&perPage=10`)
       .subscribe((data: any) => {
         this.DataTable = data.data.all;
         this.last = data.data.meta.pagesCount;
@@ -55,11 +55,10 @@ export class BusinessTableComponent implements OnInit {
   }
   openRate(item: any) {
     this.isShow = true;
-    this.productName = item.com_name ;
+    this.productName = item.com_name;
     this.productId = item.id;
-    this.productRate = item.ladybug_rating ;
-    console.log(item)
-
+    this.productRate = item.ladybug_rating;
+    console.log(item);
   }
   reGet($e: any) {
     this.getUsers();
