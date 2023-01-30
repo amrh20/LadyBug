@@ -9,6 +9,7 @@
       <form [formGroup]="addForm">
         <div class="row">
           <div class="col-6 mb-5">
+            <label for="">الاسم</label>
             <input
               type="text"
               placeholder="الاسم"
@@ -19,6 +20,7 @@
           </div>
 
           <div class="col-6 mb-5">
+            <label for="">العرض</label>
             <input
               type="text"
               placeholder="العرض"
@@ -28,6 +30,7 @@
             />
           </div>
           <div class="col-6 mb-5">
+            <label for="">الوصف</label>
             <input
               type="text"
               placeholder="الوصف"
@@ -36,6 +39,7 @@
           </div>
 
           <div class="col-6 mb-5">
+            <label for="">الصلاحيات</label>
             <ngx-multiple-select
               *ngIf="passSelected"
               id="permissions"
