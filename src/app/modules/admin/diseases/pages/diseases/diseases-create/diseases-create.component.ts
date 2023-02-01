@@ -1,24 +1,21 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { CrudRequestsService } from '../../../../../../core/services/crud-requests.service';
-import { SettingService } from '../../../../../../core/services/setting.service';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Component, OnInit } from "@angular/core";
+import { FormGroup, FormControl, Validators } from "@angular/forms";
+import { CrudRequestsService } from "../../../../../../core/services/crud-requests.service";
+import { SettingService } from "../../../../../../core/services/setting.service";
+import { Router, ActivatedRoute } from "@angular/router";
 
 @Component({
-  selector: 'app-diseases-create',
-  templateUrl: './diseases-create.component.html',
-  styleUrls: ['./diseases-create.component.scss']
+  selector: "app-diseases-create",
+  templateUrl: "./diseases-create.component.html",
+  styleUrls: ["./diseases-create.component.scss"],
 })
 export class DiseasesCreateComponent implements OnInit {
-
-  form = new FormGroup(
-    {
-      name_ar: new FormControl("", [Validators.required]),
-      name_en: new FormControl("", [Validators.required]),
-      description_ar: new FormControl("", [Validators.required]),
-      description_en: new FormControl("", [Validators.required]),
-    }
-  );
+  form = new FormGroup({
+    name_ar: new FormControl("", [Validators.required]),
+    name_en: new FormControl("", [Validators.required]),
+    description_ar: new FormControl("", [Validators.required]),
+    description_en: new FormControl("", [Validators.required]),
+  });
   loading: boolean = false;
   isSubmit: any = false;
   isEdit: any = false;
@@ -33,71 +30,68 @@ export class DiseasesCreateComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.getCountries()
-    this.acsGet()
-    this.isEdit=false;
+    this.getCountries();
+    this.acsGet();
+    this.isEdit = false;
 
     this._activeRoute.params.subscribe((params) => {
       if (params["id"]) {
         this.getUser(params["id"]);
         this.idEdit = params["id"];
-        this.isEdit=true;
+        this.isEdit = true;
       }
     });
   }
-  show:any=true;
+  show: any = true;
   getUser = (id: any) => {
     this.isEdit = true;
-    this.ascData=false;
-    this.show=false;
+    this.ascData = false;
+    this.show = false;
     this._CrudRequestsService.get("diseases/" + id).subscribe((data: any) => {
-      
       this.form.patchValue({
         name_ar: data.data.name.ar,
         name_en: data.data.name.en,
         description_ar: data.data.description.ar,
         description_en: data.data.description.en,
       });
-      let arr =[];
+      let arr = [];
       for (var i = 0, len = data.data.pathogens.length; i < len; i++) {
-        arr.push(data.data.acs[i].id)
-      };
-      this.selectedasc=arr;
-      let arrcountries :any=[];
+        arr.push(data.data.acs[i].id);
+      }
+      this.selectedasc = arr;
+      let arrcountries: any = [];
       for (var i = 0, len = data.data.countries.length; i < len; i++) {
-        arr.push(data.data.acs[i].id)
-      };
-      this.selectedCountries=arrcountries;
-      
-      this.ascData=true;
-      this.show=true;
-      this.ascData=true;
+        arr.push(data.data.acs[i].id);
+      }
+      this.selectedCountries = arrcountries;
+
+      this.ascData = true;
+      this.show = true;
+      this.ascData = true;
     });
   };
-  CountriesData:any=[];
-  selectedCountries:any=[];
-  onSelectCountries($e:any){
-    this.selectedCountries=$e;
+  CountriesData: any = [];
+  selectedCountries: any = [];
+  onSelectCountries($e: any) {
+    this.selectedCountries = $e;
   }
-  allCountries:any=[];
+  allCountries: any = [];
   getCountries = () => {
     this.isEdit = true;
-    this._CrudRequestsService.get("countries" ).subscribe((data: any) => {
-      this.CountriesData=data.data.all.map(function(o:any) {
-        return {id:o.id,name:o.name.ar};
-    });
+    this._CrudRequestsService.get("countries").subscribe((data: any) => {
+      this.CountriesData = data.data.all.map(function (o: any) {
+        return { id: o.id, name: o.name.ar };
+      });
     });
   };
-  acsGet(){
-    
-    this._CrudRequestsService.get("pathogens" ).subscribe((data: any) => {
-      this.asc=  data.data.all.map(function(o:any) {
-        return {id:o.id,name:o.name.ar};
-    });
-      ;
+  acsGet() {
+    this._CrudRequestsService.get("pathogens").subscribe((data: any) => {
+      this.asc = data.data.all.map(function (o: any) {
+        return { id: o.id, name: o.name.ar };
+      });
     });
   }
-  min:any=new Date();
+  min: any = new Date();
   sendData = () => {
     this.isSubmit = true;
     let data = {
@@ -105,14 +99,18 @@ export class DiseasesCreateComponent implements OnInit {
         ar: this.form.get("name_ar")?.value,
         en: this.form.get("name_en")?.value,
       },
-      description:{
-        ar: this.form.get("precautions_ar")?.value,
-        en: this.form.get("precautions_en")?.value,
+      description: {
+        ar: this.form.get("description_ar")?.value,
+        en: this.form.get("description_en")?.value,
       },
-      countries:this.selectedCountries,
-      pathogens: this.selectedasc
+      countries: this.selectedCountries,
+      pathogens: this.selectedasc,
     };
-    if (this.form.valid && this.selectedasc.length !=0 && this.selectedCountries.length !=0) {
+    if (
+      this.form.valid &&
+      this.selectedasc.length != 0 &&
+      this.selectedCountries.length != 0
+    ) {
       this.loading = true;
 
       if (this.isEdit) {
@@ -158,11 +156,10 @@ export class DiseasesCreateComponent implements OnInit {
   goBack = () => {
     this.route.navigate(["/admin/Diseases/indexDiseases"]);
   };
-  selectedasc:any=[];
-  asc:any=[];
-  ascData:any=true;
+  selectedasc: any = [];
+  asc: any = [];
+  ascData: any = true;
   onSelect(event: any) {
-    this.selectedasc=event;
-
+    this.selectedasc = event;
   }
 }
