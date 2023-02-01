@@ -7,28 +7,34 @@
 
     <div class="card-content">
       <div class="row">
-        <div class="col-md-4 mb-5 mt-5">
+        <div class="col-md-12 mb-5 mt-5">
           <div class="list-item">
             <h2 class="title">صوره</h2>
-            <span class="desc">
-              <img
-                *ngIf="detailsData.assets[0]"
-                src="{{ detailsData.assets[0] }}"
-                class="img-assets"
-                alt=""
-              />
+            <span class="desc" *ngFor="let item of detailsData.assets">
+              <img src="{{ item }}" class="img-assets" alt="" />
             </span>
           </div>
         </div>
-        <div class="col-md-4 mb-5 mt-5">
+
+        <div class="col-md-4 mt-5">
           <div class="list-item">
-            <h2 class="title">الاسم</h2>
+            <h2 class="title">المرض</h2>
+            <span class="desc">
+              {{ detailsData?.disease?.name.ar }}
+            </span>
+          </div>
+        </div>
+
+        <div class="col-md-4 mt-5">
+          <div class="list-item">
+            <h2 class="title">الاسم المتوقع للمرض من المستخدم</h2>
             <span class="desc">
               {{ detailsData?.expected_name }}
             </span>
           </div>
         </div>
-        <div class="col-md-4 mb-5 mt-5">
+
+        <div class="col-md-4 mt-5">
           <div class="list-item">
             <h2 class="title">تاريخ الاكتشاف</h2>
             <span class="desc">
@@ -36,11 +42,116 @@
             </span>
           </div>
         </div>
-        <div class="col-md-4 mb-5 mt-5">
+
+        <div class="col-md-4 mt-5">
+          <div class="list-item">
+            <h2 class="title">المستخدم</h2>
+            <span class="desc">
+              {{ detailsData?.user?.name }}
+            </span>
+          </div>
+        </div>
+
+        <div class="col-md-4 mt-5">
           <div class="list-item">
             <h2 class="title">الحاله</h2>
             <span class="desc">
               {{ detailsData?.status ? "مفعل" : "غير مفعل" }}
+            </span>
+          </div>
+        </div>
+        <hr class="mt-5" />
+
+        <div class="col-12 mt-5">
+          <h1>المزرعه</h1>
+        </div>
+        <div class="col-md-4 mt-5">
+          <div class="list-item">
+            <h2 class="title">المزرعه</h2>
+            <span class="desc">
+              <a
+                [routerLink]="[
+                  '/admin/farmer/farms/farms-details',
+                  detailsData?.farm?.id
+                ]"
+                target="_blank"
+              >
+                عرض التفاصيل</a
+              >
+            </span>
+          </div>
+        </div>
+
+        <div class="col-md-4 mt-5">
+          <div class="list-item">
+            <h2 class="title">الكود</h2>
+            <span class="desc">
+              {{ detailsData?.farm?.code }}
+            </span>
+          </div>
+        </div>
+
+        <div class="col-md-4 mt-5">
+          <div class="list-item">
+            <h2 class="title">اسم المحصول</h2>
+            <span class="desc">
+              {{ detailsData?.farm?.farmed_type_name.ar }}
+            </span>
+          </div>
+        </div>
+
+        <div class="col-md-12 mt-5">
+          <div class="list-item">
+            <h2 class="title">صورة المحصول</h2>
+            <span class="desc">
+              {{ detailsData?.farm?.farmed_type_photo }}
+            </span>
+          </div>
+        </div>
+
+        <hr class="mt-5" />
+
+        <div class="col-md-4 mt-5">
+          <div class="list-item">
+            <h2 class="title">الموقع</h2>
+            <span class="desc">
+              {{ detailsData?.location }}
+            </span>
+          </div>
+        </div>
+
+        <div class="col-md-4 mt-5">
+          <div class="list-item">
+            <h2 class="title">معدل الإصابة</h2>
+            <span class="desc">
+              {{ detailsData?.infection_rate?.name.ar }}
+            </span>
+          </div>
+        </div>
+
+        <div class="col-md-4 mt-5">
+          <div class="list-item">
+            <h2 class="title">الدولة</h2>
+            <span class="desc">
+              {{ detailsData?.country }}
+            </span>
+          </div>
+        </div>
+
+        <div class="col-md-4 mt-5">
+          <div class="list-item">
+            <h2 class="title">تاريخ الإنشاء</h2>
+            <span class="desc">
+              {{ detailsData?.created_at | date : "dd-MM-YYYY" }}
+            </span>
+          </div>
+        </div>
+
+        <div class="col-md-4 mt-5">
+          <div class="list-item">
+            <h2 class="title">تاريخ التعديل</h2>
+            <span class="desc">
+              {{ detailsData?.updated_at | date : "dd-MM-YYYY" }}
             </span>
           </div>
         </div>

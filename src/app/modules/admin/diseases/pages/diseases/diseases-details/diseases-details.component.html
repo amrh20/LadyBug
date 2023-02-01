@@ -1,0 +1,256 @@
+<div class="px-20 card-wrap">
+  <!-- <app-head-nav></app-head-nav> -->
+  <div class="card-custom">
+    <div class="card-head">
+      <h2 class="title">تفاصيل المرض</h2>
+    </div>
+
+    <div class="card-content">
+      <div class="row">
+        <div class="col-md-4 mt-5">
+          <div class="list-item">
+            <h2 class="title">الاسم</h2>
+            <span class="desc">
+              {{ detailsData.name?.ar }}
+            </span>
+          </div>
+        </div>
+        <div class="col-md-4 mt-5">
+          <div class="list-item">
+            <h2 class="title">الوصف</h2>
+            <span class="desc">
+              {{ detailsData?.description?.ar }}
+            </span>
+          </div>
+        </div>
+
+        <div class="col-md-4 mt-5">
+          <div class="list-item">
+            <h2 class="title">الدول</h2>
+            <span class="desc mx-3" *ngFor="let item of detailsData?.countries">
+              {{ item?.name?.ar }}
+            </span>
+          </div>
+        </div>
+
+        <hr class="my-5" />
+        <div class="col-12">
+          <h1>عوامل زيادة المرض</h1>
+        </div>
+
+        <div class="col-md-4 mt-5">
+          <div class="list-item">
+            <h2 class="title">درجة حرارة أكبر من</h2>
+            <span class="desc">
+              {{ detailsData?.causative?.temp_gt }}
+            </span>
+          </div>
+        </div>
+
+        <div class="col-md-4 mt-5">
+          <div class="list-item">
+            <h2 class="title">درجة حرارة أقل من</h2>
+            <span class="desc">
+              {{ detailsData?.causative?.temp_lt }}
+            </span>
+          </div>
+        </div>
+
+        <div class="col-md-4 mt-5">
+          <div class="list-item">
+            <h2 class="title">رطوبة أكبر من</h2>
+            <span class="desc">
+              {{ detailsData?.causative?.humidity_gt }}
+            </span>
+          </div>
+        </div>
+
+        <div class="col-md-4 mt-5">
+          <div class="list-item">
+            <h2 class="title">رطوبة أقل من</h2>
+            <span class="desc">
+              {{ detailsData?.causative?.humidity_lt }}
+            </span>
+          </div>
+        </div>
+
+        <div class="col-md-4 mt-5">
+          <div class="list-item">
+            <h2 class="title">أس هيدروجيني أكبر من</h2>
+            <span class="desc">
+              {{ detailsData?.causative?.ph_gt }}
+            </span>
+          </div>
+        </div>
+
+        <div class="col-md-4 mt-5">
+          <div class="list-item">
+            <h2 class="title">أس هيدروجيني أقل من</h2>
+            <span class="desc">
+              {{ detailsData?.causative?.ph_lt }}
+            </span>
+          </div>
+        </div>
+
+        <div class="col-md-4 mt-5">
+          <div class="list-item">
+            <h2 class="title">أملاح تربة أكبر من</h2>
+            <span class="desc">
+              {{ detailsData?.causative?.soil_salts_gt }}
+            </span>
+          </div>
+        </div>
+
+        <div class="col-md-4 mt-5">
+          <div class="list-item">
+            <h2 class="title">أملاح تربة أقل من</h2>
+            <span class="desc">
+              {{ detailsData?.causative?.soil_salts_lt }}
+            </span>
+          </div>
+        </div>
+
+        <div class="col-md-4 mt-5">
+          <div class="list-item">
+            <h2 class="title">أملاح ماء أكبر من</h2>
+            <span class="desc">
+              {{ detailsData?.causative?.water_salts_gt }}
+            </span>
+          </div>
+        </div>
+
+        <div class="col-md-4 mt-5">
+          <div class="list-item">
+            <h2 class="title">أملاح ماء أقل من</h2>
+            <span class="desc">
+              {{ detailsData?.causative?.water_salts_lt }}
+            </span>
+          </div>
+        </div>
+
+        <hr class="my-5" />
+        <div class="col-12">
+          <h1>مسببات المرض</h1>
+        </div>
+
+        <div *ngFor="let item of detailsData?.pathogens; let i = index">
+          <p class="mt-4">السبب رقم ({{ i + 1 }})</p>
+
+          <div class="wrap">
+            <div class="row">
+              <div class="col-md-4 mt-5">
+                <div class="list-item">
+                  <h2 class="title">الاسم</h2>
+                  <span class="desc">
+                    {{ item?.name?.ar }}
+                  </span>
+                </div>
+              </div>
+
+              <div class="col-md-4 mt-5">
+                <div class="list-item">
+                  <h2 class="title">النوع</h2>
+                  <span class="desc">
+                    {{ item?.pathogen_type.name }}
+                  </span>
+                </div>
+              </div>
+
+              <div class="col-md-4 mt-5">
+                <div class="list-item">
+                  <h2 class="title">طرق المكافحة البيولوجية</h2>
+                  <span class="desc">
+                    {{ item?.bio_control }}
+                  </span>
+                </div>
+              </div>
+
+              <div class="col-md-4 mt-5">
+                <div class="list-item">
+                  <h2 class="title">طرق المكافحة الكيميائية</h2>
+                  <span class="desc">
+                    {{ item?.ch_control }}
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div
+              class="row mx-2"
+              *ngFor="let growthstage of item.growth_stages"
+            >
+              <h2 class="mt-5">مراحل النمو</h2>
+              <div class="col-md-6 mt-5">
+                <div class="list-item">
+                  <h2 class="title">الاسم</h2>
+                  <span class="desc">
+                    {{ growthstage?.name.ar }}
+                  </span>
+                </div>
+              </div>
+
+              <div class="col-md-6 mt-5">
+                <div class="list-item">
+                  <h2 class="title">الصوره</h2>
+                  <span
+                    class="desc"
+                    *ngFor="let growthImg of growthstage?.assets"
+                  >
+                    <img [src]="growthImg" alt="" style="max-width: 150px" />
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="row mt-5"
+          *ngFor="let item of detailsData.resistant_farmed_types"
+        >
+          <h2 class="mt-5">المحاصيل المقاومة لهذا المرض</h2>
+          <div class="col-md-6 mt-5">
+            <div class="list-item">
+              <h2 class="title">الاسم</h2>
+              <span class="desc">
+                {{ item?.name.ar }}
+              </span>
+            </div>
+          </div>
+
+          <div class="col-md-6 mt-5">
+            <div class="list-item">
+              <h2 class="title">الصوره</h2>
+              <span class="desc" *ngFor="let asset of item?.assets">
+                <img [src]="asset" alt="" style="max-width: 150px" />
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="row mt-5"
+          *ngFor="let item of detailsData.sensitive_farmed_types"
+        >
+          <h2 class="mt-5">المحاصيل الحساسة لهذا المرض</h2>
+          <div class="col-md-6 mt-5">
+            <div class="list-item">
+              <h2 class="title">الاسم</h2>
+              <span class="desc">
+                {{ item?.name.ar }}
+              </span>
+            </div>
+          </div>
+
+          <div class="col-md-6 mt-5">
+            <div class="list-item">
+              <h2 class="title">الصوره</h2>
+              <span class="desc" *ngFor="let asset of item?.assets">
+                <img [src]="asset" alt="" style="max-width: 150px" />
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

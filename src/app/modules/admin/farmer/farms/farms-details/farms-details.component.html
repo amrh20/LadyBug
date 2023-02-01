@@ -6,7 +6,7 @@
     </div>
     <div class="card-content">
       <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-12" *ngIf="detailsData?.farmed_type_photo">
           <div class="list-item">
             <h2 class="title">صورة المحصول</h2>
             <div class="img">
@@ -33,7 +33,7 @@
           </div>
         </div>
 
-        <div class="col-md-4 mb-5 mt-5">
+        <div class="col-md-4 mt-5">
           <div class="list-item">
             <h2 class="title">تاريخ الزراعة</h2>
             <span class="desc">
@@ -42,7 +42,7 @@
           </div>
         </div>
 
-        <div class="col-md-4 mb-5 mt-5">
+        <div class="col-md-4 mt-5">
           <div class="list-item">
             <h2 class="title">المساحة</h2>
             <span class="desc">
@@ -51,7 +51,7 @@
           </div>
         </div>
 
-        <div class="col-md-4 mb-5 mt-5">
+        <div class="col-md-4 mt-5">
           <div class="list-item">
             <h2 class="title">وحدة المساحة</h2>
             <span class="desc">
@@ -60,7 +60,7 @@
           </div>
         </div>
 
-        <div class="col-md-4 mb-5 mt-5">
+        <div class="col-md-4 mt-5">
           <div class="list-item">
             <h2 class="title">عدد المحصول</h2>
             <span class="desc">
@@ -69,7 +69,7 @@
           </div>
         </div>
 
-        <div class="col-md-4 mb-5 mt-5">
+        <div class="col-md-4 mt-5">
           <div class="list-item">
             <h2 class="title">الملاءمة</h2>
             <span class="desc">
