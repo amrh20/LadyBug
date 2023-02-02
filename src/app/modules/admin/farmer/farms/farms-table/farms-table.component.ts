@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import Swal from 'sweetalert2';
+import { FormControl, FormGroup } from '@angular/forms';
+
 import { CrudRequestsService } from '../../../../../core/services/crud-requests.service';
 import { SettingService } from '../../../../../core/services/setting.service';
-import { FormGroup, FormControl } from '@angular/forms';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-farms-table',
@@ -49,5 +50,41 @@ export class FarmsTableComponent implements OnInit {
     this.current = $e;
     this.search();
   }
+// 
+isShow: any = false;
+productName: any = "";
+productId: any = "";
+productRate: any = "";
+allT: any = "";
+isHide(e: any) {
+  this.isShow = false;
+}
+openRate(item: any) {
+  this.isShow = true;
+  this.productName = item.admin;
+  this.productId = item.id  ;
+  if(item.ladybug_rating == '20%'){
+    this.productRate = 1;
 
+  }else  if(item.ladybug_rating == '40%'){
+    this.productRate = 2;
+
+  }else  if(item.ladybug_rating == '60%'){
+    this.productRate = 3;
+
+  }else  if(item.ladybug_rating == '80%'){
+    this.productRate = 4;
+
+  }else  if(item.ladybug_rating == '100%'){
+    this.productRate = 5;
+  }else{
+    this.productRate = 0;
+
+  }
+  this.allT=item.ladybug_rating;
+
+}
+reGet($e: any) {
+  this.getUsers();
+}
 }

@@ -1,0 +1,32 @@
+<div class="overly-alert overly-alert--big" (click)="hideAlert($event)"
+    *ngIf="showHide|| isShow">
+
+        <div class="container__alert--message">
+            <div class=" ">
+                <div class="title-popup fs-24 fw-600">
+                    تقييم المزارع {{productName}}
+                </div>
+                <div class="mb-20 fs-20 fw-500">
+                    التيقيم الحالي هو :  {{rate *20}}
+                </div>
+                <ngx-input-star-rating 
+                [count]="5"
+                [(ngModel)]="rate"
+                
+                ></ngx-input-star-rating>
+                <div class="text-center mt-20 " *ngIf="loading">
+                    <app-spinner ></app-spinner>
+
+                </div>
+                <div class="mt-20 d-flex justify-content-between" *ngIf="!loading">
+
+                    <button (click)="send()" class="main-btn">
+                        ارسال
+                    </button>
+                    <button (click)="close()" class="tr-btn">
+                        الغاء
+                    </button>
+                </div>
+            </div>
+    </div>
+</div>
