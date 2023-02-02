@@ -15,6 +15,7 @@ import { SharedModule } from '../../../shared/shared.module';
 import { MaterialModule } from '../../../core/material-module.module';
 import { DiseaseRegistrationsTableComponent } from './pages/disease_registrations/disease-registrations-table/disease-registrations-table.component';
 import { DiseaseRegistrationsViewComponent } from './pages/disease_registrations/disease-registrations-view/disease-registrations-view.component';
+import { UpdateDiseaseRegistrationsComponent } from './pages/disease_registrations/update-disease-registrations/update-disease-registrations.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { DiseaseRegistrationsViewComponent } from './pages/disease_registrations
     InfectionRatesCreateComponent,
     IndexDiseasesComponent,
     DiseaseRegistrationsTableComponent,
-    DiseaseRegistrationsViewComponent
+    DiseaseRegistrationsViewComponent,
+    UpdateDiseaseRegistrationsComponent
   ],
   imports: [
     CommonModule,

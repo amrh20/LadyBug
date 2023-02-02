@@ -114,10 +114,12 @@
                 </svg>
               </button>
               <mat-menu #menu="matMenu">
-                <a mat-menu-item [routerLink]="['/admin/Diseases/DiseaseRegistrationsView', variable.id]">
+                <a mat-menu-item [routerLink]="['/admin/Diseases/diseaseRegistrationsView', variable.id]">
                   <span> <i class="fa-light fa-eye"></i> تفاصيل </span>
                 </a>
-               
+                <a mat-menu-item [routerLink]="['/admin/Diseases/diseaseRegistrations/edit', variable.id]">
+                  <span> <i class="fa-light fa-eye"></i> تعديل </span>
+                </a>
               </mat-menu>
             </td>
           </tr>

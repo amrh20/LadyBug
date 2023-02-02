@@ -9,6 +9,7 @@ import { IndexDiseasesComponent } from "./index-diseases/index-diseases.componen
 import { InfectionRatesCreateComponent } from "./pages/infection_rates/infection-rates-create/infection-rates-create.component";
 import { InfectionRatesTableComponent } from "./pages/infection_rates/infection-rates-table/infection-rates-table.component";
 import { NgModule } from "@angular/core";
+import { UpdateDiseaseRegistrationsComponent } from './pages/disease_registrations/update-disease-registrations/update-disease-registrations.component';
 
 const routes: Routes = [
   {
@@ -24,6 +25,8 @@ const routes: Routes = [
       { path: "edit-Diseases/:id", component: DiseasesCreateComponent },
       { path: "create-Diseases", component: DiseasesCreateComponent },
       { path: "diseases-details/:id", component: DiseasesDetailsComponent },
+      { path: "diseaseRegistrations/edit/:id", component: UpdateDiseaseRegistrationsComponent },
+      
       {
         path: "diseaseRegistrationsView/:id",
         component: DiseaseRegistrationsViewComponent,

@@ -1,6 +1,7 @@
+import { ActivatedRoute, Router } from "@angular/router";
 import { Component, OnInit } from "@angular/core";
-import { FormGroup, FormControl, Validators } from "@angular/forms";
-import { Router, ActivatedRoute } from "@angular/router";
+import { FormControl, FormGroup, Validators } from "@angular/forms";
+
 import { CrudRequestsService } from "src/app/core/services/crud-requests.service";
 import { SettingService } from "src/app/core/services/setting.service";
 
@@ -77,25 +78,26 @@ export class CreatePathogenGrowthStageComponent implements OnInit {
       if (this.isEdit) {
         this.loading = true;
 
-        this._crud
-          .post(`pathogen_growth_stages/${this.idEdit}`, data)
-          .subscribe(
-            (res: any) => {
-              this.loading = false;
-              this.isSubmit = false;
+        this._crud.post(`pathogen_growth_stages`, data).subscribe(
+          (res: any) => {
+            this.loading = false;
+            this.isSubmit = false;
 
-              if (res.success) {
-                this._setting.successHot(res.message);
-              } else {
-                this._setting.errorHot(res.message);
-              }
-            },
-            (err: any) => {
-              this.loading = false;
-              this._setting.errorHot(err.message);
-            },
-            () => {}
-          );
+            if (res.success) {
+              this._setting.successHot(res.message);
+              this.form.reset();
+              this.goBack();
+              this.file = null;
+            } else {
+              this._setting.errorHot(res.message);
+            }
+          },
+          (err: any) => {
+            this.loading = false;
+            this._setting.errorHot(err.message);
+          },
+          () => {}
+        );
       } else {
         if (this.file != null) {
           this.loading = true;
@@ -125,7 +127,7 @@ export class CreatePathogenGrowthStageComponent implements OnInit {
     }
   };
   goBack = () => {
-    this.route.navigate(["/admin/farmed-blog/farmed-type-ginfos"]);
+    this.route.navigate(["admin/pathogen-growth-stage/pathogen-growth-stage/"+this.id]);
   };
   file: any = null;
   changeFile($event: any) {

@@ -1,0 +1,98 @@
+<div class="px-20 card-wrap">
+    <!-- <app-head-nav></app-head-nav> -->
+    <div class="card-custom">
+      <div class="card-head">
+        <h2 class="title">{{ !isEdit ? "اضافه" : " تعديل " }} تسجيلات المرض
+        </h2>
+      </div>
+      <div class="card-content">
+        <form [formGroup]="form">
+          <div class="row">
+            <div class="col-6 mb-5">
+              <label for="">الاسم </label>
+              <input
+                type="text"
+                placeholder="الاسم"
+                formControlName="expected_name"
+
+                />
+              <div
+                class="error-msg"
+                *ngIf="form.controls['expected_name'].touched || isSubmit"
+              >
+                <div *ngIf="form.controls['expected_name'].hasError('required')">
+                  {{ "must_required" | translate }}
+                </div>
+              </div>
+            </div>
+  
+            <div class="col-6 mb-5">
+                <label for="">المرض </label>
+                <div class="select-value">
+                  <div class="position-relative">
+                    <select
+                      name=""
+                      id=""
+                      class="select-ground"
+                      formControlName="disease_id"
+
+                      >
+                      <option value="" selected>  المرض</option>
+                      <option *ngFor="let variable of diseases" [value]="variable.id" >  {{variable.name.ar}}</option>
+                      
+                    </select>
+                  </div>
+                </div>
+                <div
+                class="error-msg"
+                *ngIf="form.controls['disease_id'].touched || isSubmit"
+              >
+                <div *ngIf="form.controls['disease_id'].hasError('required')">
+                  {{ "must_required" | translate }}
+                </div>
+              </div>
+              </div>
+              <div class="col-6 mb-5">
+                <label for=""> معدل الإصابة </label>
+                <div class="select-value">
+                  <div class="position-relative">
+                    <select
+                      name=""
+                      id=""
+                      class="select-ground"
+                      formControlName="infection_rate_id"
+                      >
+                      <option value="" selected>  معدل الإصابة </option>
+                      <option *ngFor="let variable of infection_rates" [value]="variable.id" >  {{variable.name}}</option>
+                      
+                    </select>
+                  </div>
+                </div>
+                <div
+                class="error-msg"
+                *ngIf="form.controls['infection_rate_id'].touched || isSubmit"
+              >
+                <div *ngIf="form.controls['infection_rate_id'].hasError('required')">
+                  {{ "must_required" | translate }}
+                </div>
+              </div>
+              </div>
+           
+
+      
+  
+          </div>
+          <div class="actions mt-5">
+            <app-spinner *ngIf="loading"></app-spinner>
+            <button class="main-btn" *ngIf="!loading" (click)="sendData()">
+              حفظ
+            </button>
+            <button class="tr-btn mx-3" *ngIf="!loading" (click)="goBack()">
+              الغاء
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  

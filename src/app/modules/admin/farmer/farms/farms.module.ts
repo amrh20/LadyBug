@@ -1,16 +1,18 @@
-import { NgModule } from "@angular/core";
-import { CommonModule } from "@angular/common";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
+import { CommonModule } from "@angular/common";
+import { FarmsDetailsComponent } from "./farms-details/farms-details.component";
 import { FarmsRoutingModule } from "./farms-routing.module";
 import { FarmsTableComponent } from "./farms-table/farms-table.component";
-import { ReactiveFormsModule, FormsModule } from "@angular/forms";
-import { TranslateModule } from "@ngx-translate/core";
-import { SharedModule } from "../../../../shared/shared.module";
 import { MaterialModule } from "../../../../core/material-module.module";
-import { FarmsDetailsComponent } from "./farms-details/farms-details.component";
+import { NgModule } from "@angular/core";
+import { NgxInputStarRatingModule } from '@ngx-lite/input-star-rating';
+import { RateFarmsComponent } from './components/rate-farms/rate-farms.component';
+import { SharedModule } from "../../../../shared/shared.module";
+import { TranslateModule } from "@ngx-translate/core";
 
 @NgModule({
-  declarations: [FarmsTableComponent, FarmsDetailsComponent],
+  declarations: [FarmsTableComponent, FarmsDetailsComponent, RateFarmsComponent],
   imports: [
     CommonModule,
     FarmsRoutingModule,
@@ -19,6 +21,7 @@ import { FarmsDetailsComponent } from "./farms-details/farms-details.component";
     TranslateModule,
     FormsModule,
     ReactiveFormsModule,
+    NgxInputStarRatingModule
   ],
 })
 export class FarmsModule {}
