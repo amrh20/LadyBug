@@ -1,116 +1,114 @@
 <div class="px-20 card-wrap">
-    <!-- <app-head-nav></app-head-nav> -->
-    <div class="card-custom">
-      <div class="card-head">
-        <h2 class="title"> تفاصيل الاستشاري </h2>
+  <!-- <app-head-nav></app-head-nav> -->
+  <div class="card-custom">
+    <div class="card-head">
+      <h2 class="title">تفاصيل الاستشاري</h2>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12 mt-5">
+        <h1>خطط الاستشارة الميدانية</h1>
+        <ol>
+          <li
+            *ngFor="let item of detailsData?.cons?.offline_consultancy_plans"
+            class="one-row"
+          >
+            <div class="list-item">
+              <h2 class="title">العنوان</h2>
+              <span class="desc mb-3">
+                {{ item?.address }}
+              </span>
+            </div>
+            <div class="list-item">
+              <h2 class="title">التاريخ</h2>
+              <span class="desc mb-3">
+                {{ item?.date | date : "dd-MM-YYYY" }}
+              </span>
+            </div>
+            <div class="list-item">
+              <h2 class="title">سعر الزيارة</h2>
+              <span class="desc mb-3">
+                {{ item?.visit_price }}
+              </span>
+            </div>
+            <div class="list-item">
+              <h2 class="title">سعر التعاقد لمدة عام</h2>
+              <span class="desc mb-3">
+                {{ item?.year_price }}
+              </span>
+            </div>
+            <div class="list-item">
+              <h2 class="title">سعر التعاقد لعامين</h2>
+              <span class="desc mb-3">
+                {{ item?.two_year_price }}
+              </span>
+            </div>
+          </li>
+        </ol>
       </div>
-  
-      <div class="card-content">
-        <div class="row">
-          <div class="col-md-12 mb-5 mt-5">
-            <div class="list-item">
-              <h2 class="title">صوره</h2>
-              <span class="desc" >
-                <img src="{{ detailsData.photo_url }}" class="img-assets" alt="" />
-              </span>
-            </div>
-          </div>
-  
-          <div class="col-md-4 mt-5">
-            <div class="list-item">
-              <h2 class="title">الاسم    </h2>
-              <span class="desc">
-                {{ detailsData?.name }}
-              </span>
-            </div>
-          </div>
-          <div class="col-md-4 mt-5">
-            <div class="list-item">
-              <h2 class="title">الخبره </h2>
-              <span class="desc">
-                {{ detailsData?.cons.experience}}
-              </span>
-            </div>
-          </div>
-  
-  
-          <div class="col-md-4 mt-5">
-            <div class="list-item">
-              <h2 class="title">سعر الاستشارات </h2>
-              <span class="desc">
-                {{ detailsData?.cons.consultancy_price}}
-              </span>
-            </div>
-          </div>
-  
-          <div class="col-md-4 mt-5">
-            <div class="list-item">
-              <h2 class="title">سعر الاستشارات الشهرية
-            </h2>
-              <span class="desc">
-                {{ detailsData?.cons.month_consultancy_price}}
-              </span>
-            </div>
-          </div>
-          <div class="col-md-4 mt-5">
-            <div class="list-item">
-              <h2 class="title">سعر الاستشارات السنوية
-            </h2>
-              <span class="desc">
-                {{ detailsData?.cons.year_consultancy_price}}
-              </span>
-            </div>
-          </div>
-          <div class="col-md-4 mt-5">
-            <div class="list-item">
-              <h2 class="title">الاستشارات المجانية</h2>
-              <span class="desc">
-                {{ detailsData?.cons.free_consultancy ? "مفعل" : "غير مفعل" }}
-              </span>
-            </div>
-          </div>
-  
-          <div class="col-md-4 mt-5">
-            <div class="list-item">
-              <h2 class="title"> اللغة العربيه</h2>
-              <span class="desc">
-                {{ detailsData?.cons.ar ? "مفعل" : "غير مفعل" }}
-              </span>
-            </div>
-          </div>
-  
-        
-          <div class="col-md-4 mt-5">
-            <div class="list-item">
-              <h2 class="title">اللغة الانجليزية </h2>
-              <span class="desc">
-                {{ detailsData?.cons.en ? "مفعل" : "غير مفعل" }}
-              </span>
-            </div>
-          </div>
-  
-          <div class="col-md-4 mt-5">
-            <div class="list-item">
-              <h2 class="title"> مجال العمل </h2>
-              <span class="desc" *ngFor="let item of detailsData?.cons.work_fields;let i =index">
-                    {{item.name.ar}} <ng-container *ngIf="i+1 < detailsData?.cons.work_fields.length">,</ng-container>
-                
-              </span>
-            </div>
-          </div>
-          <div class="col-md-4 mt-5">
-            <div class="list-item">
-              <h2 class="title">           خطط الاستشارات
-                 </h2>
-              <div class="desc" *ngFor="let item of detailsData?.cons.offline_consultancy_plans;let i =index">
-                    {{item.address}} 
-                
-              </div>
-            </div>
-          </div>
-  
+
+      <div class="col-md-4 mt-5">
+        <div class="list-item">
+          <h2 class="title">سنوات الخبرة</h2>
+          <span class="desc">
+            {{ detailsData?.cons.experience }}
+          </span>
+        </div>
+      </div>
+
+      <div class="col-md-4 mt-5">
+        <div class="list-item">
+          <h2 class="title">يجيد العربية</h2>
+          <span class="desc">
+            {{ detailsData?.cons.ar ? "نعم" : "لا" }}
+          </span>
+        </div>
+      </div>
+
+      <div class="col-md-4 mt-5">
+        <div class="list-item">
+          <h2 class="title">يجيد الانجليزية</h2>
+          <span class="desc">
+            {{ detailsData?.cons.en ? "نعم" : "لا" }}
+          </span>
+        </div>
+      </div>
+
+      <div class="col-md-4 mt-5">
+        <div class="list-item">
+          <h2 class="title">سعر الاستشارة اونلاين</h2>
+          <span class="desc">
+            {{ detailsData?.cons.consultancy_price }}
+          </span>
+        </div>
+      </div>
+
+      <div class="col-md-4 mt-5">
+        <div class="list-item">
+          <h2 class="title">سعر التعاقد لمدة شهر اونلاين</h2>
+          <span class="desc">
+            {{ detailsData?.cons.month_consultancy_price }}
+          </span>
+        </div>
+      </div>
+
+      <div class="col-md-4 mt-5">
+        <div class="list-item">
+          <h2 class="title">سعر التعاقد لعام اونلاين</h2>
+          <span class="desc">
+            {{ detailsData?.cons.year_consultancy_price }}
+          </span>
+        </div>
+      </div>
+
+      <div class="col-md-4 mt-5">
+        <div class="list-item">
+          <h2 class="title">هل يقدم استشارة مجانية؟</h2>
+          <span class="desc">
+            {{ detailsData?.cons.free_consultancy ? "نعم" : "لا" }}
+          </span>
         </div>
       </div>
     </div>
   </div>
-  
+</div>
