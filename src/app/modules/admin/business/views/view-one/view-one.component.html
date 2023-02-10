@@ -8,6 +8,48 @@
       <div class="row">
         <div class="col-md-4 mb-5 mb-5">
           <div class="list-item">
+            <h2 class="title">الوكلاء</h2>
+
+            <span class="desc mx-2" *ngFor="let item of detailsData?.agents">
+              {{ item }}
+            </span>
+          </div>
+        </div>
+
+        <div class="col-md-4 mb-5 mb-5">
+          <div class="list-item">
+            <h2 class="title">الموزعين</h2>
+
+            <span
+              class="desc mx-2"
+              *ngFor="let item of detailsData?.distributors"
+            >
+              {{ item }}
+            </span>
+          </div>
+        </div>
+
+        <div class="col-md-4 mb-5 mb-5">
+          <div class="list-item">
+            <h2 class="title">الفروع</h2>
+
+            <span class="desc mx-2" *ngFor="let item of detailsData?.branches">
+              {{ item }}
+            </span>
+          </div>
+        </div>
+
+        <div class="col-md-4 mb-5 mb-5">
+          <div class="list-item">
+            <h2 class="title">منشئ العمل</h2>
+            <span class="desc">
+              {{ detailsData?.user.name }}
+            </span>
+          </div>
+        </div>
+
+        <div class="col-md-4 mb-5 mb-5">
+          <div class="list-item">
             <h2 class="title">مجال العمل</h2>
             <span class="desc">
               {{ detailsData?.business_field }}
@@ -21,22 +63,35 @@
             <span class="desc"> {{ detailsData?.description }} </span>
           </div>
         </div>
+
+        <div class="col-md-4 mb-5 mb-5">
+          <div class="list-item">
+            <h2 class="title">الصورة الرئيسية"</h2>
+            <span class="desc">
+              <img [src]="detailsData?.main_asset" alt="" />
+            </span>
+          </div>
+        </div>
+
+        <div class="col-md-4 mb-5 mb-5">
+          <div class="list-item">
+            <h2 class="title">صورة الغلاف "</h2>
+            <span class="desc">
+              <img [src]="detailsData?.cover_asset" alt="" />
+            </span>
+          </div>
+        </div>
+
         <div class="col-md-4 mb-5 mb-5">
           <div class="list-item">
             <h2 class="title">الاسم التجاري</h2>
             <span class="desc"> {{ detailsData?.com_name }} </span>
           </div>
         </div>
-        <div class="col-md-4 mb-5 mb-5">
-          <div class="list-item">
-            <h2 class="title">تقييم لادي بج</h2>
-            <span class="desc"> {{ detailsData?.ladybug_rating }} </span>
-          </div>
-        </div>
 
         <div class="col-md-4 mb-5 mb-5">
           <div class="list-item">
-            <h2 class="title">الحالة</h2>
+            <h2 class="title">حالة الإنشاء</h2>
             <span class="desc"> {{ detailsData?.status_name }} </span>
           </div>
         </div>
@@ -48,10 +103,50 @@
           </div>
         </div>
 
-        <div class="col-md-4 mb-5 mb-5 mt-5">
+        <div class="col-md-4 mb-5 mb-5">
           <div class="list-item">
-            <h2 class="title">الفروع</h2>
-            <span class="desc"> {{ detailsData?.branches }} </span>
+            <h2 class="title">رقم الهاتف</h2>
+            <span class="desc"> {{ detailsData?.mobile }} </span>
+          </div>
+        </div>
+
+        <div class="col-md-4 mb-5 mb-5">
+          <div class="list-item">
+            <h2 class="title">رقم واتساب</h2>
+            <span class="desc"> {{ detailsData?.whatsapp }} </span>
+          </div>
+        </div>
+
+        <div class="col-md-4 mb-5 mb-5">
+          <div class="list-item">
+            <h2 class="title">تقييم لادي بج</h2>
+            <span class="desc"> {{ detailsData?.ladybug_rating }} </span>
+          </div>
+        </div>
+
+        <div class="col-md-4 mb-5 mb-5">
+          <div class="list-item">
+            <h2 class="title">الموقع</h2>
+            <span class="desc"> {{ detailsData?.location?.details }} </span>
+          </div>
+        </div>
+
+        <div class="col-md-4 mb-5 mb-5">
+          <div class="list-item">
+            <h2 class="title">عدد المشاركين</h2>
+            <span class="desc"> {{ detailsData?.participants_count }} </span>
+          </div>
+        </div>
+
+        <div class="col-md-4 mb-5 mb-5">
+          <div class="list-item">
+            <h2 class="title">صور المشاركين في العمل</h2>
+            <span
+              class="desc"
+              *ngFor="let item of detailsData?.participants_images"
+            >
+              <img [src]="item" alt="" class="mx-3" />
+            </span>
           </div>
         </div>
       </div>
