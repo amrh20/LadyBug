@@ -5,8 +5,48 @@
       <h2 class="title">تفاصيل المبيدات الحشريه</h2>
     </div>
     <div class="card-content">
+      <div class="wrap-section">
+        <h1>المواد الفعالة</h1>
+        <div class="row" *ngFor="let item of detailsData?.acs">
+          <div class="col-md-4 mb-4">
+            <div class="list-item">
+              <h2 class="title">الاسم</h2>
+              <span class="desc">
+                {{ item?.name.ar }}
+              </span>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="list-item">
+              <h2 class="title">تصنيف منظمة الصحة العالمية</h2>
+              <span class="desc">
+                {{ item?.who_class.name }}
+              </span>
+            </div>
+          </div>
+
+          <div class="col-md-4 mb-4">
+            <div class="list-item">
+              <h2 class="title">أيام السحب</h2>
+              <span class="desc">
+                {{ item?.withdrawal_days }}
+              </span>
+            </div>
+          </div>
+
+          <div class="col-md-4 mb-4">
+            <div class="list-item">
+              <h2 class="title">الاحتياطات</h2>
+              <span class="desc">
+                {{ item?.precautions.ar }}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="row">
-        <div class="col-md-4 mb-5">
+        <div class="col-md-4 mb-4 mb-5">
           <div class="list-item">
             <h2 class="title">الاسم</h2>
             <span class="desc">
@@ -15,52 +55,94 @@
           </div>
         </div>
 
-        <div class="col-md-4 mb-5">
+        <div class="col-md-4 mb-4 mb-5">
+          <div class="list-item">
+            <h2 class="title">الصور</h2>
+            <span class="desc" *ngFor="let item of detailsData?.assets">
+              <img [src]="" alt="" />
+            </span>
+          </div>
+        </div>
+
+        <div class="col-md-4 mb-4 mb-5">
+          <div class="list-item">
+            <h2 class="title">الشكل الدوائي</h2>
+            <span class="desc"> {{ detailsData?.dosage_form }} </span>
+          </div>
+        </div>
+
+        <div class="col-md-4 mb-4 mb-5">
+          <div class="list-item">
+            <h2 class="title">المنتج</h2>
+            <span class="desc"> {{ detailsData?.producer }} </span>
+          </div>
+        </div>
+
+        <div class="col-md-4 mb-4 mb-5">
           <div class="list-item">
             <h2 class="title">الدوله</h2>
             <span class="desc"> {{ detailsData?.country.name }} </span>
           </div>
         </div>
-        <div class="col-md-4 mb-5">
+
+        <div class="col-md-4 mb-4 mb-5">
           <div class="list-item">
-            <h2 class="title">شكل جرعات</h2>
-            <span class="desc"> {{ detailsData?.dosage_form }} </span>
+            <h2 class="title">التركيز</h2>
+            <span class="desc"> {{ detailsData?.conc }} </span>
           </div>
         </div>
 
-        <div class="col-md-4 mb-5">
+        <div class="col-md-4 mb-4 mb-5">
           <div class="list-item">
-            <h2 class="title">احتياطات</h2>
+            <h2 class="title">تاريخ التسجيل</h2>
+            <span class="desc">
+              {{ detailsData?.reg_date | date : "dd-MM-YYYY" }}
+            </span>
+          </div>
+        </div>
+
+        <div class="col-md-4 mb-4 mb-5">
+          <div class="list-item">
+            <h2 class="title">رقم التسجيل</h2>
+            <span class="desc"> {{ detailsData?.reg_num }} </span>
+          </div>
+        </div>
+
+        <div class="col-md-4 mb-4 mb-5">
+          <div class="list-item">
+            <h2 class="title">pH الخلط</h2>
+            <span class="desc"> {{ detailsData?.mix_ph }} </span>
+          </div>
+        </div>
+
+        <div class="col-md-4 mb-4 mb-5">
+          <div class="list-item">
+            <h2 class="title">معدل الخلط</h2>
+            <span class="desc"> {{ detailsData?.mix_rate }} </span>
+          </div>
+        </div>
+
+        <div class="col-md-4 mb-4 mb-5">
+          <div class="list-item">
+            <h2 class="title">انتهاء الصلاحية بعد باليوم</h2>
+            <span class="desc"> {{ detailsData?.expiry }} </span>
+          </div>
+        </div>
+
+        <div class="col-md-4 mb-4 mb-5">
+          <div class="list-item">
+            <h2 class="title">الاحتياطات</h2>
             <span class="desc"> {{ detailsData?.precautions.ar }}</span>
           </div>
         </div>
 
-        <div class="col-md-4 mb-5">
+        <div class="col-md-4 mb-4 mb-5">
           <div class="list-item">
             <h2 class="title">الملاحظات</h2>
             <span class="desc"> {{ detailsData?.notes.ar }}</span>
           </div>
         </div>
-        <div class="col-md-4 mb-5" *ngIf="detailsData?.acs.length != 0">
-          <div class="list-item">
-            <h2 class="title">المواد الفعله</h2>
-            <span class="desc">
-              <ng-container
-                *ngFor="let variable of detailsData?.acs; let i = index"
-              >
-                {{ variable.name }}
-                <ng-container *ngIf="detailsData?.acs.length - 1 != i">
-                  ,
-                </ng-container>
-              </ng-container>
-            </span>
-          </div>
-        </div>
       </div>
-      <!-- <div class="actions mt-5">
-           <button class="main-btn">حفظ </button>
-           <button class="tr-btn mx-3">الغاء</button>
-       </div> -->
     </div>
   </div>
 </div>
