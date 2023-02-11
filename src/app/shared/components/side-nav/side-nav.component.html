@@ -638,7 +638,20 @@
           <span class="text">الاعدادات</span>
         </a>
       </li>
-
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          routerLinkActive="active"
+          [routerLink]="['/admin/Fertilizers/indexFertilizers']"
+          routerLinkActive="router-link-active"
+        >
+          <span class="icon">
+            <i class="fa-regular fa-gear"></i>
+          </span>
+          <span class="text">الاسمده</span>
+        </a>
+      </li>
+      
       <li (click)="logOut()" class="nav-item">
         <button class="nav-link logout" type="button">
           <span class="icon">
