@@ -106,19 +106,22 @@
               </svg>
             </button>
             <mat-menu #menu="matMenu">
-              <a
-                mat-menu-item
-                [routerLink]="['./pathogen-details', variable.id]"
-              >
-                <span> <i class="fa-light fa-eye"></i> تفاصيل </span>
-              </a>
+              <button mat-menu-item>
+                <a
+                  [routerLink]="['./pathogen-details', variable.id]"
+                  mat-menu-item
+                >
+                  <span> <i class="fa-light fa-eye"></i> تفاصيل </span>
+                </a>
+              </button>
+
               <button mat-menu-item>
                 <a mat-menu-item [routerLink]="['edit-pathogen', variable.id]">
                   <span> <i class="fa-thin fa-pen-to-square"></i> تعديل </span>
                 </a>
               </button>
               <button mat-menu-item (click)="deleteItem(variable.id)">
-                <span><i class="fa-thin fa-trash"></i> حذف </span>
+                <a mat-menu-item><i class="fa-thin fa-trash"></i> حذف </a>
               </button>
 
               <button mat-menu-item>
