@@ -137,3 +137,23 @@ html {
         max-width: 120px;
     }
 }
+
+.bread-crumd {
+    padding: 20px;
+    background: #dcdcdc;
+    margin-bottom: 20px;
+    margin-top: -40px;
+    a {
+        font-weight: bold;
+        text-decoration: none;
+        color: #000;
+        font-size: 18px;
+        margin-inline-end: 10px;
+    }
+    strong {
+        margin-inline-end: 10px;
+    }
+    span {
+        color: #757373;
+    }
+}

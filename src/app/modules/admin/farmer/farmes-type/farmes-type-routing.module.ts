@@ -21,6 +21,11 @@ import { CountriesCreateComponent } from "./farmes-type-table/views/CountriesFar
 import { NamesCountriesTableComponent } from "./farmes-type-table/views/names_countries/names-countries-table/names-countries-table.component";
 import { NamesCountriesCreateComponent } from "./farmes-type-table/views/names_countries/names-countries-create/names-countries-create.component";
 import { FarmedTypeExtrasCreateComponent } from "./farmes-type-table/views/farmed_type_extras/farmed-type-extras-create/farmed-type-extras-create.component";
+import { ResistantDiseasesComponent } from "./farmes-type-table/views/resistant-diseases/resistant-diseases.component";
+import { CreateResistantDiseasesComponent } from "./farmes-type-table/views/resistant-diseases/create-resistant-diseases/create-resistant-diseases.component";
+import { SensitiveDiseaseTableComponent } from "./farmes-type-table/views/sensitive-disease-table/sensitive-disease-table.component";
+import { CreateSensitiveDiseasesComponent } from "./farmes-type-table/views/sensitive-disease-table/create-sensitive-diseases/create-sensitive-diseases.component";
+import { SensitiveDiseaseDetailsComponent } from "./farmes-type-table/views/sensitive-disease-table/sensitive-disease-details/sensitive-disease-details.component";
 
 const routes: Routes = [
   {
@@ -148,6 +153,31 @@ const routes: Routes = [
   {
     path: "names_countries/Create/:id",
     component: NamesCountriesCreateComponent,
+  },
+  {
+    path: "resistant-diseases/:id",
+    component: ResistantDiseasesComponent,
+  },
+
+  {
+    path: "create-resistant-diseases/:id",
+    component: CreateResistantDiseasesComponent,
+  },
+  {
+    path: "Sensitive-diseases/:id",
+    component: SensitiveDiseaseTableComponent,
+  },
+  {
+    path: "create-Sensitive-diseases/:id",
+    component: CreateSensitiveDiseasesComponent,
+  },
+  {
+    path: "edit-Sensitive-diseases/:id",
+    component: CreateSensitiveDiseasesComponent,
+  },
+  {
+    path: "sensitive-disease-details/:id",
+    component: SensitiveDiseaseDetailsComponent,
   },
 ];
 

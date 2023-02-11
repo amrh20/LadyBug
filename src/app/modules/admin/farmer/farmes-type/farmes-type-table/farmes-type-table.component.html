@@ -192,6 +192,33 @@
                   <i class="fa-light fa-eye"></i> احتياجات السماد للمحصول
                 </span>
               </a>
+
+              <a
+                mat-menu-item
+                [routerLink]="[
+                  '/admin/farmer/farmedTypes/resistant-diseases',
+                  variable.id
+                ]"
+              >
+                <span>
+                  <i class="fa-light fa-eye"></i> الأمراض التي يقاومها هذا
+                  المحصول
+                </span>
+              </a>
+
+              <a
+                mat-menu-item
+                [routerLink]="[
+                  '/admin/farmer/farmedTypes/Sensitive-diseases',
+                  variable.id
+                ]"
+              >
+                <span>
+                  <i class="fa-light fa-eye"></i> الأمراض التي يصاب بها هذا
+                  المحصول
+                </span>
+              </a>
+
               <a
                 mat-menu-item
                 [routerLink]="[

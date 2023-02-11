@@ -1,15 +1,15 @@
 import { Component, OnInit } from "@angular/core";
-import { CrudRequestsService } from "../../../../../../../../core/services/crud-requests.service";
-import { SettingService } from "../../../../../../../../core/services/setting.service";
 import { Router, ActivatedRoute } from "@angular/router";
+import { CrudRequestsService } from "src/app/core/services/crud-requests.service";
+import { SettingService } from "src/app/core/services/setting.service";
 import Swal from "sweetalert2";
 
 @Component({
-  selector: "app-taxonomies-table",
-  templateUrl: "./taxonomies-table.component.html",
-  styleUrls: ["./taxonomies-table.component.scss"],
+  selector: "app-resistant-diseases",
+  templateUrl: "./resistant-diseases.component.html",
+  styleUrls: ["./resistant-diseases.component.scss"],
 })
-export class TaxonomiesTableComponent implements OnInit {
+export class ResistantDiseasesComponent implements OnInit {
   deleteItem = (id: any) => {
     Swal.fire({
       text: "   هل أنت متاكد من الحذف  ؟",
@@ -23,7 +23,7 @@ export class TaxonomiesTableComponent implements OnInit {
       cancelButtonAriaLabel: "التراجع",
     }).then((val: any) => {
       if (val.isConfirmed) {
-        this._CrudRequestsService.delete("taxonomies/" + id).subscribe(
+        this._CrudRequestsService.delete("marketing_datas/" + id).subscribe(
           (res: any) => {
             this._SettingService.successHot(res.message);
             this.getUser(this.ids);
@@ -41,7 +41,9 @@ export class TaxonomiesTableComponent implements OnInit {
   constructor(
     private _CrudRequestsService: CrudRequestsService,
     private _SettingService: SettingService,
-
+    private _crud: CrudRequestsService,
+    private _setting: SettingService,
+    private route: Router,
     private _activeRoute: ActivatedRoute
   ) {}
   ngOnInit(): void {
@@ -52,15 +54,14 @@ export class TaxonomiesTableComponent implements OnInit {
   }
   success: any;
   detailsData: any;
-  res: any;
+  resistantDiseases: any;
   checkobj: any;
   getUser = (id: any) => {
     this.success = false;
     this._CrudRequestsService
-      .get("taxonomies/by_ft_id/" + id)
+      .get("resistant_diseases/" + id)
       .subscribe((data: any) => {
-        this.res = data.data;
-        this.checkobj = Object.keys(this.res).length;
+        this.resistantDiseases = data.data;
         this.success = data.data.code;
       });
   };
