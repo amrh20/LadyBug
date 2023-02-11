@@ -4,6 +4,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { CrudRequestsService } from '../../../../../core/services/crud-requests.service';
 import { SettingService } from '../../../../../core/services/setting.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-get-affecting-ac',
@@ -50,4 +51,32 @@ export class GetAffectingAcComponent implements OnInit {
     this.current = $e;
     this.search();
   }
+  deleteItem = (id: any) => {
+    Swal.fire({
+      text: "   هل أنت متاكد من الحذف  ؟",
+      allowOutsideClick: true,
+      // iconHtml:"<img src='../../../../assets/images/delete-alert.svg'/>",
+      showCloseButton: true,
+      showCancelButton: true,
+      focusConfirm: false,
+      confirmButtonText: "تأكيد",
+      confirmButtonAriaLabel: "تأكيد",
+      cancelButtonText: "التراجع",
+      cancelButtonAriaLabel: "التراجع",
+    }).then((val: any) => {
+      if (val.isConfirmed) {
+        this._CrudRequestsService
+          .delete(`delete_affecting_ac/${id}`)
+          .subscribe((res: any) => {
+            if (res.success) {
+              this._SettingService.successHot("تم الحذف بنجاح");
+              this.getpathogens();
+            } else {
+              this._SettingService.errorHot(res.message);
+            }
+          });
+      }
+    });
+  };
+
 }
