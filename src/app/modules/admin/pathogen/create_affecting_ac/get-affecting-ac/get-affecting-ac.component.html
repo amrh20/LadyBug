@@ -1,0 +1,145 @@
+<div class="general-users-wrapper br-10">
+    <div
+      class="page-title d-flex justify-content-between align-items-center w-100"
+    >
+      <h1 class="fs-24"> 
+
+        
+        المواد الفعالة المؤثرة على مرحلة تطور معينة للكائن الممرض
+
+      </h1>
+  
+      <div class="">
+        <button
+          class="main-btn"
+          [routerLink]="[
+            '/admin/pathogen-growth-stage/create-affecting-ac',ac,id
+            
+          ]"
+        >
+          اضافه المواد الفعالة المؤثرة 
+          
+        </button>
+      </div>
+    </div>
+
+  
+    <div class="bg-white pb-5 br-10">
+      <app-table>
+        <ng-container header>
+          <tr>
+            <th>##</th>
+            <th>الاسم بالعربي</th>
+            <th>الاسم بالانجليزي</th>
+            <th>المادة الفعالة </th>
+            <th>الاجراءات</th>
+          </tr>
+        </ng-container>
+        <ng-container content *ngIf="DataTable?.length != 0">
+          <tr *ngFor="let variable of DataTable; let i = index">
+            <td>
+              <span class="num-td">
+                {{ variable.id }}
+              </span>
+            </td>
+            <td>{{ variable.effect.ar }}</td>
+            <td>{{ variable.effect.en }}</td>
+            <td>{{ variable.ac.name.ar }}</td>
+            
+            <td>
+              <button
+                class="menu--item"
+                mat-icon-button
+                [matMenuTriggerFor]="menu"
+                aria-label="Example
+                              icon-button with a menu"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="42"
+                  height="42"
+                  viewBox="0 0 42 42"
+                  fill="none"
+                >
+                  <g id="action">
+                    <rect
+                      id="Rectangle"
+                      width="42"
+                      height="42"
+                      rx="2"
+                      fill="#F2F2F2"
+                    />
+                    <g id="ellipsis-v-regular copy 2">
+                      <path
+                        id="Shape"
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M19
+                                                  13.4C19 14.725 20.075 15.8 21.4
+                                                  15.8C22.725 15.8 23.8 14.725
+                                                  23.8 13.4C23.8 12.075 22.725 11
+                                                  21.4 11C20.075 11 19 12.075 19
+                                                  13.4ZM21.4 18.6C22.725 18.6 23.8
+                                                  19.675 23.8 21C23.8 22.325
+                                                  22.725 23.4 21.4 23.4C20.075
+                                                  23.4 19 22.325 19 21C19 19.675
+                                                  20.075 18.6 21.4 18.6ZM21.4
+                                                  31C20.075 31 19 29.925 19
+                                                  28.6C19 27.275 20.075 26.2 21.4
+                                                  26.2C22.725 26.2 23.8 27.275
+                                                  23.8 28.6C23.8 29.925 22.725 31
+                                                  21.4 31Z"
+                        fill="black"
+                      />
+                    </g>
+                  </g>
+                </svg>
+              </button>
+              <mat-menu #menu="matMenu">
+                <!-- <a
+                  mat-menu-item
+                  [routerLink]="['./pathogen-details', variable.id]"
+                  class="p-0"
+                >
+                  <span> <i class="fa-light fa-eye"></i> تفاصيل </span>
+                </a> -->
+                <button mat-menu-item>
+                  <a
+                    mat-menu-item
+                    [routerLink]="[
+                      '/admin/pathogen-growth-stage/edit-affecting-ac',
+                      variable.id,id
+                    ]"
+                    class="p-0"
+                  >
+                    <span> <i class="fa-thin fa-pen-to-square"></i> تعديل </span>
+                  </a>
+                </button>
+     
+                <button mat-menu-item>
+                    <a
+                      mat-menu-item
+                      [routerLink]="[
+                        '/admin/pathogen-growth-stage/details-affecting-ac',
+                        variable.id
+                      ]"
+                      class="p-0"
+                    >
+                      <span> <i class="fa-thin fa-eye"></i> عرض التفاصيل </span>
+                    </a>
+                  </button>
+       
+              
+              </mat-menu>
+            </td>
+          </tr>
+        </ng-container>
+      </app-table>
+      <app-pagination
+        [last]="last"
+        [current]="current"
+        (pageChange)="pageChange($event)"
+      ></app-pagination>
+    </div>
+  </div>
+  

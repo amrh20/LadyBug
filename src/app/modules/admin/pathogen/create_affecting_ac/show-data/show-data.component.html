@@ -1,0 +1,46 @@
+<div class="px-20 card-wrap">
+    <!-- <app-head-nav></app-head-nav> -->
+    <div class="card-custom">
+      <div class="card-head">
+        <h2 class="title">تفاصيل  المواد الفعالة المؤثرة على مرحلة تطور معينة للكائن الممرض
+        </h2>
+      </div>
+      <div class="card-content">
+        <div class="row">
+          <div class="col-md-4 mb-5">
+            <div class="list-item">
+              <h2 class="title">الاسم بالعربي</h2>
+              <span class="desc">
+                {{ detailsData?.effect.ar }}
+              </span>
+            </div>
+          </div>
+  
+          <div class="col-md-4 mb-5">
+            <div class="list-item">
+              <h2 class="title">الاسم بالانجليزي  </h2>
+              <span class="desc">                 {{ detailsData?.effect.en }}
+            </span>
+            </div>
+          </div>
+          <div class="col-md-4 mb-5">
+            <div class="list-item">
+              <h2 class="title">المادة الفعالة  </h2>
+              <span class="desc"> {{detailsData.ac.name.ar}} </span>
+            </div>
+          </div>
+          <div class="col-md-4 mb-5">
+            <div class="list-item">
+              <h2 class="title"> الصور  </h2>
+              <div class="assets grid-6 grid-gaps-10">
+                <div *ngFor="let item of detailsData.assets">
+                  <img [src]="item" alt="" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
