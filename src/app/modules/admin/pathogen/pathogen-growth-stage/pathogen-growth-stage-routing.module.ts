@@ -10,7 +10,7 @@ const routes: Routes = [
     component: IndexPathogenGrowthStageComponent,
     children: [
       {
-        path: "edit-pathogen/:id",
+        path: "edit-pathogen-growth-stage/:id",
         component: CreatePathogenGrowthStageComponent,
       },
       {

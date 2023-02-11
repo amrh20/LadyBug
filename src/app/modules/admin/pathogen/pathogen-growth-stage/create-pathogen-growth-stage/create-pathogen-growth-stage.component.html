@@ -2,8 +2,7 @@
   <!-- <app-head-nav></app-head-nav> -->
   <div class="card-custom">
     <div class="card-head">
-      <!-- <h2 class="title">{{ !isEdit ? "اضافه" : " تعديل " }} مراحل التطور</h2> -->
-      <h2 class="title">اضافه مراحل التطور</h2>
+      <h2 class="title">{{ !isEdit ? "اضافه" : " تعديل " }} مراحل التطور</h2>
     </div>
     <div class="card-content">
       <form [formGroup]="form">
@@ -67,6 +66,14 @@
               {{ variable.name }}
             </li>
           </ul>
+        </div>
+
+        <div>
+          <div class="assets grid-6 grid-gaps-10">
+            <div *ngFor="let item of assets">
+              <img [src]="item" alt="" />
+            </div>
+          </div>
         </div>
         <div class="actions mt-5">
           <app-spinner *ngIf="loading"></app-spinner>

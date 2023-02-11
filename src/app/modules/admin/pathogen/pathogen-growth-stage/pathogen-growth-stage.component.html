@@ -42,8 +42,8 @@
       <ng-container header>
         <tr>
           <th>##</th>
-          <th>الاسم</th>
-
+          <th>الاسم بالعربي</th>
+          <th>الاسم بالانجليزي</th>
           <th>الاجراءات</th>
         </tr>
       </ng-container>
@@ -55,6 +55,7 @@
             </span>
           </td>
           <td>{{ variable.name.ar }}</td>
+          <td>{{ variable.name.en }}</td>
 
           <td>
             <button
@@ -106,17 +107,20 @@
               </svg>
             </button>
             <mat-menu #menu="matMenu">
-              <a
+              <!-- <a
                 mat-menu-item
                 [routerLink]="['./pathogen-details', variable.id]"
                 class="p-0"
               >
                 <span> <i class="fa-light fa-eye"></i> تفاصيل </span>
-              </a>
+              </a> -->
               <button mat-menu-item>
                 <a
                   mat-menu-item
-                  [routerLink]="['edit-pathogen', variable.id]"
+                  [routerLink]="[
+                    '/admin/pathogen-growth-stage/edit-pathogen-growth-stage',
+                    variable.id
+                  ]"
                   class="p-0"
                 >
                   <span> <i class="fa-thin fa-pen-to-square"></i> تعديل </span>
@@ -125,18 +129,6 @@
               <button mat-menu-item (click)="deleteItem(variable.id)">
                 <span><i class="fa-thin fa-trash"></i> حذف </span>
               </button>
-<!--  -->
-              <!-- <button mat-menu-item> -->
-                <!-- <a -->
-                  <!-- mat-menu-item -->
-                  <!-- [routerLink]="['pathogen-growth-stage', variable.id]" -->
-                  <!-- class="p-0" -->
-                <!-- > -->
-                  <!-- <span> -->
-                    <!-- <i class="fa-light fa-eye"></i> عرض مراحل التطور -->
-                  <!-- </span> -->
-                <!-- </a> -->
-              <!-- </button> -->
             </mat-menu>
           </td>
         </tr>

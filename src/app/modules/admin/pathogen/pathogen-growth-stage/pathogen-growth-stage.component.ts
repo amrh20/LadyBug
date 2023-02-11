@@ -2,6 +2,8 @@ import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormControl } from "@angular/forms";
 import { ActivatedRoute } from "@angular/router";
 import { CrudRequestsService } from "src/app/core/services/crud-requests.service";
+import { SettingService } from "src/app/core/services/setting.service";
+import Swal from "sweetalert2";
 
 @Component({
   selector: "app-pathogen-growth-stage",
@@ -16,18 +18,22 @@ export class PathogenGrowthStageComponent implements OnInit {
   });
   constructor(
     private activeRoute: ActivatedRoute,
-    private _crudService: CrudRequestsService
+    private _crudService: CrudRequestsService,
+    private _SettingService: SettingService
   ) {}
 
   ngOnInit(): void {
     this.activeRoute.params.subscribe((res: any) => {
       this.id = res.id;
-      this._crudService
-        .get(`pathogen_growth_stages/by_pa_id/${res.id}`)
-        .subscribe((res: any) => {
-          this.DataTable = res.data;
-        });
     });
+    this.getpathogensStages();
+  }
+  getpathogensStages() {
+    this._crudService
+      .get(`pathogen_growth_stages/by_pa_id/${this.id}`)
+      .subscribe((res: any) => {
+        this.DataTable = res.data;
+      });
   }
   current: any = 1;
   last: any = 0;
@@ -35,27 +41,31 @@ export class PathogenGrowthStageComponent implements OnInit {
     this.current = $e;
   }
   deleteItem = (id: any) => {
-    // Swal.fire({
-    //   text: "   هل أنت متاكد من الحذف  ؟",
-    //   allowOutsideClick: true,
-    //   // iconHtml:"<img src='../../../../assets/images/delete-alert.svg'/>",
-    //   showCloseButton: true,
-    //   showCancelButton: true,
-    //   focusConfirm: false,
-    //   confirmButtonText: "تأكيد",
-    //   confirmButtonAriaLabel: "تأكيد",
-    //   cancelButtonText: "التراجع",
-    //   cancelButtonAriaLabel: "التراجع",
-    // }).then((val: any) => {
-    //   if (val.isConfirmed) {
-    //     this._CrudRequestsService
-    //       .delete(`pathogens/${id}`)
-    //       .subscribe((res: any) => {
-    //         this._SettingService.successHot("تم الحذف بنجاح");
-    //         this.getpathogens();
-    //       });
-    //   }
-    // });
+    Swal.fire({
+      text: "   هل أنت متاكد من الحذف  ؟",
+      allowOutsideClick: true,
+      // iconHtml:"<img src='../../../../assets/images/delete-alert.svg'/>",
+      showCloseButton: true,
+      showCancelButton: true,
+      focusConfirm: false,
+      confirmButtonText: "تأكيد",
+      confirmButtonAriaLabel: "تأكيد",
+      cancelButtonText: "التراجع",
+      cancelButtonAriaLabel: "التراجع",
+    }).then((val: any) => {
+      if (val.isConfirmed) {
+        this._crudService
+          .delete(`pathogen_growth_stages/${id}`)
+          .subscribe((res: any) => {
+            if (res.success) {
+              this._SettingService.successHot("تم الحذف بنجاح");
+              this.getpathogensStages();
+            } else {
+              this._SettingService.errorHot(res.message);
+            }
+          });
+      }
+    });
   };
 
   search() {
