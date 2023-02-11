@@ -26,6 +26,10 @@ const routes: Routes = [
         component: CreatePathogenGrowthStageComponent,
       },
       {
+        path: "edit-pathogen-growth-stage/:id",
+        component: CreatePathogenGrowthStageComponent,
+      },
+      {
         path:'create-affecting-ac/:id/:Ac',
         component:CreateAffectingAcComponent
       },

@@ -1,4 +1,22 @@
+
 <div class="px-20 card-wrap">
+  
+<div class="bread-crumd">
+  <a [routerLink]="['/admin/pathogen']"> مسببات المرض
+  </a>
+  <strong> <i class="fa-regular fa-chevrons-left"></i> </strong>
+
+  <a [routerLink]="['/admin/pathogen-growth-stage/pathogen-growth-stage/',id]" *ngIf="!isEdit"> مراحل التطور
+  </a>
+  <a [routerLink]="['/admin/pathogen-growth-stage/pathogen-growth-stage/',pathogenId]" *ngIf="isEdit"> مراحل التطور
+  </a>
+  
+  <strong> <i class="fa-regular fa-chevrons-left"></i> </strong>
+
+  <span>{{ !isEdit ? "اضافه" : " تعديل " }}  مراحل التطور
+
+  </span>
+</div>
   <!-- <app-head-nav></app-head-nav> -->
   <div class="card-custom">
     <div class="card-head">

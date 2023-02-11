@@ -1,3 +1,11 @@
+<div class="bread-crumd">
+  <a [routerLink]="['/admin/pathogen']"> مسببات المرض
+ </a>
+  <strong> <i class="fa-regular fa-chevrons-left"></i> </strong>
+
+  <span>مراحل التطور
+  </span>
+</div>
 <div class="general-users-wrapper br-10">
   <div
     class="page-title d-flex justify-content-between align-items-center w-100"
@@ -118,7 +126,7 @@
                 <a
                   mat-menu-item
                   [routerLink]="[
-                    '/admin/pathogen-growth-stage/edit-affecting-ac',
+                    '/admin/pathogen-growth-stage/edit-pathogen-growth-stage',
                     variable.id
                   ]"
                   class="p-0"
