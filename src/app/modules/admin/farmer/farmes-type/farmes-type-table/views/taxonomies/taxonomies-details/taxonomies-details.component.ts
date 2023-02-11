@@ -9,7 +9,7 @@ import { Router, ActivatedRoute } from "@angular/router";
   styleUrls: ["./taxonomies-details.component.scss"],
 })
 export class TaxonomiesDetailsComponent implements OnInit {
-  ids: any;
+  id: any;
   constructor(
     private _CrudRequestsService: CrudRequestsService,
 
@@ -18,13 +18,13 @@ export class TaxonomiesDetailsComponent implements OnInit {
   ngOnInit(): void {
     this._activeRoute.params.subscribe((params) => {
       this.getUser(params["id"]);
-      this.ids = params["id"];
     });
   }
   detailsData: any = {};
   getUser = (id: any) => {
     this._CrudRequestsService.get("taxonomies/" + id).subscribe((data: any) => {
       this.detailsData = data.data;
+      this.id = data.data.farmed_type_id;
     });
   };
 }
