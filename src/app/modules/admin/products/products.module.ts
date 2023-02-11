@@ -14,6 +14,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RatingProductComponent } from './products/table-product/components/rating-product/rating-product.component';
 import { NgxInputStarRatingModule } from '@ngx-lite/input-star-rating';
+import { ProductDetailsComponent } from './products/table-product/components/product-details/product-details.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { NgxInputStarRatingModule } from '@ngx-lite/input-star-rating';
     TableCityComponent,
     CreateCityComponent,
     ProductWrapComponent,
-    RatingProductComponent
+    RatingProductComponent,
+    ProductDetailsComponent
   ],
   imports: [
     CommonModule,
