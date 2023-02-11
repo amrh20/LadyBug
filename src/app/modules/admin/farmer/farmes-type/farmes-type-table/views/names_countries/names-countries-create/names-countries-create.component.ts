@@ -82,6 +82,7 @@ export class NamesCountriesCreateComponent implements OnInit {
        if(data.data.length ==0){
         this.addCountries()
        }
+       this.getAllIda()
     });
   };
   DataTable:any=[];
@@ -152,5 +153,19 @@ name: this.form.value.countries[i].name
   changeFile($event:any){
   this.file=$event.target.files[0];
   }
- 
+  allIds:any=[];
+  show:any=true;
+
+ getAllIda(){
+  console.log()
+  this.show=false;
+  var output = [];
+  for (var i=0; i < this.form.value.countries.length ; ++i){
+    output.push(Number(this.form.value.countries[i].countries));
+
+  }
+  this.allIds=output;
+  this.show=true;
+
+ }
 }
