@@ -1,0 +1,209 @@
+<div class="px-20 card-wrap">
+  <!-- <app-head-nav></app-head-nav> -->
+  <div class="card-custom">
+    <div class="card-head">
+      <h2 class="title">تفاصيل المنتج</h2>
+    </div>
+    <div class="card-content">
+      <div class="row">
+        <div class="col-md-4 mb-5">
+          <div class="list-item">
+            <h2 class="title">نوع المنتج</h2>
+            <span class="desc">
+              {{ detailsData?.product_type }}
+            </span>
+          </div>
+        </div>
+
+        <div class="col-md-4 mb-5">
+          <div class="list-item">
+            <h2 class="title">المحاصيل التي يناسبها هذا المنتج</h2>
+            <span class="desc"> {{ detailsData?.farmed_types }} </span>
+          </div>
+        </div>
+
+        <div class="col-md-4 mb-5">
+          <div class="list-item">
+            <h2 class="title">السعر</h2>
+            <span class="desc">
+              {{ detailsData?.price }}
+            </span>
+          </div>
+        </div>
+
+        <div class="col-md-4 mb-5">
+          <div class="list-item">
+            <h2 class="title">البائع</h2>
+            <span class="desc">
+              {{ detailsData?.seller }}
+            </span>
+          </div>
+        </div>
+
+        <div class="col-md-12 mb-5">
+          <h1>مدن التوصيل</h1>
+          <ol>
+            <li
+              *ngFor="let item of detailsData?.shipping_cities"
+              class="one-row"
+            >
+              <div class="list-item">
+                <h2 class="title">الاسم</h2>
+                <span class="desc mb-3">
+                  {{ item?.name }}
+                </span>
+              </div>
+              <div class="list-item">
+                <h2 class="title">أيام التوصيل</h2>
+                <span class="desc mb-3">
+                  {{ item?.shipping_days }}
+                </span>
+              </div>
+
+              <div class="list-item">
+                <h2 class="title">رسوم التوصيل</h2>
+                <span class="desc mb-3">
+                  {{ item?.shipping_fees }}
+                </span>
+              </div>
+            </li>
+          </ol>
+        </div>
+
+        <div class="wrap">
+          <h2>العمل</h2>
+          <div class="row">
+            <div class="col-md-4 mb-5">
+              <div class="list-item">
+                <a
+                  class="desc"
+                  [routerLink]="[
+                    '/admin/Business/profile',
+                    detailsData?.business?.id
+                  ]"
+                >
+                  تفاصيل العمل
+                </a>
+              </div>
+            </div>
+            <div class="col-md-4 mb-5">
+              <div class="list-item">
+                <h2 class="title">الاسم التجاري</h2>
+                <span class="desc">
+                  {{ detailsData?.business?.com_name }}
+                </span>
+              </div>
+            </div>
+            <div class="col-md-4 mb-5">
+              <div class="list-item">
+                <h2 class="title">الوصف</h2>
+                <span class="desc">
+                  {{ detailsData?.business?.description }}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 mb-5">
+          <div class="list-item">
+            <h2 class="title">المدينة</h2>
+            <span class="desc">
+              {{ detailsData?.city }}
+            </span>
+          </div>
+        </div>
+
+        <div class="col-md-4 mb-5">
+          <div class="list-item">
+            <h2 class="title">الحي</h2>
+            <span class="desc">
+              {{ detailsData?.district }}
+            </span>
+          </div>
+        </div>
+
+        <div class="col-md-4 mb-5">
+          <div class="list-item">
+            <h2 class="title">هاتف البائع</h2>
+            <span class="desc">
+              {{ detailsData?.seller_mobile }}
+            </span>
+          </div>
+        </div>
+
+        <div class="col-md-4 mb-5">
+          <div class="list-item">
+            <h2 class="title">هل تم بيعه</h2>
+            <span class="desc">
+              {{ detailsData?.sold ? "نعم" : "لا" }}
+            </span>
+          </div>
+        </div>
+
+        <div class="col-md-4 mb-5">
+          <div class="list-item">
+            <h2 class="title">التقييم</h2>
+            <span class="desc">
+              {{ detailsData?.rating }}
+            </span>
+          </div>
+        </div>
+
+        <div class="col-md-4 mb-5">
+          <div class="list-item">
+            <h2 class="title">روابط أخرى</h2>
+            <span class="desc">
+              {{ detailsData?.other_links }}
+            </span>
+          </div>
+        </div>
+
+        <div class="col-md-4 mb-5">
+          <div class="list-item">
+            <h2 class="title">الصور</h2>
+            <span class="desc mx-3" *ngFor="let item of detailsData?.assets">
+              <img [src]="item" alt="" />
+            </span>
+          </div>
+        </div>
+
+        <div class="col-md-4 mb-5">
+          <div class="list-item">
+            <h2 class="title">انظر ترجمة موديول المبيدات الحشرية</h2>
+            <span class="desc">
+              {{ detailsData?.insecticide }}
+            </span>
+          </div>
+        </div>
+
+        <div class="col-md-4 mb-5">
+          <div class="list-item">
+            <h2 class="title">انظر ترجمة موديول المبيدات الحشرية</h2>
+            <span class="desc">
+              {{ detailsData?.insecticide }}
+            </span>
+          </div>
+        </div>
+
+        <div class="col-md-4 mb-5">
+          <div class="list-item">
+            <h2 class="title">الاسم</h2>
+            <span class="desc">
+              {{ detailsData?.name }}
+            </span>
+          </div>
+        </div>
+
+        <div class="col-md-4 mb-5">
+          <div class="list-item">
+            <h2 class="title">الوصف</h2>
+            <span class="desc">
+              {{ detailsData?.description }}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

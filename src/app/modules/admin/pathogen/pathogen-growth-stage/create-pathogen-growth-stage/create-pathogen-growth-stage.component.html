@@ -9,6 +9,7 @@
       <form [formGroup]="form">
         <div class="row">
           <div class="col-6 mb-5">
+            <label for="">مرحلة النضج </label>
             <input
               type="text"
               placeholder="مرحلة النضج "
@@ -24,6 +25,7 @@
             </div>
           </div>
           <div class="col-6 mb-5">
+            <label for=""> مرحلة النضج بالانجليزي </label>
             <input
               type="text"
               placeholder="مرحلة النضج بالانجليزي"
@@ -43,17 +45,28 @@
             <label for="apply"
               ><input
                 type="file"
-                name=""
                 id="apply"
                 accept="image/png , image/jpeg"
                 (change)="changeFile($event)"
+                multiple
+                class="d-none"
               />
-              {{ file ? file.name.slice(0, 50) : "تحميل صوره " }}
+              ارفاق صوره / صور
+              <img
+                src="../../../../../../assets/images/Upload.png"
+                alt=""
+                class="upload-img"
+              />
             </label>
             <div class="error-msg" *ngIf="file == null && isSubmit && !isEdit">
               <div *ngIf="file == null">{{ "must_required" | translate }}</div>
             </div>
           </div>
+          <ul>
+            <li *ngFor="let variable of file">
+              {{ variable.name }}
+            </li>
+          </ul>
         </div>
         <div class="actions mt-5">
           <app-spinner *ngIf="loading"></app-spinner>
