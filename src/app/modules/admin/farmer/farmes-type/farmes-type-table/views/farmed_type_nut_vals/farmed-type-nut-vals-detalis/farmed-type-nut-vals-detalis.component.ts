@@ -12,10 +12,7 @@ export class FarmedTypeNutValsDetalisComponent implements OnInit {
   id: any;
   constructor(
     private _CrudRequestsService: CrudRequestsService,
-    private _SettingService: SettingService,
-    private _crud: CrudRequestsService,
-    private _setting: SettingService,
-    private route: Router,
+
     private _activeRoute: ActivatedRoute
   ) {}
   ngOnInit(): void {

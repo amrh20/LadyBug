@@ -1,7 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Router, ActivatedRoute } from "@angular/router";
 import { CrudRequestsService } from "src/app/core/services/crud-requests.service";
-import { SettingService } from "src/app/core/services/setting.service";
 
 @Component({
   selector: "app-fertilization-needs-details",
@@ -9,12 +8,10 @@ import { SettingService } from "src/app/core/services/setting.service";
   styleUrls: ["./fertilization-needs-details.component.scss"],
 })
 export class FertilizationNeedsDetailsComponent implements OnInit {
+  id: any;
   constructor(
     private _CrudRequestsService: CrudRequestsService,
-    private _SettingService: SettingService,
-    private _crud: CrudRequestsService,
-    private _setting: SettingService,
-    private route: Router,
+
     private _activeRoute: ActivatedRoute
   ) {}
   ngOnInit(): void {
@@ -28,6 +25,7 @@ export class FertilizationNeedsDetailsComponent implements OnInit {
       .get("farmed_type_fertilization_needs/" + id)
       .subscribe((data: any) => {
         this.detailsData = data.data;
+        this.id = data.data.farmed_type_id;
       });
   };
 }

@@ -1,5 +1,13 @@
 <div class="px-20 card-wrap">
-  <!-- <app-head-nav></app-head-nav> -->
+  <div class="bread-crumd">
+    <a [routerLink]="['/admin/farmer/farmedTypes']"> المحصول </a>
+    <strong> <i class="fa-regular fa-chevrons-left"></i> </strong>
+    <a [routerLink]="['/admin/farmer/farmedTypes/farmed_type_extras', ids]">
+      معلومات اضافيه
+    </a>
+    <strong> <i class="fa-regular fa-chevrons-left"></i> </strong>
+    <span> {{ !isEdit ? "اضافه" : " تعديل " }} بيانات اضافيه</span>
+  </div>
   <div class="card-custom">
     <div class="card-head">
       <h2 class="title">{{ !isEdit ? "اضافه" : " تعديل " }} بيانات اضافيه</h2>
@@ -7,34 +15,6 @@
     <div class="card-content">
       <form [formGroup]="form">
         <div class="row">
-          <!-- <div class="col-6 mb-5">
-            <div class="select-value">
-              <div class="position-relative">
-                <select
-                  name=""
-                  id=""
-                  class="select-ground"
-                  formControlName="farmed_type_id"
-                >
-                  <option value="" selected>المحصول</option>
-                  <option
-                    *ngFor="let variable of farmed_typesData; let i = index"
-                    [value]="variable.id"
-                  >
-                    {{ variable.name.ar }}
-                  </option>
-                </select>
-              </div>
-            </div>
-            <div
-              class="error-msg"
-              *ngIf="form.controls['farmed_type_id'].touched || isSubmit"
-            >
-              <div *ngIf="form.controls['farmed_type_id'].hasError('required')">
-                {{ "must_required" | translate }}
-              </div>
-            </div>
-          </div> -->
           <div class="col-6 mb-5">
             <label for="">معدل الري</label>
             <select formControlName="irrigation_rate_id">
