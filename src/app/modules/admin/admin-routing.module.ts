@@ -1,6 +1,7 @@
-import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
+
 import { IndexComponent } from "./index/index.component";
+import { NgModule } from "@angular/core";
 
 const routes: Routes = [
   {
@@ -103,6 +104,13 @@ const routes: Routes = [
           import(
             "./pathogen/pathogen-growth-stage/pathogen-growth-stage.module"
           ).then((m) => m.PathogenGrowthStageModule),
+      },
+      {
+      path: "Fertilizers",
+      loadChildren: () =>
+        import(
+          "./fertilizers/fertilizers.module"
+        ).then((m) => m.FertilizersModule),
       },
       {
         path: "pathogen-types",
