@@ -1,4 +1,31 @@
+
+
 <div class="px-20 card-wrap">
+  
+<div class="px-20 card-wrap">
+  
+  <div class="bread-crumd">
+    <a [routerLink]="['/admin/pathogen']"> مسببات المرض
+    </a>
+    <strong> <i class="fa-regular fa-chevrons-left"></i> </strong>
+  
+    <a [routerLink]="['/admin/pathogen-growth-stage/pathogen-growth-stage/',pathogen_growth_stage_id]" > مراحل التطور
+    </a>
+    
+    <strong> <i class="fa-regular fa-chevrons-left"></i> </strong>
+
+    <a [routerLink]="['/admin/pathogen-growth-stage/get-affecting-ac',ac,id]" *ngIf="!isEdit"> المواد الفعالة المؤثرة على مرحلة تطور معينة للكائن الممرض 
+    </a>
+
+      <a [routerLink]="['/admin/pathogen-growth-stage/get-affecting-ac',pathogen_growth_stage_id,id]" *ngIf="isEdit"> المواد الفعالة المؤثرة على مرحلة تطور معينة للكائن الممرض 
+    </a>
+    
+    <strong> <i class="fa-regular fa-chevrons-left"></i> </strong>
+  
+    <span>{{ !isEdit ? "اضافه" : " تعديل " }} 
+  
+    </span>
+  </div>
     <!-- <app-head-nav></app-head-nav> -->
     <div class="card-custom">
       <div class="card-head">

@@ -48,6 +48,7 @@ export class CreatePathogenGrowthStageComponent implements OnInit {
       this.isEdit = false;
     }
   }
+  pathogen_id:any;
   assets: any;
   pathogenId: any;
   getUser = (id: any) => {
@@ -152,8 +153,16 @@ export class CreatePathogenGrowthStageComponent implements OnInit {
     }
   };
   goBack = () => {
-    this.route.navigate([
-      "admin/pathogen-growth-stage/pathogen-growth-stage/" + this.id,
-    ]);
+    if(this.isEdit){
+      
+      this.route.navigate([
+        "admin/pathogen-growth-stage/pathogen-growth-stage/" + this.pathogenId,
+      ]);
+    }else{
+      this.route.navigate([
+        "admin/pathogen-growth-stage/pathogen-growth-stage/" + this.id,
+      ]);
+    }
+
   };
 }
