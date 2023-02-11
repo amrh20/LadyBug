@@ -1,0 +1,42 @@
+<div class="px-20 card-wrap">
+  <!-- <app-head-nav></app-head-nav> -->
+  <div class="card-custom">
+    <div class="card-head">
+      <h2 class="title">تفاصيل المرض</h2>
+    </div>
+    <div class="card-content">
+      <div class="row">
+        <div class="col-md-12 mb-5">
+          <div class="list-item">
+            <h2 class="title">الصور</h2>
+            <span class="desc">
+              <img
+                [src]="detailsData?.assets"
+                alt=""
+                style="max-width: 100px"
+                class="my-4"
+              />
+            </span>
+          </div>
+        </div>
+        <div class="col-md-4 mb-5">
+          <div class="list-item">
+            <h2 class="title">المرض</h2>
+            <span class="desc">
+              {{ detailsData?.disease?.name }}
+            </span>
+          </div>
+        </div>
+
+        <div class="col-md-4 mb-5">
+          <div class="list-item">
+            <h2 class="title">المرحله</h2>
+            <span class="desc">
+              {{ detailsData?.farmed_type_stage.name }}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

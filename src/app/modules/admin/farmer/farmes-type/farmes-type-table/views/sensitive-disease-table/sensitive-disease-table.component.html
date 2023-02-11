@@ -2,87 +2,47 @@
   <div
     class="page-title d-flex justify-content-between align-items-center w-100"
   >
-    <h1 class="fs-24">المشرفين</h1>
-
+    <h1 class="fs-24">الأمراض التي يصاب بها هذا المحصول</h1>
     <div class="">
-      <button class="main-btn" [routerLink]="['./create-user']">
-        اضافه مشرف
+      <button
+        class="main-btn"
+        [routerLink]="[
+          '/admin/farmer/farmedTypes/create-Sensitive-diseases/' + ids
+        ]"
+      >
+        اضافه أمراض
       </button>
     </div>
   </div>
-  <form class="filter-container" [formGroup]="filterForm">
-    <div class="row">
-      <div class="col">
-        <div class="search-input">
-          <input
-            type="text"
-            class="search-ground"
-            placeholder=" بحث بالاسم"
-            name=""
-            id=""
-            formControlName="name"
-          />
-        </div>
-      </div>
-      <div class="col">
-        <div class="search-input">
-          <input
-            type="text"
-            class="search-ground"
-            placeholder=" بحث برقم الهاتف"
-            name=""
-            id=""
-            formControlName="mobile"
-          />
-        </div>
-      </div>
-      <div class="col">
-        <div class="search-input">
-          <input
-            type="text"
-            class="search-ground"
-            placeholder=" بحث بالبريد الالكتروني "
-            name=""
-            id=""
-            formControlName="email"
-          />
-        </div>
-      </div>
-      <div class="col">
-        <button class="main-btn" (click)="search()">بحث</button>
-      </div>
-    </div>
-  </form>
-
-  <div class="bg-white pb-5 br-10">
+  <div
+    class="bg-white pb-5 br-10 text-center py-3 not-found"
+    *ngIf="resistantDiseases.length == '0'"
+  >
+    لا يوجد أمراض
+  </div>
+  <div class="bg-white pb-5 br-10" *ngIf="resistantDiseases.length > 0">
     <app-table>
       <ng-container header>
         <tr>
           <th>##</th>
           <th>الاسم</th>
-          <th>النوع</th>
-          <th>الوظيفه</th>
-          <th>حظر</th>
-          <th>اجراءت</th>
+          <th>المرحله</th>
+          <th>الاجراءات</th>
         </tr>
       </ng-container>
-      <ng-container content *ngIf="DataTable?.length != 0">
-        <tr *ngFor="let variable of DataTable; let i = index">
+      <ng-container content>
+        <tr *ngFor="let item of resistantDiseases">
           <td>
             <span class="num-td">
-              {{ variable.id }}
+              {{ item.id }}
             </span>
           </td>
-          <td>{{ variable.name }}</td>
-          <td>{{ variable.type }}</td>
-          <td>{{ variable.job_name }}</td>
           <td>
-            <mat-slide-toggle
-              [checked]="variable.status == 'blocked'"
-              (change)="blockItem(variable.id, $event)"
-            ></mat-slide-toggle>
+            <span>
+              {{ item?.disease.name }}
+            </span>
           </td>
-
+          <td>{{ item?.farmed_type_stage.name }}</td>
           <td>
             <button
               class="menu--item"
@@ -133,19 +93,28 @@
               </svg>
             </button>
             <mat-menu #menu="matMenu">
-              <a mat-menu-item [routerLink]="['./user-details', variable.id]">
+              <a
+                mat-menu-item
+                [routerLink]="[
+                  '/admin/farmer/farmedTypes/sensitive-disease-details',
+                  item.id
+                ]"
+              >
                 <span> <i class="fa-light fa-eye"></i> تفاصيل </span>
               </a>
               <button mat-menu-item>
                 <a
                   mat-menu-item
                   class="p-0"
-                  [routerLink]="['edit-user', variable.id]"
+                  [routerLink]="[
+                    '/admin/farmer/farmedTypes/edit-Sensitive-diseases',
+                    item.id
+                  ]"
                 >
                   <span> <i class="fa-thin fa-pen-to-square"></i> تعديل </span>
                 </a>
               </button>
-              <button mat-menu-item (click)="deleteItem(variable.id)">
+              <button mat-menu-item (click)="deleteItem(item.id)">
                 <span><i class="fa-thin fa-trash"></i> حذف </span>
               </button>
             </mat-menu>
@@ -153,10 +122,11 @@
         </tr>
       </ng-container>
     </app-table>
-    <app-pagination
-      [last]="last"
-      [current]="current"
-      (pageChange)="pageChange($event)"
-    ></app-pagination>
+
+    <!-- <app-pagination -->
+    <!-- [last]="last" -->
+    <!-- [current]="current" -->
+    <!-- (pageChange)="pageChange($event)" -->
+    <!-- ></app-pagination> -->
   </div>
 </div>

@@ -30,6 +30,11 @@ import { CountriesFaremdComponent } from './farmes-type-table/views/CountriesFar
 import { NamesCountriesTableComponent } from './farmes-type-table/views/names_countries/names-countries-table/names-countries-table.component';
 import { NamesCountriesCreateComponent } from './farmes-type-table/views/names_countries/names-countries-create/names-countries-create.component';
 import { DivvPipe } from './farmes-type-table/views/names_countries/names-countries-create/divv.pipe';
+import { ResistantDiseasesComponent } from './farmes-type-table/views/resistant-diseases/resistant-diseases.component';
+import { CreateResistantDiseasesComponent } from './farmes-type-table/views/resistant-diseases/create-resistant-diseases/create-resistant-diseases.component';
+import { SensitiveDiseaseTableComponent } from './farmes-type-table/views/sensitive-disease-table/sensitive-disease-table.component';
+import { CreateSensitiveDiseasesComponent } from './farmes-type-table/views/sensitive-disease-table/create-sensitive-diseases/create-sensitive-diseases.component';
+import { SensitiveDiseaseDetailsComponent } from './farmes-type-table/views/sensitive-disease-table/sensitive-disease-details/sensitive-disease-details.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +60,12 @@ import { DivvPipe } from './farmes-type-table/views/names_countries/names-countr
     CountriesFaremdComponent,
     NamesCountriesTableComponent,
     NamesCountriesCreateComponent,
-    DivvPipe
+    DivvPipe,
+    ResistantDiseasesComponent,
+    CreateResistantDiseasesComponent,
+    SensitiveDiseaseTableComponent,
+    CreateSensitiveDiseasesComponent,
+    SensitiveDiseaseDetailsComponent
   ],
   imports: [
     CommonModule,

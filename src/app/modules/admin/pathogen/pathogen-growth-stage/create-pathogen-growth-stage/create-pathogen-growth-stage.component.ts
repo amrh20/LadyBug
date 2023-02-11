@@ -87,7 +87,6 @@ export class CreatePathogenGrowthStageComponent implements OnInit {
     if (this.form.valid) {
       if (this.isEdit) {
         this.loading = true;
-
         let data = new FormData();
         data.append("name[ar]", this.form?.value?.name_ar);
         data.append("name[en]", this.form?.value?.name_en);

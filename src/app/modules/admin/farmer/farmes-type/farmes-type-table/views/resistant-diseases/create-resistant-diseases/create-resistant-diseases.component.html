@@ -1,0 +1,40 @@
+<div class="px-20 card-wrap">
+  <!-- <app-head-nav></app-head-nav> -->
+  <div class="card-custom">
+    <div class="card-head">
+      <h2 class="title">{{ !isEdit ? "اضافه" : " تعديل " }} الامراض</h2>
+    </div>
+    <div class="card-content">
+      <div class="row">
+        <div class="col-12 mb-5">
+          <label for=""> الامراض</label>
+          <ngx-multiple-select
+            id="permissions"
+            [enableAll]="true"
+            [enableSearch]="true"
+            [label]="'name'"
+            [value]="'id'"
+            [placeholder]="'اختر   الامراض...'"
+            [sourceData]="asc"
+            (onSelect)="onSelect($event)"
+          >
+          </ngx-multiple-select>
+          <div class="error-msg">
+            <div *ngIf="selectedasc.length == 0 && isSubmit">
+              {{ "must_required" | translate }}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="actions mt-5">
+        <app-spinner *ngIf="loading"></app-spinner>
+        <button class="main-btn" *ngIf="!loading" (click)="sendData()">
+          حفظ
+        </button>
+        <button class="tr-btn mx-3" *ngIf="!loading" (click)="goBack()">
+          الغاء
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
