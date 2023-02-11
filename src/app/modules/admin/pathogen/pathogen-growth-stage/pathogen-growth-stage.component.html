@@ -118,7 +118,7 @@
                 <a
                   mat-menu-item
                   [routerLink]="[
-                    '/admin/pathogen-growth-stage/edit-pathogen-growth-stage',
+                    '/admin/pathogen-growth-stage/edit-affecting-ac',
                     variable.id
                   ]"
                   class="p-0"
@@ -126,6 +126,19 @@
                   <span> <i class="fa-thin fa-pen-to-square"></i> تعديل </span>
                 </a>
               </button>
+              <button mat-menu-item>
+                <a
+                  mat-menu-item
+                  [routerLink]="[
+                  '/admin/pathogen-growth-stage/get-affecting-ac',id , variable.id
+
+                  ]"
+                  class="p-0"
+                >
+                  <span> <i class="fa-thin fa-eye"></i> المواد الفعالة المؤثرة على مرحلة تطور معينة للكائن الممرض </span>
+                </a>
+              </button>
+              
               <button mat-menu-item (click)="deleteItem(variable.id)">
                 <span><i class="fa-thin fa-trash"></i> حذف </span>
               </button>
