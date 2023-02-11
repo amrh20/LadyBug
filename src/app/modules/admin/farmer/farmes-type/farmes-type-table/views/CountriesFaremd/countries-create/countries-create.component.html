@@ -1,59 +1,56 @@
 <div class="px-20 card-wrap">
-    <!-- <app-head-nav></app-head-nav> -->
-    <div class="card-custom">
-        <div class="card-head">
-            <h2 class="title">
-
-                {{!isEdit?'اضافه' : ' تعديل '}}      
-                الدول المشهور فيها المحصول  
- 
-            </h2>
-        </div>
-        <div class="card-content">
-            <form [formGroup]="form">
-                <div class="col-6 mb-5">
-                    <ngx-multiple-select
-                      *ngIf="ascData"
-                      id="permissions"
-                      [enableAll]="true"
-                      [enableSearch]="true"
-                      [label]="'name'"
-                      [value]="'id'"
-                      [placeholder]="' اختر الدولة...'"
-                      [selectedData]="selectedCountries"
-                      [sourceData]="allCountries"
-                      (onSelect)="onSelectCountries($event)"
-                    >
-                    </ngx-multiple-select>
-                    <div
-                    class="error-msg"
-                   >
-                    <div
-                        *ngIf="selectedCountries.length ==0 && isSubmit">{{"must_required"
-                        | translate}}</div>
-      
-                </div>
-                  </div>
-       
-                
-                <div class="actions mt-5">
-                    <app-spinner *ngIf="loading"></app-spinner>
-                    <button
-                        class="main-btn"
-                        *ngIf="!loading"
-                        (click)="sendData()">
-                        حفظ
-                    </button>
-                    <button
-                        class="tr-btn mx-3"
-                        *ngIf="!loading"
-                        (click)="goBack()">
-                        الغاء
-                    </button>
-                </div>
-            </form>
-
-
-        </div>
+  <div class="bread-crumd">
+    <a [routerLink]="['/admin/farmer/farmedTypes']"> المحصول </a>
+    <strong> <i class="fa-regular fa-chevrons-left"></i> </strong>
+    <a [routerLink]="['/admin/farmer/farmedTypes/CountriesFaremd', ids]">
+      الدول المشهور فيها المحصول
+    </a>
+    <strong> <i class="fa-regular fa-chevrons-left"></i> </strong>
+    <span>
+      {{ !isEdit ? "اضافه" : " تعديل " }}
+      الدول المشهور فيها المحصول
+    </span>
+  </div>
+  <div class="card-custom">
+    <div class="card-head">
+      <h2 class="title">
+        {{ !isEdit ? "اضافه" : " تعديل " }}
+        الدول المشهور فيها المحصول
+      </h2>
     </div>
+    <div class="card-content">
+      <form [formGroup]="form">
+        <div class="col-6 mb-5">
+          <ngx-multiple-select
+            *ngIf="ascData"
+            id="permissions"
+            [enableAll]="true"
+            [enableSearch]="true"
+            [label]="'name'"
+            [value]="'id'"
+            [placeholder]="' اختر الدولة...'"
+            [selectedData]="selectedCountries"
+            [sourceData]="allCountries"
+            (onSelect)="onSelectCountries($event)"
+          >
+          </ngx-multiple-select>
+          <div class="error-msg">
+            <div *ngIf="selectedCountries.length == 0 && isSubmit">
+              {{ "must_required" | translate }}
+            </div>
+          </div>
+        </div>
+
+        <div class="actions mt-5">
+          <app-spinner *ngIf="loading"></app-spinner>
+          <button class="main-btn" *ngIf="!loading" (click)="sendData()">
+            حفظ
+          </button>
+          <button class="tr-btn mx-3" *ngIf="!loading" (click)="goBack()">
+            الغاء
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>

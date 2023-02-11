@@ -38,7 +38,6 @@ export class CreateSensitiveDiseasesComponent implements OnInit {
 
     if (this.route.url.includes("create-Sensitive-diseases")) {
       this.isEdit = false;
-      console.log("ddd");
     } else {
       this.isEdit = true;
       this._CrudRequestsService

@@ -8,6 +8,7 @@ import { CrudRequestsService } from "src/app/core/services/crud-requests.service
   styleUrls: ["./sensitive-disease-details.component.scss"],
 })
 export class SensitiveDiseaseDetailsComponent implements OnInit {
+  id: any;
   constructor(
     private _CrudRequestsService: CrudRequestsService,
     private _activeRoute: ActivatedRoute
@@ -23,6 +24,7 @@ export class SensitiveDiseaseDetailsComponent implements OnInit {
       .get("one_sensitive_disease/" + id)
       .subscribe((data: any) => {
         this.detailsData = data.data;
+        this.id = data.data.farmed_type_id;
       });
   };
 }
