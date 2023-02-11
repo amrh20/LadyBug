@@ -137,6 +137,13 @@ const routes: Routes = [
           import("./settings/settings.module").then((m) => m.SettingsModule),
       },
       {
+        path: "irrigation_rates",
+        loadChildren: () =>
+          import("./irrigation-rates/irrigation-rates.module").then(
+            (m) => m.IrrigationRatesModule
+          ),
+      },
+      {
         path: "",
         redirectTo: "generic-user",
         pathMatch: "full",

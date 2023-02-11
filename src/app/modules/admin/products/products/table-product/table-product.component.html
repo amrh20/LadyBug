@@ -115,6 +115,13 @@
                 <span> <i class="fa-light fa-eye"></i> تقييم </span>
               </a>
 
+              <a
+                mat-menu-item
+                [routerLink]="['/admin/Product/Product-details', variable?.id]"
+              >
+                <span> <i class="fa-light fa-eye"></i> تفاصيل </span>
+              </a>
+
               <button mat-menu-item (click)="deleteItem(variable.id)">
                 <span><i class="fa-thin fa-trash"></i> حذف </span>
               </button>
