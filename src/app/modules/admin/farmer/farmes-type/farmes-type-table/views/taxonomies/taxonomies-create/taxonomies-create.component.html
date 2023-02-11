@@ -1,202 +1,157 @@
 <div class="px-20 card-wrap">
-    <!-- <app-head-nav></app-head-nav> -->
-    <div class="card-custom">
-        <div class="card-head">
-            <h2 class="title">
+  <!-- <app-head-nav></app-head-nav> -->
+  <div class="bread-crumd">
+    <a [routerLink]="['/admin/farmer/farmedTypes']"> المحصول </a>
+    <strong> <i class="fa-regular fa-chevrons-left"></i> </strong>
 
-                {{!isEdit?'اضافه' : ' تعديل '}}     التصنيف العالمي               
-                
- 
+    <a [routerLink]="['/admin/farmer/farmedTypes/taxonomies', ids]">
+      التصنيف العالمي
+    </a>
+    <strong> <i class="fa-regular fa-chevrons-left"></i> </strong>
 
- 
-            </h2>
-        </div>
-        <div class="card-content">
-            <form [formGroup]="form">
-                <div class="row">
-               
-                
-                    <div class="col-6 mb-5">
-                        <input
-                            type="text"
-                            placeholder="المملكة"
-                            formControlName="kingdom">
-                        <div
-                            class="error-msg"
-                            *ngIf="form.controls['kingdom'].touched ||
-                            isSubmit">
-                            <div
-                                *ngIf="form.controls['kingdom'].hasError('required')">{{"must_required"
-                                | translate}}</div>
-
-
-                        </div>
-                    </div>
-                    <div class="col-6 mb-5">
-                        <input
-                            type="text"
-                            placeholder="النطاق"
-                            formControlName="domain">
-                        <div
-                            class="error-msg"
-                            *ngIf="form.controls['domain'].touched ||
-                            isSubmit">
-                            <div
-                                *ngIf="form.controls['domain'].hasError('required')">{{"must_required"
-                                | translate}}</div>
-
-
-                        </div>
-                    </div>
-                    <div class="col-6 mb-5">
-                        <input
-                            type="text"
-                            placeholder="شعبة"
-                            formControlName="phylum">
-                        <div
-                            class="error-msg"
-                            *ngIf="form.controls['phylum'].touched ||
-                            isSubmit">
-                            <div
-                                *ngIf="form.controls['phylum'].hasError('required')">{{"must_required"
-                                | translate}}</div>
-
-
-                        </div>
-                    </div>
-                    <div class="col-6 mb-5">
-                        <input
-                            type="text"
-                            placeholder="تحت شعبة"
-                            formControlName="subphylum">
-                        <div
-                            class="error-msg"
-                            *ngIf="form.controls['subphylum'].touched ||
-                            isSubmit">
-                            <div
-                                *ngIf="form.controls['subphylum'].hasError('required')">{{"must_required"
-                                | translate}}</div>
-
-
-                        </div>
-                    </div>
-                    <div class="col-6 mb-5">
-                        <input
-                            type="text"
-                            placeholder="فوق صف"
-                            formControlName="superclass">
-                        <div
-                            class="error-msg"
-                            *ngIf="form.controls['superclass'].touched ||
-                            isSubmit">
-                            <div
-                                *ngIf="form.controls['superclass'].hasError('required')">{{"must_required"
-                                | translate}}</div>
-
-
-                        </div>
-                    </div>
-                    <div class="col-6 mb-5">
-                        <input
-                            type="text"
-                            placeholder="صف"
-                            formControlName="class">
-                        <div
-                            class="error-msg"
-                            *ngIf="form.controls['class'].touched ||
-                            isSubmit">
-                            <div
-                                *ngIf="form.controls['class'].hasError('required')">{{"must_required"
-                                | translate}}</div>
-
-
-                        </div>
-                    </div>
-               
-                    <div class="col-6 mb-5">
-                        <input
-                            type="text"
-                            placeholder="رتبة"
-                            formControlName="order">
-                        <div
-                            class="error-msg"
-                            *ngIf="form.controls['order'].touched ||
-                            isSubmit">
-                            <div
-                                *ngIf="form.controls['order'].hasError('required')">{{"must_required"
-                                | translate}}</div>
-
-
-                        </div>
-                    </div>
-                    <div class="col-6 mb-5">
-                        <input
-                            type="text"
-                            placeholder="فصيلة"
-                            formControlName="family">
-                        <div
-                            class="error-msg"
-                            *ngIf="form.controls['family'].touched ||
-                            isSubmit">
-                            <div
-                                *ngIf="form.controls['family'].hasError('required')">{{"must_required"
-                                | translate}}</div>
-
-
-                        </div>
-                    </div>
-                    <div class="col-6 mb-5">
-                        <input
-                            type="text"
-                            placeholder="جنس "
-                            formControlName="genus">
-                        <div
-                            class="error-msg"
-                            *ngIf="form.controls['genus'].touched ||
-                            isSubmit">
-                            <div
-                                *ngIf="form.controls['genus'].hasError('required')">{{"must_required"
-                                | translate}}</div>
-
-
-                        </div>
-                    </div>
-                    <div class="col-6 mb-5">
-                        <input
-                            type="text"
-                            placeholder="نوع"
-                            formControlName="species">
-                        <div
-                            class="error-msg"
-                            *ngIf="form.controls['species'].touched ||
-                            isSubmit">
-                            <div
-                                *ngIf="form.controls['species'].hasError('required')">{{"must_required"
-                                | translate}}</div>
-
-
-                        </div>
-                    </div>
-                    
-                </div>
-                <div class="actions mt-5">
-                    <app-spinner *ngIf="loading"></app-spinner>
-                    <button
-                        class="main-btn"
-                        *ngIf="!loading"
-                        (click)="sendData()">
-                        حفظ
-                    </button>
-                    <button
-                        class="tr-btn mx-3"
-                        *ngIf="!loading"
-                        (click)="goBack()">
-                        الغاء
-                    </button>
-                </div>
-            </form>
-
-
-        </div>
+    <span> {{ !isEdit ? "اضافه" : " تعديل " }} التصنيف العالمي </span>
+  </div>
+  <div class="card-custom">
+    <div class="card-head">
+      <h2 class="title">{{ !isEdit ? "اضافه" : " تعديل " }} التصنيف العالمي</h2>
     </div>
+    <div class="card-content">
+      <form [formGroup]="form">
+        <div class="row">
+          <div class="col-6 mb-5">
+            <input
+              type="text"
+              placeholder="المملكة"
+              formControlName="kingdom"
+            />
+            <div
+              class="error-msg"
+              *ngIf="form.controls['kingdom'].touched || isSubmit"
+            >
+              <div *ngIf="form.controls['kingdom'].hasError('required')">
+                {{ "must_required" | translate }}
+              </div>
+            </div>
+          </div>
+          <div class="col-6 mb-5">
+            <input type="text" placeholder="النطاق" formControlName="domain" />
+            <div
+              class="error-msg"
+              *ngIf="form.controls['domain'].touched || isSubmit"
+            >
+              <div *ngIf="form.controls['domain'].hasError('required')">
+                {{ "must_required" | translate }}
+              </div>
+            </div>
+          </div>
+          <div class="col-6 mb-5">
+            <input type="text" placeholder="شعبة" formControlName="phylum" />
+            <div
+              class="error-msg"
+              *ngIf="form.controls['phylum'].touched || isSubmit"
+            >
+              <div *ngIf="form.controls['phylum'].hasError('required')">
+                {{ "must_required" | translate }}
+              </div>
+            </div>
+          </div>
+          <div class="col-6 mb-5">
+            <input
+              type="text"
+              placeholder="تحت شعبة"
+              formControlName="subphylum"
+            />
+            <div
+              class="error-msg"
+              *ngIf="form.controls['subphylum'].touched || isSubmit"
+            >
+              <div *ngIf="form.controls['subphylum'].hasError('required')">
+                {{ "must_required" | translate }}
+              </div>
+            </div>
+          </div>
+          <div class="col-6 mb-5">
+            <input
+              type="text"
+              placeholder="فوق صف"
+              formControlName="superclass"
+            />
+            <div
+              class="error-msg"
+              *ngIf="form.controls['superclass'].touched || isSubmit"
+            >
+              <div *ngIf="form.controls['superclass'].hasError('required')">
+                {{ "must_required" | translate }}
+              </div>
+            </div>
+          </div>
+          <div class="col-6 mb-5">
+            <input type="text" placeholder="صف" formControlName="class" />
+            <div
+              class="error-msg"
+              *ngIf="form.controls['class'].touched || isSubmit"
+            >
+              <div *ngIf="form.controls['class'].hasError('required')">
+                {{ "must_required" | translate }}
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6 mb-5">
+            <input type="text" placeholder="رتبة" formControlName="order" />
+            <div
+              class="error-msg"
+              *ngIf="form.controls['order'].touched || isSubmit"
+            >
+              <div *ngIf="form.controls['order'].hasError('required')">
+                {{ "must_required" | translate }}
+              </div>
+            </div>
+          </div>
+          <div class="col-6 mb-5">
+            <input type="text" placeholder="فصيلة" formControlName="family" />
+            <div
+              class="error-msg"
+              *ngIf="form.controls['family'].touched || isSubmit"
+            >
+              <div *ngIf="form.controls['family'].hasError('required')">
+                {{ "must_required" | translate }}
+              </div>
+            </div>
+          </div>
+          <div class="col-6 mb-5">
+            <input type="text" placeholder="جنس " formControlName="genus" />
+            <div
+              class="error-msg"
+              *ngIf="form.controls['genus'].touched || isSubmit"
+            >
+              <div *ngIf="form.controls['genus'].hasError('required')">
+                {{ "must_required" | translate }}
+              </div>
+            </div>
+          </div>
+          <div class="col-6 mb-5">
+            <input type="text" placeholder="نوع" formControlName="species" />
+            <div
+              class="error-msg"
+              *ngIf="form.controls['species'].touched || isSubmit"
+            >
+              <div *ngIf="form.controls['species'].hasError('required')">
+                {{ "must_required" | translate }}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="actions mt-5">
+          <app-spinner *ngIf="loading"></app-spinner>
+          <button class="main-btn" *ngIf="!loading" (click)="sendData()">
+            حفظ
+          </button>
+          <button class="tr-btn mx-3" *ngIf="!loading" (click)="goBack()">
+            الغاء
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>
