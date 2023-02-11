@@ -148,7 +148,9 @@
                       <span> <i class="fa-thin fa-eye"></i> عرض التفاصيل </span>
                     </a>
                   </button>
-       
+                  <button mat-menu-item (click)="deleteItem(variable.id)">
+                    <span><i class="fa-thin fa-trash"></i> حذف </span>
+                  </button>
               
               </mat-menu>
             </td>
