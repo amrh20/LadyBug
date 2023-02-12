@@ -1,0 +1,131 @@
+
+
+  <div class="px-20 card-wrap">
+    <!-- <app-head-nav></app-head-nav> -->
+    <div class="card-custom">
+        <div
+        class="page-title d-flex justify-content-between align-items-center w-100"
+      >
+        <h1 class="fs-24"> عوامل زيادة المرض</h1>
+    
+        <div class="" >
+          <button
+            class="main-btn"
+            [routerLink]="[
+              '/admin/Diseases/createDiseaseCausative',
+              id
+            ]"
+          >
+            {{!DataTable?'اضافه':'تعديل'}}  عوامل زيادة المرض
+          </button>
+        </div>
+      </div>
+        <div class="card-content" *ngIf="DataTable">
+            <button class="deleteItem" (click)="deleteItem(DataTable.id)">
+                <span><i class="fa-thin fa-trash"></i>  </span>
+              </button>
+            <div class="row">
+                <div class="col-md-4 mb-5">
+                    <div class="list-item">
+                        <h2 class="title"> درجة حرارة أكبر من</h2>
+                        <span class="desc">
+                            {{ DataTable.temp_gt }}
+
+                        </span>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-5">
+                    <div class="list-item">
+                        <h2 class="title"> درجة حرارة أقل من</h2>
+                        <span class="desc">
+                            {{ DataTable.temp_lt }}
+
+                        </span>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-5">
+                    <div class="list-item">
+                        <h2 class="title"> رطوبة أكبر من</h2>
+                        <span class="desc">
+                            {{ DataTable.humidity_gt }}
+
+                        </span>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-5">
+                    <div class="list-item">
+                        <h2 class="title"> رطوبة أقل من</h2>
+                        <span class="desc">
+                            {{ DataTable.humidity_lt }}
+
+                        </span>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-5">
+                    <div class="list-item">
+                        <h2 class="title"> أس هيدروجيني أكبر من</h2>
+                        <span class="desc">
+                            {{ DataTable.ph_gt }}
+
+                        </span>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-5">
+                    <div class="list-item">
+                        <h2 class="title">   أس هيدروجيني اقل من</h2>
+                        <span class="desc">
+                            {{ DataTable.ph_lt }}
+
+                        </span>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-5">
+                    <div class="list-item">
+                        <h2 class="title">أملاح تربة أكبر من</h2>
+                        <span class="desc">
+                            {{ DataTable.soil_salts_gt }}
+
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-5">
+                    <div class="list-item">
+                        <h2 class="title">أملاح تربة اقل من</h2>
+                        <span class="desc">
+                            {{ DataTable.soil_salts_lt }}
+
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-5">
+                    <div class="list-item">
+                        <h2 class="title">   أملاح ماء اكبر من</h2>
+                        <span class="desc">
+                            {{ DataTable.water_salts_gt }}
+
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-5">
+                    <div class="list-item">
+                        <h2 class="title">أملاح ماء اقل اقل من</h2>
+                        <span class="desc">
+                            {{ DataTable.water_salts_gt }}
+
+                        </span>
+                    </div>
+                </div>
+                
+
+            </div>
+        </div>
+        <div *ngIf="!DataTable" class="not-found">
+            <p>لا يوجد بيانات</p>
+        </div>
+    </div>
+</div>

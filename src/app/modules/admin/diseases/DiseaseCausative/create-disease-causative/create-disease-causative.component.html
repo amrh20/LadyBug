@@ -1,0 +1,41 @@
+<div class="px-20 card-wrap">
+    <!-- <app-head-nav></app-head-nav> -->
+    <div class="card-custom">
+      <div class="card-head">
+        <h2 class="title">عوامل زيادة المرض</h2>
+      </div>
+      <div class="card-content">
+        <form [formGroup]="form">
+          <div class="row">
+            <div class="col-6 mb-5" *ngFor="let item of controls">
+              <label for=""> {{item.kay}}</label>
+              <input
+                type="text"
+                [placeholder]="item.kay"
+                [formControlName]="item.val"
+              />
+              <div
+                class="error-msg"
+                *ngIf="form.controls[item.val].touched || isSubmit"
+              >
+                <div *ngIf="form.controls[item.val].hasError('required')">
+                  {{ "must_required" | translate }}
+                </div>
+              </div>
+            </div>
+  
+          </div>
+          <div class="actions mt-5">
+            <app-spinner *ngIf="loading"></app-spinner>
+            <button class="main-btn" *ngIf="!loading" (click)="sendData()">
+              حفظ
+            </button>
+            <button class="tr-btn mx-3" *ngIf="!loading" (click)="goBack()">
+              الغاء
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  

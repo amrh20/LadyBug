@@ -112,12 +112,20 @@
               >
                 <span> <i class="fa-light fa-eye"></i> تفاصيل </span>
               </a>
+              <a
+              mat-menu-item
+              [routerLink]="['/admin/Diseases/DiseaseCausative/', variable.id]"
+            >
+              <span> <i class="fa-light fa-eye"></i>               عوامل زيادة المرض
+              </span>
+            </a>
               <button
                 mat-menu-item
                 [routerLink]="['/admin/Diseases/edit-Diseases', variable.id]"
               >
                 <span> <i class="fa-thin fa-pen-to-square"></i> تعديل </span>
               </button>
+
               <button mat-menu-item (click)="deleteItem(variable.id)">
                 <span><i class="fa-thin fa-trash"></i> حذف </span>
               </button>

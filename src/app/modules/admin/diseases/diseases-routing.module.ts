@@ -1,5 +1,7 @@
 import { RouterModule, Routes } from "@angular/router";
 
+import { CreateDiseaseCausativeComponent } from './DiseaseCausative/create-disease-causative/create-disease-causative.component';
+import { DiseaseCausativeComponent } from './DiseaseCausative/disease-causative/disease-causative.component';
 import { DiseaseRegistrationsTableComponent } from "./pages/disease_registrations/disease-registrations-table/disease-registrations-table.component";
 import { DiseaseRegistrationsViewComponent } from "./pages/disease_registrations/disease-registrations-view/disease-registrations-view.component";
 import { DiseasesCreateComponent } from "./pages/diseases/diseases-create/diseases-create.component";
@@ -44,7 +46,14 @@ const routes: Routes = [
       {
         path: "diseaseRegistrations",
         component: DiseaseRegistrationsTableComponent,
-      },
+      },{
+        path:'DiseaseCausative/:id',
+        component:DiseaseCausativeComponent
+      }
+      ,{
+        path:'createDiseaseCausative/:id',
+        component:CreateDiseaseCausativeComponent
+      }
     ],
   },
 ];
