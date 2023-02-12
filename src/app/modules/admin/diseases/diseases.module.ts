@@ -16,6 +16,8 @@ import { MaterialModule } from '../../../core/material-module.module';
 import { DiseaseRegistrationsTableComponent } from './pages/disease_registrations/disease-registrations-table/disease-registrations-table.component';
 import { DiseaseRegistrationsViewComponent } from './pages/disease_registrations/disease-registrations-view/disease-registrations-view.component';
 import { UpdateDiseaseRegistrationsComponent } from './pages/disease_registrations/update-disease-registrations/update-disease-registrations.component';
+import { DiseaseCausativeComponent } from './DiseaseCausative/disease-causative/disease-causative.component';
+import { CreateDiseaseCausativeComponent } from './DiseaseCausative/create-disease-causative/create-disease-causative.component';
 
 
 @NgModule({
@@ -28,7 +30,9 @@ import { UpdateDiseaseRegistrationsComponent } from './pages/disease_registratio
     IndexDiseasesComponent,
     DiseaseRegistrationsTableComponent,
     DiseaseRegistrationsViewComponent,
-    UpdateDiseaseRegistrationsComponent
+    UpdateDiseaseRegistrationsComponent,
+    DiseaseCausativeComponent,
+    CreateDiseaseCausativeComponent
   ],
   imports: [
     CommonModule,
