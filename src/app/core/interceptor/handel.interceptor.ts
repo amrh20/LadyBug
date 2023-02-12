@@ -17,7 +17,10 @@ export class HandelInterceptor implements HttpInterceptor {
     request: HttpRequest<unknown>,
     next: HttpHandler
   ): Observable<HttpEvent<unknown>> {
-    if (request.url.includes("admin/businesses")) {
+    if (
+      request.url.includes("admin/businesses") ||
+      request.url.includes("/admin/products")
+    ) {
       request = request.clone({
         headers: new HttpHeaders({
           Accept: "application/json",

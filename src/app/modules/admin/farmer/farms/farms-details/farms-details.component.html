@@ -34,13 +34,13 @@
         </div>
         <div class="col-md-4 mb-5">
           <div class="list-item">
-            <h2 class="title">التقيم </h2>
+            <h2 class="title">التقيم</h2>
             <span class="desc">
               {{ detailsData?.ladybug_rating }}
             </span>
           </div>
         </div>
-        
+
         <div class="col-md-4 mt-5">
           <div class="list-item">
             <h2 class="title">تاريخ الزراعة</h2>
@@ -73,15 +73,6 @@
             <h2 class="title">عدد المحصول</h2>
             <span class="desc">
               {{ detailsData?.farmed_number }}
-            </span>
-          </div>
-        </div>
-
-        <div class="col-md-4 mt-5">
-          <div class="list-item">
-            <h2 class="title">الملاءمة</h2>
-            <span class="desc">
-              {{ detailsData?.farming_compatibility?.messages }}
             </span>
           </div>
         </div>
@@ -164,6 +155,26 @@
             <span class="desc">
               {{ detailsData?.location?.details }}
             </span>
+          </div>
+        </div>
+
+        <div class="col-md-12 mt-5">
+          <div class="list-item">
+            <h2 class="title">الملاءمة</h2>
+            <ol>
+              <li
+                class="desc"
+                *ngFor="
+                  let item of detailsData?.farming_compatibility?.messages
+                "
+              >
+                {{ item }}
+              </li>
+            </ol>
+            <p class="my-3">
+              الاجمالي :
+              {{ detailsData?.farming_compatibility?.total }}%
+            </p>
           </div>
         </div>
       </div>

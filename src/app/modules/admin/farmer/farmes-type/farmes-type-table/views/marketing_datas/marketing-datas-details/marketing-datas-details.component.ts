@@ -9,6 +9,7 @@ import { SettingService } from "src/app/core/services/setting.service";
   styleUrls: ["./marketing-datas-details.component.scss"],
 })
 export class MarketingDatasDetailsComponent implements OnInit {
+  id: any;
   constructor(
     private _CrudRequestsService: CrudRequestsService,
     private _SettingService: SettingService,
@@ -28,6 +29,7 @@ export class MarketingDatasDetailsComponent implements OnInit {
       .get("marketing_datas/" + id)
       .subscribe((data: any) => {
         this.detailsData = data.data;
+        this.id = data.data.farmed_type_id;
       });
   };
 }

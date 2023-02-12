@@ -1,5 +1,17 @@
 <div class="px-20 card-wrap">
-  <!-- <app-head-nav></app-head-nav> -->
+  <div class="bread-crumd">
+    <a [routerLink]="['/admin/farmer/farmedTypes']"> المحصول </a>
+    <strong> <i class="fa-regular fa-chevrons-left"></i> </strong>
+
+    <a [routerLink]="['/admin/farmer/farmedTypes/marketing-datas', id]"
+      >بيانات التسويق
+    </a>
+
+    <strong> <i class="fa-regular fa-chevrons-left"></i> </strong>
+
+    <span> تفاصيل بيانات التسويق </span>
+  </div>
+
   <div class="card-custom">
     <div class="card-head">
       <h2 class="title">تفاصيل بيانات التسوق</h2>

@@ -582,12 +582,19 @@
                 id="apply"
                 accept="image/png , image/jpeg"
                 (change)="changeFile($event)"
+                class="d-none"
               />
+              ارفاق صوره
             </label>
             <div class="error-msg" *ngIf="file == null && isSubmit && !isEdit">
               <div *ngIf="file == null">{{ "must_required" | translate }}</div>
             </div>
           </div>
+          <ul>
+            <li *ngIf="file?.name">
+              {{ file?.name }}
+            </li>
+          </ul>
         </div>
         <div class="actions mt-5">
           <app-spinner *ngIf="loading"></app-spinner>

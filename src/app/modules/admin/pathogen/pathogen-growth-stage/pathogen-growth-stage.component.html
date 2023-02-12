@@ -1,10 +1,8 @@
 <div class="bread-crumd">
-  <a [routerLink]="['/admin/pathogen']"> مسببات المرض
- </a>
+  <a [routerLink]="['/admin/pathogen']"> مسببات المرض </a>
   <strong> <i class="fa-regular fa-chevrons-left"></i> </strong>
 
-  <span>مراحل التطور
-  </span>
+  <span>مراحل التطور </span>
 </div>
 <div class="general-users-wrapper br-10">
   <div
@@ -51,7 +49,7 @@
         <tr>
           <th>##</th>
           <th>الاسم بالعربي</th>
-          <th>الاسم بالانجليزي</th>
+          <!-- <th>الاسم بالانجليزي</th> -->
           <th>الاجراءات</th>
         </tr>
       </ng-container>
@@ -63,7 +61,7 @@
             </span>
           </td>
           <td>{{ variable.name.ar }}</td>
-          <td>{{ variable.name.en }}</td>
+          <!-- <td>{{ variable.name.en }}</td> -->
 
           <td>
             <button
@@ -138,15 +136,19 @@
                 <a
                   mat-menu-item
                   [routerLink]="[
-                  '/admin/pathogen-growth-stage/get-affecting-ac',id , variable.id
-
+                    '/admin/pathogen-growth-stage/get-affecting-ac',
+                    id,
+                    variable.id
                   ]"
                   class="p-0"
                 >
-                  <span> <i class="fa-thin fa-eye"></i> المواد الفعالة المؤثرة على مرحلة تطور معينة للكائن الممرض </span>
+                  <span>
+                    <i class="fa-thin fa-eye"></i> المواد الفعالة المؤثرة على
+                    مرحلة تطور معينة للكائن الممرض
+                  </span>
                 </a>
               </button>
-              
+
               <button mat-menu-item (click)="deleteItem(variable.id)">
                 <span><i class="fa-thin fa-trash"></i> حذف </span>
               </button>

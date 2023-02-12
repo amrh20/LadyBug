@@ -1,123 +1,110 @@
 <div class="px-20 card-wrap">
-    <!-- <app-head-nav></app-head-nav> -->
-    <div class="card-custom">
-        <div class="card-head">
-            <h2 class="title">تفاصيل سماد</h2>
+  <!-- <app-head-nav></app-head-nav> -->
+  <div class="card-custom">
+    <div class="card-head">
+      <h2 class="title">تفاصيل سماد</h2>
+    </div>
+    <div class="card-content">
+      <div class="row">
+        <div class="col-md-4 mb-5">
+          <div class="list-item">
+            <h2 class="title">الاسم بالعربي</h2>
+            <span class="desc">
+              {{ detailsData?.name.ar }}
+            </span>
+          </div>
         </div>
-        <div class="card-content">
-            <div class="row">
-                <div class="col-md-4 mb-5">
-                    <div class="list-item">
-                        <h2 class="title">الاسم بالعربي</h2>
-                        <span class="desc">
-                            {{ detailsData?.name.ar }}
-                        </span>
-                    </div>
-                </div>
 
-                <div class="col-md-4 mb-5">
-                    <div class="list-item">
-                        <h2 class="title">الاسم بالانجليزي</h2>
-                        <span class="desc"> {{ detailsData?.name.en }}
-                        </span>
-                    </div>
-                </div>
+        <div class="col-md-4 mb-5">
+          <div class="list-item">
+            <h2 class="title">الاسم بالانجليزي</h2>
+            <span class="desc"> {{ detailsData?.name.en }} </span>
+          </div>
+        </div>
 
-                <div class="col-md-4 mb-5">
-                    <div class="list-item">
-                        <h2 class="title">شكل جرعات</h2>
-                        <span class="desc"> {{ detailsData?.dosage_form }}
-                        </span>
-                    </div>
-                </div>
-                <div class="col-md-4 mt-5">
-                    <div class="list-item">
-                        <h2 class="title">منتج</h2>
-                        <span class="desc"> {{ detailsData?.producer}} </span>
-                    </div>
-                </div>
+        <div class="col-md-4 mb-5">
+          <div class="list-item">
+            <h2 class="title">شكل جرعات</h2>
+            <span class="desc"> {{ detailsData?.dosage_form }} </span>
+          </div>
+        </div>
+        <div class="col-md-4 mt-5">
+          <div class="list-item">
+            <h2 class="title">المنتج</h2>
+            <span class="desc"> {{ detailsData?.producer }} </span>
+          </div>
+        </div>
 
-                <div class="col-md-4 mt-5">
-                    <div class="list-item">
-                        <h2 class="title">البلد</h2>
-                        <span class="desc"> {{ detailsData?.country?.name}}
-                        </span>
-                    </div>
-                </div>
+        <div class="col-md-4 mt-5">
+          <div class="list-item">
+            <h2 class="title">البلد</h2>
+            <span class="desc"> {{ detailsData?.country?.name }} </span>
+          </div>
+        </div>
 
-                <div class="col-md-4 mt-5">
-                    <div class="list-item">
-                        <h2 class="title">الحاصل</h2>
-                        <span class="desc"> {{ detailsData?.conc}} </span>
-                    </div>
-                </div>
+        <div class="col-md-4 mt-5">
+          <div class="list-item">
+            <h2 class="title">الحاصل</h2>
+            <span class="desc"> {{ detailsData?.conc }} </span>
+          </div>
+        </div>
 
-                <div class="col-md-4 mt-5">
-                    <div class="list-item">
-                        <h2 class="title">الملاحظات بالعربي</h2>
-                        <span class="desc">
-                            {{ detailsData?.notes.ar }}
-                        </span>
-                    </div>
-                </div>
+        <div class="col-md-4 mt-5">
+          <div class="list-item">
+            <h2 class="title">الملاحظات</h2>
+            <span class="desc">
+              {{ detailsData?.notes.ar }}
+            </span>
+          </div>
+        </div>
 
-                <div class="col-md-4 mt-5">
+        <!-- <div class="col-md-4 mt-5">
                     <div class="list-item">
                         <h2 class="title">الملاحظات بالانجليزي</h2>
                         <span class="desc"> {{ detailsData?.notes.en }}
                         </span>
                     </div>
-                </div>
-                <div class="col-md-4 mt-5">
-                    <div class="list-item">
-                        <h2 class="title">احتياطات بالعربي</h2>
-                        <span class="desc">
-                            {{ detailsData?.precautions.ar }}
-                        </span>
-                    </div>
-                </div>
-
-                <div class="col-md-4 mt-5">
-                    <div class="list-item">
-                        <h2 class="title">احتياطات بالانجليزي</h2>
-                        <span class="desc"> {{ detailsData?.precautions.en }}
-                        </span>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4 mt-5">
-                    <div class="list-item">
-                        <h2 class="title">رقم التسجيل</h2>
-                        <span class="desc"> {{ detailsData?.reg_num }} </span>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4 mt-5">
-                    <div class="list-item">
-                        <h2 class="title"> معدل الاستخدام
-                        </h2>
-                        <span class="desc"> {{ detailsData?.usage_rate }}
-                        </span>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4 mt-5">
-                    <div class="list-item">
-                        <h2 class="title">تاريخ التسجيل</h2>
-                        <span class="desc">
-                            {{ detailsData?.reg_date | date : "dd-MM-YYYY" }}
-                        </span>
-                    </div>
-                </div>
-
-                <div class="col-md-4 mb-4 mt-5" *ngFor="let u of
-                    detailsData.nut_elem_value |
-                    keyValueFilter">
-                    <div class="list-item">
-                        <h2 class="title">{{u.value.name}}</h2>
-                        <span class="desc">
-                            {{u.value.value}} </span>
-                    </div>
-                </div>
-
-            </div>
+                </div> -->
+        <div class="col-md-4 mt-5">
+          <div class="list-item">
+            <h2 class="title">احتياطات</h2>
+            <span class="desc">
+              {{ detailsData?.precautions.ar }}
+            </span>
+          </div>
         </div>
+
+        <div class="col-md-4 mb-4 mt-5">
+          <div class="list-item">
+            <h2 class="title">رقم التسجيل</h2>
+            <span class="desc"> {{ detailsData?.reg_num }} </span>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4 mt-5">
+          <div class="list-item">
+            <h2 class="title">معدل الاستخدام</h2>
+            <span class="desc"> {{ detailsData?.usage_rate }} </span>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4 mt-5">
+          <div class="list-item">
+            <h2 class="title">تاريخ التسجيل</h2>
+            <span class="desc">
+              {{ detailsData?.reg_date | date : "dd-MM-YYYY" }}
+            </span>
+          </div>
+        </div>
+
+        <div
+          class="col-md-4 mb-4 mt-5"
+          *ngFor="let u of detailsData.nut_elem_value | keyValueFilter"
+        >
+          <div class="list-item">
+            <h2 class="title">{{ u.value.name }}</h2>
+            <span class="desc"> {{ u.value.value }} </span>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 </div>
