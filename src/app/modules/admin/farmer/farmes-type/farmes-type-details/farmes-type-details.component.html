@@ -55,15 +55,24 @@
         <div class="col-md-4 mt-5">
           <div class="list-item">
             <h2 class="title">درجة حرارة الزراعة</h2>
-            <span class="desc"> {{ detailsData.farming_temperature }} </span>
+            <span class="desc"
+              >من {{ detailsData.farming_temperature[0] }}
+            </span>
+            <span class="desc mx-3"
+              >الى {{ detailsData.farming_temperature[1] }}
+            </span>
           </div>
         </div>
 
         <div class="col-md-4 mt-5">
           <div class="list-item">
             <h2 class="title">درجة حرارة التزهير</h2>
-            <span class="desc">
-              {{ detailsData.flowering_temperature }}
+
+            <span class="desc"
+              >من {{ detailsData.flowering_temperature[0] }}
+            </span>
+            <span class="desc mx-3"
+              >الى {{ detailsData.flowering_temperature[1] }}
             </span>
           </div>
         </div>
@@ -71,32 +80,48 @@
         <div class="col-md-4 mt-5">
           <div class="list-item">
             <h2 class="title">درجة حرارة النضج</h2>
-            <span class="desc"> {{ detailsData.maturity_temperature }} </span>
+
+            <span class="desc"
+              >من {{ detailsData.maturity_temperature[0] }}
+            </span>
+            <span class="desc mx-3"
+              >الى {{ detailsData.maturity_temperature[1] }}
+            </span>
           </div>
         </div>
 
         <div class="col-md-4 mt-5">
           <div class="list-item">
             <h2 class="title">الرطوبة</h2>
-            <span class="desc"> {{ detailsData.humidity }} </span>
+
+            <span class="desc">من {{ detailsData.humidity[0] }} </span>
+            <span class="desc mx-3">الى {{ detailsData.humidity[1] }} </span>
           </div>
         </div>
 
         <div class="col-md-4 mt-5">
           <div class="list-item">
             <h2 class="title">أملاح التربة المناسبة</h2>
-            <span class="desc">{{
-              detailsData.suitable_soil_salts_concentration
-            }}</span>
+
+            <span class="desc"
+              >من {{ detailsData.suitable_soil_salts_concentration[0] }}
+            </span>
+            <span class="desc mx-3"
+              >الى {{ detailsData.suitable_soil_salts_concentration[1] }}
+            </span>
           </div>
         </div>
 
         <div class="col-md-4 mt-5">
           <div class="list-item">
             <h2 class="title">أملاح الماء المناسبة</h2>
-            <span class="desc">
-              {{ detailsData.suitable_water_salts_concentration }}</span
-            >
+
+            <span class="desc"
+              >من {{ detailsData.suitable_water_salts_concentration[0] }}
+            </span>
+            <span class="desc mx-3"
+              >الى {{ detailsData.suitable_water_salts_concentration[1] }}
+            </span>
           </div>
         </div>
 
@@ -121,7 +146,7 @@
         <div class="col-md-4 mt-5">
           <div class="list-item">
             <h2 class="title">المحصول العالمي له</h2>
-            <span class="desc">{{ detailsData.parent }}</span>
+            <span class="desc">{{ detailsData.parent.name.ar }}</span>
           </div>
         </div>
       </div>

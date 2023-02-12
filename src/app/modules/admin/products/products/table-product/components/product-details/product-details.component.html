@@ -10,15 +10,8 @@
           <div class="list-item">
             <h2 class="title">نوع المنتج</h2>
             <span class="desc">
-              {{ detailsData?.product_type }}
+              {{ detailsData?.product_type?.name }}
             </span>
-          </div>
-        </div>
-
-        <div class="col-md-4 mb-5">
-          <div class="list-item">
-            <h2 class="title">المحاصيل التي يناسبها هذا المنتج</h2>
-            <span class="desc"> {{ detailsData?.farmed_types }} </span>
           </div>
         </div>
 
@@ -35,48 +28,61 @@
           <div class="list-item">
             <h2 class="title">البائع</h2>
             <span class="desc">
-              {{ detailsData?.seller }}
+              {{ detailsData?.seller?.name }}
             </span>
           </div>
         </div>
 
         <div class="col-md-12 mb-5">
-          <h1>مدن التوصيل</h1>
-          <ol>
-            <li
-              *ngFor="let item of detailsData?.shipping_cities"
-              class="one-row"
-            >
-              <div class="list-item">
-                <h2 class="title">الاسم</h2>
-                <span class="desc mb-3">
-                  {{ item?.name }}
-                </span>
-              </div>
-              <div class="list-item">
-                <h2 class="title">أيام التوصيل</h2>
-                <span class="desc mb-3">
-                  {{ item?.shipping_days }}
-                </span>
-              </div>
-
-              <div class="list-item">
-                <h2 class="title">رسوم التوصيل</h2>
-                <span class="desc mb-3">
-                  {{ item?.shipping_fees }}
-                </span>
-              </div>
-            </li>
-          </ol>
+          <div class="list-item">
+            <h2 class="title">المحاصيل التي يناسبها هذا المنتج</h2>
+            <ul>
+              <li
+                class="desc mx-3"
+                *ngFor="let item of detailsData?.farmed_types"
+              >
+                {{ item.name }}
+              </li>
+            </ul>
+          </div>
         </div>
 
-        <div class="wrap">
+        <div class="col-md-12 mb-5">
+          <h1>مدن التوصيل</h1>
+          <div
+            class="row mt-5"
+            *ngFor="let item of detailsData?.shipping_cities"
+          >
+            <div class="list-item col-4">
+              <h2 class="title">الاسم</h2>
+              <span class="desc mb-3">
+                {{ item?.name }}
+              </span>
+            </div>
+            <div class="list-item col-4">
+              <h2 class="title">أيام التوصيل</h2>
+              <span class="desc mb-3">
+                {{ item?.shipping_days }}
+              </span>
+            </div>
+
+            <div class="list-item col-4">
+              <h2 class="title">رسوم التوصيل</h2>
+              <span class="desc mb-3">
+                {{ item?.shipping_fees }}
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="wrap mb-5">
           <h2>العمل</h2>
           <div class="row">
             <div class="col-md-4 mb-5">
               <div class="list-item">
                 <a
                   class="desc"
+                  target="_blank"
                   [routerLink]="[
                     '/admin/Business/profile',
                     detailsData?.business?.id
@@ -109,7 +115,7 @@
           <div class="list-item">
             <h2 class="title">المدينة</h2>
             <span class="desc">
-              {{ detailsData?.city }}
+              {{ detailsData?.city?.name }}
             </span>
           </div>
         </div>
@@ -118,7 +124,7 @@
           <div class="list-item">
             <h2 class="title">الحي</h2>
             <span class="desc">
-              {{ detailsData?.district }}
+              {{ detailsData?.district.name }}
             </span>
           </div>
         </div>
@@ -159,16 +165,7 @@
           </div>
         </div>
 
-        <div class="col-md-4 mb-5">
-          <div class="list-item">
-            <h2 class="title">الصور</h2>
-            <span class="desc mx-3" *ngFor="let item of detailsData?.assets">
-              <img [src]="item" alt="" />
-            </span>
-          </div>
-        </div>
-
-        <div class="col-md-4 mb-5">
+        <!-- <div class="col-md-4 mb-5">
           <div class="list-item">
             <h2 class="title">انظر ترجمة موديول المبيدات الحشرية</h2>
             <span class="desc">
@@ -184,7 +181,7 @@
               {{ detailsData?.insecticide }}
             </span>
           </div>
-        </div>
+        </div> -->
 
         <div class="col-md-4 mb-5">
           <div class="list-item">
@@ -203,6 +200,126 @@
             </span>
           </div>
         </div>
+
+        <div class="col-md-12 mb-5">
+          <div class="list-item">
+            <h2 class="title">الصور</h2>
+            <span class="desc mx-3" *ngFor="let item of detailsData?.assets">
+              <img [src]="item" alt="" style="max-width: 200px" />
+            </span>
+          </div>
+        </div>
+
+        <a
+          class="title my-4"
+          target="_blank"
+          [routerLink]="[
+            '/admin/Fertilizers/Fertilizers-details',
+            detailsData?.fertilizer?.id
+          ]"
+          style="font-size: 20px"
+          *ngIf="detailsData?.fertilizer != null"
+        >
+          تفاصيل السماد</a
+        >
+
+        <a
+          class="title my-4"
+          target="_blank"
+          [routerLink]="[
+            '/admin/insecticides/DetailsInsecticides',
+            detailsData?.insecticides?.id
+          ]"
+          *ngIf="detailsData?.insecticides != null"
+          style="font-size: 20px"
+        >
+          تفاصيل المبيدات الحشريه
+        </a>
+
+        <!-- <div class="row">
+          <div class="col-md-4 mb-5">
+            <div class="list-item">
+              <h2 class="title">الاسم</h2>
+              <span class="desc">
+                {{ detailsData?.fertilizer.name }}
+              </span>
+            </div>
+          </div>
+
+          <div class="col-md-4 mb-5">
+            <div class="list-item">
+              <h2 class="title">شكل جرعات</h2>
+              <span class="desc">
+                {{ detailsData?.fertilizer?.dosage_form }}
+              </span>
+            </div>
+          </div>
+
+          <div class="col-md-4 mt-5">
+            <div class="list-item">
+              <h2 class="title">المنتج</h2>
+              <span class="desc"> {{ detailsData?.fertilizer.producer }} </span>
+            </div>
+          </div>
+
+          <div class="col-md-4 mt-5">
+            <div class="list-item">
+              <h2 class="title">البلد</h2>
+              <span class="desc">
+                {{ detailsData?.fertilizer.country?.name }}
+              </span>
+            </div>
+          </div>
+
+          <div class="col-md-4 mt-5">
+            <div class="list-item">
+              <h2 class="title">الحاصل</h2>
+              <span class="desc"> {{ detailsData?.fertilizer.conc }} </span>
+            </div>
+          </div>
+
+          <div class="col-md-4 mt-5">
+            <div class="list-item">
+              <h2 class="title">الملاحظات</h2>
+              <span class="desc">
+                {{ detailsData?.fertilizer.notes }}
+              </span>
+            </div>
+          </div>
+
+          <div class="col-md-4 mt-5">
+            <div class="list-item">
+              <h2 class="title">احتياطات</h2>
+              <span class="desc">
+                {{ detailsData?.fertilizer.precautions }}
+              </span>
+            </div>
+          </div>
+
+          <div class="col-md-4 mb-4 mt-5">
+            <div class="list-item">
+              <h2 class="title">رقم التسجيل</h2>
+              <span class="desc"> {{ detailsData?.fertilizer.reg_num }} </span>
+            </div>
+          </div>
+
+          <div class="col-md-4 mb-4 mt-5">
+            <div class="list-item">
+              <h2 class="title">معدل الاستخدام</h2>
+              <span class="desc">
+                {{ detailsData?.fertilizer.usage_rate }}
+              </span>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4 mt-5">
+            <div class="list-item">
+              <h2 class="title">تاريخ التسجيل</h2>
+              <span class="desc">
+                {{ detailsData?.fertilizer.reg_date | date : "dd-MM-YYYY" }}
+              </span>
+            </div>
+          </div>
+        </div> -->
       </div>
     </div>
   </div>
