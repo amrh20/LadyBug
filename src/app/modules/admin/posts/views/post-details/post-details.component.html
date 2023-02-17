@@ -9,6 +9,12 @@
         <div>
           <h1 class="mb-3">الناشر : {{ detailsData?.author?.name }}</h1>
           <span> الوظيفه : {{ detailsData.author?.job_name.ar }} </span>
+          <div>
+            <span> البريد الالكتروني : {{ detailsData.author?.email }} </span>
+          </div>
+          <div *ngIf="detailsData.author?.mobile">
+            <span> هاتف صاحب المنشور: {{ detailsData.author?.mobile  }} </span>
+          </div>
         </div>
         <div>
           <button
@@ -63,7 +69,11 @@
           </button>
           <mat-menu #menu="matMenu">
             <a mat-menu-item (click)="block()">
-              <span> <i class="fa-light fa-ban"></i> حظر </span>
+              <span> <i class="fa-light fa-ban"></i>
+              {{detailsData.status=='blocked'?'تنشيط ':'حظر'}}  
+                 
+              
+              </span>
             </a>
             <button mat-menu-item (click)="togglePopup()">
               <span><i class="fa-regular fa-circle-info"></i> ابلاغ </span>
@@ -71,18 +81,37 @@
           </mat-menu>
         </div>
       </div>
-
-      <p class="post-content">
+   
+      <div class="post-content">
+        <div class="mb-10">
+          محتوى المنشور
+        </div>
         {{ detailsData.content }}
-      </p>
-
-      <div class="mb-4" *ngIf="detailsData?.video_assets?.length != 0">
-        <video
-          width="100%"
-          height="300"
-          controls
-          [src]="detailsData.video_assets"
-        ></video>
+      </div>
+      <div class="col-md-4 mb-5" *ngIf="detailsData.image_assets?.length != 0">
+        <div class="list-item">
+          <h2 class="title">الصور</h2>
+          <div class="assets grid-6 grid-gaps-10" *ngFor="let item of detailsData.image_assets">
+            <div >
+              <img [src]="item" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-5" *ngIf="detailsData?.video_assets?.length != 0">
+        <div class="list-item">
+          <h2 class="title">الفيدوهات</h2>
+          <div class="assets grid-6 grid-gaps-10" *ngFor="let item of detailsData.video_assets">
+            <video width="320" height="240" controls>
+              <source [src]="item" type="video/mp4">
+              <source [src]="item" type="video/ogg">
+            </video>
+          </div>
+        </div>
+      </div>
+      <div class="mb-4" >
+     
+   
       </div>
 
       <mat-accordion>
@@ -94,7 +123,7 @@
               >
                 <h2>التعليقات</h2>
                 <div>
-                  {{ detailsData.comments?.length }}
+                  {{ detailsData.comments_count }}
                   <i class="fa-regular fa-comment"></i>
                 </div>
               </div>
