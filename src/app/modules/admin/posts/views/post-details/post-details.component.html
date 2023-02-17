@@ -113,93 +113,119 @@
      
    
       </div>
-
-      <mat-accordion>
-        <mat-expansion-panel>
-          <mat-expansion-panel-header>
-            <mat-panel-title>
-              <div
-                class="d-flex justify-content-between align-items-center w-100"
-              >
-                <h2>التعليقات</h2>
-                <div>
-                  {{ detailsData.comments_count }}
-                  <i class="fa-regular fa-comment"></i>
-                </div>
-              </div>
-            </mat-panel-title>
-          </mat-expansion-panel-header>
-
-          <div *ngFor="let item of detailsData?.comments">
-            <div class="d-flex align-items-center mb-5">
-              <div class="img">
-                <img [src]="item.commenter?.photo_url" alt="" />
-              </div>
-              <div class="img" *ngIf="item.commenter.photo_url == null">
-                <img src="https://via.placeholder.com/150" alt="" />
-              </div>
-              <div
-                class="commenter-details d-flex align-items-center justify-content-between w-100"
-              >
-                <div>
-                  <h2>
-                    {{ item.commenter.name }}
-                  </h2>
-                  <span>
-                    {{ item.commenter.email }}
-                  </span>
-                </div>
-
-                <div>
-                  <p class="mb-0">
-                    {{ item.created_at }}
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div *ngIf="detailsData.comments?.length == 0">
-            <p>لا يوجد تعليقات</p>
-          </div>
-        </mat-expansion-panel>
-        <mat-expansion-panel>
-          <mat-expansion-panel-header>
-            <mat-panel-title>
-              <div
-                class="d-flex justify-content-between align-items-center w-100"
-              >
-                <h2>الاعجابات</h2>
-                <div>
-                  {{ detailsData.likers_count }}
-                  <i class="fa-regular fa-thumbs-up"></i>
-                </div>
-              </div>
-            </mat-panel-title>
-          </mat-expansion-panel-header>
-          <div *ngIf="detailsData.likers_count == 0">
-            <p>لا يوجد بيانات</p>
-          </div>
-        </mat-expansion-panel>
-
-        <mat-expansion-panel>
-          <mat-expansion-panel-header>
-            <mat-panel-title>
-              <div
-                class="d-flex justify-content-between align-items-center w-100"
-              >
-                <h2>لم يعجب</h2>
-                <div>
-                  {{ detailsData.dislikers_count }}
-                  <i class="fa-regular fa-thumbs-down"></i>
-                </div>
-              </div>
-            </mat-panel-title>
-          </mat-expansion-panel-header>
-          <div *ngIf="detailsData.dislikers_count == 0">
-            <p>لا يوجد بيانات</p>
-          </div>
-        </mat-expansion-panel>
-      </mat-accordion>
+      <div
+      class="d-flex justify-content-between align-items-center w-100 total-all"
+    >
+      <h2>التعليقات</h2>
+      <div>
+        {{ detailsData.comments_count }}
+        <i class="fa-regular fa-comment"></i>
+      </div>
+    </div>
+    <div
+    class="d-flex justify-content-between align-items-center w-100 total-all"
+  >
+    <h2>الاعجابات</h2>
+    <div>
+      {{ detailsData.likers_count }}
+      <i class="fa-regular fa-thumbs-up"></i>
+    </div>
+  </div>
+  <div
+  class="d-flex justify-content-between align-items-center w-100 total-all"
+>
+  <h2>لم يعجب</h2>
+  <div>
+    {{ detailsData.dislikers_count }}
+    <i class="fa-regular fa-thumbs-down"></i>
+  </div>
+</div>
+      <!-- <mat-accordion> -->
+        <!-- <mat-expansion-panel> -->
+          <!-- <mat-expansion-panel-header> -->
+            <!-- <mat-panel-title> -->
+              <!-- <div -->
+                <!-- class="d-flex justify-content-between align-items-center w-100" -->
+              <!-- > -->
+                <!-- <h2>التعليقات</h2> -->
+                <!-- <div> -->
+                  <!-- {{ detailsData.comments_count }} -->
+                  <!-- <i class="fa-regular fa-comment"></i> -->
+                <!-- </div> -->
+              <!-- </div> -->
+            <!-- </mat-panel-title> -->
+          <!-- </mat-expansion-panel-header> -->
+<!--  -->
+          <!-- <div *ngFor="let item of detailsData?.comments"> -->
+            <!-- <div class="d-flex align-items-center mb-5"> -->
+              <!-- <div class="img"> -->
+                <!-- <img [src]="item.commenter?.photo_url" alt="" /> -->
+              <!-- </div> -->
+              <!-- <div class="img" *ngIf="item.commenter.photo_url == null"> -->
+                <!-- <img src="https://via.placeholder.com/150" alt="" /> -->
+              <!-- </div> -->
+              <!-- <div -->
+                <!-- class="commenter-details d-flex align-items-center justify-content-between w-100" -->
+              <!-- > -->
+                <!-- <div> -->
+                  <!-- <h2> -->
+                    <!-- {{ item.commenter.name }} -->
+                  <!-- </h2> -->
+                  <!-- <span> -->
+                    <!-- {{ item.commenter.email }} -->
+                  <!-- </span> -->
+                <!-- </div> -->
+<!--  -->
+                <!-- <div> -->
+                  <!-- <p class="mb-0"> -->
+                    <!-- {{ item.created_at }} -->
+                  <!-- </p> -->
+                <!-- </div> -->
+              <!-- </div> -->
+            <!-- </div> -->
+          <!-- </div> -->
+          <!-- <div *ngIf="detailsData.comments?.length == 0"> -->
+            <!-- <p>لا يوجد تعليقات</p> -->
+          <!-- </div> -->
+        <!-- </mat-expansion-panel> -->
+        <!-- <mat-expansion-panel> -->
+          <!-- <mat-expansion-panel-header> -->
+            <!-- <mat-panel-title> -->
+              <!-- <div -->
+                <!-- class="d-flex justify-content-between align-items-center w-100" -->
+              <!-- > -->
+                <!-- <h2>الاعجابات</h2> -->
+                <!-- <div> -->
+                  <!-- {{ detailsData.likers_count }} -->
+                  <!-- <i class="fa-regular fa-thumbs-up"></i> -->
+                <!-- </div> -->
+              <!-- </div> -->
+            <!-- </mat-panel-title> -->
+          <!-- </mat-expansion-panel-header> -->
+          <!-- <div *ngIf="detailsData.likers_count == 0"> -->
+            <!-- <p>لا يوجد بيانات</p> -->
+          <!-- </div> -->
+        <!-- </mat-expansion-panel> -->
+<!--  -->
+        <!-- <mat-expansion-panel> -->
+          <!-- <mat-expansion-panel-header> -->
+            <!-- <mat-panel-title> -->
+              <!-- <div -->
+                <!-- class="d-flex justify-content-between align-items-center w-100" -->
+              <!-- > -->
+                <!-- <h2>لم يعجب</h2> -->
+                <!-- <div> -->
+                  <!-- {{ detailsData.dislikers_count }} -->
+                  <!-- <i class="fa-regular fa-thumbs-down"></i> -->
+                <!-- </div> -->
+              <!-- </div> -->
+            <!-- </mat-panel-title> -->
+          <!-- </mat-expansion-panel-header> -->
+          <!-- <div *ngIf="detailsData.dislikers_count == 0"> -->
+            <!-- <p>لا يوجد بيانات</p> -->
+          <!-- </div> -->
+        <!-- </mat-expansion-panel> -->
+      <!-- </mat-accordion> -->
     </div>
   </div>
 </div>
