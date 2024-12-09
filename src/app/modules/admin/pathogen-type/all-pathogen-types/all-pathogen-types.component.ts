@@ -15,22 +15,38 @@ export class AllPathogenTypesComponent implements OnInit {
     email: new FormControl(""),
     mobile: new FormControl(""),
   });
-  constructor(
+  constructor (
     private _CrudRequestsService: CrudRequestsService,
     private _SettingService: SettingService
-  ) {}
+  ) { }
   ngOnInit(): void {
     this.getpathogen_types();
   }
   DataTable: any = [];
   getpathogen_types = () => {
     this._CrudRequestsService
-      .get("pathogen_types" + `?page=${this.current}&perPage=10`)
+      .get("pathogen_types" + `?page=${ this.current }&perPage=10`)
       .subscribe((data: any) => {
         this.DataTable = data.data.all;
         this.last = data.data.meta.pagesCount;
       });
   };
+
+  hasValue(): boolean {
+    return Object.values(this.filterForm.controls).some(control => control.value);
+  }
+  reset() {
+    this.filterForm.reset()
+    this._CrudRequestsService
+      .get(
+        `pathogen_types?page=${ this.current }&perPage=10`
+      )
+      .subscribe((data: any) => {
+        this.DataTable = data.data.all;
+        this.last = data.data.meta.pagesCount;
+      });
+  }
+
 
   deleteItem = (id: any) => {
     Swal.fire({
@@ -47,7 +63,7 @@ export class AllPathogenTypesComponent implements OnInit {
     }).then((val: any) => {
       if (val.isConfirmed) {
         this._CrudRequestsService
-          .delete(`pathogen_types/${id}`)
+          .delete(`pathogen_types/${ id }`)
           .subscribe((res: any) => {
             this._SettingService.successHot("تم الحذف بنجاح");
             this.getpathogen_types();
@@ -63,7 +79,7 @@ export class AllPathogenTypesComponent implements OnInit {
     let mobile = this.filterForm.get("mobile")?.value;
     this._CrudRequestsService
       .get(
-        `pathogen_types?name=${name}&email=${email}&mobile=${mobile}&page=${this.current}&perPage=10`
+        `pathogen_types?name=${ name }&email=${ email }&mobile=${ mobile }&page=${ this.current }&perPage=10`
       )
       .subscribe((data: any) => {
         this.DataTable = data.data.all;

@@ -15,16 +15,16 @@ export class TableCityComponent implements OnInit {
   });
 
   DataTable: any = [];
-  constructor(
+  constructor (
     private _CrudRequestsService: CrudRequestsService,
     private _SettingService: SettingService
-  ) {}
+  ) { }
   ngOnInit(): void {
     this.getUsers();
   }
   getUsers = () => {
     this._CrudRequestsService
-      .get("cities" + `?page=${this.current}&perPage=10`)
+      .get("cities" + `?page=${ this.current }&perPage=10`)
       .subscribe((data: any) => {
         this.DataTable = data.data.all;
         this.last = data.data.meta.pagesCount;
@@ -34,13 +34,25 @@ export class TableCityComponent implements OnInit {
   search() {
     let name = this.filterForm.get("name")?.value;
     this._CrudRequestsService
-      .get(`cities?name=${name}&page=${this.current}&perPage=10`)
+      .get(`cities?name=${ name }&page=${ this.current }&perPage=10`)
       .subscribe((data: any) => {
         this.DataTable = data.data.all;
         this.last = data.data.meta.pagesCount;
       });
   }
 
+  hasValue(): boolean {
+    return Object.values(this.filterForm.controls).some(control => control.value);
+  }
+  reset() {
+    this.filterForm.reset()
+    this._CrudRequestsService
+      .get(`cities?page=${ this.current }&perPage=10`)
+      .subscribe((data: any) => {
+        this.DataTable = data.data.all;
+        this.last = data.data.meta.pagesCount;
+      });
+  }
   deleteItem = (id: any) => {
     Swal.fire({
       text: "   هل أنت متاكد من الحذف  ؟",

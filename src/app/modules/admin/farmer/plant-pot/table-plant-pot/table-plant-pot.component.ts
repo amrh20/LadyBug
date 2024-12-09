@@ -14,16 +14,16 @@ export class TablePlantPotComponent implements OnInit {
   filterForm = new FormGroup({
     size: new FormControl(""),
   });
-  constructor(
+  constructor (
     private _CrudRequestsService: CrudRequestsService,
     private _SettingService: SettingService
-  ) {}
+  ) { }
   ngOnInit(): void {
     this.getUsers();
   }
   getUsers = () => {
     this._CrudRequestsService
-      .get("home_plant_pot_sizes" + `?page=${this.current}&perPage=10`)
+      .get("home_plant_pot_sizes" + `?page=${ this.current }&perPage=10`)
       .subscribe((data: any) => {
         this.DataTable = data.data.all;
         this.last = data.data.meta.pagesCount;
@@ -34,7 +34,23 @@ export class TablePlantPotComponent implements OnInit {
     let size = this.filterForm.get("size")?.value;
 
     this._CrudRequestsService
-      .get(`home_plant_pot_sizes?size=${size}&page=${this.current}&perPage=10`)
+      .get(`home_plant_pot_sizes?size=${ size }&page=${ this.current }&perPage=10`)
+      .subscribe((data: any) => {
+        this.DataTable = data.data.all;
+        this.last = data.data.meta.pagesCount;
+      });
+  }
+
+
+  hasValue(): boolean {
+    return Object.values(this.filterForm.controls).some(control => control.value);
+  }
+  reset() {
+    this.filterForm.reset()
+    this._CrudRequestsService
+      .get(
+        `home_plant_pot_sizes?page=${ this.current }&perPage=10`
+      )
       .subscribe((data: any) => {
         this.DataTable = data.data.all;
         this.last = data.data.meta.pagesCount;

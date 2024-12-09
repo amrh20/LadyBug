@@ -14,17 +14,17 @@ export class InfectionRatesTableComponent implements OnInit {
   filterForm = new FormGroup({
     name: new FormControl(""),
   });
-  constructor(
+  constructor (
     private _CrudRequestsService: CrudRequestsService,
     private _SettingService: SettingService
-  ) {}
+  ) { }
   ngOnInit(): void {
     this.getUsers();
   }
   DataTable: any = [];
   getUsers = () => {
     this._CrudRequestsService
-      .get("infection_rates" + `?page=${this.current}&perPage=10`)
+      .get("infection_rates" + `?page=${ this.current }&perPage=10`)
       .subscribe((data: any) => {
         this.DataTable = data.data.all;
         this.last = data.data.meta.pagesCount;
@@ -34,7 +34,21 @@ export class InfectionRatesTableComponent implements OnInit {
   search() {
     let name = this.filterForm.get("name")?.value;
     this._CrudRequestsService
-      .get(`infection_rates?name=${name}&page=${this.current}&perPage=10`)
+      .get(`infection_rates?name=${ name }&page=${ this.current }&perPage=10`)
+      .subscribe((data: any) => {
+        this.DataTable = data.data.all;
+        this.last = data.data.meta.pagesCount;
+      });
+  }
+  hasValue(): boolean {
+    return Object.values(this.filterForm.controls).some(control => control.value);
+  }
+  reset() {
+    this.filterForm.reset()
+    this._CrudRequestsService
+      .get(
+        `infection_rates?page=${ this.current }&perPage=10`
+      )
       .subscribe((data: any) => {
         this.DataTable = data.data.all;
         this.last = data.data.meta.pagesCount;
@@ -53,12 +67,12 @@ export class InfectionRatesTableComponent implements OnInit {
       cancelButtonAriaLabel: "التراجع",
     }).then((val: any) => {
       if (val.isConfirmed) {
-        this._CrudRequestsService.delete(`infection_rates/${id}`).subscribe(
+        this._CrudRequestsService.delete(`infection_rates/${ id }`).subscribe(
           (res: any) => {
-            if(res.success){
+            if (res.success) {
               this._SettingService.successHot(res.message);
               this.getUsers();
-            }else{
+            } else {
               this._SettingService.errorHot(res.message);
             }
           },

@@ -14,17 +14,17 @@ export class TablePlantSourcesComponent implements OnInit {
   filterForm = new FormGroup({
     name: new FormControl(""),
   });
-  constructor(
+  constructor (
     private _CrudRequestsService: CrudRequestsService,
     private _SettingService: SettingService
-  ) {}
+  ) { }
   ngOnInit(): void {
     this.getUsers();
   }
   getUsers = () => {
     this._CrudRequestsService
       .get(
-        "home_plant_illuminating_sources" + `?page=${this.current}&perPage=10`
+        "home_plant_illuminating_sources" + `?page=${ this.current }&perPage=10`
       )
       .subscribe((data: any) => {
         this.DataTable = data.data.all;
@@ -37,7 +37,22 @@ export class TablePlantSourcesComponent implements OnInit {
 
     this._CrudRequestsService
       .get(
-        `home_plant_illuminating_sources?name=${name}&page=${this.current}&perPage=10`
+        `home_plant_illuminating_sources?name=${ name }&page=${ this.current }&perPage=10`
+      )
+      .subscribe((data: any) => {
+        this.DataTable = data.data.all;
+        this.last = data.data.meta.pagesCount;
+      });
+  }
+
+  hasValue(): boolean {
+    return Object.values(this.filterForm.controls).some(control => control.value);
+  }
+  reset() {
+    this.filterForm.reset()
+    this._CrudRequestsService
+      .get(
+        `home_plant_illuminating_sources?page=${ this.current }&perPage=10`
       )
       .subscribe((data: any) => {
         this.DataTable = data.data.all;

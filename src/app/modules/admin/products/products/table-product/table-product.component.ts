@@ -15,16 +15,16 @@ export class TableProductComponent implements OnInit {
     name: new FormControl(""),
     description: new FormControl(""),
   });
-  constructor(
+  constructor (
     private _CrudRequestsService: CrudRequestsService,
     private _SettingService: SettingService
-  ) {}
+  ) { }
   ngOnInit(): void {
     this.getUsers();
   }
   getUsers = () => {
     this._CrudRequestsService
-      .get("admin/products" + `?page=${this.current}&perPage=10`)
+      .get("admin/products" + `?page=${ this.current }&perPage=10`)
       .subscribe((data: any) => {
         this.DataTable = data.data.data;
         this.last = data.data.meta.pagesCount;
@@ -36,7 +36,22 @@ export class TableProductComponent implements OnInit {
     let description = this.filterForm.get("description")?.value;
     this._CrudRequestsService
       .get(
-        `admin/products?name=${name}&description=${description}&page=${this.current}&perPage=10`
+        `admin/products?name=${ name }&description=${ description }&page=${ this.current }&perPage=10`
+      )
+      .subscribe((data: any) => {
+        this.DataTable = data.data.data;
+        this.last = data.data.meta.pagesCount;
+      });
+  }
+
+  hasValue(): boolean {
+    return Object.values(this.filterForm.controls).some(control => control.value);
+  }
+  reset() {
+    this.filterForm.reset()
+    this._CrudRequestsService
+      .get(
+        `admin/products?name=${ name }&page=${ this.current }&perPage=10`
       )
       .subscribe((data: any) => {
         this.DataTable = data.data.data;

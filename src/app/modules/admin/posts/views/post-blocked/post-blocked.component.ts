@@ -14,16 +14,16 @@ export class PostBlockedComponent implements OnInit {
   filterForm = new FormGroup({
     content: new FormControl(""),
   });
-  constructor(
+  constructor (
     private _CrudRequestsService: CrudRequestsService,
     private _SettingService: SettingService
-  ) {}
+  ) { }
   ngOnInit(): void {
     this.getUsers();
   }
   getUsers = () => {
     this._CrudRequestsService
-      .get("reports" + `?page=${this.current}&perPage=10`)
+      .get("reports" + `?page=${ this.current }&perPage=10`)
       .subscribe((data: any) => {
         this.DataTable = data.data.all;
         this.last = data.data.meta.pagesCount;
@@ -33,13 +33,29 @@ export class PostBlockedComponent implements OnInit {
   search() {
     let content = this.filterForm.get("content")?.value;
     this._CrudRequestsService
-      .get(`reports?content=${content}&page=${this.current}&perPage=10`)
+      .get(`reports?content=${ content }&page=${ this.current }&perPage=10`)
       .subscribe((data: any) => {
         this.DataTable = data.data.all;
         this.last = data.data.meta.pagesCount;
       });
   }
 
+
+
+  hasValue(): boolean {
+    return Object.values(this.filterForm.controls).some(control => control.value);
+  }
+  reset() {
+    this.filterForm.reset()
+    this._CrudRequestsService
+      .get(
+        `reports?page=${ this.current }&perPage=10`
+      )
+      .subscribe((data: any) => {
+        this.DataTable = data.data.all;
+        this.last = data.data.meta.pagesCount;
+      });
+  }
   deleteItem = (id: any) => {
     Swal.fire({
       text: "   هل أنت متاكد من الحذف  ؟",

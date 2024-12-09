@@ -13,17 +13,17 @@ export class AllRolesComponent implements OnInit {
   filterForm = new FormGroup({
     name: new FormControl(""),
   });
-  constructor(
+  constructor (
     private _CrudRequestsService: CrudRequestsService,
     private _SettingService: SettingService
-  ) {}
+  ) { }
   ngOnInit(): void {
     this.getUsers();
   }
   DataTable: any = [];
   getUsers = (name: any = "") => {
     this._CrudRequestsService
-      .get("roles" + `?page=${this.current}&perPage=10`)
+      .get("roles" + `?page=${ this.current }&perPage=10`)
       .subscribe((data: any) => {
         this.DataTable = data.data.all;
         this.last = data.data.meta.pagesCount;
@@ -32,12 +32,27 @@ export class AllRolesComponent implements OnInit {
   search() {
     let name = this.filterForm.get("name")?.value;
     this._CrudRequestsService
-      .get(`roles?name=${name}&page=${this.current}&perPage=10`)
+      .get(`roles?name=${ name }&page=${ this.current }&perPage=10`)
       .subscribe((data: any) => {
         this.DataTable = data.data.all;
         this.last = data.data.meta.pagesCount;
       });
   }
+  hasValue(): boolean {
+    return Object.values(this.filterForm.controls).some(control => control.value);
+  }
+  reset() {
+    this.filterForm.reset()
+    this._CrudRequestsService
+      .get(
+        `roles?page=${ this.current }&perPage=10`
+      )
+      .subscribe((data: any) => {
+        this.DataTable = data.data.all;
+        this.last = data.data.meta.pagesCount;
+      });
+  }
+
   deleteItem = (id: any) => {
     Swal.fire({
       text: "   هل أنت متاكد من الحذف  ؟",
@@ -51,7 +66,7 @@ export class AllRolesComponent implements OnInit {
       cancelButtonAriaLabel: "التراجع",
     }).then((val: any) => {
       if (val.isConfirmed) {
-        this._CrudRequestsService.delete(`roles/${id}`).subscribe(
+        this._CrudRequestsService.delete(`roles/${ id }`).subscribe(
           (res: any) => {
             this._SettingService.successHot(res.message);
             this.getUsers();

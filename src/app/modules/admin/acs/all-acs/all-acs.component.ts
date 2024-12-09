@@ -15,25 +15,39 @@ export class AllAcsComponent implements OnInit {
     email: new FormControl(""),
     mobile: new FormControl(""),
   });
-  constructor(
+  constructor (
     private _CrudRequestsService: CrudRequestsService,
     private _SettingService: SettingService
-  ) {}
+  ) { }
   ngOnInit(): void {
     this.getacs();
   }
   DataTable: any = [];
   getacs = () => {
     this._CrudRequestsService
-      .get("admin/acs" + `?page=${this.current}&perPage=10`)
+      .get("admin/acs" + `?page=${ this.current }&perPage=10`)
       .subscribe((data: any) => {
         this.DataTable = data.data.all;
         this.last = data.data.meta.pagesCount;
       });
   };
 
+  hasValue(): boolean {
+    return Object.values(this.filterForm.controls).some(control => control.value);
+  }
+  reset() {
+    this.filterForm.reset()
+    this._CrudRequestsService
+      .get("admin/acs" + `?page=${ this.current }&perPage=10`)
+
+      .subscribe((data: any) => {
+        this.DataTable = data.data.all;
+        this.last = data.data.meta.pagesCount;
+      });
+  }
+
   blockItem = (id: any, $event: any) => {
-    this._CrudRequestsService.get(`admin/acs/toggle_activate/${id}`).subscribe(
+    this._CrudRequestsService.get(`admin/acs/toggle_activate/${ id }`).subscribe(
       (data: any) => {
         if (data.success) {
           this._SettingService.successHot(data.message);
@@ -62,7 +76,7 @@ export class AllAcsComponent implements OnInit {
     }).then((val: any) => {
       if (val.isConfirmed) {
         this._CrudRequestsService
-          .delete(`admin/acs/${id}`)
+          .delete(`admin/acs/${ id }`)
           .subscribe((res: any) => {
             this._SettingService.successHot("تم الحذف بنجاح");
             this.getacs();
@@ -78,7 +92,7 @@ export class AllAcsComponent implements OnInit {
     let mobile = this.filterForm.get("mobile")?.value;
     this._CrudRequestsService
       .get(
-        `acs?name=${name}&email=${email}&mobile=${mobile}&page=${this.current}&perPage=10`
+        `acs?name=${ name }&email=${ email }&mobile=${ mobile }&page=${ this.current }&perPage=10`
       )
       .subscribe((data: any) => {
         this.DataTable = data.data.all;

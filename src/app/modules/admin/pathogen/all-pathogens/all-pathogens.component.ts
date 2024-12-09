@@ -15,17 +15,17 @@ export class AllPathogensComponent implements OnInit {
     email: new FormControl(""),
     mobile: new FormControl(""),
   });
-  constructor(
+  constructor (
     private _CrudRequestsService: CrudRequestsService,
     private _SettingService: SettingService
-  ) {}
+  ) { }
   ngOnInit(): void {
     this.getpathogens();
   }
   DataTable: any = [];
   getpathogens = () => {
     this._CrudRequestsService
-      .get("admin/pathogens" + `?page=${this.current}&perPage=10`)
+      .get("admin/pathogens" + `?page=${ this.current }&perPage=10`)
       .subscribe((data: any) => {
         this.DataTable = data.data.all;
         this.last = data.data.meta.pagesCount;
@@ -34,7 +34,7 @@ export class AllPathogensComponent implements OnInit {
 
   blockItem = (id: any, $event: any) => {
     this._CrudRequestsService
-      .get(`admin/pathogens/toggle_activate/${id}`)
+      .get(`admin/pathogens/toggle_activate/${ id }`)
       .subscribe(
         (data: any) => {
           if (data.success) {
@@ -64,7 +64,7 @@ export class AllPathogensComponent implements OnInit {
     }).then((val: any) => {
       if (val.isConfirmed) {
         this._CrudRequestsService
-          .delete(`pathogens/${id}`)
+          .delete(`pathogens/${ id }`)
           .subscribe((res: any) => {
             this._SettingService.successHot("تم الحذف بنجاح");
             this.getpathogens();
@@ -80,7 +80,22 @@ export class AllPathogensComponent implements OnInit {
     let mobile = this.filterForm.get("mobile")?.value;
     this._CrudRequestsService
       .get(
-        `pathogens?name=${name}&email=${email}&mobile=${mobile}&page=${this.current}&perPage=10`
+        `pathogens?name=${ name }&email=${ email }&mobile=${ mobile }&page=${ this.current }&perPage=10`
+      )
+      .subscribe((data: any) => {
+        this.DataTable = data.data.all;
+        this.last = data.data.meta.pagesCount;
+      });
+  }
+
+  hasValue(): boolean {
+    return Object.values(this.filterForm.controls).some(control => control.value);
+  }
+  reset() {
+    this.filterForm.reset()
+    this._CrudRequestsService
+      .get(
+        `pathogens?page=${ this.current }&perPage=10`
       )
       .subscribe((data: any) => {
         this.DataTable = data.data.all;

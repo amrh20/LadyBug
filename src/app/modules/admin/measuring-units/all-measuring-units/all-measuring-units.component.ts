@@ -13,17 +13,17 @@ export class AllMeasuringUnitsComponent implements OnInit {
   filterForm = new FormGroup({
     name: new FormControl(""),
   });
-  constructor(
+  constructor (
     private _CrudRequestsService: CrudRequestsService,
     private _SettingService: SettingService
-  ) {}
+  ) { }
   ngOnInit(): void {
     this.getUsers();
   }
   DataTable: any = [];
   getUsers = () => {
     this._CrudRequestsService
-      .get("measuring_units" + `?page=${this.current}&perPage=10`)
+      .get("measuring_units" + `?page=${ this.current }&perPage=10`)
       .subscribe((data: any) => {
         this.DataTable = data.data.all;
         this.last = data.data.meta.pagesCount;
@@ -33,12 +33,28 @@ export class AllMeasuringUnitsComponent implements OnInit {
   search() {
     let name = this.filterForm.get("name")?.value;
     this._CrudRequestsService
-      .get(`measuring_units?name=${name}&page=${this.current}&perPage=10`)
+      .get(`measuring_units?name=${ name }&page=${ this.current }&perPage=10`)
       .subscribe((data: any) => {
         this.DataTable = data.data.all;
         this.last = data.data.meta.pagesCount;
       });
   }
+
+  hasValue(): boolean {
+    return Object.values(this.filterForm.controls).some(control => control.value);
+  }
+  reset() {
+    this.filterForm.reset()
+    this._CrudRequestsService
+      .get(
+        `measuring_units??page=${ this.current }&perPage=10`
+      )
+      .subscribe((data: any) => {
+        this.DataTable = data.data.all;
+        this.last = data.data.meta.pagesCount;
+      });
+  }
+
   deleteItem = (id: any) => {
     Swal.fire({
       text: "   هل أنت متاكد من الحذف  ؟",
@@ -52,7 +68,7 @@ export class AllMeasuringUnitsComponent implements OnInit {
       cancelButtonAriaLabel: "التراجع",
     }).then((val: any) => {
       if (val.isConfirmed) {
-        this._CrudRequestsService.delete(`measuring_units/${id}`).subscribe(
+        this._CrudRequestsService.delete(`measuring_units/${ id }`).subscribe(
           (res: any) => {
             this._SettingService.successHot(res.message);
             this.getUsers();

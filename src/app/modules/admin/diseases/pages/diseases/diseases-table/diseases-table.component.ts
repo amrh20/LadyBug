@@ -13,17 +13,17 @@ export class DiseasesTableComponent implements OnInit {
   filterForm = new FormGroup({
     name: new FormControl(""),
   });
-  constructor(
+  constructor (
     private _CrudRequestsService: CrudRequestsService,
     private _SettingService: SettingService
-  ) {}
+  ) { }
   ngOnInit(): void {
     this.getUsers();
   }
   DataTable: any = [];
   getUsers = () => {
     this._CrudRequestsService
-      .get("admin/diseases" + `?page=${this.current}&perPage=10`)
+      .get("admin/diseases" + `?page=${ this.current }&perPage=10`)
       .subscribe((data: any) => {
         this.DataTable = data.data.all;
         this.last = data.data.meta.pagesCount;
@@ -33,7 +33,22 @@ export class DiseasesTableComponent implements OnInit {
   search() {
     let name = this.filterForm.get("name")?.value;
     this._CrudRequestsService
-      .get(`admin/diseases?name=${name}&page=${this.current}&perPage=10`)
+      .get(`admin/diseases?name=${ name }&page=${ this.current }&perPage=10`)
+      .subscribe((data: any) => {
+        this.DataTable = data.data.all;
+        this.last = data.data.meta.pagesCount;
+      });
+  }
+
+  hasValue(): boolean {
+    return Object.values(this.filterForm.controls).some(control => control.value);
+  }
+  reset() {
+    this.filterForm.reset()
+    this._CrudRequestsService
+      .get(
+        `admin/diseases?page=${ this.current }&perPage=10`
+      )
       .subscribe((data: any) => {
         this.DataTable = data.data.all;
         this.last = data.data.meta.pagesCount;
@@ -52,7 +67,7 @@ export class DiseasesTableComponent implements OnInit {
       cancelButtonAriaLabel: "التراجع",
     }).then((val: any) => {
       if (val.isConfirmed) {
-        this._CrudRequestsService.delete(`diseases/${id}`).subscribe(
+        this._CrudRequestsService.delete(`diseases/${ id }`).subscribe(
           (res: any) => {
             if (res.success) {
               this._SettingService.successHot(res.message);

@@ -14,16 +14,16 @@ export class AnimalBreedingPurposesTableComponent implements OnInit {
   filterForm = new FormGroup({
     title: new FormControl(""),
   });
-  constructor(
+  constructor (
     private _CrudRequestsService: CrudRequestsService,
     private _SettingService: SettingService
-  ) {}
+  ) { }
   ngOnInit(): void {
     this.getUsers();
   }
   getUsers = () => {
     this._CrudRequestsService
-      .get("animal_breeding_purposes" + `?page=${this.current}&perPage=10`)
+      .get("animal_breeding_purposes" + `?page=${ this.current }&perPage=10`)
       .subscribe((data: any) => {
         this.DataTable = data.data.all;
         this.last = data.data.meta.pagesCount;
@@ -34,13 +34,29 @@ export class AnimalBreedingPurposesTableComponent implements OnInit {
     let title = this.filterForm.get("title")?.value;
     this._CrudRequestsService
       .get(
-        `animal_breeding_purposes?name=${title}&page=${this.current}&perPage=10`
+        `animal_breeding_purposes?name=${ title }&page=${ this.current }&perPage=10`
       )
       .subscribe((data: any) => {
         this.DataTable = data.data.all;
         this.last = data.data.meta.pagesCount;
       });
   }
+
+  hasValue(): boolean {
+    return Object.values(this.filterForm.controls).some(control => control.value);
+  }
+  reset() {
+    this.filterForm.reset()
+    this._CrudRequestsService
+      .get(
+        `animal_breeding_purposes?page=${ this.current }&perPage=10`
+      )
+      .subscribe((data: any) => {
+        this.DataTable = data.data.all;
+        this.last = data.data.meta.pagesCount;
+      });
+  }
+
   deleteItem = (id: any) => {
     Swal.fire({
       text: "   هل أنت متاكد من الحذف  ؟",

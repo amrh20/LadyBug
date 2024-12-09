@@ -14,16 +14,16 @@ export class DiseaseRegistrationsTableComponent implements OnInit {
   filterForm = new FormGroup({
     name: new FormControl(""),
   });
-  constructor(
+  constructor (
     private _CrudRequestsService: CrudRequestsService,
     private _SettingService: SettingService
-  ) {}
+  ) { }
   ngOnInit(): void {
     this.getUsers();
   }
   getUsers = () => {
     this._CrudRequestsService
-      .get("admin/disease_registrations" + `?page=${this.current}&perPage=10`)
+      .get("admin/disease_registrations" + `?page=${ this.current }&perPage=10`)
       .subscribe((data: any) => {
         this.DataTable = data.data.all;
         this.last = data.data.meta.pagesCount;
@@ -35,7 +35,22 @@ export class DiseaseRegistrationsTableComponent implements OnInit {
 
     this._CrudRequestsService
       .get(
-        `admin/disease_registrations?name=${name}&page=${this.current}&perPage=10`
+        `admin/disease_registrations?name=${ name }&page=${ this.current }&perPage=10`
+      )
+      .subscribe((data: any) => {
+        this.DataTable = data.data.all;
+        this.last = data.data.meta.pagesCount;
+      });
+  }
+
+  hasValue(): boolean {
+    return Object.values(this.filterForm.controls).some(control => control.value);
+  }
+  reset() {
+    this.filterForm.reset()
+    this._CrudRequestsService
+      .get(
+        `admin/disease_registrations?page=${ this.current }&perPage=10`
       )
       .subscribe((data: any) => {
         this.DataTable = data.data.all;
@@ -44,7 +59,7 @@ export class DiseaseRegistrationsTableComponent implements OnInit {
   }
   toogle(id: any, event: any) {
     this._CrudRequestsService
-      .get(`admin/disease_registrations/toggle_confirm/${id}`)
+      .get(`admin/disease_registrations/toggle_confirm/${ id }`)
       .subscribe((data: any) => {
         this._SettingService.successHot(data.message);
       });

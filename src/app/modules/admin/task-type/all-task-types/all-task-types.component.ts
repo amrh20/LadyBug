@@ -13,17 +13,17 @@ export class AllTaskTypesComponent implements OnInit {
   filterForm = new FormGroup({
     name: new FormControl(""),
   });
-  constructor(
+  constructor (
     private _CrudRequestsService: CrudRequestsService,
     private _SettingService: SettingService
-  ) {}
+  ) { }
   ngOnInit(): void {
     this.getUsers();
   }
   DataTable: any = [];
   getUsers = () => {
     this._CrudRequestsService
-      .get("task_types" + `?page=${this.current}&perPage=10`)
+      .get("task_types" + `?page=${ this.current }&perPage=10`)
       .subscribe((data: any) => {
         this.DataTable = data.data.all;
         this.last = data.data.meta.pagesCount;
@@ -32,7 +32,21 @@ export class AllTaskTypesComponent implements OnInit {
   search() {
     let name = this.filterForm.get("name")?.value;
     this._CrudRequestsService
-      .get(`task_types?name=${name}&page=${this.current}&perPage=10`)
+      .get(`task_types?name=${ name }&page=${ this.current }&perPage=10`)
+      .subscribe((data: any) => {
+        this.DataTable = data.data.all;
+        this.last = data.data.meta.pagesCount;
+      });
+  }
+  hasValue(): boolean {
+    return Object.values(this.filterForm.controls).some(control => control.value);
+  }
+  reset() {
+    this.filterForm.reset()
+    this._CrudRequestsService
+      .get(
+        `task_types??page=${ this.current }&perPage=10`
+      )
       .subscribe((data: any) => {
         this.DataTable = data.data.all;
         this.last = data.data.meta.pagesCount;
@@ -51,7 +65,7 @@ export class AllTaskTypesComponent implements OnInit {
       cancelButtonAriaLabel: "التراجع",
     }).then((val: any) => {
       if (val.isConfirmed) {
-        this._CrudRequestsService.delete(`task_types/${id}`).subscribe(
+        this._CrudRequestsService.delete(`task_types/${ id }`).subscribe(
           (res: any) => {
             this._SettingService.successHot(res.message);
             this.getUsers();

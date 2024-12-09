@@ -14,26 +14,41 @@ export class FarmesTypeTableComponent implements OnInit {
   filterForm = new FormGroup({
     title: new FormControl(""),
   });
-  constructor(
+  constructor (
     private _CrudRequestsService: CrudRequestsService,
     private _SettingService: SettingService
-  ) {}
+  ) { }
   ngOnInit(): void {
     this.getUsers();
   }
   getUsers = () => {
     this._CrudRequestsService
-      .get("admin/farmed_types" + `?page=${this.current}&perPage=10`)
+      .get("admin/farmed_types" + `?page=${ this.current }&perPage=10`)
       .subscribe((data: any) => {
         this.DataTable = data.data?.all;
         this.last = data.data?.meta?.pagesCount;
       });
   };
 
+  hasValue(): boolean {
+    return Object.values(this.filterForm.controls).some(control => control.value);
+  }
+  reset() {
+    this.filterForm.reset()
+    this._CrudRequestsService
+      .get(
+        `admin/farmed_types?page=${ this.current }&perPage=10`
+      )
+      .subscribe((data: any) => {
+        this.DataTable = data.data.all;
+        this.last = data.data.meta.pagesCount;
+      });
+  }
+
   search() {
     let title = this.filterForm.get("title")?.value;
     this._CrudRequestsService
-      .get(`farmed_types?name=${title}&page=${this.current}&perPage=10`)
+      .get(`farmed_types?name=${ title }&page=${ this.current }&perPage=10`)
       .subscribe((data: any) => {
         this.DataTable = data.data.all;
         this.last = data.data.meta.pagesCount;

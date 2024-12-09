@@ -15,22 +15,37 @@ export class IrrigationRatesTableComponent implements OnInit {
     email: new FormControl(""),
     mobile: new FormControl(""),
   });
-  constructor(
+  constructor (
     private _CrudRequestsService: CrudRequestsService,
     private _SettingService: SettingService
-  ) {}
+  ) { }
   ngOnInit(): void {
     this.getUsers();
   }
   DataTable: any = [];
   getUsers = () => {
     this._CrudRequestsService
-      .get("irrigation_rates" + `?page=${this.current}&perPage=10`)
+      .get("irrigation_rates" + `?page=${ this.current }&perPage=10`)
       .subscribe((data: any) => {
         this.DataTable = data.data.all;
         this.last = data.data.meta.pagesCount;
       });
   };
+
+  hasValue(): boolean {
+    return Object.values(this.filterForm.controls).some(control => control.value);
+  }
+  reset() {
+    this.filterForm.reset()
+    this._CrudRequestsService
+      .get(
+        `irrigation_rates?page=${ this.current }&perPage=10`
+      )
+      .subscribe((data: any) => {
+        this.DataTable = data.data.all;
+        this.last = data.data.meta.pagesCount;
+      });
+  }
 
   deleteItem = (id: any) => {
     Swal.fire({
@@ -47,7 +62,7 @@ export class IrrigationRatesTableComponent implements OnInit {
     }).then((val: any) => {
       if (val.isConfirmed) {
         this._CrudRequestsService
-          .delete(`irrigation_rates/${id}`)
+          .delete(`irrigation_rates/${ id }`)
           .subscribe((res: any) => {
             this._SettingService.successHot("تم الحذف بنجاح");
             this.getUsers();
@@ -63,7 +78,7 @@ export class IrrigationRatesTableComponent implements OnInit {
     let mobile = this.filterForm.get("mobile")?.value;
     this._CrudRequestsService
       .get(
-        `irrigation_rates?name=${name}&email=${email}&mobile=${mobile}&page=${this.current}&perPage=10`
+        `irrigation_rates?name=${ name }&email=${ email }&mobile=${ mobile }&page=${ this.current }&perPage=10`
       )
       .subscribe((data: any) => {
         this.DataTable = data.data.all;

@@ -14,16 +14,16 @@ export class FarmingMethodsTableComponent implements OnInit {
   filterForm = new FormGroup({
     title: new FormControl(""),
   });
-  constructor(
+  constructor (
     private _CrudRequestsService: CrudRequestsService,
     private _SettingService: SettingService
-  ) {}
+  ) { }
   ngOnInit(): void {
     this.getUsers();
   }
   getUsers = () => {
     this._CrudRequestsService
-      .get("farming_methods" + `?page=${this.current}&perPage=10`)
+      .get("farming_methods" + `?page=${ this.current }&perPage=10`)
       .subscribe((data: any) => {
         this.DataTable = data.data.all;
         this.last = data.data.meta.pagesCount;
@@ -33,7 +33,22 @@ export class FarmingMethodsTableComponent implements OnInit {
   search() {
     let title = this.filterForm.get("title")?.value;
     this._CrudRequestsService
-      .get(`farming_methods?name=${title}&page=${this.current}&perPage=10`)
+      .get(`farming_methods?name=${ title }&page=${ this.current }&perPage=10`)
+      .subscribe((data: any) => {
+        this.DataTable = data.data.all;
+        this.last = data.data.meta.pagesCount;
+      });
+  }
+
+  hasValue(): boolean {
+    return Object.values(this.filterForm.controls).some(control => control.value);
+  }
+  reset() {
+    this.filterForm.reset()
+    this._CrudRequestsService
+      .get(
+        `farming_methods?page=${ this.current }&perPage=10`
+      )
       .subscribe((data: any) => {
         this.DataTable = data.data.all;
         this.last = data.data.meta.pagesCount;

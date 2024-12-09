@@ -15,17 +15,17 @@ export class GeneralUsersComponent implements OnInit {
     email: new FormControl(""),
     mobile: new FormControl(""),
   });
-  constructor(
+  constructor (
     private _CrudRequestsService: CrudRequestsService,
     private _SettingService: SettingService
-  ) {}
+  ) { }
   ngOnInit(): void {
     this.getUsers();
   }
   DataTable: any = [];
   getUsers = () => {
     this._CrudRequestsService
-      .get("users" + `?page=${this.current}&perPage=10`)
+      .get("users" + `?page=${ this.current }&perPage=10`)
       .subscribe((data: any) => {
         this.DataTable = data.data.all;
         this.last = data.data.meta.pagesCount;
@@ -33,7 +33,7 @@ export class GeneralUsersComponent implements OnInit {
   };
 
   blockItem = (id: any, $event: any) => {
-    this._CrudRequestsService.get(`users/toggle_activate/${id}`).subscribe(
+    this._CrudRequestsService.get(`users/toggle_activate/${ id }`).subscribe(
       (data: any) => {
         if (data.success) {
           this._SettingService.successHot(data.message);
@@ -67,12 +67,25 @@ export class GeneralUsersComponent implements OnInit {
 
   search() {
     let name = this.filterForm.get("name")?.value;
-    console.log(name);
     let email = this.filterForm.get("email")?.value;
     let mobile = this.filterForm.get("mobile")?.value;
     this._CrudRequestsService
       .get(
-        `users?name=${name}&email=${email}&mobile=${mobile}&page=${this.current}&perPage=10`
+        `users?name=${ name }&email=${ email }&mobile=${ mobile }&page=${ this.current }&perPage=10`
+      )
+      .subscribe((data: any) => {
+        this.DataTable = data.data.all;
+        this.last = data.data.meta.pagesCount;
+      });
+  }
+  hasValue(): boolean {
+    return Object.values(this.filterForm.controls).some(control => control.value);
+  }
+  reset() {
+    this.filterForm.reset()
+    this._CrudRequestsService
+      .get(
+        `users?page=${ this.current }&perPage=10`
       )
       .subscribe((data: any) => {
         this.DataTable = data.data.all;

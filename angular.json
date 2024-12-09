@@ -1,16 +1,16 @@
 {
   "cli": {
     "analytics": "3a69147a-dbf1-4965-bf4d-928578317ac5",
-     "cli": {
-    "cache": {
-      "enabled": false
+    "cli": {
+      "cache": {
+        "enabled": false
+      }
     }
-  }
   },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Architecture-Angular-Project": {
+    "lady-bug": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -27,16 +27,13 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/Architecture-Angular-Project",
+            "outputPath": "dist/lady-bug",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
+            "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/assets/lib/css/fontawesome/css/all.css",
@@ -82,10 +79,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "Architecture-Angular-Project:build:production"
+              "browserTarget": "lady-bug:build:production"
             },
             "development": {
-              "browserTarget": "Architecture-Angular-Project:build:development"
+              "browserTarget": "lady-bug:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -93,7 +90,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "Architecture-Angular-Project:build"
+            "browserTarget": "lady-bug:build"
           }
         },
         "test": {
@@ -104,10 +101,7 @@
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
             "inlineStyleLanguage": "scss",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
+            "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss"
@@ -118,5 +112,5 @@
       }
     }
   },
-  "defaultProject": "Architecture-Angular-Project"
+  "defaultProject": "lady-bug"
 }

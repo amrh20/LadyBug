@@ -17,27 +17,42 @@ export class FarmsTableComponent implements OnInit {
   filterForm = new FormGroup({
     title: new FormControl(""),
   });
-  constructor(
+  constructor (
     private _CrudRequestsService: CrudRequestsService,
     private _SettingService: SettingService
-  ) {}
+  ) { }
   ngOnInit(): void {
     this.getUsers();
   }
   getUsers = () => {
     this._CrudRequestsService
-      .get("farms" + `?page=${this.current}&perPage=10`)
+      .get("farms" + `?page=${ this.current }&perPage=10`)
       .subscribe((data: any) => {
         this.DataTable = data.data.all;
         this.last = data.data.meta.pagesCount;
       });
   };
 
+  hasValue(): boolean {
+    return Object.values(this.filterForm.controls).some(control => control.value);
+  }
+  reset() {
+    this.filterForm.reset()
+    this._CrudRequestsService
+      .get(
+        `farms?page=${ this.current }&perPage=10`
+      )
+      .subscribe((data: any) => {
+        this.DataTable = data.data.all;
+        this.last = data.data.meta.pagesCount;
+      });
+  }
+
   search() {
     let title = this.filterForm.get("title")?.value;
 
     this._CrudRequestsService
-      .get(`farms?name=${title}&page=${this.current}&perPage=10`)
+      .get(`farms?name=${ title }&page=${ this.current }&perPage=10`)
       .subscribe((data: any) => {
         this.DataTable = data.data.all;
         this.last = data.data.meta.pagesCount;
@@ -50,41 +65,41 @@ export class FarmsTableComponent implements OnInit {
     this.current = $e;
     this.search();
   }
-// 
-isShow: any = false;
-productName: any = "";
-productId: any = "";
-productRate: any = "";
-allT: any = "";
-isHide(e: any) {
-  this.isShow = false;
-}
-openRate(item: any) {
-  this.isShow = true;
-  this.productName = item.admin;
-  this.productId = item.id  ;
-  if(item.ladybug_rating == '20%'){
-    this.productRate = 1;
+  // 
+  isShow: any = false;
+  productName: any = "";
+  productId: any = "";
+  productRate: any = "";
+  allT: any = "";
+  isHide(e: any) {
+    this.isShow = false;
+  }
+  openRate(item: any) {
+    this.isShow = true;
+    this.productName = item.admin;
+    this.productId = item.id;
+    if (item.ladybug_rating == '20%') {
+      this.productRate = 1;
 
-  }else  if(item.ladybug_rating == '40%'){
-    this.productRate = 2;
+    } else if (item.ladybug_rating == '40%') {
+      this.productRate = 2;
 
-  }else  if(item.ladybug_rating == '60%'){
-    this.productRate = 3;
+    } else if (item.ladybug_rating == '60%') {
+      this.productRate = 3;
 
-  }else  if(item.ladybug_rating == '80%'){
-    this.productRate = 4;
+    } else if (item.ladybug_rating == '80%') {
+      this.productRate = 4;
 
-  }else  if(item.ladybug_rating == '100%'){
-    this.productRate = 5;
-  }else{
-    this.productRate = 0;
+    } else if (item.ladybug_rating == '100%') {
+      this.productRate = 5;
+    } else {
+      this.productRate = 0;
+
+    }
+    this.allT = item.ladybug_rating;
 
   }
-  this.allT=item.ladybug_rating;
-
-}
-reGet($e: any) {
-  this.getUsers();
-}
+  reGet($e: any) {
+    this.getUsers();
+  }
 }
