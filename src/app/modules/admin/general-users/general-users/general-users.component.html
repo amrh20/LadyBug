@@ -67,6 +67,7 @@
           <th>الاسم</th>
           <th>النوع</th>
           <th>الوظيفه</th>
+          <th>رقم الهاتف</th>
           <th>حظر</th>
           <th>اجراءت</th>
         </tr>
@@ -81,6 +82,7 @@
           <td>{{ variable.name }}</td>
           <td>{{ variable.type }}</td>
           <td>{{ variable.job_name }}</td>
+          <td>{{ variable.mobile }}</td>
           <td>
             <mat-slide-toggle
               [checked]="variable.status == 'blocked'"
